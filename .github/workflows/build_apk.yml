@@ -52,6 +52,15 @@ jobs:
             cp -R "$template/scaffold/android" ./android
           fi
 
+      - name: Install Android native build tools
+        # three_js depends on flutter_angle, which compiles native C++ through
+        # CMake. The runner's Android SDK does not ship the CMake version the
+        # plugin pins, so install it explicitly before the Gradle build.
+        run: |
+          sdkmanager="$ANDROID_HOME/cmdline-tools/latest/bin/sdkmanager"
+          yes | "$sdkmanager" --licenses > /dev/null 2>&1 || true
+          "$sdkmanager" --install 'cmake;3.31.4'
+
       - name: Install dependencies
         run: flutter pub get
 
