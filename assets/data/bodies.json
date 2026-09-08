@@ -1,0 +1,116 @@
+{
+  "units": {
+    "mesh": "unit sphere, radius 1.0"
+  },
+  "bodies": [
+    {
+      "key": "sun",
+      "label": "Sun",
+      "model": "assets/models/sun.glb",
+      "radiusKm": 696340.0,
+      "rotationHours": 609.12,
+      "axialTiltDeg": 7.25,
+      "triangles": 2208,
+      "bytes": 193052
+    },
+    {
+      "key": "mercury",
+      "label": "Mercury",
+      "model": "assets/models/mercury.glb",
+      "radiusKm": 2439.7,
+      "rotationHours": 1407.6,
+      "axialTiltDeg": 0.034,
+      "triangles": 2208,
+      "bytes": 1260904
+    },
+    {
+      "key": "venus",
+      "label": "Venus",
+      "model": "assets/models/venus.glb",
+      "radiusKm": 6051.8,
+      "rotationHours": -5832.5,
+      "axialTiltDeg": 177.36,
+      "triangles": 2208,
+      "bytes": 676048
+    },
+    {
+      "key": "earth",
+      "label": "Earth",
+      "model": "assets/models/earth.glb",
+      "radiusKm": 6371.0,
+      "rotationHours": 23.934,
+      "axialTiltDeg": 23.44,
+      "triangles": 2208,
+      "bytes": 717084
+    },
+    {
+      "key": "moon",
+      "label": "Moon",
+      "model": "assets/models/moon.glb",
+      "radiusKm": 1737.4,
+      "rotationHours": 655.72,
+      "axialTiltDeg": 6.68,
+      "triangles": 2208,
+      "bytes": 1259448
+    },
+    {
+      "key": "mars",
+      "label": "Mars",
+      "model": "assets/models/mars.glb",
+      "radiusKm": 3389.5,
+      "rotationHours": 24.623,
+      "axialTiltDeg": 25.19,
+      "triangles": 2208,
+      "bytes": 1085924
+    },
+    {
+      "key": "jupiter",
+      "label": "Jupiter",
+      "model": "assets/models/jupiter.glb",
+      "radiusKm": 69911.0,
+      "rotationHours": 9.925,
+      "axialTiltDeg": 3.13,
+      "triangles": 2208,
+      "bytes": 153084
+    },
+    {
+      "key": "saturn",
+      "label": "Saturn",
+      "model": "assets/models/saturn.glb",
+      "radiusKm": 58232.0,
+      "rotationHours": 10.656,
+      "axialTiltDeg": 26.73,
+      "triangles": 2208,
+      "bytes": 134496
+    },
+    {
+      "key": "uranus",
+      "label": "Uranus",
+      "model": "assets/models/uranus.glb",
+      "radiusKm": 25362.0,
+      "rotationHours": -17.24,
+      "axialTiltDeg": 97.77,
+      "triangles": 2208,
+      "bytes": 78944
+    },
+    {
+      "key": "neptune",
+      "label": "Neptune",
+      "model": "assets/models/neptune.glb",
+      "radiusKm": 24622.0,
+      "rotationHours": 16.11,
+      "axialTiltDeg": 28.32,
+      "triangles": 2208,
+      "bytes": 101948
+    },
+    {
+      "key": "saturn_rings",
+      "label": "Saturn rings",
+      "model": "assets/models/saturn_rings.glb",
+      "innerRadius": 1.24,
+      "outerRadius": 2.27,
+      "triangles": 256,
+      "bytes": 12992
+    }
+  ]
+}
