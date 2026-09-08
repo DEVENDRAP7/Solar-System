@@ -9,19 +9,50 @@ Built with Flutter.
 
 ## Status
 
-The build pipeline, project structure and 3D models are in place. The scene,
-physics engine and UI layers are being implemented.
+The physics engine, 3D scene and interface are in place. Next up: NASA data
+integration, more moons, and atmospheric effects.
 
 ![The generated models](docs/models_preview.png)
 
-## Planned features
+## Features
 
-- Real-time 3D rendering of the Sun, eight planets and major moons
-- Accurate orbital paths based on published astronomical data
-- Pinch to zoom, drag to rotate, tap a planet for details
-- Time control — speed up or slow down orbital motion
-- Search and jump to any body in the system
+- Real-time 3D rendering of the Sun, the eight planets and the Moon
+- Orbits computed from published Keplerian elements, not animation loops
+- Pinch to zoom, drag to orbit the camera, tap a body for its details
+- Time control from real time to a year per second, pause, and back to now
+- Jump straight to any body
+- Toggle orbit paths and moons, or switch to true scale to see how empty the
+  solar system really is
+
+### Planned
+
 - Live data from NASA / JPL Horizons
+- The major moons of Jupiter, Saturn, Uranus and Neptune
+- Atmospheric shaders and a solar corona
+
+## How it works
+
+**Positions.** Each planet carries the Jet Propulsion Laboratory's approximate
+Keplerian elements for J2000 with their per-century rates. Every frame the
+elements are advanced to the simulated instant, Kepler's equation `M = E - e
+sin E` is solved by Newton-Raphson for the eccentric anomaly, and the result is
+rotated from the orbital plane into ecliptic coordinates by the argument of
+perihelion, inclination and longitude of the ascending node. Orbits are
+genuinely elliptical and correctly inclined; the planets are where they
+actually are on the date shown.
+
+`test/physics_test.dart` checks this against known astronomy: every orbital
+period closes to under a degree of drift, Earth reaches perihelion in early
+January at 0.983 AU, Kepler's third law holds across all eight planets, and the
+Moon stays between its real perigee and apogee.
+
+**Scale.** Distances and radii are compressed by fractional powers, which keeps
+the ordering and the sense of proportion while fitting on a screen. True scale
+is one toggle away, and shows why nobody draws it that way.
+
+**Rendering.** `three_js` on an ANGLE/OpenGL surface. Each body is three nested
+nodes — position, axial tilt, spin — so a planet can orbit, lean and rotate
+independently. Tap selection is a raycast against the scene.
 
 ## Requirements
 
@@ -63,11 +94,13 @@ workflow uses the committed folder whenever one is present.
 │   └── models/                       3D models (.glb), generated
 ├── tools/blender/                    Model generation pipeline
 ├── lib/
-│   ├── config/                       Theme, constants, app configuration
-│   ├── models/                       Data models (planets, moons, missions)
+│   ├── config/                       Theme and the scene's scale mapping
+│   ├── models/                       Bodies, orbital elements, the catalog
 │   ├── providers/                    State management
 │   ├── screens/                      Full-page screens
-│   ├── services/                     Rendering, physics, API and storage services
+│   ├── services/
+│   │   ├── physics/                  Kepler solver and the simulation clock
+│   │   └── scene/                    three_js scene graph
 │   ├── widgets/                      Reusable widgets
 │   └── main.dart                     Entry point
 ├── test/                             Unit and widget tests
