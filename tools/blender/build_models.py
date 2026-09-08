@@ -7,7 +7,9 @@ Run headless from the repository root:
 Options (after the ``--``):
 
     --out DIR      output directory for the .glb files
-    --res N        colour map width in pixels (height is half); default 1024
+    --res N        colour map width in pixels (height is half); default 512.
+                   Keep this low: three_js decodes textures in pure Dart on
+                   mobile, so each doubling of width quadruples the load time.
     --only KEYS    comma separated body keys, e.g. ``earth,mars``
     --seed N       master seed; the same seed always builds the same planets
 
@@ -36,7 +38,7 @@ import surfaces  # noqa: E402
 
 def parse_args():
     argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
-    options = {'out': 'assets/models', 'res': 1024, 'only': None, 'seed': 20260908}
+    options = {'out': 'assets/models', 'res': 512, 'only': None, 'seed': 20260908}
     for index in range(0, len(argv) - 1, 2):
         key = argv[index].lstrip('-')
         if key in options:

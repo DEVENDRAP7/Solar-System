@@ -11,7 +11,7 @@
       "rotationHours": 609.12,
       "axialTiltDeg": 7.25,
       "triangles": 2208,
-      "bytes": 193052
+      "bytes": 102832
     },
     {
       "key": "mercury",
@@ -21,7 +21,7 @@
       "rotationHours": 1407.6,
       "axialTiltDeg": 0.034,
       "triangles": 2208,
-      "bytes": 1260904
+      "bytes": 409740
     },
     {
       "key": "venus",
@@ -31,7 +31,7 @@
       "rotationHours": -5832.5,
       "axialTiltDeg": 177.36,
       "triangles": 2208,
-      "bytes": 676048
+      "bytes": 87504
     },
     {
       "key": "earth",
@@ -41,7 +41,7 @@
       "rotationHours": 23.934,
       "axialTiltDeg": 23.44,
       "triangles": 2208,
-      "bytes": 717084
+      "bytes": 265620
     },
     {
       "key": "moon",
@@ -51,7 +51,7 @@
       "rotationHours": 655.72,
       "axialTiltDeg": 6.68,
       "triangles": 2208,
-      "bytes": 1259448
+      "bytes": 410296
     },
     {
       "key": "mars",
@@ -61,7 +61,7 @@
       "rotationHours": 24.623,
       "axialTiltDeg": 25.19,
       "triangles": 2208,
-      "bytes": 1085924
+      "bytes": 368916
     },
     {
       "key": "jupiter",
@@ -71,7 +71,7 @@
       "rotationHours": 9.925,
       "axialTiltDeg": 3.13,
       "triangles": 2208,
-      "bytes": 153084
+      "bytes": 87332
     },
     {
       "key": "saturn",
@@ -81,7 +81,7 @@
       "rotationHours": 10.656,
       "axialTiltDeg": 26.73,
       "triangles": 2208,
-      "bytes": 134496
+      "bytes": 80460
     },
     {
       "key": "uranus",
@@ -91,7 +91,7 @@
       "rotationHours": -17.24,
       "axialTiltDeg": 97.77,
       "triangles": 2208,
-      "bytes": 78944
+      "bytes": 62764
     },
     {
       "key": "neptune",
@@ -101,7 +101,7 @@
       "rotationHours": 16.11,
       "axialTiltDeg": 28.32,
       "triangles": 2208,
-      "bytes": 101948
+      "bytes": 71324
     },
     {
       "key": "saturn_rings",

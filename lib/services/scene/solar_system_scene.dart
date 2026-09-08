@@ -46,6 +46,25 @@ class SolarSystemScene {
   three.OrbitControls? _controls;
   final three.Raycaster _raycaster = three.Raycaster();
 
+  /// What setup is currently doing, shown while the scene loads.
+  ///
+  /// The viewer keeps showing its loading widget until setup returns, so
+  /// without this a failure part way through is indistinguishable from a slow
+  /// load: both are a spinner that never ends.
+  final ValueNotifier<String> status =
+      ValueNotifier<String>('Starting renderer');
+
+  /// Anything that went wrong during setup, reported rather than thrown.
+  final List<String> errors = <String>[];
+
+  /// True while bodies are still streaming in after the first frame.
+  final ValueNotifier<bool> loadingBodies = ValueNotifier<bool>(true);
+
+  three.GLTFLoader? _loader;
+
+  /// How long a single model is allowed to take before it is given up on.
+  static const Duration _loadTimeout = Duration(seconds: 25);
+
   bool showOrbits = true;
   bool showMoons = true;
 
@@ -61,8 +80,12 @@ class SolarSystemScene {
       three.Vector3(ecliptic.x, ecliptic.z, -ecliptic.y);
 
   /// Build the scene into [viewer]. Call from the viewer's setup callback.
+  ///
+  /// Every step is guarded: a body that fails to load is reported and skipped
+  /// rather than taking the whole scene down with it.
   Future<void> setup(three.ThreeJS viewer) async {
     _viewer = viewer;
+    status.value = 'Preparing scene';
 
     viewer.camera = three.PerspectiveCamera(
       50,
@@ -91,17 +114,65 @@ class SolarSystemScene {
       ..minDistance = 0.6
       ..maxDistance = 900.0;
 
-    await _addStarfield(viewer);
-
-    final three.GLTFLoader loader =
-        three.GLTFLoader(flipY: false).setPath('assets/models/');
-
-    for (final CelestialBody body in BodyCatalog.all) {
-      await _addBody(viewer, loader, body);
+    try {
+      await _addStarfield(viewer);
+    } catch (error) {
+      errors.add('Starfield: $error');
     }
 
-    _buildOrbitLines(viewer);
+    status.value = 'Drawing orbits';
+    try {
+      _buildOrbitLines(viewer);
+    } catch (error) {
+      errors.add('Orbits: $error');
+    }
+
+    _loader = three.GLTFLoader(flipY: false).setPath('assets/models/');
+
+    // Only the Sun is loaded before the scene is shown. Every texture costs a
+    // pure-Dart image decode on the device, so waiting for all eleven bodies
+    // would hold the app on its loading screen for minutes. The rest stream in
+    // afterwards against a scene that is already live.
+    status.value = 'Loading the Sun';
+    try {
+      await _addBody(viewer, _loader!, BodyCatalog.sun);
+    } catch (error) {
+      errors.add('Sun: $error');
+    }
+
     updatePositions();
+    status.value = 'Ready';
+  }
+
+  /// Load everything except the Sun, one body at a time.
+  ///
+  /// Call this after [setup] returns, without awaiting it: each body appears
+  /// as it arrives while the scene is already being rendered and driven.
+  Future<void> loadRemainingBodies() async {
+    final three.ThreeJS? viewer = _viewer;
+    final three.GLTFLoader? loader = _loader;
+    if (viewer == null || loader == null) {
+      loadingBodies.value = false;
+      return;
+    }
+
+    final List<CelestialBody> remaining = BodyCatalog.all
+        .where((CelestialBody body) => !body.isStar)
+        .toList();
+
+    for (int index = 0; index < remaining.length; index++) {
+      final CelestialBody body = remaining[index];
+      status.value = '${body.label} (${index + 1} of ${remaining.length})';
+      try {
+        await _addBody(viewer, loader, body);
+        updatePositions();
+      } catch (error) {
+        errors.add('${body.label}: $error');
+      }
+    }
+
+    status.value = errors.isEmpty ? 'Ready' : '${errors.length} problems';
+    loadingBodies.value = false;
   }
 
   Future<void> _addBody(
@@ -109,8 +180,11 @@ class SolarSystemScene {
     three.GLTFLoader loader,
     CelestialBody body,
   ) async {
-    final three.GLTFData? asset = await loader.fromAsset('${body.key}.glb');
+    final three.GLTFData? asset = await loader
+        .fromAsset('${body.key}.glb')
+        .timeout(_loadTimeout);
     if (asset == null) {
+      errors.add('${body.label}: model returned no data');
       return;
     }
 
@@ -130,7 +204,8 @@ class SolarSystemScene {
     model.userData['bodyKey'] = body.key;
 
     if (body.ringModelAsset != null) {
-      final three.GLTFData? rings = await loader.fromAsset('saturn_rings.glb');
+      final three.GLTFData? rings =
+          await loader.fromAsset('saturn_rings.glb').timeout(_loadTimeout);
       if (rings != null) {
         final three.Object3D ringModel = rings.scene;
         ringModel.scale.setValues(radiusUnits, radiusUnits, radiusUnits);
@@ -425,5 +500,7 @@ class SolarSystemScene {
 
   void dispose() {
     _controls?.dispose();
+    status.dispose();
+    loadingBodies.dispose();
   }
 }

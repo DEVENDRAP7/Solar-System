@@ -54,6 +54,12 @@ is one toggle away, and shows why nobody draws it that way.
 nodes — position, axial tilt, spin — so a planet can orbit, lean and rotate
 independently. Tap selection is a raycast against the scene.
 
+**Loading.** On mobile `three_js` decodes every texture with `package:image` in
+pure Dart, which is slow enough that waiting for all eleven bodies would hold
+the app on its loading screen for minutes. So the scene opens with the Sun and
+the orbit paths, and the planets stream in against a scene that is already
+running. Surface maps are kept at 512x256 for the same reason.
+
 ## Requirements
 
 - Flutter SDK (stable channel), Dart 3.8 or newer
@@ -123,7 +129,7 @@ snow lines on Earth, wind bands on the gas giants. A full rebuild takes about
 20 seconds on any machine, with no GPU required, and is deterministic: the same
 seed always produces the same planets.
 
-Meshes are unit spheres (2,208 triangles each, 5.4 MB for the whole set). True
+Meshes are unit spheres (2,208 triangles each, 1.9 MB for the whole set). True
 sizes, rotation periods and axial tilts are in `assets/data/bodies.json` so the
 app picks its own scale — a solar system at literal scale is mostly empty space.
 See [tools/blender/README.md](tools/blender/README.md) for the details.
