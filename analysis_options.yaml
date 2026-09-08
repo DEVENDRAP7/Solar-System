@@ -1,0 +1,20 @@
+# Static analysis configuration.
+# See https://dart.dev/tools/analysis for the full set of options.
+include: package:flutter_lints/flutter.yaml
+
+analyzer:
+  errors:
+    # Keep documentation-only TODOs from failing the build.
+    todo: ignore
+
+linter:
+  rules:
+    - always_declare_return_types
+    - avoid_print
+    - prefer_const_constructors
+    - prefer_const_declarations
+    - prefer_final_locals
+    - prefer_single_quotes
+    - require_trailing_commas
+    - sort_child_properties_last
+    - unnecessary_await_in_return

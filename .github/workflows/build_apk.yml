@@ -1,0 +1,73 @@
+name: Build APK
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+concurrency:
+  group: build-apk-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    name: Analyze, test and build release APK
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: '17'
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Print toolchain versions
+        run: flutter --version
+
+      - name: Generate Android platform files
+        # The android/ folder is not committed, so it is generated from the
+        # Flutter template that matches the SDK version used by this build.
+        # Commit an android/ folder to the repository to override this step
+        # (for a custom application id, icon, permissions or signing config).
+        run: |
+          if [ ! -d android ]; then
+            template="$(mktemp -d)"
+            flutter create \
+              --project-name solar_system_app \
+              --org com.devendra \
+              --platforms=android \
+              "$template/scaffold"
+            cp -R "$template/scaffold/android" ./android
+          fi
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Analyze
+        run: flutter analyze
+
+      - name: Run tests
+        run: flutter test
+
+      - name: Build release APK
+        run: flutter build apk --release
+
+      - name: Upload APK artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: solar-system-release-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
+          if-no-files-found: error
+          retention-days: 30
