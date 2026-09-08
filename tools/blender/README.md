@@ -11,9 +11,15 @@ blender -b -P tools/blender/build_models.py -- --out assets/models --res 1024
 | Option | Default | Meaning |
 |--------|---------|---------|
 | `--out` | `assets/models` | Output directory for the `.glb` files |
-| `--res` | `1024` | Colour map width in pixels; height is half |
+| `--res` | `512` | Colour map width in pixels; height is half |
 | `--only` | all | Comma separated keys, e.g. `earth,mars` |
 | `--seed` | `20260908` | Master seed — the same seed rebuilds the same planets |
+
+Keep `--res` low. `three_js` decodes textures with `package:image` in pure
+Dart on mobile, one isolate per image, so every doubling of the map width
+quadruples the decode work the phone has to do before a body appears. At 512
+the whole set is under 2 MB and decodes quickly; at 1024 the app spent minutes
+on its loading screen.
 
 A full run takes about 20 seconds and needs no GPU. Blender 4.0 or newer, with
 numpy available to its Python (official builds bundle it; on Debian and Ubuntu

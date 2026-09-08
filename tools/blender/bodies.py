@@ -50,7 +50,9 @@ BODIES = [
         'roughness': 0.85,
         'contrast': 0.55,
         'noise_scale': 6.0,
-        'bump_strength': 0.05,
+        # No normal map: Venus is smooth cloud deck, and every map costs a
+        # pure-Dart image decode on the device at load time.
+        'bump_strength': 0.0,
     },
     {
         'key': 'earth',
