@@ -1,0 +1,47 @@
+name: solar_system_app
+description: Interactive 3D Solar System for mobile exploration.
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.8.0 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # 3D rendering.
+  # `three_js` is the actively maintained successor to `three_dart`
+  # (`three_dart` is pinned to Dart 2 and will not resolve on Dart 3).
+  three_js: ^0.3.0
+
+  # State management
+  provider: ^6.1.5
+
+  # Networking (NASA / JPL Horizons APIs)
+  http: ^1.6.0
+
+  # Local persistence for user preferences
+  shared_preferences: ^2.5.5
+
+  # Math helpers for orbital mechanics
+  vector_math: ^2.4.2
+
+  # Number and date formatting / localization
+  intl: ^0.20.3
+
+  # Value equality for models
+  equatable: ^2.1.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/models/
+    - assets/images/
+    - assets/data/

@@ -1,0 +1,128 @@
+# Solar System
+
+Interactive 3D Solar System for mobile exploration — the Sun, the eight planets
+and their major moons, orbiting in real time with accurate orbital mechanics.
+
+Built with Flutter.
+
+---
+
+## Status
+
+Project scaffolding. The build pipeline, project structure and configuration
+are in place; the 3D scene, physics engine and UI layers are being implemented.
+
+## Planned features
+
+- Real-time 3D rendering of the Sun, eight planets and major moons
+- Accurate orbital paths based on published astronomical data
+- Pinch to zoom, drag to rotate, tap a planet for details
+- Time control — speed up or slow down orbital motion
+- Search and jump to any body in the system
+- Live data from NASA / JPL Horizons
+
+## Requirements
+
+- Flutter SDK (stable channel), Dart 3.8 or newer
+- JDK 17 for Android builds
+- Android SDK (installed with Android Studio or the command line tools)
+
+Check your setup with:
+
+```bash
+flutter doctor
+```
+
+## Getting started
+
+```bash
+git clone https://github.com/DEVENDRAP7/Solar-System.git
+cd Solar-System
+
+# Generate the platform folders once (they are not committed by default)
+flutter create --platforms=android --project-name solar_system_app --org com.devendra .
+
+flutter pub get
+flutter run
+```
+
+Commit the generated `android/` folder when you want to customise the
+application id, app icon, permissions or signing configuration — the CI
+workflow uses the committed folder whenever one is present.
+
+## Project structure
+
+```
+.
+├── .github/workflows/build_apk.yml   CI: analyze, test, build and publish the APK
+├── assets/
+│   ├── data/                         Static datasets (planet facts, orbital elements)
+│   ├── images/                       Icons and image assets
+│   └── models/                       3D models (.glb)
+├── lib/
+│   ├── config/                       Theme, constants, app configuration
+│   ├── models/                       Data models (planets, moons, missions)
+│   ├── providers/                    State management
+│   ├── screens/                      Full-page screens
+│   ├── services/                     Rendering, physics, API and storage services
+│   ├── widgets/                      Reusable widgets
+│   └── main.dart                     Entry point
+├── test/                             Unit and widget tests
+├── analysis_options.yaml             Lint and analyzer configuration
+└── pubspec.yaml                      Dependencies and asset declarations
+```
+
+## Automated APK builds
+
+Every push to `main` (and every pull request targeting it) triggers the
+**Build APK** workflow, which runs on GitHub's servers — no local build machine
+required. The workflow analyzes the code, runs the tests, and builds a release
+APK.
+
+To download a build:
+
+1. Open the **Actions** tab of the repository
+2. Select the most recent **Build APK** run
+3. Wait for it to finish (roughly 10–15 minutes)
+4. Download **solar-system-release-apk** from the **Artifacts** section
+5. Install it on a device: `adb install app-release.apk`
+
+The workflow can also be started manually from the Actions tab via
+**Run workflow**.
+
+Release builds are signed with the default debug key until a release keystore
+is configured, so the APK installs on a device but is not ready for Play Store
+distribution.
+
+## Development
+
+```bash
+flutter analyze     # static analysis
+flutter test        # unit and widget tests
+flutter build apk --release
+```
+
+## Tech stack
+
+| Area | Choice |
+|------|--------|
+| Framework | Flutter |
+| 3D rendering | `three_js` |
+| State management | `provider` |
+| Networking | `http` |
+| Local storage | `shared_preferences` |
+| Math | `vector_math` |
+
+> Note: earlier drafts referenced `three_dart`. That package is pinned to
+> Dart 2 and no longer resolves on current Flutter releases; `three_js` is its
+> maintained successor and is used instead.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+## License
+
+Released under the [MIT License](LICENSE).
+
+Created by Devendra.
