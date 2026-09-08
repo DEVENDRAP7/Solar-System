@@ -6,6 +6,8 @@ analyzer:
   errors:
     # Keep documentation-only TODOs from failing the build.
     todo: ignore
+  exclude:
+    - build/**
 
 linter:
   rules:
