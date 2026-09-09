@@ -10,6 +10,7 @@ import '../providers/solar_system_provider.dart';
 import '../widgets/body_info_sheet.dart';
 import '../widgets/body_picker.dart';
 import '../widgets/display_options.dart';
+import '../widgets/renderer_problem.dart';
 import '../widgets/scene_loading.dart';
 import '../widgets/time_controls.dart';
 
@@ -22,8 +23,25 @@ class SolarSystemScreen extends StatefulWidget {
 }
 
 class _SolarSystemScreenState extends State<SolarSystemScreen> {
-  late final SolarSystemProvider _provider;
-  late final three.ThreeJS _viewer;
+  late SolarSystemProvider _provider;
+  late three.ThreeJS _viewer;
+
+  /// Which Android surface path the renderer is using. The viewer defaults to
+  /// SurfaceProducer; the underlying plugin defaults to the legacy path, and
+  /// devices differ on which one works, so both are reachable.
+  bool _useSurfaceProducer = true;
+
+  /// Set when the renderer fails to call into our setup in reasonable time.
+  bool _rendererStalled = false;
+
+  Timer? _watchdog;
+
+  /// How long to wait for the native renderer before reporting a problem.
+  static const Duration _rendererTimeout = Duration(seconds: 20);
+
+  /// Rebuilding the viewer needs a fresh key so Flutter discards the old
+  /// native texture widget rather than reusing it.
+  int _viewerGeneration = 0;
 
   /// Where the current pointer gesture started, so a drag that orbits the
   /// camera is not mistaken for a tap that selects a body.
@@ -34,12 +52,38 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
   @override
   void initState() {
     super.initState();
+    _startViewer();
+  }
+
+  void _startViewer() {
     _provider = SolarSystemProvider();
     _viewer = three.ThreeJS(
+      settings: three.Settings(useSurfaceProducer: _useSurfaceProducer),
       onSetupComplete: () => setState(() {}),
       setup: _setupScene,
       loadingWidget: SceneLoading(status: _provider.scene.status),
     );
+
+    _watchdog?.cancel();
+    _watchdog = Timer(_rendererTimeout, () {
+      if (!mounted || _provider.scene.setupStarted.value) {
+        return;
+      }
+      setState(() => _rendererStalled = true);
+    });
+  }
+
+  /// Tear down and start again on the other surface mode.
+  void _retryOtherMode() {
+    final SolarSystemProvider old = _provider;
+    setState(() {
+      _useSurfaceProducer = !_useSurfaceProducer;
+      _rendererStalled = false;
+      _viewerGeneration++;
+      _viewer.dispose();
+      _startViewer();
+    });
+    old.dispose();
   }
 
   /// The viewer only reveals the scene once this returns, and it does not
@@ -76,6 +120,7 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
 
   @override
   void dispose() {
+    _watchdog?.cancel();
     _viewer.dispose();
     _provider.dispose();
     super.dispose();
@@ -98,6 +143,16 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
 
   @override
   Widget build(BuildContext context) {
+    if (_rendererStalled) {
+      return Scaffold(
+        backgroundColor: AppTheme.background,
+        body: RendererProblem(
+          usingSurfaceProducer: _useSurfaceProducer,
+          onRetryOtherMode: _retryOtherMode,
+        ),
+      );
+    }
+
     return Scaffold(
       backgroundColor: AppTheme.background,
       body: AnimatedBuilder(
@@ -116,6 +171,7 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
                     // pointers without entering the gesture arena, so the
                     // camera controls still receive every drag.
                     child: Listener(
+                      key: ValueKey<int>(_viewerGeneration),
                       behavior: HitTestBehavior.translucent,
                       onPointerDown: (PointerDownEvent event) =>
                           _pointerDownAt = event.localPosition,

@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import '../config/theme.dart';
+import '../services/diagnostics.dart';
 
 /// Loading screen for the 3D scene.
 ///
@@ -36,6 +37,24 @@ class SceneLoading extends StatelessWidget {
               valueListenable: status,
               builder: (BuildContext context, String value, Widget? _) {
                 return Text(value, style: text.titleMedium);
+              },
+            ),
+            // Anything caught while starting up is shown here rather than
+            // being left in the log where nobody can see it.
+            ValueListenableBuilder<List<String>>(
+              valueListenable: AppDiagnostics.messages,
+              builder: (BuildContext context, List<String> errors, Widget? _) {
+                if (errors.isEmpty) {
+                  return const SizedBox.shrink();
+                }
+                return Padding(
+                  padding: const EdgeInsets.fromLTRB(28, 16, 28, 0),
+                  child: SelectableText(
+                    errors.first,
+                    textAlign: TextAlign.center,
+                    style: text.bodyMedium,
+                  ),
+                );
               },
             ),
           ],

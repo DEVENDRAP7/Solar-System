@@ -52,6 +52,23 @@ jobs:
             cp -R "$template/scaffold/android" ./android
           fi
 
+      - name: Use the Skia renderer for the OpenGL texture path
+        # three_js draws into a native OpenGL surface published through
+        # Flutter's external texture API. Impeller, the default renderer since
+        # Flutter 3.27, routes that path differently and the texture can fail
+        # to arrive, leaving the app on its loading screen with no error. This
+        # opts the app back onto Skia. Skipped if the manifest already says
+        # something about Impeller, so a committed android/ folder wins.
+        run: |
+          manifest=android/app/src/main/AndroidManifest.xml
+          if grep -q 'EnableImpeller' "$manifest"; then
+            echo "Manifest already configures Impeller; leaving it alone."
+          else
+            sed -i 's|</application>|    <meta-data android:name="io.flutter.embedding.android.EnableImpeller" android:value="false" />\n    </application>|' "$manifest"
+            echo "Impeller disabled for the OpenGL texture path."
+            grep -A1 'EnableImpeller' "$manifest"
+          fi
+
       - name: Install Android native build tools
         # three_js depends on flutter_angle, which compiles native C++ through
         # CMake. The runner's Android SDK does not ship the CMake version the

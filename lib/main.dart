@@ -3,9 +3,11 @@ import 'package:flutter/services.dart';
 
 import 'config/theme.dart';
 import 'screens/solar_system_screen.dart';
+import 'services/diagnostics.dart';
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
+  AppDiagnostics.install();
   SystemChrome.setPreferredOrientations(<DeviceOrientation>[
     DeviceOrientation.portraitUp,
     DeviceOrientation.landscapeLeft,
