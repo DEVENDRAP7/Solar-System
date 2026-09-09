@@ -57,6 +57,10 @@ class SolarSystemScene {
   /// Anything that went wrong during setup, reported rather than thrown.
   final List<String> errors = <String>[];
 
+  /// Flips as soon as the viewer calls into our setup, which tells us the
+  /// native renderer came up. If this stays false, the failure is below us.
+  final ValueNotifier<bool> setupStarted = ValueNotifier<bool>(false);
+
   /// True while bodies are still streaming in after the first frame.
   final ValueNotifier<bool> loadingBodies = ValueNotifier<bool>(true);
 
@@ -85,6 +89,7 @@ class SolarSystemScene {
   /// rather than taking the whole scene down with it.
   Future<void> setup(three.ThreeJS viewer) async {
     _viewer = viewer;
+    setupStarted.value = true;
     status.value = 'Preparing scene';
 
     viewer.camera = three.PerspectiveCamera(
@@ -502,5 +507,6 @@ class SolarSystemScene {
     _controls?.dispose();
     status.dispose();
     loadingBodies.dispose();
+    setupStarted.dispose();
   }
 }

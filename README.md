@@ -54,6 +54,16 @@ is one toggle away, and shows why nobody draws it that way.
 nodes — position, axial tilt, spin — so a planet can orbit, lean and rotate
 independently. Tap selection is a raycast against the scene.
 
+**Renderer.** The scene draws into a native OpenGL surface that Flutter shows
+through its external texture API. The app opts back onto the Skia renderer for
+this reason — Impeller, the default since Flutter 3.27, routes external
+textures differently and the surface may never appear. The CI workflow adds
+that setting to the generated manifest; if you commit your own `android/`
+folder, carry it across.
+
+If the renderer does not start, the app says so, reports what it caught, and
+offers the other Android surface mode rather than sitting on a spinner.
+
 **Loading.** On mobile `three_js` decodes every texture with `package:image` in
 pure Dart, which is slow enough that waiting for all eleven bodies would hold
 the app on its loading screen for minutes. So the scene opens with the Sun and
