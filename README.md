@@ -54,21 +54,27 @@ is one toggle away, and shows why nobody draws it that way.
 nodes — position, axial tilt, spin — so a planet can orbit, lean and rotate
 independently. Tap selection is a raycast against the scene.
 
-**Renderer.** The scene draws into a native OpenGL surface that Flutter shows
-through its external texture API. The app opts back onto the Skia renderer for
-this reason — Impeller, the default since Flutter 3.27, routes external
-textures differently and the surface may never appear. The CI workflow adds
-that setting to the generated manifest; if you commit your own `android/`
-folder, carry it across.
+**Rendering.** There is no 3D engine and no OpenGL plugin. The models are read
+straight out of their glTF binaries, and the app transforms and projects the
+vertices itself, then hands the triangles to `Canvas.drawVertices` with the
+texture as a shader. Flutter rasterises them on the GPU like anything else it
+draws.
 
-If the renderer does not start, the app says so, reports what it caught, and
-offers the other Android surface mode rather than sitting on a spinner.
+That decision came from a device where the OpenGL plugin's native surface never
+initialised: the app sat on a loading screen with nothing to report, because
+the renderer starts below any code the app controls. Drawing through the canvas
+removes the native handshake, the platform-specific renderer settings and the
+plugin's pure-Dart image decoding all at once — textures are now decoded by the
+engine, so loading takes well under a second instead of minutes.
 
-**Loading.** On mobile `three_js` decodes every texture with `package:image` in
-pure Dart, which is slow enough that waiting for all eleven bodies would hold
-the app on its loading screen for minutes. So the scene opens with the Sun and
-the orbit paths, and the planets stream in against a scene that is already
-running. Surface maps are kept at 512x256 for the same reason.
+Lighting is per-vertex: a lambert term from the direction of the Sun, plus a
+weak fill from the camera so the body you are looking at stays readable. Only
+front-facing triangles in front of the eye are drawn, which is enough to sort a
+closed shell without a depth buffer, and bodies are painted furthest first.
+
+Because it is all ordinary Dart and canvas work, the scene can be rendered in a
+test: `test/scene_probe_test.dart` writes real frames to
+`build/render_probe/`.
 
 ## Requirements
 
@@ -116,7 +122,7 @@ workflow uses the committed folder whenever one is present.
 │   ├── screens/                      Full-page screens
 │   ├── services/
 │   │   ├── physics/                  Kepler solver and the simulation clock
-│   │   └── scene/                    three_js scene graph
+│   │   └── render/                   glTF reader, camera, painter
 │   ├── widgets/                      Reusable widgets
 │   └── main.dart                     Entry point
 ├── test/                             Unit and widget tests
@@ -179,15 +185,14 @@ flutter build apk --release
 | Area | Choice |
 |------|--------|
 | Framework | Flutter |
-| 3D rendering | `three_js` |
+| 3D rendering | `Canvas.drawVertices`, no engine |
 | State management | `provider` |
 | Networking | `http` |
 | Local storage | `shared_preferences` |
 | Math | `vector_math` |
 
-> Note: earlier drafts referenced `three_dart`. That package is pinned to
-> Dart 2 and no longer resolves on current Flutter releases; `three_js` is its
-> maintained successor and is used instead.
+> Note: earlier drafts referenced `three_dart`, then `three_js`. The scene is
+> now drawn directly through Flutter's canvas, so neither is a dependency.
 
 ## Contributing
 

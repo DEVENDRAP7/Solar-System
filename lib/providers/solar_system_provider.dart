@@ -4,7 +4,7 @@ import '../config/view_scale.dart';
 import '../models/body_catalog.dart';
 import '../models/celestial_body.dart';
 import '../services/physics/simulation.dart';
-import '../services/scene/solar_system_scene.dart';
+import '../services/render/mesh_library.dart';
 
 /// One entry on the time control.
 class TimeSpeed {
@@ -23,12 +23,17 @@ class TimeSpeed {
 class SolarSystemProvider extends ChangeNotifier {
   SolarSystemProvider({DateTime? start})
       : simulation = SolarSystemSimulation(start: start) {
-    scene = SolarSystemScene(simulation: simulation);
     simulation.daysPerSecond = speeds[speedIndex].daysPerSecond;
   }
 
   final SolarSystemSimulation simulation;
-  late final SolarSystemScene scene;
+  final MeshLibrary library = MeshLibrary();
+
+  /// Load the models. The scene can be drawn as soon as this completes.
+  Future<void> load() async {
+    await library.loadAll();
+    notifyListeners();
+  }
 
   /// Time scales offered on the control, slowest first.
   static const List<TimeSpeed> speeds = <TimeSpeed>[
@@ -60,7 +65,7 @@ class SolarSystemProvider extends ChangeNotifier {
 
   /// Called once per rendered frame.
   void onFrame(double deltaSeconds) {
-    scene.tick(deltaSeconds);
+    simulation.advance(deltaSeconds);
     clock.value = simulation.time;
   }
 
@@ -77,47 +82,42 @@ class SolarSystemProvider extends ChangeNotifier {
 
   void resetToNow() {
     simulation.resetToNow();
-    scene.updatePositions();
     clock.value = simulation.time;
     notifyListeners();
   }
 
   void select(String? key) {
     selectedKey = key;
-    if (key != null) {
-      scene.focusOn(key);
-    }
     notifyListeners();
   }
 
   void clearSelection() {
     selectedKey = null;
-    scene.resetCamera();
     notifyListeners();
   }
 
   void setOrbitsVisible(bool visible) {
     showOrbits = visible;
-    scene.setOrbitsVisible(visible);
     notifyListeners();
   }
 
   void setMoonsVisible(bool visible) {
     showMoons = visible;
-    scene.setMoonsVisible(visible);
     notifyListeners();
   }
 
   void setScaleMode(ScaleMode mode) {
     scaleMode = mode;
-    scene.setScale(ViewScale(mode: mode));
     notifyListeners();
   }
+
+  /// The scale currently in use.
+  ViewScale get scale => ViewScale(mode: scaleMode);
 
   @override
   void dispose() {
     clock.dispose();
-    scene.dispose();
+    library.dispose();
     super.dispose();
   }
 }
