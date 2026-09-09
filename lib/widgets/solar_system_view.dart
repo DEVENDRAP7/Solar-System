@@ -1,3 +1,4 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:vector_math/vector_math_64.dart' as vm;
@@ -21,6 +22,8 @@ class SolarSystemView extends StatefulWidget {
     required this.focusKey,
     required this.onTapBody,
     required this.onFrame,
+    required this.onInteracting,
+    required this.recenterRequests,
     super.key,
   });
 
@@ -35,6 +38,12 @@ class SolarSystemView extends StatefulWidget {
 
   final void Function(String? key) onTapBody;
   final void Function(double deltaSeconds) onFrame;
+
+  /// Raised while a finger is on the scene, so time can be held still.
+  final void Function(bool interacting) onInteracting;
+
+  /// Bumped when the view should return to the overview.
+  final ValueListenable<int> recenterRequests;
 
   @override
   State<SolarSystemView> createState() => _SolarSystemViewState();
@@ -52,11 +61,22 @@ class _SolarSystemViewState extends State<SolarSystemView>
   OrbitCamera? _destination;
   Duration _last = Duration.zero;
   double _zoomStart = 1.0;
+  Size _viewport = Size.zero;
+
+  /// While true the camera keeps a selected body centred. Panning away turns
+  /// it off, which is what lets you wander off on your own.
+  bool _following = false;
 
   @override
   void initState() {
     super.initState();
     _ticker = createTicker(_onTick)..start();
+    widget.recenterRequests.addListener(_recenter);
+  }
+
+  void _recenter() {
+    _following = false;
+    _destination = OrbitCamera.overview();
   }
 
   void _onTick(Duration elapsed) {
@@ -68,14 +88,21 @@ class _SolarSystemViewState extends State<SolarSystemView>
     widget.onFrame(delta.clamp(0.0, 0.25));
 
     final OrbitCamera? destination = _destination;
+    final String? focus = widget.focusKey;
+
+    if (destination != null && focus != null) {
+      // Retarget as we travel, so the camera arrives where the body is now.
+      destination.target = _targetFor(focus);
+    }
+
     if (destination != null) {
       _camera.easeTo(destination, 0.12);
       if (_camera.hasArrived(destination)) {
         _destination = null;
       }
-    } else if (widget.focusKey != null) {
-      // Keep following a moving body once the camera has arrived.
-      _camera.target = _targetFor(widget.focusKey!);
+    } else if (_following && focus != null) {
+      // Keep a selected body centred once the camera has arrived.
+      _camera.target = _targetFor(focus);
     }
 
     _frame.value++;
@@ -100,9 +127,11 @@ class _SolarSystemViewState extends State<SolarSystemView>
   void _moveToFocus() {
     final String? key = widget.focusKey;
     if (key == null) {
-      _destination = OrbitCamera(distance: 34.0, yaw: 0.6, pitch: 0.5);
+      _following = false;
+      _destination = null;
       return;
     }
+    _following = true;
 
     final CelestialBody? body = BodyCatalog.byKey(key);
     if (body == null) {
@@ -135,44 +164,69 @@ class _SolarSystemViewState extends State<SolarSystemView>
 
   @override
   void dispose() {
+    widget.recenterRequests.removeListener(_recenter);
     _ticker.dispose();
     _frame.dispose();
     super.dispose();
   }
 
+  void _handleScaleStart(ScaleStartDetails details) {
+    _zoomStart = 1.0;
+    // Hold the clock while a finger is down. Without this a planet turns and
+    // drifts away as you try to look at it, and its far side stays hidden.
+    widget.onInteracting(true);
+  }
+
+  void _handleScaleUpdate(ScaleUpdateDetails details) {
+    if (details.pointerCount > 1) {
+      final double step = details.scale / _zoomStart;
+      _zoomStart = details.scale;
+      _camera.zoom(step);
+
+      // Two fingers also drag the view across the system.
+      final Offset delta = details.focalPointDelta;
+      if (delta != Offset.zero && _viewport.height > 0) {
+        _camera.pan(delta.dx, delta.dy, _viewport.height);
+        _following = false;
+      }
+    } else {
+      _camera.rotate(
+        -details.focalPointDelta.dx * 0.006,
+        details.focalPointDelta.dy * 0.006,
+      );
+    }
+    _destination = null;
+  }
+
+  void _handleScaleEnd(ScaleEndDetails details) => widget.onInteracting(false);
+
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTapUp: _handleTap,
-      onScaleStart: (ScaleStartDetails details) => _zoomStart = 1.0,
-      onScaleUpdate: (ScaleUpdateDetails details) {
-        if (details.pointerCount > 1) {
-          final double step = details.scale / _zoomStart;
-          _zoomStart = details.scale;
-          _camera.zoom(step);
-        } else {
-          _camera.rotate(
-            -details.focalPointDelta.dx * 0.006,
-            details.focalPointDelta.dy * 0.006,
-          );
-        }
-        _destination = null;
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constraints) {
+        _viewport = constraints.biggest;
+        return GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTapUp: _handleTap,
+          onScaleStart: _handleScaleStart,
+          onScaleUpdate: _handleScaleUpdate,
+          onScaleEnd: _handleScaleEnd,
+          child: CustomPaint(
+            size: Size.infinite,
+            painter: SolarSystemPainter(
+              simulation: widget.simulation,
+              camera: _camera,
+              meshes: widget.library.meshes,
+              scale: widget.scale,
+              stars: _stars,
+              hits: _hits,
+              showOrbits: widget.showOrbits,
+              showMoons: widget.showMoons,
+              repaint: _frame,
+            ),
+          ),
+        );
       },
-      child: CustomPaint(
-        size: Size.infinite,
-        painter: SolarSystemPainter(
-          simulation: widget.simulation,
-          camera: _camera,
-          meshes: widget.library.meshes,
-          scale: widget.scale,
-          stars: _stars,
-          hits: _hits,
-          showOrbits: widget.showOrbits,
-          showMoons: widget.showMoons,
-          repaint: _frame,
-        ),
-      ),
     );
   }
 }

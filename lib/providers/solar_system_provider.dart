@@ -46,8 +46,14 @@ class SolarSystemProvider extends ChangeNotifier {
     TimeSpeed('1 year/s', 365.25),
   ];
 
-  int speedIndex = 3;
+  /// Starts at an hour per second: fast enough to see motion, slow enough
+  /// that a planet is not spinning while you try to look at it.
+  int speedIndex = 2;
+
   bool get paused => simulation.paused;
+
+  /// True while a finger is on the scene. Time is held so the view stays put.
+  bool interacting = false;
 
   String? selectedKey;
   bool showOrbits = true;
@@ -58,6 +64,16 @@ class SolarSystemProvider extends ChangeNotifier {
   final ValueNotifier<DateTime> clock =
       ValueNotifier<DateTime>(DateTime.now().toUtc());
 
+  /// Bumped to ask the view to return to the overview.
+  final ValueNotifier<int> recenterRequests = ValueNotifier<int>(0);
+
+  /// Pull back to the whole system, dropping any selection.
+  void recenter() {
+    selectedKey = null;
+    recenterRequests.value++;
+    notifyListeners();
+  }
+
   CelestialBody? get selected =>
       selectedKey == null ? null : BodyCatalog.byKey(selectedKey!);
 
@@ -65,9 +81,14 @@ class SolarSystemProvider extends ChangeNotifier {
 
   /// Called once per rendered frame.
   void onFrame(double deltaSeconds) {
-    simulation.advance(deltaSeconds);
+    if (!interacting) {
+      simulation.advance(deltaSeconds);
+    }
     clock.value = simulation.time;
   }
+
+  /// Hold the clock while the view is being moved, then let it run again.
+  void setInteracting(bool value) => interacting = value;
 
   void setSpeedIndex(int index) {
     speedIndex = index.clamp(0, speeds.length - 1);
@@ -117,6 +138,7 @@ class SolarSystemProvider extends ChangeNotifier {
   @override
   void dispose() {
     clock.dispose();
+    recenterRequests.dispose();
     library.dispose();
     super.dispose();
   }

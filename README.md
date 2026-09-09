@@ -18,9 +18,12 @@ integration, more moons, and atmospheric effects.
 
 - Real-time 3D rendering of the Sun, the eight planets and the Moon
 - Orbits computed from published Keplerian elements, not animation loops
-- Pinch to zoom, drag to orbit the camera, tap a body for its details
+- Free movement through the system: one finger orbits the view, two fingers
+  pan across it, pinch zooms, and a control returns to the overview
+- Time holds still while you move the view, so a planet stays put long enough
+  to look at its far side
+- Tap a body for its details, or jump straight to one
 - Time control from real time to a year per second, pause, and back to now
-- Jump straight to any body
 - Toggle orbit paths and moons, or switch to true scale to see how empty the
   solar system really is
 

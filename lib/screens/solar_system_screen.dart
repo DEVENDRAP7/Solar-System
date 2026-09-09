@@ -75,6 +75,8 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
                   focusKey: _provider.selectedKey,
                   onTapBody: _provider.select,
                   onFrame: _provider.onFrame,
+                  onInteracting: _provider.setInteracting,
+                  recenterRequests: _provider.recenterRequests,
                 ),
               ),
               if (_provider.library.errors.isNotEmpty || _loadError != null)
@@ -99,6 +101,7 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
                   onOrbitsChanged: _provider.setOrbitsVisible,
                   onMoonsChanged: _provider.setMoonsVisible,
                   onScaleModeChanged: _provider.setScaleMode,
+                  onRecenter: _provider.recenter,
                 ),
               ),
               Positioned(

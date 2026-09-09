@@ -6,10 +6,14 @@ import 'package:vector_math/vector_math_64.dart';
 class OrbitCamera {
   OrbitCamera({
     Vector3? target,
-    this.distance = 34.0,
+    this.distance = 26.0,
     this.yaw = 0.6,
-    this.pitch = 0.5,
+    this.pitch = 0.42,
   }) : target = target ?? Vector3.zero();
+
+  /// The view the app opens on, and what the recentre control returns to:
+  /// close enough that the planets read as discs rather than dots.
+  static OrbitCamera overview() => OrbitCamera();
 
   /// Point the camera looks at, in scene units.
   Vector3 target;
@@ -38,6 +42,27 @@ class OrbitCamera {
 
   void zoom(double factor) {
     distance = (distance / factor).clamp(minDistance, maxDistance);
+  }
+
+  /// Slide the camera across the scene, keeping its heading.
+  ///
+  /// This is what makes the view free: without it the camera is pinned to one
+  /// point and dragging only ever circles that point.
+  void pan(double dx, double dy, double viewportHeight) {
+    final Vector3 forward = (target - eye).normalized();
+    final Vector3 right = forward.cross(Vector3(0, 1, 0));
+    if (right.length2 < 1e-9) {
+      return;
+    }
+    right.normalize();
+    final Vector3 up = right.cross(forward)..normalize();
+
+    // Move by the same world distance the finger covered on screen, so the
+    // scene tracks the fingertip regardless of zoom.
+    final double worldPerPixel =
+        2.0 * distance * math.tan(fieldOfView / 2.0) / viewportHeight;
+
+    target = target - right * (dx * worldPerPixel) + up * (dy * worldPerPixel);
   }
 
   /// Ease toward another camera position, for jumping to a body.
