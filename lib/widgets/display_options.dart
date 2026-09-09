@@ -12,6 +12,7 @@ class DisplayOptions extends StatelessWidget {
     required this.onOrbitsChanged,
     required this.onMoonsChanged,
     required this.onScaleModeChanged,
+    required this.onRecenter,
     super.key,
   });
 
@@ -21,6 +22,7 @@ class DisplayOptions extends StatelessWidget {
   final ValueChanged<bool> onOrbitsChanged;
   final ValueChanged<bool> onMoonsChanged;
   final ValueChanged<ScaleMode> onScaleModeChanged;
+  final VoidCallback onRecenter;
 
   @override
   Widget build(BuildContext context) {
@@ -34,6 +36,12 @@ class DisplayOptions extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
+          _Toggle(
+            icon: Icons.filter_center_focus_rounded,
+            tooltip: 'Back to the whole system',
+            active: false,
+            onPressed: onRecenter,
+          ),
           _Toggle(
             icon: Icons.blur_circular_outlined,
             tooltip: 'Orbit paths',
