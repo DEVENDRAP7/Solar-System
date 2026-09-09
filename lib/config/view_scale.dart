@@ -30,7 +30,7 @@ class ViewScale {
   static const double _distanceExponent = 0.55;
 
   /// Scene units for Earth's radius in [ScaleMode.explore].
-  static const double _earthRadiusUnits = 0.35;
+  static const double _earthRadiusUnits = 0.46;
 
   /// Compression exponent for body radius.
   static const double _radiusExponent = 1.0 / 3.0;

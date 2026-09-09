@@ -10,11 +10,6 @@ dependencies:
   flutter:
     sdk: flutter
 
-  # 3D rendering.
-  # `three_js` is the actively maintained successor to `three_dart`
-  # (`three_dart` is pinned to Dart 2 and will not resolve on Dart 3).
-  three_js: ^0.3.0
-
   # State management
   provider: ^6.1.5
 
