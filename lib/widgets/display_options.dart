@@ -11,6 +11,8 @@ class DisplayOptions extends StatelessWidget {
     required this.scaleMode,
     required this.onOrbitsChanged,
     required this.onMoonsChanged,
+    required this.showBelt,
+    required this.onBeltChanged,
     required this.onScaleModeChanged,
     required this.onRecenter,
     super.key,
@@ -21,6 +23,8 @@ class DisplayOptions extends StatelessWidget {
   final ScaleMode scaleMode;
   final ValueChanged<bool> onOrbitsChanged;
   final ValueChanged<bool> onMoonsChanged;
+  final bool showBelt;
+  final ValueChanged<bool> onBeltChanged;
   final ValueChanged<ScaleMode> onScaleModeChanged;
   final VoidCallback onRecenter;
 
@@ -53,6 +57,12 @@ class DisplayOptions extends StatelessWidget {
             tooltip: 'Moons',
             active: showMoons,
             onPressed: () => onMoonsChanged(!showMoons),
+          ),
+          _Toggle(
+            icon: Icons.grain_rounded,
+            tooltip: 'Asteroid belt',
+            active: showBelt,
+            onPressed: () => onBeltChanged(!showBelt),
           ),
           _Toggle(
             icon: Icons.straighten_rounded,

@@ -52,6 +52,24 @@ Provenance and terms for every dataset are in
 [tools/blender/data/SOURCES.md](tools/blender/data/SOURCES.md) — some need
 checking before a commercial release.
 
+**The asteroid belt** is 6,000 bodies on their own Keplerian orbits, not a
+texture or a spinning ring. Each has its own semi-major axis, eccentricity and
+inclination, so the belt is a torus with real thickness — asteroids stand up to
+an AU out of the ecliptic — and the inner ones lap the outer ones as time runs.
+
+Its gaps are not decoration. Each Kirkwood gap sits where an asteroid's orbital
+period would fall into a whole-number ratio with Jupiter's, so Jupiter tugs it
+at the same point in every orbit until the region empties. The app derives
+those positions from the resonance arithmetic rather than hard-coding them, and
+they land on the observed gaps at 2.06, 2.50, 2.82, 2.96 and 3.28 AU.
+`test/asteroid_belt_test.dart` checks each gap against the belt either side of
+it.
+
+Individual asteroids are drawn from the belt's measured distributions rather
+than a survey catalogue, because the archives are not reachable from the build
+environment. `tools/fetch_asteroids.py` swaps in the real catalogue wherever
+the network allows, writing the same columns with no code change.
+
 **Positions.** Each planet carries the Jet Propulsion Laboratory's approximate
 Keplerian elements for J2000 with their per-century rates. Every frame the
 elements are advanced to the simulated instant, Kepler's equation `M = E - e

@@ -4,6 +4,7 @@ import 'package:flutter/scheduler.dart';
 import 'package:vector_math/vector_math_64.dart' as vm;
 
 import '../config/view_scale.dart';
+import '../models/asteroid_belt.dart';
 import '../models/body_catalog.dart';
 import '../models/celestial_body.dart';
 import '../services/physics/simulation.dart';
@@ -19,6 +20,8 @@ class SolarSystemView extends StatefulWidget {
     required this.scale,
     required this.showOrbits,
     required this.showMoons,
+    required this.showBelt,
+    required this.belt,
     required this.focusKey,
     required this.onTapBody,
     required this.onFrame,
@@ -32,6 +35,8 @@ class SolarSystemView extends StatefulWidget {
   final ViewScale scale;
   final bool showOrbits;
   final bool showMoons;
+  final bool showBelt;
+  final AsteroidBelt? belt;
 
   /// Body the camera should settle on, or null for the whole system.
   final String? focusKey;
@@ -222,6 +227,8 @@ class _SolarSystemViewState extends State<SolarSystemView>
               hits: _hits,
               showOrbits: widget.showOrbits,
               showMoons: widget.showMoons,
+              belt: widget.belt,
+              showBelt: widget.showBelt,
               repaint: _frame,
             ),
           ),

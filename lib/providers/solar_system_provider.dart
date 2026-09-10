@@ -1,6 +1,7 @@
 import 'package:flutter/foundation.dart';
 
 import '../config/view_scale.dart';
+import '../models/asteroid_belt.dart';
 import '../models/body_catalog.dart';
 import '../models/celestial_body.dart';
 import '../services/physics/simulation.dart';
@@ -29,9 +30,18 @@ class SolarSystemProvider extends ChangeNotifier {
   final SolarSystemSimulation simulation;
   final MeshLibrary library = MeshLibrary();
 
+  /// The main-belt asteroids, once their data has loaded.
+  AsteroidBelt? belt;
+
   /// Load the models. The scene can be drawn as soon as this completes.
   Future<void> load() async {
     await library.loadAll();
+    try {
+      library.status.value = 'Asteroid belt';
+      belt = await AsteroidBelt.load();
+    } catch (error) {
+      library.errors.add('Asteroid belt: \$error');
+    }
     notifyListeners();
   }
 
@@ -58,6 +68,7 @@ class SolarSystemProvider extends ChangeNotifier {
   String? selectedKey;
   bool showOrbits = true;
   bool showMoons = true;
+  bool showBelt = true;
   ScaleMode scaleMode = ScaleMode.explore;
 
   /// Ticks once per frame so the clock display can rebuild on its own.
@@ -124,6 +135,11 @@ class SolarSystemProvider extends ChangeNotifier {
 
   void setMoonsVisible(bool visible) {
     showMoons = visible;
+    notifyListeners();
+  }
+
+  void setBeltVisible(bool visible) {
+    showBelt = visible;
     notifyListeners();
   }
 

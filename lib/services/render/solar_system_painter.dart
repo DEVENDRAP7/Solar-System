@@ -6,6 +6,7 @@ import 'package:flutter/rendering.dart';
 import 'package:vector_math/vector_math_64.dart';
 
 import '../../config/view_scale.dart';
+import '../../models/asteroid_belt.dart';
 import '../../models/body_catalog.dart';
 import '../../models/celestial_body.dart';
 import '../physics/kepler.dart';
@@ -84,6 +85,8 @@ class SolarSystemPainter extends CustomPainter {
     required this.showOrbits,
     required this.showMoons,
     required this.repaint,
+    this.belt,
+    this.showBelt = true,
   }) : super(repaint: repaint);
 
   final SolarSystemSimulation simulation;
@@ -94,6 +97,10 @@ class SolarSystemPainter extends CustomPainter {
   final bool showOrbits;
   final bool showMoons;
   final Listenable repaint;
+
+  /// The main-belt asteroids, once loaded.
+  final AsteroidBelt? belt;
+  final bool showBelt;
 
   /// Filled in on every paint so hit testing matches what is on screen.
   final List<BodyHit> hits;
@@ -140,6 +147,9 @@ class SolarSystemPainter extends CustomPainter {
     if (showOrbits) {
       _paintOrbits(canvas, size, view, focal);
     }
+    if (showBelt) {
+      _paintBelt(canvas, size, view, focal);
+    }
     _paintBodies(canvas, size, view, focal);
   }
 
@@ -159,6 +169,78 @@ class SolarSystemPainter extends CustomPainter {
     }
     if (points.isNotEmpty) {
       canvas.drawPoints(ui.PointMode.points, points, paint..strokeWidth = 1.6);
+    }
+  }
+
+  /// Draw the asteroids as points.
+  ///
+  /// They are drawn before the planets so a planet in front of the belt hides
+  /// the asteroids behind it, and each one is faded by distance so the belt
+  /// reads as a band with depth rather than a flat scatter.
+  void _paintBelt(ui.Canvas canvas, ui.Size size, Matrix4 view, double focal) {
+    final AsteroidBelt? belt = this.belt;
+    if (belt == null) {
+      return;
+    }
+
+    belt.updatePositions(simulation.daysSinceJ2000);
+
+    final List<Offset> near = <Offset>[];
+    final List<Offset> far = <Offset>[];
+    final Vector3 point = Vector3.zero();
+
+    for (int index = 0; index < belt.count; index++) {
+      point.setValues(
+        belt.positions[index * 3],
+        belt.positions[index * 3 + 1],
+        belt.positions[index * 3 + 2],
+      );
+
+      final double length = point.length;
+      if (length <= 0) {
+        continue;
+      }
+      point.scale(scale.distance(length) / length);
+
+      final Vector3 world = _toScene(point);
+      final Vector3 viewSpace = view.transformed3(world);
+      if (viewSpace.z >= -1e-4) {
+        continue;
+      }
+
+      final double depth = -viewSpace.z;
+      final Offset screen = Offset(
+        size.width / 2 + focal * viewSpace.x / depth,
+        size.height / 2 - focal * viewSpace.y / depth,
+      );
+
+      if (screen.dx < -8 || screen.dy < -8 ||
+          screen.dx > size.width + 8 || screen.dy > size.height + 8) {
+        continue;
+      }
+
+      // Two passes rather than a colour per point: far ones dim, near ones
+      // brighter, which is enough to give the band its depth.
+      (depth < camera.distance ? near : far).add(screen);
+    }
+
+    if (far.isNotEmpty) {
+      canvas.drawPoints(
+        ui.PointMode.points,
+        far,
+        Paint()
+          ..color = const Color(0x777D8AA0)
+          ..strokeWidth = 1.3,
+      );
+    }
+    if (near.isNotEmpty) {
+      canvas.drawPoints(
+        ui.PointMode.points,
+        near,
+        Paint()
+          ..color = const Color(0xCCB9C4D8)
+          ..strokeWidth = 1.8,
+      );
     }
   }
 

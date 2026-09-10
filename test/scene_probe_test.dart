@@ -4,6 +4,7 @@ import 'dart:ui' as ui;
 import 'package:flutter/foundation.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:solar_system_app/config/view_scale.dart';
+import 'package:solar_system_app/models/asteroid_belt.dart';
 import 'package:solar_system_app/models/body_catalog.dart';
 import 'package:solar_system_app/models/celestial_body.dart';
 import 'package:solar_system_app/services/physics/simulation.dart';
@@ -19,6 +20,7 @@ Future<void> shoot(
   Map<String, MeshAsset> meshes, {
   required OrbitCamera camera,
   required ViewScale scale,
+  AsteroidBelt? belt,
   ui.Size size = const ui.Size(720, 1280),
   DateTime? at,
   bool showOrbits = true,
@@ -38,6 +40,7 @@ Future<void> shoot(
     hits: <BodyHit>[],
     showOrbits: showOrbits,
     showMoons: true,
+    belt: belt,
     repaint: ValueNotifier<int>(0),
   ).paint(canvas, size);
 
@@ -62,11 +65,33 @@ void main() {
       }
       expect(meshes.length, BodyCatalog.all.length);
 
+      final AsteroidBelt belt = AsteroidBelt.parse(
+        File('assets/data/asteroids.csv').readAsStringSync(),
+      );
+      expect(belt.count, greaterThan(1000));
+
       await shoot(
         'system',
         meshes,
         camera: OrbitCamera(distance: 40, yaw: 0.6, pitch: 0.55),
         scale: const ViewScale(),
+        belt: belt,
+      );
+
+      await shoot(
+        'belt',
+        meshes,
+        camera: OrbitCamera(distance: 85, yaw: 0.6, pitch: 1.05),
+        scale: const ViewScale(),
+        belt: belt,
+      );
+
+      await shoot(
+        'belt_edge',
+        meshes,
+        camera: OrbitCamera(distance: 80, yaw: 0.3, pitch: 0.05),
+        scale: const ViewScale(),
+        belt: belt,
       );
 
       await shoot(
