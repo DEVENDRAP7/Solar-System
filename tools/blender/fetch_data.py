@@ -30,6 +30,26 @@ IMAGERY = {
         'master/geojson/ne_110m_admin_0_countries.geojson',
 }
 
+# Surface maps for the other bodies. See SOURCES.md on their terms before
+# releasing commercially.
+PLANET_BASE = ('https://raw.githubusercontent.com/jeromeetienne/threex.planets/'
+               'master/images')
+
+PLANETS = {
+    'mercury_base.jpg': 'mercurymap.jpg',
+    'mercury_bump.jpg': 'mercurybump.jpg',
+    'venus_base.jpg': 'venusmap.jpg',
+    'venus_bump.jpg': 'venusbump.jpg',
+    'mars_base.jpg': 'marsmap1k.jpg',
+    'mars_bump.jpg': 'marsbump1k.jpg',
+    'jupiter_base.jpg': 'jupitermap.jpg',
+    'saturn_base.jpg': 'saturnmap.jpg',
+    'saturn_ring.jpg': 'saturnringcolor.jpg',
+    'uranus_base.jpg': 'uranusmap.jpg',
+    'neptune_base.jpg': 'neptunemap.jpg',
+    'sun_base.jpg': 'sunmap.jpg',
+}
+
 CRATERS = {
     'lroc':
         'https://raw.githubusercontent.com/silburt/DeepMoon/master/'
@@ -50,6 +70,12 @@ def main():
 
     for name, url in IMAGERY.items():
         data = fetch(url)
+        with open(os.path.join(DATA_DIR, name), 'wb') as handle:
+            handle.write(data)
+        print('{:<22} {:>8.0f} KB'.format(name, len(data) / 1024))
+
+    for name, remote in PLANETS.items():
+        data = fetch('{}/{}'.format(PLANET_BASE, remote))
         with open(os.path.join(DATA_DIR, name), 'wb') as handle:
             handle.write(data)
         print('{:<22} {:>8.0f} KB'.format(name, len(data) / 1024))

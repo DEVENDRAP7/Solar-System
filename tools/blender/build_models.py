@@ -319,7 +319,9 @@ def build():
         print('[build] {}'.format(spec['key']), flush=True)
         clear_scene()
 
-        strip = surfaces.ring_strip(1024, seed=options['seed'] + 5507)
+        ring_photo = spec.get('photo')
+        strip = (surfaces.ring_strip_from_map(ring_photo, 1024) if ring_photo
+                 else surfaces.ring_strip(1024, seed=options['seed'] + 5507))
         image = save_image(strip, 'rings_color',
                            os.path.join(work_dir, 'rings_color.png'), color_data=True)
 

@@ -41,20 +41,32 @@ Noise is evaluated in three dimensions at points on the unit sphere rather than
 across the flat image. That means patterns are continuous across the longitude
 seam — there is no visible join where the map wraps.
 
-| Surface | Used by | Built from |
-|---------|---------|-----------|
-| `earth_real` | Earth | NASA surface imagery, its cloud deck composited from the alpha channel, and national borders rasterised from Natural Earth polygons |
-| `moon_real` | Moon | NASA lunar albedo, with relief stamped from 24,520 catalogued craters at their real positions and diameters |
-| `star` | Sun | Fine granulation over broader convection cells, biased bright, with a few cooler regions. Exported on the emission channel |
-| `cratered` | Mercury | Fractal base terrain plus a generated crater field |
-| `cloudy` | Venus | Domain-warped noise for swirling cloud decks, low contrast |
-| `dusty` | Mars | Fractal terrain, dark low-albedo regions, polar caps, light cratering |
-| `banded` | Jupiter, Saturn, Uranus, Neptune | Latitude bands displaced by turbulence, with noise stretched along longitude so detail smears into the bands. Jupiter adds the Great Red Spot, Neptune a dark spot |
+| Body | Built from |
+|------|-----------|
+| Earth | NASA surface imagery, its cloud deck composited from the alpha channel, and national borders rasterised from Natural Earth polygons |
+| Moon | NASA lunar albedo, with relief stamped from 24,520 catalogued craters at their real positions and diameters |
+| Mercury, Mars | Surface maps with their real topography as relief |
+| Jupiter, Saturn, Uranus, Neptune | Surface maps |
+| Sun | A photosphere map, exported on the emission channel |
+| Saturn's rings | A radial slice of the real ring system, transparency taken from its brightness |
+| Venus | Generated cloud deck — see below |
 
-Earth and the Moon are built from real survey data, so they are the actual
-Earth and the actual Moon rather than something that resembles them. The other
-bodies have no comparable public imagery at a useful resolution here, so their
-surfaces are generated.
+Every body is drawn from real imagery, with one deliberate exception. Venus is
+permanently covered by cloud, so the only maps of its surface are radar. A view
+from space would never show that ground, so Venus is drawn as its cloud deck: a
+pale, almost featureless cream disc, which is what it actually looks like. The
+radar surface is in `data/venus_base.jpg` if the ground is wanted instead.
+
+Some of the maps arrive far more colourful than the body really is — the
+Mercury map is strongly orange when Mercury is close to grey. The structure in
+them is genuine, so rather than throw it away, `sources.tone()` pulls the
+chroma back toward a measured tint and sets the overall brightness from the
+body's albedo. Older maps also have crater shadows painted into the albedo,
+which fight the real relief lit on top; `soften` blurs those out so the shading
+comes from the topography.
+
+Terms differ between datasets. `data/SOURCES.md` covers each one, and flags
+which need checking before a commercial release.
 
 ### The lunar craters
 

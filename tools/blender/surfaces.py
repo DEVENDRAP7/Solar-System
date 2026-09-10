@@ -56,6 +56,32 @@ def generate(spec, width, height_px, seed):
     dirs, lat, lon = sphere_grid(width, height_px)
     colors = palette_array(spec['palette'])
 
+    # Any body that ships real imagery uses it, whatever its surface type.
+    photo = spec.get('photo')
+    if photo:
+        color = sources.load_map(photo, width, height_px)
+        color = sources.soften(color, float(spec.get('soften', 0.0)))
+        color = sources.tone(
+            color,
+            keep=float(spec.get('colour_keep', 1.0)),
+            tint=tuple(spec.get('tint', (1.0, 1.0, 1.0))),
+            target_mean=spec.get('target_mean'),
+            contrast=float(spec.get('colour_contrast', 1.0)),
+        )
+        color = sources.expose(
+            color,
+            gamma=float(spec.get('gamma', 1.0)),
+            gain=float(spec.get('gain', 1.0)),
+        )
+
+        relief = None
+        bump = spec.get('bump')
+        if bump:
+            # The bump maps are derived from real altimetry, so this is the
+            # body's actual topography rather than invented roughness.
+            relief = _stretch(sources.load_grey(bump, width, height_px))
+        return np.clip(color, 0.0, 1.0), relief
+
     if surface == 'earth_real':
         # Real imagery, so the continents are the actual continents.
         color = sources.expose(
@@ -165,6 +191,26 @@ def generate(spec, width, height_px, seed):
         return color, None
 
     raise ValueError('unknown surface type: {}'.format(surface))
+
+
+def ring_strip_from_map(name, width):
+    """Ring colours read across a real ring texture.
+
+    The map is a radial slice from the inner edge to the outer, so a single row
+    of it is the whole ring system. Transparency is taken from brightness: the
+    gaps are where there is nothing to reflect light.
+    """
+    strip = sources.load_map(name, width, 8)
+    color = strip.mean(axis=0)
+
+    luminance = color @ np.array([0.2126, 0.7152, 0.0722])
+    alpha = np.clip(_stretch(luminance, 0.02, 0.99) * 1.25, 0.0, 1.0)
+
+    # Soften both edges so the annulus has no hard rim.
+    t = (np.arange(width) + 0.5) / width
+    alpha *= np.clip((t - 0.01) / 0.05, 0.0, 1.0) * np.clip((0.995 - t) / 0.05, 0.0, 1.0)
+
+    return np.concatenate([color, alpha[:, None]], axis=-1)[None, :, :]
 
 
 def ring_strip(width, seed, inner=0.0, outer=1.0):

@@ -22,8 +22,12 @@ BODIES = [
         'axial_tilt_deg': 7.25,
         'palette': ['#A83000', '#E86A00', '#FFA524', '#FFC85C', '#FFDE96'],
         'roughness': 1.0,
+        'photo': 'sun_base.jpg',
+        'resolution': 1024,
+        'tint': (1.0, 0.82, 0.52),
+        'colour_keep': 0.45,
+        'target_mean': 0.86,
         'emission_strength': 6.0,
-        'noise_scale': 9.0,
         'bump_strength': 0.0,
     },
     {
@@ -35,9 +39,19 @@ BODIES = [
         'axial_tilt_deg': 0.034,
         'palette': ['#3A3532', '#6B635C', '#938A80', '#B5ABA0'],
         'roughness': 0.95,
-        'noise_scale': 12.0,
-        'crater_max': 0.085,
-        'bump_strength': 0.35,
+        # Real MESSENGER-derived imagery and topography.
+        'photo': 'mercury_base.jpg',
+        'bump': 'mercury_bump.jpg',
+        'resolution': 1024,
+        # The source map is heavily colourised; Mercury is close to grey.
+        'colour_keep': 0.12,
+        'tint': (1.0, 0.98, 0.95),
+        'target_mean': 0.58,
+        'colour_contrast': 0.55,
+        # The map paints in its own crater shadows, so soften it and let the
+        # real topography light the craters instead.
+        'soften': 1.8,
+        'bump_strength': 0.26,
     },
     {
         'key': 'venus',
@@ -46,9 +60,12 @@ BODIES = [
         'radius_km': 6051.8,
         'rotation_hours': -5832.5,
         'axial_tilt_deg': 177.36,
-        'palette': ['#B08A45', '#D8B677', '#EFDCAC', '#F8EFD6'],
+        # Venus is drawn as the cloud deck, which is all that is ever visible
+        # from space; the radar map of the surface below is in data/ as
+        # venus_base.jpg if the ground is wanted instead.
+        'palette': ['#C9AE7A', '#E0CDA0', '#F2E6C8', '#FAF3E2'],
         'roughness': 0.85,
-        'contrast': 0.55,
+        'contrast': 0.5,
         'noise_scale': 6.0,
         # No normal map: Venus is smooth cloud deck, and every map costs a
         # pure-Dart image decode on the device at load time.
@@ -99,7 +116,12 @@ BODIES = [
         'axial_tilt_deg': 25.19,
         'palette': ['#5A2010', '#8C3A1B', '#C0632E', '#D89A63', '#F0EDE6'],
         'roughness': 0.92,
-        'noise_scale': 5.0,
+        'photo': 'mars_base.jpg',
+        'bump': 'mars_bump.jpg',
+        'resolution': 1024,
+        'colour_keep': 0.6,
+        'tint': (1.0, 0.86, 0.72),
+        'target_mean': 0.40,
         'bump_strength': 0.3,
     },
     {
@@ -111,9 +133,10 @@ BODIES = [
         'axial_tilt_deg': 3.13,
         'palette': ['#6B4423', '#A9713F', '#D6B48A', '#EFE2CC', '#B04A33'],
         'roughness': 0.6,
-        'band_count': 13.0,
-        'band_turbulence': 0.9,
-        'great_spot': True,
+        'photo': 'jupiter_base.jpg',
+        'resolution': 1024,
+        'colour_keep': 0.8,
+        'target_mean': 0.55,
         'bump_strength': 0.0,
     },
     {
@@ -125,9 +148,10 @@ BODIES = [
         'axial_tilt_deg': 26.73,
         'palette': ['#8A6B36', '#B99459', '#DCC189', '#F2E6C8', '#C7A96B'],
         'roughness': 0.6,
-        'band_count': 11.0,
-        'band_turbulence': 0.5,
-        'contrast': 0.9,
+        'photo': 'saturn_base.jpg',
+        'resolution': 1024,
+        'colour_keep': 0.85,
+        'target_mean': 0.58,
         'bump_strength': 0.0,
     },
     {
@@ -139,9 +163,9 @@ BODIES = [
         'axial_tilt_deg': 97.77,
         'palette': ['#69AEB8', '#89C7CF', '#A8DBE1', '#C4E9ED', '#7FC0C9'],
         'roughness': 0.5,
-        'band_count': 3.5,
-        'band_turbulence': 0.12,
-        'contrast': 0.4,
+        'photo': 'uranus_base.jpg',
+        'resolution': 1024,
+        'target_mean': 0.62,
         'bump_strength': 0.0,
     },
     {
@@ -153,10 +177,13 @@ BODIES = [
         'axial_tilt_deg': 28.32,
         'palette': ['#1B3C8C', '#2A56B5', '#4E82D8', '#9CC0EE', '#12296B'],
         'roughness': 0.5,
-        'band_count': 6.0,
-        'band_turbulence': 0.35,
-        'contrast': 0.72,
-        'dark_spot': True,
+        'photo': 'neptune_base.jpg',
+        'resolution': 1024,
+        # Voyager's images were contrast-stretched; reprocessing shows Neptune
+        # is much paler, close to Uranus but a little bluer.
+        'colour_keep': 0.32,
+        'tint': (0.80, 0.89, 1.0),
+        'target_mean': 0.58,
         'bump_strength': 0.0,
     },
 ]
@@ -169,6 +196,7 @@ RINGS = {
     'inner_radius': 1.24,
     'outer_radius': 2.27,
     'segments': 128,
+    'photo': 'saturn_ring.jpg',
 }
 
 BODIES_BY_KEY = {b['key']: b for b in BODIES}

@@ -35,15 +35,22 @@ integration, more moons, and atmospheric effects.
 
 ## How it works
 
-**Earth and the Moon are the real ones.** Earth is NASA surface imagery, so the
+**The bodies are the real ones.** Earth is NASA surface imagery, so the
 continents are the actual continents, with its cloud deck composited over the
 top and national borders traced from Natural Earth's polygons. The Moon is the
 NASA lunar albedo, and its relief is stamped from 24,520 catalogued craters —
 every one of 4 km and larger from the published Head and Povilaitis surveys —
-each placed at its real longitude and latitude and sized from its real
-diameter. The other bodies have no comparable imagery available at this size,
-so their surfaces are generated. Provenance is in
-[tools/blender/data/SOURCES.md](tools/blender/data/SOURCES.md).
+each at its real longitude and latitude and sized from its real diameter.
+Mercury and Mars carry their real topography as relief, Saturn's rings are a
+slice of the real ring system, and the rest use surface maps. Venus is the
+exception: its surface is only mapped by radar and is never visible from space,
+so it is drawn as the cloud deck you would actually see.
+
+Where a map is more colourful than the body really is, the chroma is pulled
+back toward a measured tint rather than discarded, keeping the real structure.
+Provenance and terms for every dataset are in
+[tools/blender/data/SOURCES.md](tools/blender/data/SOURCES.md) — some need
+checking before a commercial release.
 
 **Positions.** Each planet carries the Jet Propulsion Laboratory's approximate
 Keplerian elements for J2000 with their per-century rates. Every frame the
@@ -158,8 +165,8 @@ snow lines on Earth, wind bands on the gas giants. A full rebuild takes about
 20 seconds on any machine, with no GPU required, and is deterministic: the same
 seed always produces the same planets.
 
-Meshes are unit spheres (2,208 triangles each, 5.9 MB for the whole set, most
-of it the Moon's crater relief). True
+Meshes are unit spheres (2,208 triangles each, 8 MB for the whole set, most of
+it the Moon's crater relief). True
 sizes, rotation periods and axial tilts are in `assets/data/bodies.json` so the
 app picks its own scale — a solar system at literal scale is mostly empty space.
 See [tools/blender/README.md](tools/blender/README.md) for the details.

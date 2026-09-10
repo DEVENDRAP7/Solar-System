@@ -10,7 +10,7 @@ import math
 import os
 
 import numpy as np
-from PIL import Image, ImageDraw
+from PIL import Image, ImageDraw, ImageFilter
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
 
@@ -32,6 +32,51 @@ def expose(color, gamma=1.0, gain=1.0):
     """
     lifted = np.clip(color, 0.0, 1.0) ** gamma * gain
     return np.clip(lifted, 0.0, 1.0)
+
+
+def soften(color, radius):
+    """Blur a map slightly.
+
+    Older maps were painted with the craters' shadows already in them. Lighting
+    real topography on top of that gives every crater two shadows pointing
+    different ways. Softening the albedo leaves the markings while letting the
+    relief do the shading.
+    """
+    if radius <= 0:
+        return color
+    image = Image.fromarray((np.clip(color, 0.0, 1.0) * 255).astype(np.uint8))
+    blurred = image.filter(ImageFilter.GaussianBlur(radius))
+    return np.asarray(blurred, dtype=np.float64) / 255.0
+
+
+def tone(color, keep=1.0, tint=(1.0, 1.0, 1.0), target_mean=None, contrast=1.0):
+    """Correct a map's colour toward how the body actually looks.
+
+    Several of the available maps are colourised well beyond the real thing —
+    Mercury and Venus arrive strongly orange when Mercury is nearly grey. The
+    structure in them is genuine, so rather than discard it, the chroma is
+    pulled back toward a measured tint and the overall brightness set to match
+    the body's albedo.
+
+    `keep` is how much of the original colour survives, 0 for fully neutral.
+    """
+    grey = color @ np.array([0.2126, 0.7152, 0.0722])
+    neutral = grey[..., None] * np.array(tint)
+    out = neutral * (1.0 - keep) + color * keep
+
+    if contrast != 1.0:
+        # Some maps have shadowing baked into the albedo, which reads as harsh
+        # speckle once real relief is lit on top of it. Pulling the contrast in
+        # leaves the markings without the double shadows.
+        mean = float(out.mean())
+        out = mean + (out - mean) * contrast
+
+    if target_mean is not None:
+        current = float(out.mean())
+        if current > 1e-6:
+            out = out * (target_mean / current)
+
+    return np.clip(out, 0.0, 1.0)
 
 
 def load_map(name, width, height):
