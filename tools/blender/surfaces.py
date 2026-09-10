@@ -7,7 +7,8 @@ Each generator returns ``(colour, height)`` where ``colour`` is an
 
 import numpy as np
 
-from textures import craters, fbm, palette_array, ramp, sphere_grid, warp
+import sources
+from textures import craters, fbm, height_to_normal, palette_array, ramp, sphere_grid, warp
 
 
 def _stretch(values, low=0.02, high=0.98):
@@ -55,6 +56,41 @@ def generate(spec, width, height_px, seed):
     dirs, lat, lon = sphere_grid(width, height_px)
     colors = palette_array(spec['palette'])
 
+    if surface == 'earth_real':
+        # Real imagery, so the continents are the actual continents.
+        color = sources.expose(
+            sources.load_map('earth_base.jpg', width, height_px),
+            gamma=float(spec.get('gamma', 0.82)),
+            gain=float(spec.get('gain', 1.25)),
+        )
+
+        # Cloud deck, laid over the surface at partial strength so the land
+        # underneath still reads.
+        clouds = sources.load_alpha('earth_clouds.png', width, height_px)
+        cover = np.clip(clouds * float(spec.get('cloud_opacity', 0.55)), 0.0, 1.0)
+        color = color * (1.0 - cover[..., None]) + cover[..., None]
+
+        # National borders, drawn faintly: enough to pick out a country, not so
+        # much that the planet stops looking like a photograph.
+        borders = sources.country_borders(width, height_px)
+        strength = float(spec.get('border_opacity', 0.30)) * borders
+        border_colour = np.array([1.0, 0.86, 0.62])
+        color = color * (1.0 - strength[..., None]) + border_colour * strength[..., None]
+
+        return np.clip(color, 0.0, 1.0), None
+
+    if surface == 'moon_real':
+        color = sources.expose(
+            sources.load_map('moon_base.jpg', width, height_px),
+            gamma=float(spec.get('gamma', 0.88)),
+            gain=float(spec.get('gain', 1.18)),
+        )
+        relief = sources.crater_height_field(
+            dirs,
+            minimum_km=float(spec.get('crater_minimum_km', 4.0)),
+        )
+        return np.clip(color, 0.0, 1.0), relief
+
     if surface == 'star':
         cells = fbm(dirs, freq=6.0, octaves=3, seed=seed)
         granulation = fbm(dirs, freq=float(spec.get('noise_scale', 9.0)) * 2.2,
@@ -94,39 +130,6 @@ def generate(spec, width, height_px, seed):
         value = _stretch(0.75 * clouds + 0.25 * detail, 0.08, 0.92)
         value = _contrast(value, float(spec.get('contrast', 1.0)))
         return ramp(colors, value), _stretch(clouds) * 0.4
-
-    if surface == 'terran':
-        land_field = fbm(dirs, freq=float(spec.get('noise_scale', 3.2)), octaves=6, seed=seed)
-        land_field = _stretch(land_field)
-        detail = fbm(dirs, freq=9.0, octaves=4, seed=seed + 41)
-        aridity = fbm(dirs, freq=2.6, octaves=3, seed=seed + 83)
-
-        sea_level = 0.52
-        is_land = land_field > sea_level
-
-        ocean = np.clip(land_field / sea_level, 0.0, 1.0)
-        ocean_color = ramp(colors[0:2], ocean ** 1.6)
-
-        elevation = np.clip((land_field - sea_level) / (1.0 - sea_level), 0.0, 1.0)
-        elevation = np.clip(elevation + 0.12 * (detail - 0.5), 0.0, 1.0)
-        # Greens low and wet, browns high and dry, rock at the peaks.
-        land_mix = np.clip(elevation * 1.05 + (aridity - 0.5) * 0.55, 0.0, 1.0)
-        land_color = ramp(colors[2:5], land_mix)
-
-        # Snow settles on high ground, and the snow line drops toward the poles.
-        latitude_factor = (np.abs(lat) / (np.pi / 2.0)) ** 1.6
-        snow = np.clip((elevation * 0.95 + latitude_factor * 1.05 - 1.12) / 0.20, 0.0, 1.0)
-        land_color = land_color * (1.0 - snow[..., None]) + colors[5] * snow[..., None]
-
-        color = np.where(is_land[..., None], land_color, ocean_color)
-
-        # Polar ice, with a ragged edge.
-        edge = np.abs(lat) + 0.12 * (detail - 0.5)
-        ice = np.clip((edge - 1.14) / 0.22, 0.0, 1.0) ** 0.8
-        color = color * (1.0 - ice[..., None]) + colors[-1] * ice[..., None]
-
-        relief = np.where(is_land, elevation, 0.0)
-        return color, relief
 
     if surface == 'dusty':
         base = fbm(dirs, freq=float(spec.get('noise_scale', 5.0)), octaves=6, seed=seed)

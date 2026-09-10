@@ -35,6 +35,16 @@ integration, more moons, and atmospheric effects.
 
 ## How it works
 
+**Earth and the Moon are the real ones.** Earth is NASA surface imagery, so the
+continents are the actual continents, with its cloud deck composited over the
+top and national borders traced from Natural Earth's polygons. The Moon is the
+NASA lunar albedo, and its relief is stamped from 24,520 catalogued craters —
+every one of 4 km and larger from the published Head and Povilaitis surveys —
+each placed at its real longitude and latitude and sized from its real
+diameter. The other bodies have no comparable imagery available at this size,
+so their surfaces are generated. Provenance is in
+[tools/blender/data/SOURCES.md](tools/blender/data/SOURCES.md).
+
 **Positions.** Each planet carries the Jet Propulsion Laboratory's approximate
 Keplerian elements for J2000 with their per-century rates. Every frame the
 elements are advanced to the simulated instant, Kepler's equation `M = E - e
@@ -148,7 +158,8 @@ snow lines on Earth, wind bands on the gas giants. A full rebuild takes about
 20 seconds on any machine, with no GPU required, and is deterministic: the same
 seed always produces the same planets.
 
-Meshes are unit spheres (2,208 triangles each, 1.9 MB for the whole set). True
+Meshes are unit spheres (2,208 triangles each, 5.9 MB for the whole set, most
+of it the Moon's crater relief). True
 sizes, rotation periods and axial tilts are in `assets/data/bodies.json` so the
 app picks its own scale — a solar system at literal scale is mostly empty space.
 See [tools/blender/README.md](tools/blender/README.md) for the details.
@@ -193,6 +204,7 @@ flutter build apk --release
 | Networking | `http` |
 | Local storage | `shared_preferences` |
 | Math | `vector_math` |
+| Surface data | NASA imagery, Natural Earth, published lunar crater catalogues |
 
 > Note: earlier drafts referenced `three_dart`, then `three_js`. The scene is
 > now drawn directly through Flutter's canvas, so neither is a dependency.

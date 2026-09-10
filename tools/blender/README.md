@@ -11,7 +11,7 @@ blender -b -P tools/blender/build_models.py -- --out assets/models --res 1024
 | Option | Default | Meaning |
 |--------|---------|---------|
 | `--out` | `assets/models` | Output directory for the `.glb` files |
-| `--res` | `512` | Colour map width in pixels; height is half |
+| `--res` | `512` | Colour map width in pixels; height is half. Bodies may override it — Earth and the Moon are built at 2048 |
 | `--only` | all | Comma separated keys, e.g. `earth,mars` |
 | `--seed` | `20260908` | Master seed — the same seed rebuilds the same planets |
 
@@ -43,12 +43,40 @@ seam — there is no visible join where the map wraps.
 
 | Surface | Used by | Built from |
 |---------|---------|-----------|
+| `earth_real` | Earth | NASA surface imagery, its cloud deck composited from the alpha channel, and national borders rasterised from Natural Earth polygons |
+| `moon_real` | Moon | NASA lunar albedo, with relief stamped from 24,520 catalogued craters at their real positions and diameters |
 | `star` | Sun | Fine granulation over broader convection cells, biased bright, with a few cooler regions. Exported on the emission channel |
-| `cratered` | Mercury, Moon | Fractal base terrain plus a crater field; craters are placed by size so large basins sit under later small ones. The Moon adds dark, smooth maria |
+| `cratered` | Mercury | Fractal base terrain plus a generated crater field |
 | `cloudy` | Venus | Domain-warped noise for swirling cloud decks, low contrast |
-| `terran` | Earth | Fractal continents above a sea level threshold, ocean depth shading, aridity-driven land colour, and snow that follows both elevation and latitude |
 | `dusty` | Mars | Fractal terrain, dark low-albedo regions, polar caps, light cratering |
 | `banded` | Jupiter, Saturn, Uranus, Neptune | Latitude bands displaced by turbulence, with noise stretched along longitude so detail smears into the bands. Jupiter adds the Great Red Spot, Neptune a dark spot |
+
+Earth and the Moon are built from real survey data, so they are the actual
+Earth and the actual Moon rather than something that resembles them. The other
+bodies have no comparable public imagery at a useful resolution here, so their
+surfaces are generated.
+
+### The lunar craters
+
+Every crater of 4 km and larger from the merged Head and Povilaitis catalogues
+is stamped into the height field at its cataloged position, sized from its
+real diameter. Each contributes a bowl, a raised rim and a skirt of ejecta,
+with depth falling off as the crater widens — which is why the big basins come
+out as flat plains rather than deep holes. They are applied largest first, so
+later craters cut into the floors of the basins that came before them.
+
+At 2048x1024 one pixel spans about 5 km at the equator, so craters below
+roughly 15 km across contribute texture rather than a resolved bowl. Raising
+`resolution` for the Moon in `bodies.py` sharpens them further at the cost of
+file size.
+
+### Orientation
+
+Source imagery, the crater catalogue and the country polygons all use the same
+convention: longitude increasing east, latitude increasing north. The sphere's
+texture coordinates run the other way round, so maps are mirrored once on
+export — and tangent-space normal maps have their sideways component negated
+to match. `data/SOURCES.md` lists where each dataset comes from.
 
 Saturn's rings are a separate flat annulus with a generated colour and alpha
 strip mapped radially, exported with alpha blending.

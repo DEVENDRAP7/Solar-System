@@ -57,19 +57,29 @@ BODIES = [
     {
         'key': 'earth',
         'label': 'Earth',
-        'surface': 'terran',
+        'surface': 'earth_real',
+        'cloud_opacity': 0.55,
+        'border_opacity': 0.30,
+        'resolution': 2048,
         'radius_km': 6371.0,
         'rotation_hours': 23.934,
         'axial_tilt_deg': 23.44,
         'palette': ['#0A2A5E', '#12518F', '#2C6B38', '#7E7A45', '#8A7359', '#F2F4F7'],
         'roughness': 0.7,
-        'noise_scale': 3.2,
-        'bump_strength': 0.18,
+        # No normal map: the imagery's brightness is not its elevation, so a
+        # map derived from it would raise the Sahara into a plateau.
+        'bump_strength': 0.0,
     },
     {
         'key': 'moon',
         'label': 'Moon',
-        'surface': 'cratered',
+        'surface': 'moon_real',
+        'crater_minimum_km': 4.0,
+        'resolution': 2048,
+        # The Moon reflects about an eighth of the light hitting it, so the
+        # honest imagery needs a firm lift to read on a screen.
+        'gamma': 0.78,
+        'gain': 1.45,
         'radius_km': 1737.4,
         'rotation_hours': 655.72,
         'axial_tilt_deg': 6.68,

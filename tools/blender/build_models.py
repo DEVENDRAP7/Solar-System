@@ -76,6 +76,16 @@ def save_image(array, name, path, color_data=True, quality=92):
     alpha = array[..., 3:4] if has_alpha else np.ones((height, width, 1))
 
     rgba = np.concatenate([rgb, alpha], axis=-1)
+
+    # The sphere's texture coordinates run the opposite way round to the
+    # generators' longitude, so a map applied as-is comes out mirrored: east
+    # ends up on the left. Flipping here fixes every body at once.
+    rgba = np.fliplr(rgba)
+    if not color_data:
+        # A mirrored tangent-space normal map needs its sideways component
+        # negated too, or the relief would light from the wrong side.
+        rgba[..., 0] = 1.0 - rgba[..., 0]
+
     # Blender image rows run bottom to top.
     flat = np.flipud(rgba).astype(np.float32).ravel()
 
@@ -257,11 +267,15 @@ def build():
     manifest = []
     for index, spec in enumerate(selected):
         key = spec['key']
-        print('[build] {} ({}x{})'.format(key, width, height), flush=True)
+        # Bodies carrying real survey data are worth more pixels than the
+        # procedural ones, whose detail is invented anyway.
+        body_width = int(spec.get('resolution', width))
+        body_height = body_width // 2
+        print('[build] {} ({}x{})'.format(key, body_width, body_height), flush=True)
         clear_scene()
 
         seed = options['seed'] + index * 7919
-        color, relief = surfaces.generate(spec, width, height, seed)
+        color, relief = surfaces.generate(spec, body_width, body_height, seed)
 
         color_image = save_image(
             color, '{}_color'.format(key),

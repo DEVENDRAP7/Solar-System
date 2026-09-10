@@ -82,6 +82,20 @@ void main() {
         BodyCatalog.earth,
       );
 
+      final vm.Vector3 moon = bodyWorldPosition(
+        SolarSystemSimulation(start: DateTime.utc(2026, 9, 9)),
+        const ViewScale(),
+        BodyCatalog.moon,
+      );
+
+      await shoot(
+        'moon',
+        meshes,
+        camera: OrbitCamera(target: moon, distance: 0.9, yaw: 0.4, pitch: 0.15),
+        scale: const ViewScale(),
+        showOrbits: false,
+      );
+
       await shoot(
         'earth',
         meshes,

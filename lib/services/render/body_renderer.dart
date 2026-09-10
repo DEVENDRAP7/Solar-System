@@ -30,7 +30,7 @@ class BodyRenderer {
     Vector3? viewDirection,
     bool emissive = false,
     double ambient = 0.16,
-    double fill = 0.26,
+    double fill = 0.30,
   }) {
     final ui.Image? texture = mesh.texture;
     if (texture == null) {
