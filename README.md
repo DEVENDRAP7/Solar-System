@@ -52,6 +52,26 @@ Provenance and terms for every dataset are in
 [tools/blender/data/SOURCES.md](tools/blender/data/SOURCES.md) — some need
 checking before a commercial release.
 
+**The moons.** Twenty of them, on their real orbits: Mars's two, the four
+Galileans, seven of Saturn's, five of Uranus's, and Triton and Proteus at
+Neptune. Each carries its published orbital radius, period and size, and every
+one is tidally locked, turning once per orbit as they all really do.
+
+A moon orbits its planet's equator rather than the ecliptic, so its inclination
+is measured against that equator and the planet's axial tilt is added on. That
+is why Uranus's five come out orbiting nearly upright — the planet is tipped 98
+degrees and its moons went over with it — and why Triton runs backwards, the
+sign that Neptune captured it rather than forming with it.
+
+They are placed by how many planet radii out they really orbit, on a log scale
+so that Saturn's system from Mimas at 3 radii to Iapetus at 61 all fits and
+stays in order. Mimas still comes out just beyond the rings, where it belongs.
+
+**Saturn's rings** are drawn in two passes, the far half before the planet and
+the near half after, so the ring passes behind Saturn and comes back round in
+front. Being a thin sheet lit from both faces, they take the magnitude of the
+lambert term rather than clamping it, or the far half would go black.
+
 **The asteroid belt** is 6,000 bodies on their own Keplerian orbits, not a
 texture or a spinning ring. Each has its own semi-major axis, eccentricity and
 inclination, so the belt is a torus with real thickness — asteroids stand up to
@@ -183,8 +203,8 @@ snow lines on Earth, wind bands on the gas giants. A full rebuild takes about
 20 seconds on any machine, with no GPU required, and is deterministic: the same
 seed always produces the same planets.
 
-Meshes are unit spheres (2,208 triangles each, 8 MB for the whole set, most of
-it the Moon's crater relief). True
+Meshes are unit spheres (2,208 triangles each; 10.8 MB for all 31, most of it
+the Moon's crater relief). True
 sizes, rotation periods and axial tilts are in `assets/data/bodies.json` so the
 app picks its own scale — a solar system at literal scale is mostly empty space.
 See [tools/blender/README.md](tools/blender/README.md) for the details.

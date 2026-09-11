@@ -104,6 +104,206 @@
       "bytes": 83192
     },
     {
+      "key": "phobos",
+      "label": "Phobos",
+      "model": "assets/models/phobos.glb",
+      "radiusKm": 11.27,
+      "rotationHours": 7.654,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 152576
+    },
+    {
+      "key": "deimos",
+      "label": "Deimos",
+      "model": "assets/models/deimos.glb",
+      "radiusKm": 6.2,
+      "rotationHours": 30.299,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 151464
+    },
+    {
+      "key": "io",
+      "label": "Io",
+      "model": "assets/models/io.glb",
+      "radiusKm": 1821.6,
+      "rotationHours": 42.459,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 142900
+    },
+    {
+      "key": "europa",
+      "label": "Europa",
+      "model": "assets/models/europa.glb",
+      "radiusKm": 1560.8,
+      "rotationHours": 85.228,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 139704
+    },
+    {
+      "key": "ganymede",
+      "label": "Ganymede",
+      "model": "assets/models/ganymede.glb",
+      "radiusKm": 2634.1,
+      "rotationHours": 171.709,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 150344
+    },
+    {
+      "key": "callisto",
+      "label": "Callisto",
+      "model": "assets/models/callisto.glb",
+      "radiusKm": 2410.3,
+      "rotationHours": 400.536,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 151048
+    },
+    {
+      "key": "mimas",
+      "label": "Mimas",
+      "model": "assets/models/mimas.glb",
+      "radiusKm": 198.2,
+      "rotationHours": 22.618,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 153568
+    },
+    {
+      "key": "enceladus",
+      "label": "Enceladus",
+      "model": "assets/models/enceladus.glb",
+      "radiusKm": 252.1,
+      "rotationHours": 32.885,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 144212
+    },
+    {
+      "key": "tethys",
+      "label": "Tethys",
+      "model": "assets/models/tethys.glb",
+      "radiusKm": 531.1,
+      "rotationHours": 45.307,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 152036
+    },
+    {
+      "key": "dione",
+      "label": "Dione",
+      "model": "assets/models/dione.glb",
+      "radiusKm": 561.4,
+      "rotationHours": 65.686,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 151104
+    },
+    {
+      "key": "rhea",
+      "label": "Rhea",
+      "model": "assets/models/rhea.glb",
+      "radiusKm": 763.8,
+      "rotationHours": 108.437,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 153160
+    },
+    {
+      "key": "titan",
+      "label": "Titan",
+      "model": "assets/models/titan.glb",
+      "radiusKm": 2574.7,
+      "rotationHours": 382.69,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 63272
+    },
+    {
+      "key": "iapetus",
+      "label": "Iapetus",
+      "model": "assets/models/iapetus.glb",
+      "radiusKm": 734.5,
+      "rotationHours": 1903.716,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 155068
+    },
+    {
+      "key": "miranda",
+      "label": "Miranda",
+      "model": "assets/models/miranda.glb",
+      "radiusKm": 235.8,
+      "rotationHours": 33.924,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 156424
+    },
+    {
+      "key": "ariel",
+      "label": "Ariel",
+      "model": "assets/models/ariel.glb",
+      "radiusKm": 578.9,
+      "rotationHours": 60.489,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 151668
+    },
+    {
+      "key": "umbriel",
+      "label": "Umbriel",
+      "model": "assets/models/umbriel.glb",
+      "radiusKm": 584.7,
+      "rotationHours": 99.46,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 148016
+    },
+    {
+      "key": "titania",
+      "label": "Titania",
+      "model": "assets/models/titania.glb",
+      "radiusKm": 788.4,
+      "rotationHours": 208.941,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 150840
+    },
+    {
+      "key": "oberon",
+      "label": "Oberon",
+      "model": "assets/models/oberon.glb",
+      "radiusKm": 761.4,
+      "rotationHours": 323.118,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 151036
+    },
+    {
+      "key": "proteus",
+      "label": "Proteus",
+      "model": "assets/models/proteus.glb",
+      "radiusKm": 210.0,
+      "rotationHours": 26.936,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 150984
+    },
+    {
+      "key": "triton",
+      "label": "Triton",
+      "model": "assets/models/triton.glb",
+      "radiusKm": 1353.4,
+      "rotationHours": 141.045,
+      "axialTiltDeg": 0.0,
+      "triangles": 2208,
+      "bytes": 142952
+    },
+    {
       "key": "saturn_rings",
       "label": "Saturn rings",
       "model": "assets/models/saturn_rings.glb",

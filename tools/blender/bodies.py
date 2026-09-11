@@ -199,4 +199,107 @@ RINGS = {
     'photo': 'saturn_ring.jpg',
 }
 
+# ---------------------------------------------------------------------------
+# Moons
+# ---------------------------------------------------------------------------
+# Small bodies, drawn at a quarter of the map size the planets use: at the
+# scale a moon appears on screen, more pixels would be wasted bytes. Palettes
+# follow how each one actually looks — Io's sulphur yellows, Europa's clean
+# ice, Callisto's dark cratered crust, Titan's orange haze.
+
+MOONS = [
+    {'key': 'phobos', 'label': 'Phobos', 'surface': 'cratered',
+     'palette': ['#2A2622', '#4A423A', '#6B6156', '#847A6E'],
+     'crater_max': 0.22, 'noise_scale': 14.0, 'bump_strength': 0.5},
+    {'key': 'deimos', 'label': 'Deimos', 'surface': 'cratered',
+     'palette': ['#2E2A25', '#514840', '#736A5E', '#8D8376'],
+     'crater_max': 0.18, 'noise_scale': 12.0, 'bump_strength': 0.4},
+
+    {'key': 'io', 'label': 'Io', 'surface': 'dusty',
+     'palette': ['#6B4A12', '#B58A20', '#E8C64E', '#F5E08C', '#FFF4C4'],
+     'noise_scale': 7.0, 'bump_strength': 0.12},
+    {'key': 'europa', 'label': 'Europa', 'surface': 'cratered',
+     'palette': ['#7A6A56', '#BFAE96', '#E4DACA', '#F6F1E6'],
+     'crater_max': 0.05, 'noise_scale': 9.0, 'bump_strength': 0.08},
+    {'key': 'ganymede', 'label': 'Ganymede', 'surface': 'cratered',
+     'palette': ['#3E3830', '#6E6357', '#9A8E7F', '#BDB2A2'],
+     'crater_max': 0.12, 'noise_scale': 8.0, 'bump_strength': 0.3},
+    {'key': 'callisto', 'label': 'Callisto', 'surface': 'cratered',
+     'palette': ['#241F1A', '#453D34', '#6A5F52', '#8E8174'],
+     'crater_max': 0.16, 'noise_scale': 11.0, 'bump_strength': 0.45},
+
+    {'key': 'mimas', 'label': 'Mimas', 'surface': 'cratered',
+     'palette': ['#4A4740', '#7C776D', '#ADA79B', '#D2CCBF'],
+     'crater_max': 0.30, 'noise_scale': 10.0, 'bump_strength': 0.5},
+    {'key': 'enceladus', 'label': 'Enceladus', 'surface': 'cratered',
+     'palette': ['#8E9298', '#C3C7CC', '#E8EBEE', '#FBFCFD'],
+     'crater_max': 0.06, 'noise_scale': 9.0, 'bump_strength': 0.12},
+    {'key': 'tethys', 'label': 'Tethys', 'surface': 'cratered',
+     'palette': ['#6E6F6A', '#A3A49D', '#D0D0C8', '#EDEDE6'],
+     'crater_max': 0.14, 'noise_scale': 9.0, 'bump_strength': 0.25},
+    {'key': 'dione', 'label': 'Dione', 'surface': 'cratered',
+     'palette': ['#65665F', '#9A9A92', '#C6C6BD', '#E4E4DA'],
+     'crater_max': 0.12, 'noise_scale': 9.0, 'bump_strength': 0.22},
+    {'key': 'rhea', 'label': 'Rhea', 'surface': 'cratered',
+     'palette': ['#5E5F58', '#95958C', '#C2C2B8', '#E0E0D6'],
+     'crater_max': 0.13, 'noise_scale': 10.0, 'bump_strength': 0.28},
+    {'key': 'titan', 'label': 'Titan', 'surface': 'cloudy',
+     'palette': ['#8A5A12', '#C08A28', '#E0B057', '#F0D08E'],
+     'contrast': 0.4, 'noise_scale': 5.0, 'bump_strength': 0.0},
+    {'key': 'iapetus', 'label': 'Iapetus', 'surface': 'cratered',
+     'palette': ['#241C14', '#5A4E3E', '#A69A88', '#DCD5C6'],
+     'crater_max': 0.15, 'noise_scale': 8.0, 'bump_strength': 0.3},
+
+    {'key': 'miranda', 'label': 'Miranda', 'surface': 'cratered',
+     'palette': ['#4E5254', '#82868A', '#B0B4B8', '#D6D9DC'],
+     'crater_max': 0.16, 'noise_scale': 11.0, 'bump_strength': 0.4},
+    {'key': 'ariel', 'label': 'Ariel', 'surface': 'cratered',
+     'palette': ['#5A5E60', '#8E9294', '#BCC0C2', '#DEE1E3'],
+     'crater_max': 0.10, 'noise_scale': 9.0, 'bump_strength': 0.25},
+    {'key': 'umbriel', 'label': 'Umbriel', 'surface': 'cratered',
+     'palette': ['#33352F', '#565853', '#7A7C77', '#989995'],
+     'crater_max': 0.14, 'noise_scale': 9.0, 'bump_strength': 0.3},
+    {'key': 'titania', 'label': 'Titania', 'surface': 'cratered',
+     'palette': ['#4A423C', '#7C726A', '#A99E94', '#CBC1B7'],
+     'crater_max': 0.11, 'noise_scale': 9.0, 'bump_strength': 0.25},
+    {'key': 'oberon', 'label': 'Oberon', 'surface': 'cratered',
+     'palette': ['#443C36', '#746A62', '#A0958B', '#C3B9AE'],
+     'crater_max': 0.13, 'noise_scale': 9.0, 'bump_strength': 0.28},
+
+    {'key': 'proteus', 'label': 'Proteus', 'surface': 'cratered',
+     'palette': ['#2C2E30', '#4E5154', '#71757A', '#8F9398'],
+     'crater_max': 0.20, 'noise_scale': 11.0, 'bump_strength': 0.4},
+    {'key': 'triton', 'label': 'Triton', 'surface': 'cratered',
+     'palette': ['#7A6A6A', '#B5A29C', '#DCCFC6', '#F2EAE2'],
+     'crater_max': 0.06, 'noise_scale': 8.0, 'bump_strength': 0.12},
+]
+
+# Physical data, so the manifest describes the real moons rather than the
+# meshes. Radii in kilometres, rotation periods in hours — every one of these
+# is tidally locked, so its day equals its orbit.
+MOON_FACTS = {
+    'phobos': (11.27, 7.654), 'deimos': (6.2, 30.299),
+    'io': (1821.6, 42.459), 'europa': (1560.8, 85.228),
+    'ganymede': (2634.1, 171.709), 'callisto': (2410.3, 400.536),
+    'mimas': (198.2, 22.618), 'enceladus': (252.1, 32.885),
+    'tethys': (531.1, 45.307), 'dione': (561.4, 65.686),
+    'rhea': (763.8, 108.437), 'titan': (2574.7, 382.690),
+    'iapetus': (734.5, 1903.716),
+    'miranda': (235.8, 33.924), 'ariel': (578.9, 60.489),
+    'umbriel': (584.7, 99.460), 'titania': (788.4, 208.941),
+    'oberon': (761.4, 323.118),
+    'proteus': (210.0, 26.936), 'triton': (1353.4, 141.045),
+}
+
+# Every moon is generated the same way, only smaller.
+for _moon in MOONS:
+    _moon.setdefault('roughness', 0.95)
+    _moon.setdefault('resolution', 256)
+    _radius, _rotation = MOON_FACTS[_moon['key']]
+    _moon['radius_km'] = _radius
+    _moon['rotation_hours'] = _rotation
+    _moon['axial_tilt_deg'] = 0.0
+
+BODIES = BODIES + MOONS
+
 BODIES_BY_KEY = {b['key']: b for b in BODIES}

@@ -28,21 +28,33 @@ class MeshLibrary {
   /// Each model is a small glTF binary whose texture the engine decodes
   /// natively, so the whole set takes well under a second.
   Future<void> loadAll() async {
-    const List<CelestialBody> bodies = BodyCatalog.all;
+    final List<CelestialBody> bodies = BodyCatalog.all;
 
-    for (int i = 0; i < bodies.length; i++) {
-      final CelestialBody body = bodies[i];
-      status.value = body.label;
+    // Ring systems are separate meshes, loaded alongside their planet.
+    final List<String> assets = <String>[
+      for (final CelestialBody body in bodies) body.modelAsset,
+      for (final CelestialBody body in bodies)
+        if (body.ringModelAsset != null) body.ringModelAsset!,
+    ];
+    final List<String> labels = <String>[
+      for (final CelestialBody body in bodies) body.label,
+      for (final CelestialBody body in bodies)
+        if (body.ringModelAsset != null) '${body.label} rings',
+    ];
+
+    for (int i = 0; i < assets.length; i++) {
+      status.value = labels[i];
+      final String key = assets[i].split('/').last.replaceAll('.glb', '');
       try {
-        final ByteData data = await rootBundle.load(body.modelAsset);
-        meshes[body.key] = await GlbReader.parse(data.buffer.asUint8List(
+        final ByteData data = await rootBundle.load(assets[i]);
+        meshes[key] = await GlbReader.parse(data.buffer.asUint8List(
           data.offsetInBytes,
           data.lengthInBytes,
         ));
       } catch (error) {
-        errors.add('${body.label}: $error');
+        errors.add('${labels[i]}: $error');
       }
-      progress.value = (i + 1) / bodies.length;
+      progress.value = (i + 1) / assets.length;
     }
 
     status.value = 'Ready';

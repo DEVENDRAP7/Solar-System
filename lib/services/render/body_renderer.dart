@@ -31,6 +31,10 @@ class BodyRenderer {
     bool emissive = false,
     double ambient = 0.16,
     double fill = 0.30,
+    bool cull = true,
+    bool twoSided = false,
+    double? nearerThan,
+    double? fartherThan,
   }) {
     final ui.Image? texture = mesh.texture;
     if (texture == null) {
@@ -85,18 +89,27 @@ class BodyRenderer {
             normalMatrix.entry(2, 1) * ny +
             normalMatrix.entry(2, 2) * nz;
 
-        final double lambert =
+        double lambert =
             wx * lightDirection.x + wy * lightDirection.y + wz * lightDirection.z;
+        double facing = viewDirection == null
+            ? 0.0
+            : wx * viewDirection.x +
+                wy * viewDirection.y +
+                wz * viewDirection.z;
+
+        // A ring is a sheet with two faces, and light passing through it lits
+        // whichever side you are on. Taking the magnitude rather than clamping
+        // at zero keeps the far half of a ring from going black.
+        if (twoSided) {
+          lambert = lambert.abs();
+          facing = facing.abs();
+        }
+
         shade = ambient + (1.0 - ambient - fill) * math.max(0.0, lambert);
 
         // A weak light from the camera keeps whatever you are looking at
         // readable without washing out the terminator.
-        if (viewDirection != null) {
-          final double facing = wx * viewDirection.x +
-              wy * viewDirection.y +
-              wz * viewDirection.z;
-          shade += fill * math.max(0.0, facing);
-        }
+        shade += fill * math.max(0.0, facing);
       }
 
       final int level = (shade.clamp(0.0, 1.0) * 255).round();
@@ -119,11 +132,24 @@ class BodyRenderer {
         continue;
       }
 
+      // Flat geometry such as a ring is split around the planet it circles:
+      // the far half is drawn before the planet and the near half after, so
+      // the planet hides the part passing behind it.
+      if (nearerThan != null || fartherThan != null) {
+        final double middle = (depth[a] + depth[b] + depth[c]) / 3.0;
+        if (nearerThan != null && middle <= nearerThan) {
+          continue;
+        }
+        if (fartherThan != null && middle > fartherThan) {
+          continue;
+        }
+      }
+
       final double ax = screen[a * 2];
       final double ay = screen[a * 2 + 1];
       final double area = (screen[b * 2] - ax) * (screen[c * 2 + 1] - ay) -
           (screen[c * 2] - ax) * (screen[b * 2 + 1] - ay);
-      if (area <= 0) {
+      if (cull && area <= 0) {
         continue;
       }
 

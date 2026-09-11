@@ -5,6 +5,9 @@ import '../models/body_catalog.dart';
 import '../models/celestial_body.dart';
 
 /// Horizontal strip for jumping straight to a body.
+///
+/// Lists the Sun, the planets and our Moon. The other twenty moons are reached
+/// by tapping them, which keeps this from becoming a list to scroll through.
 class BodyPicker extends StatelessWidget {
   const BodyPicker({
     required this.selectedKey,
@@ -24,11 +27,11 @@ class BodyPicker extends StatelessWidget {
       child: ListView.separated(
         scrollDirection: Axis.horizontal,
         padding: const EdgeInsets.symmetric(horizontal: 12),
-        itemCount: BodyCatalog.all.length,
+        itemCount: BodyCatalog.planetsAndSun.length,
         separatorBuilder: (BuildContext context, int index) =>
             const SizedBox(width: 8),
         itemBuilder: (BuildContext context, int index) {
-          final CelestialBody body = BodyCatalog.all[index];
+          final CelestialBody body = BodyCatalog.planetsAndSun[index];
           final bool active = body.key == selectedKey;
 
           return GestureDetector(

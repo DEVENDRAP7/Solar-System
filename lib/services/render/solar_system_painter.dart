@@ -57,8 +57,9 @@ Vector3 bodyWorldPosition(
   final double drawn = scale.satelliteDistance(
     astronomicalUnits: length,
     semiMajorAxisAu: body.elements!.semiMajorAxisAu,
+    parentRadiusKm: parent.radiusKm,
     parentRadiusUnits: scale.bodyRadius(parent.radiusKm),
-    moonRadiusUnits: scale.bodyRadius(body.radiusKm),
+    moonRadiusUnits: scale.bodyRadius(body.radiusKm, isMoon: true),
   );
 
   return parentPosition + toScene(relative * (drawn / length));
@@ -300,7 +301,18 @@ class SolarSystemPainter extends CustomPainter {
     placed.sort((_Placed a, _Placed b) => a.depth.compareTo(b.depth));
 
     for (final _Placed item in placed) {
-      final double radius = scale.bodyRadius(item.body.radiusKm);
+      final bool isMoon = item.body.parentKey != null;
+      final double radius =
+          scale.bodyRadius(item.body.radiusKm, isMoon: isMoon);
+
+      // A moon only a pixel or two across is not worth the triangles; the
+      // outer systems hold a lot of them.
+      if (isMoon) {
+        final double depth = -item.depth;
+        if (depth <= 0 || focal * radius / depth < 0.9) {
+          continue;
+        }
+      }
       final Vector3 toSun = item.world.length < 1e-6
           ? Vector3(0, 0, 1)
           : (-item.world.normalized());
@@ -316,6 +328,35 @@ class SolarSystemPainter extends CustomPainter {
         toEye.normalize();
       }
 
+      // A ring lies in its planet's equator, sharing the tilt but not the
+      // spin. It is drawn in two passes around the planet so the far side
+      // passes behind it.
+      final MeshAsset? rings = item.body.ringModelAsset == null
+          ? null
+          : meshes[item.body.ringModelAsset!.split('/').last
+              .replaceAll('.glb', '')];
+
+      final Matrix4 ringModel = Matrix4.identity()
+        ..setTranslation(item.world)
+        ..rotateZ(item.body.axialTiltDeg * math.pi / 180.0)
+        ..scaleByDouble(radius, radius, radius, 1.0);
+
+      if (rings != null) {
+        BodyRenderer.draw(
+          canvas,
+          rings,
+          model: ringModel,
+          view: view,
+          size: size,
+          focalLength: focal,
+          lightDirection: toSun,
+          viewDirection: toEye,
+          cull: false,
+          twoSided: true,
+          fartherThan: item.depth,
+        );
+      }
+
       BodyRenderer.draw(
         canvas,
         item.mesh,
@@ -327,6 +368,22 @@ class SolarSystemPainter extends CustomPainter {
         viewDirection: toEye,
         emissive: item.body.isStar,
       );
+
+      if (rings != null) {
+        BodyRenderer.draw(
+          canvas,
+          rings,
+          model: ringModel,
+          view: view,
+          size: size,
+          focalLength: focal,
+          lightDirection: toSun,
+          viewDirection: toEye,
+          cull: false,
+          twoSided: true,
+          nearerThan: item.depth,
+        );
+      }
 
       final Offset? centre = _project(item.world, view, size, focal);
       if (centre != null) {

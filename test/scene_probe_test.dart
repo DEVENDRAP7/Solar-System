@@ -59,11 +59,18 @@ void main() {
     await tester.runAsync(() async {
       final Map<String, MeshAsset> meshes = <String, MeshAsset>{};
       for (final CelestialBody body in BodyCatalog.all) {
-        final Uint8List bytes =
-            await File(body.modelAsset).readAsBytes();
-        meshes[body.key] = await GlbReader.parse(bytes);
+        meshes[body.key] =
+            await GlbReader.parse(await File(body.modelAsset).readAsBytes());
+
+        // Ring systems are separate meshes, keyed by their file name.
+        final String? ring = body.ringModelAsset;
+        if (ring != null) {
+          meshes[ring.split('/').last.replaceAll('.glb', '')] =
+              await GlbReader.parse(await File(ring).readAsBytes());
+        }
       }
-      expect(meshes.length, BodyCatalog.all.length);
+      expect(meshes.containsKey('saturn_rings'), isTrue);
+      expect(meshes.length, BodyCatalog.all.length + 1, reason: 'bodies plus Saturn\'s rings');
 
       final AsteroidBelt belt = AsteroidBelt.parse(
         File('assets/data/asteroids.csv').readAsStringSync(),
@@ -111,6 +118,34 @@ void main() {
         SolarSystemSimulation(start: DateTime.utc(2026, 9, 9)),
         const ViewScale(),
         BodyCatalog.moon,
+      );
+
+      final vm.Vector3 jupiter = bodyWorldPosition(
+        SolarSystemSimulation(start: DateTime.utc(2026, 9, 9)),
+        const ViewScale(),
+        BodyCatalog.jupiter,
+      );
+
+      await shoot(
+        'jupiter_moons',
+        meshes,
+        camera: OrbitCamera(target: jupiter, distance: 7.5, yaw: 0.5, pitch: 0.25),
+        scale: const ViewScale(),
+        showOrbits: false,
+      );
+
+      final vm.Vector3 saturn = bodyWorldPosition(
+        SolarSystemSimulation(start: DateTime.utc(2026, 9, 9)),
+        const ViewScale(),
+        BodyCatalog.saturn,
+      );
+
+      await shoot(
+        'saturn_moons',
+        meshes,
+        camera: OrbitCamera(target: saturn, distance: 6.5, yaw: 1.1, pitch: 0.95),
+        scale: const ViewScale(),
+        showOrbits: false,
       );
 
       await shoot(

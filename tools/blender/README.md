@@ -50,6 +50,7 @@ seam — there is no visible join where the map wraps.
 | Sun | A photosphere map, exported on the emission channel |
 | Saturn's rings | A radial slice of the real ring system, transparency taken from its brightness |
 | Venus | Generated cloud deck — see below |
+| The twenty moons | Generated surfaces at a quarter the map size, with palettes following how each one looks: Io's sulphur yellows, Europa's clean ice, Callisto's dark crust, Titan's orange haze |
 
 Every body is drawn from real imagery, with one deliberate exception. Venus is
 permanently covered by cloud, so the only maps of its surface are radar. A view

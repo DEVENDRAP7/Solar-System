@@ -55,11 +55,19 @@ class ViewScale {
     }
   }
 
+  /// How much smaller a moon is drawn than the same size planet would be.
+  ///
+  /// Without this the compression flatters moons: Ganymede would come out a
+  /// third of Jupiter's width when it is really a twenty-seventh.
+  static const double _moonScale = 0.55;
+
   /// Scene radius for a body of [radiusKm].
-  double bodyRadius(double radiusKm) {
+  double bodyRadius(double radiusKm, {bool isMoon = false}) {
+    final double factor = isMoon ? _moonScale : 1.0;
     switch (mode) {
       case ScaleMode.explore:
         return _earthRadiusUnits *
+            factor *
             math.pow(radiusKm / _earthRadiusKm, _radiusExponent).toDouble();
       case ScaleMode.trueScale:
         return _trueUnitsPerAu * radiusKm / _kmPerAu;
@@ -68,22 +76,36 @@ class ViewScale {
 
   /// Scene distance for a moon from the planet it orbits.
   ///
-  /// Moons are far closer to their planet than planets are to the Sun, so the
-  /// same compression would bury them inside the surface. Instead a moon is
-  /// placed at a multiple of its parent's drawn radius, keeping enough of the
-  /// orbit's variation to show that it is not a perfect circle.
+  /// Moons sit far closer to their planet than planets do to the Sun, so the
+  /// same compression would bury them inside the surface. Instead they are
+  /// placed by how many planet radii out they really orbit, on a log scale so
+  /// that a system spanning Mimas at 3 radii to Iapetus at 61 all fits and
+  /// stays in the right order. Mimas still comes out just beyond the rings,
+  /// where it belongs.
   double satelliteDistance({
     required double astronomicalUnits,
     required double semiMajorAxisAu,
+    required double parentRadiusKm,
     required double parentRadiusUnits,
     required double moonRadiusUnits,
   }) {
     if (mode == ScaleMode.trueScale) {
       return distance(astronomicalUnits);
     }
+
+    final double radiiOut =
+        (semiMajorAxisAu * _kmPerAu) / math.max(parentRadiusKm, 1.0);
+    final double placed = parentRadiusUnits *
+        (1.45 + 1.75 * math.log(math.max(radiiOut, 1.2)) / math.ln10);
+
+    // Keep the eccentricity visible: a moon on an oval orbit still swings in
+    // and out over its month.
     final double variation =
         semiMajorAxisAu <= 0 ? 1.0 : astronomicalUnits / semiMajorAxisAu;
-    final double base = parentRadiusUnits * 2.6 + moonRadiusUnits * 2.0;
-    return base * (0.85 + 0.15 * variation.clamp(0.5, 1.5));
+
+    return math.max(
+      placed * (0.92 + 0.08 * variation.clamp(0.6, 1.4)),
+      parentRadiusUnits + moonRadiusUnits * 1.5,
+    );
   }
 }

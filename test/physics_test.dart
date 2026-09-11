@@ -273,10 +273,12 @@ void main() {
     test('the Moon is drawn outside its planet', () {
       const ViewScale scale = ViewScale();
       final double earthRadius = scale.bodyRadius(BodyCatalog.earth.radiusKm);
-      final double moonRadius = scale.bodyRadius(BodyCatalog.moon.radiusKm);
+      final double moonRadius =
+          scale.bodyRadius(BodyCatalog.moon.radiusKm, isMoon: true);
       final double moonDistance = scale.satelliteDistance(
         astronomicalUnits: 0.00257,
         semiMajorAxisAu: 0.00257,
+        parentRadiusKm: BodyCatalog.earth.radiusKm,
         parentRadiusUnits: earthRadius,
         moonRadiusUnits: moonRadius,
       );
