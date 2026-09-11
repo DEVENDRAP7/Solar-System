@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:solar_system_app/config/view_scale.dart';
 import 'package:solar_system_app/services/physics/simulation.dart';
+import 'package:solar_system_app/services/render/body_inspector.dart';
 import 'package:solar_system_app/services/render/mesh_library.dart';
 import 'package:solar_system_app/widgets/solar_system_view.dart';
 
@@ -25,6 +26,8 @@ void main() {
     required void Function(bool) onInteracting,
     void Function(String?)? onTap,
     DragMode mode = DragMode.orbit,
+    String? focusKey,
+    BodyInspector? inspector,
   }) {
     return MaterialApp(
       home: Scaffold(
@@ -36,8 +39,9 @@ void main() {
           showMoons: false,
           showBelt: false,
           belt: null,
-          focusKey: null,
+          focusKey: focusKey,
           dragMode: mode,
+          inspector: inspector,
           onTapBody: onTap ?? (String? _) {},
           onFrame: (double _) {},
           onInteracting: onInteracting,
@@ -47,13 +51,15 @@ void main() {
     );
   }
 
-  testWidgets('time is held while a finger is down, and runs again after',
-      (WidgetTester tester) async {
+  testWidgets('time is held while a finger is down, and runs again after', (
+    WidgetTester tester,
+  ) async {
     final List<bool> states = <bool>[];
     await tester.pumpWidget(harness(onInteracting: states.add));
 
-    final TestGesture gesture =
-        await tester.startGesture(const Offset(200, 300));
+    final TestGesture gesture = await tester.startGesture(
+      const Offset(200, 300),
+    );
     await tester.pump();
     await gesture.moveBy(const Offset(60, 20));
     await tester.pump();
@@ -79,8 +85,9 @@ void main() {
     expect(taps, isEmpty);
   });
 
-  testWidgets('a tap on empty space clears the selection',
-      (WidgetTester tester) async {
+  testWidgets('a tap on empty space clears the selection', (
+    WidgetTester tester,
+  ) async {
     final List<String?> taps = <String?>[];
     await tester.pumpWidget(
       harness(onInteracting: (bool _) {}, onTap: taps.add),
@@ -102,5 +109,64 @@ void main() {
 
       expect(states, isNotEmpty, reason: '$mode should handle a drag');
     }
+  });
+
+  testWidgets('a drag turns the selected body, not the camera', (
+    WidgetTester tester,
+  ) async {
+    final BodyInspector inspector = BodyInspector();
+    await tester.pumpWidget(
+      harness(
+        onInteracting: (bool _) {},
+        focusKey: 'mars',
+        inspector: inspector,
+      ),
+    );
+    await tester.pump();
+
+    await tester.drag(find.byType(SolarSystemView), const Offset(140, 60));
+    await tester.pump();
+
+    // The turn landed on Mars. The camera was not asked to move, so the
+    // planets, orbits and belt behind it are exactly where they were.
+    expect(inspector.key, 'mars');
+    expect(inspector.spinFor('mars').abs(), greaterThan(0.2));
+    expect(inspector.pitch.abs(), greaterThan(0.1));
+  });
+
+  testWidgets('with nothing selected a drag leaves every body alone', (
+    WidgetTester tester,
+  ) async {
+    final BodyInspector inspector = BodyInspector();
+    await tester.pumpWidget(
+      harness(onInteracting: (bool _) {}, inspector: inspector),
+    );
+
+    await tester.drag(find.byType(SolarSystemView), const Offset(140, 60));
+    await tester.pump();
+
+    // Nothing is being inspected, so the drag swung the camera instead.
+    expect(inspector.isActive, isFalse);
+    expect(inspector.yaw, 0.0);
+  });
+
+  testWidgets('sliding away from a body hands the drag back to the camera', (
+    WidgetTester tester,
+  ) async {
+    final BodyInspector inspector = BodyInspector();
+    await tester.pumpWidget(
+      harness(
+        onInteracting: (bool _) {},
+        mode: DragMode.move,
+        focusKey: 'mars',
+        inspector: inspector,
+      ),
+    );
+    await tester.pump();
+
+    await tester.drag(find.byType(SolarSystemView), const Offset(120, 40));
+    await tester.pump();
+
+    expect(inspector.isActive, isFalse);
   });
 }

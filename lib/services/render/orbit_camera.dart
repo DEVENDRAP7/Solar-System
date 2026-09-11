@@ -89,6 +89,9 @@ class OrbitCamera {
         );
   }
 
+  /// The camera's right-hand axis: screen-right, in world space.
+  Vector3 get right => Vector3(math.cos(yaw), 0, -math.sin(yaw));
+
   /// World-to-view transform, with the camera looking down its own -z.
   Matrix4 get view => makeViewMatrix(eye, target, Vector3(0, 1, 0));
 
@@ -102,9 +105,9 @@ class OrbitCamera {
       (math.min(width, height) / 2.0) / math.tan(fieldOfView / 2.0);
 
   OrbitCamera copy() => OrbitCamera(
-        target: target.clone(),
-        distance: distance,
-        yaw: yaw,
-        pitch: pitch,
-      );
+    target: target.clone(),
+    distance: distance,
+    yaw: yaw,
+    pitch: pitch,
+  );
 }

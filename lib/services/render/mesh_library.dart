@@ -47,10 +47,9 @@ class MeshLibrary {
       final String key = assets[i].split('/').last.replaceAll('.glb', '');
       try {
         final ByteData data = await rootBundle.load(assets[i]);
-        meshes[key] = await GlbReader.parse(data.buffer.asUint8List(
-          data.offsetInBytes,
-          data.lengthInBytes,
-        ));
+        meshes[key] = await GlbReader.parse(
+          data.buffer.asUint8List(data.offsetInBytes, data.lengthInBytes),
+        );
       } catch (error) {
         errors.add('${labels[i]}: $error');
       }

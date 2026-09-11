@@ -95,13 +95,15 @@ class ViewScale {
 
     final double radiiOut =
         (semiMajorAxisAu * _kmPerAu) / math.max(parentRadiusKm, 1.0);
-    final double placed = parentRadiusUnits *
+    final double placed =
+        parentRadiusUnits *
         (1.45 + 1.75 * math.log(math.max(radiiOut, 1.2)) / math.ln10);
 
     // Keep the eccentricity visible: a moon on an oval orbit still swings in
     // and out over its month.
-    final double variation =
-        semiMajorAxisAu <= 0 ? 1.0 : astronomicalUnits / semiMajorAxisAu;
+    final double variation = semiMajorAxisAu <= 0
+        ? 1.0
+        : astronomicalUnits / semiMajorAxisAu;
 
     return math.max(
       placed * (0.92 + 0.08 * variation.clamp(0.6, 1.4)),

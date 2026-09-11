@@ -10,17 +10,16 @@ import 'package:solar_system_app/widgets/time_controls.dart';
 /// The 3D screen needs a GL context, so these cover the interface layered on
 /// top of it. The scene itself is exercised on a device.
 Widget wrap(Widget child) => MaterialApp(
-      theme: AppTheme.dark,
-      home: Scaffold(body: child),
-    );
+  theme: AppTheme.dark,
+  home: Scaffold(body: child),
+);
 
 void main() {
   group('BodyInfoSheet', () {
     testWidgets('shows the body and its facts', (WidgetTester tester) async {
-      await tester.pumpWidget(wrap(BodyInfoSheet(
-        body: BodyCatalog.jupiter,
-        onClose: () {},
-      )));
+      await tester.pumpWidget(
+        wrap(BodyInfoSheet(body: BodyCatalog.jupiter, onClose: () {})),
+      );
 
       expect(find.text('Jupiter'), findsOneWidget);
       expect(find.text('GAS GIANT'), findsOneWidget);
@@ -43,10 +42,9 @@ void main() {
 
     testWidgets('close button fires', (WidgetTester tester) async {
       int closed = 0;
-      await tester.pumpWidget(wrap(BodyInfoSheet(
-        body: BodyCatalog.earth,
-        onClose: () => closed++,
-      )));
+      await tester.pumpWidget(
+        wrap(BodyInfoSheet(body: BodyCatalog.earth, onClose: () => closed++)),
+      );
 
       await tester.tap(find.byIcon(Icons.close));
       expect(closed, 1);
@@ -54,12 +52,18 @@ void main() {
   });
 
   group('BodyPicker', () {
-    testWidgets('lists every body and reports taps', (WidgetTester tester) async {
+    testWidgets('lists every body and reports taps', (
+      WidgetTester tester,
+    ) async {
       String? picked;
-      await tester.pumpWidget(wrap(BodyPicker(
-        selectedKey: null,
-        onSelected: (String key) => picked = key,
-      )));
+      await tester.pumpWidget(
+        wrap(
+          BodyPicker(
+            selectedKey: null,
+            onSelected: (String key) => picked = key,
+          ),
+        ),
+      );
 
       expect(find.text('Sun'), findsOneWidget);
       expect(find.text('Mercury'), findsOneWidget);
@@ -80,18 +84,23 @@ void main() {
     testWidgets('pause and reset fire', (WidgetTester tester) async {
       int paused = 0;
       int reset = 0;
-      final ValueNotifier<DateTime> clock =
-          ValueNotifier<DateTime>(DateTime.utc(2026, 1, 1));
+      final ValueNotifier<DateTime> clock = ValueNotifier<DateTime>(
+        DateTime.utc(2026, 1, 1),
+      );
       addTearDown(clock.dispose);
 
-      await tester.pumpWidget(wrap(TimeControls(
-        speedIndex: 3,
-        paused: false,
-        clock: clock,
-        onSpeedChanged: (int _) {},
-        onTogglePaused: () => paused++,
-        onResetToNow: () => reset++,
-      )));
+      await tester.pumpWidget(
+        wrap(
+          TimeControls(
+            speedIndex: 3,
+            paused: false,
+            clock: clock,
+            onSpeedChanged: (int _) {},
+            onTogglePaused: () => paused++,
+            onResetToNow: () => reset++,
+          ),
+        ),
+      );
 
       expect(find.text('1 day/s'), findsOneWidget);
       await tester.tap(find.byIcon(Icons.pause_rounded));
@@ -111,8 +120,10 @@ void main() {
     });
 
     test('real time means one day per day', () {
-      expect(SolarSystemProvider.speeds.first.daysPerSecond * 86400.0,
-          closeTo(1.0, 1e-9));
+      expect(
+        SolarSystemProvider.speeds.first.daysPerSecond * 86400.0,
+        closeTo(1.0, 1e-9),
+      );
     });
   });
 }

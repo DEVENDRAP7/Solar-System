@@ -57,7 +57,8 @@ class OrbitalElements {
       longitudeOfPerihelionDeg:
           longitudeOfPerihelionDeg + longitudeOfPerihelionRate * centuries,
       longitudeOfAscendingNodeDeg:
-          longitudeOfAscendingNodeDeg + longitudeOfAscendingNodeRate * centuries,
+          longitudeOfAscendingNodeDeg +
+          longitudeOfAscendingNodeRate * centuries,
     );
   }
 

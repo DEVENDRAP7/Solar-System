@@ -24,7 +24,7 @@ class TimeSpeed {
 /// geometry; this holds what the interface needs on top of them.
 class SolarSystemProvider extends ChangeNotifier {
   SolarSystemProvider({DateTime? start})
-      : simulation = SolarSystemSimulation(start: start) {
+    : simulation = SolarSystemSimulation(start: start) {
     simulation.daysPerSecond = speeds[speedIndex].daysPerSecond;
   }
 
@@ -78,8 +78,9 @@ class SolarSystemProvider extends ChangeNotifier {
   ScaleMode scaleMode = ScaleMode.explore;
 
   /// Ticks once per frame so the clock display can rebuild on its own.
-  final ValueNotifier<DateTime> clock =
-      ValueNotifier<DateTime>(DateTime.now().toUtc());
+  final ValueNotifier<DateTime> clock = ValueNotifier<DateTime>(
+    DateTime.now().toUtc(),
+  );
 
   /// Bumped to ask the view to return to the overview.
   final ValueNotifier<int> recenterRequests = ValueNotifier<int>(0);

@@ -74,9 +74,7 @@ class AsteroidBelt {
       if (parts.length < 6) {
         continue;
       }
-      rows.add(<double>[
-        for (int i = 0; i < 6; i++) double.parse(parts[i]),
-      ]);
+      rows.add(<double>[for (int i = 0; i < 6; i++) double.parse(parts[i])]);
     }
 
     final int count = rows.length;
@@ -144,8 +142,8 @@ class AsteroidBelt {
       final double e = eccentricity[index];
       final double a = semiMajorAxis[index];
 
-      double mean = (meanAnomalyAtEpoch[index] +
-              meanMotion[index] * daysSinceJ2000) %
+      double mean =
+          (meanAnomalyAtEpoch[index] + meanMotion[index] * daysSinceJ2000) %
           360.0;
       if (mean > 180.0) {
         mean -= 360.0;

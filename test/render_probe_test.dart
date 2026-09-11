@@ -26,8 +26,9 @@ void main() {
 
       final List<String> keys = <String>['earth', 'mars', 'jupiter'];
       for (int i = 0; i < keys.length; i++) {
-        final Uint8List bytes =
-            await File('assets/models/${keys[i]}.glb').readAsBytes();
+        final Uint8List bytes = await File(
+          'assets/models/${keys[i]}.glb',
+        ).readAsBytes();
         final MeshAsset mesh = await GlbReader.parse(bytes);
 
         expect(mesh.vertexCount, greaterThan(0), reason: keys[i]);
@@ -49,16 +50,20 @@ void main() {
       }
 
       final ui.Picture picture = recorder.endRecording();
-      final ui.Image image =
-          await picture.toImage(size.width.toInt(), size.height.toInt());
-      final ByteData? png =
-          await image.toByteData(format: ui.ImageByteFormat.png);
+      final ui.Image image = await picture.toImage(
+        size.width.toInt(),
+        size.height.toInt(),
+      );
+      final ByteData? png = await image.toByteData(
+        format: ui.ImageByteFormat.png,
+      );
 
       expect(png, isNotNull);
       final Directory out = Directory('build/render_probe')
         ..createSync(recursive: true);
-      File('${out.path}/bodies.png')
-          .writeAsBytesSync(png!.buffer.asUint8List());
+      File(
+        '${out.path}/bodies.png',
+      ).writeAsBytesSync(png!.buffer.asUint8List());
     });
   });
 }

@@ -73,13 +73,18 @@ void main() {
       for (final List<int> ratio in resonances) {
         final double gap = resonanceAxis(ratio[0], ratio[1]);
         final int inside = countNear(belt, gap, 0.015);
-        final int outside = countNear(belt, gap - 0.09, 0.015) +
+        final int outside =
+            countNear(belt, gap - 0.09, 0.015) +
             countNear(belt, gap + 0.09, 0.015);
 
-        expect(inside * 4, lessThan(outside),
-            reason: '${ratio[0]}:${ratio[1]} gap at '
-                '${gap.toStringAsFixed(3)} AU holds $inside against '
-                '$outside on either side');
+        expect(
+          inside * 4,
+          lessThan(outside),
+          reason:
+              '${ratio[0]}:${ratio[1]} gap at '
+              '${gap.toStringAsFixed(3)} AU holds $inside against '
+              '$outside on either side',
+        );
       }
     });
 
@@ -156,8 +161,10 @@ void main() {
 
       final double perUpdate = watch.elapsedMicroseconds / 20 / 1000;
       // ignore: avoid_print
-      print('belt update: ${perUpdate.toStringAsFixed(2)} ms '
-          'for ${belt.count} asteroids');
+      print(
+        'belt update: ${perUpdate.toStringAsFixed(2)} ms '
+        'for ${belt.count} asteroids',
+      );
       expect(perUpdate, lessThan(16.0));
     });
 

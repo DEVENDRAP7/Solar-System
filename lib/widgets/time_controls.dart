@@ -24,8 +24,18 @@ class TimeControls extends StatelessWidget {
   final VoidCallback onResetToNow;
 
   static const List<String> _months = <String>[
-    'Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun',
-    'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec',
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
   ];
 
   static String formatDate(DateTime time) {
@@ -76,8 +86,10 @@ class TimeControls extends StatelessWidget {
               IconButton(
                 onPressed: onResetToNow,
                 tooltip: 'Back to now',
-                icon: const Icon(Icons.restore_rounded,
-                    color: AppTheme.textSecondary),
+                icon: const Icon(
+                  Icons.restore_rounded,
+                  color: AppTheme.textSecondary,
+                ),
               ),
             ],
           ),

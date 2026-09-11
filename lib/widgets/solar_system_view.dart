@@ -8,6 +8,7 @@ import '../models/asteroid_belt.dart';
 import '../models/body_catalog.dart';
 import '../models/celestial_body.dart';
 import '../services/physics/simulation.dart';
+import '../services/render/body_inspector.dart';
 import '../services/render/mesh_library.dart';
 import '../services/render/orbit_camera.dart';
 import '../services/render/solar_system_painter.dart';
@@ -37,6 +38,7 @@ class SolarSystemView extends StatefulWidget {
     required this.onInteracting,
     required this.dragMode,
     required this.recenterRequests,
+    this.inspector,
     super.key,
   });
 
@@ -63,6 +65,10 @@ class SolarSystemView extends StatefulWidget {
   /// Bumped when the view should return to the overview.
   final ValueListenable<int> recenterRequests;
 
+  /// The hand-turn applied to a selected body. Supplied by tests; the view
+  /// makes its own otherwise.
+  final BodyInspector? inspector;
+
   @override
   State<SolarSystemView> createState() => _SolarSystemViewState();
 }
@@ -73,6 +79,7 @@ class _SolarSystemViewState extends State<SolarSystemView>
   final ValueNotifier<int> _frame = ValueNotifier<int>(0);
 
   final OrbitCamera _camera = OrbitCamera();
+  late final BodyInspector _inspector = widget.inspector ?? BodyInspector();
   final List<BodyHit> _hits = <BodyHit>[];
   late final List<vm.Vector3> _stars = MeshLibrary.makeStars(1200);
 
@@ -101,10 +108,17 @@ class _SolarSystemViewState extends State<SolarSystemView>
     super.initState();
     _ticker = createTicker(_onTick)..start();
     widget.recenterRequests.addListener(_recenter);
+    // A body can already be selected the first time the view is built — after
+    // a restart, say. Only a change in the selection reaches didUpdateWidget,
+    // so without this the camera would never go to it.
+    if (widget.focusKey != null) {
+      _moveToFocus();
+    }
   }
 
   void _recenter() {
     _following = false;
+    _inspector.focus(null);
     _destination = OrbitCamera.overview();
   }
 
@@ -157,10 +171,12 @@ class _SolarSystemViewState extends State<SolarSystemView>
     final String? key = widget.focusKey;
     if (key == null) {
       _following = false;
+      _inspector.focus(null);
       _destination = null;
       return;
     }
     _following = true;
+    _inspector.focus(key);
 
     final CelestialBody? body = BodyCatalog.byKey(key);
     if (body == null) {
@@ -187,6 +203,12 @@ class _SolarSystemViewState extends State<SolarSystemView>
         best = hit.key;
         bestDistance = distance;
       }
+    }
+    // Tapping the body you are already on brings the camera back to it after
+    // you have wandered off, which the parent cannot do for you: the selection
+    // has not changed, so nothing else would tell the view to return.
+    if (best != null && best == widget.focusKey && !_following) {
+      _moveToFocus();
     }
     widget.onTapBody(best);
   }
@@ -225,15 +247,20 @@ class _SolarSystemViewState extends State<SolarSystemView>
       if ((step - 1.0).abs() > _zoomDeadzone) {
         _zoomStart = details.scale;
         _camera.zoom(step);
+        _destination = null;
       }
       _movePan(delta);
     } else if (widget.dragMode == DragMode.move) {
       _movePan(delta);
+    } else if (_inspector.isActive) {
+      // A body is selected, so the drag turns that body rather than flying the
+      // camera around it. The camera does not move, so the planets, orbits and
+      // belt behind it stay put while its far side comes into view.
+      _inspector.turn(delta.dx * _rotateSpeed, delta.dy * _rotateSpeed);
     } else {
       _camera.rotate(-delta.dx * _rotateSpeed, delta.dy * _rotateSpeed);
+      _destination = null;
     }
-
-    _destination = null;
   }
 
   void _movePan(Offset delta) {
@@ -241,8 +268,11 @@ class _SolarSystemViewState extends State<SolarSystemView>
       return;
     }
     _camera.pan(delta.dx, delta.dy, _viewport.shortestSide);
-    // Moving away from a body stops the camera following it.
+    _destination = null;
+    // Moving away from a body stops the camera following it, and hands the
+    // drag back to the camera so the whole system can be explored again.
     _following = false;
+    _inspector.focus(null);
   }
 
   void _handleScaleEnd(ScaleEndDetails details) => widget.onInteracting(false);
@@ -271,6 +301,7 @@ class _SolarSystemViewState extends State<SolarSystemView>
               showMoons: widget.showMoons,
               belt: widget.belt,
               showBelt: widget.showBelt,
+              inspector: _inspector,
               repaint: _frame,
             ),
           ),

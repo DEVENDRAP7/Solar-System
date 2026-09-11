@@ -71,8 +71,9 @@ class GlbReader {
       final int start = offset + 8;
 
       if (chunkType == _jsonChunk) {
-        gltf = json.decode(utf8.decode(bytes.sublist(start, start + chunkLength)))
-            as Map<String, dynamic>;
+        gltf =
+            json.decode(utf8.decode(bytes.sublist(start, start + chunkLength)))
+                as Map<String, dynamic>;
       } else if (chunkType == _binChunk) {
         binary = Uint8List.sublistView(bytes, start, start + chunkLength);
       }
@@ -90,15 +91,23 @@ class GlbReader {
     final Map<String, dynamic> attributes =
         primitive['attributes'] as Map<String, dynamic>;
 
-    final Float32List positions =
-        _readFloats(gltf, binary, attributes['POSITION'] as int, 3);
+    final Float32List positions = _readFloats(
+      gltf,
+      binary,
+      attributes['POSITION'] as int,
+      3,
+    );
     final Float32List normals = attributes.containsKey('NORMAL')
         ? _readFloats(gltf, binary, attributes['NORMAL'] as int, 3)
         : Float32List(positions.length);
     final Float32List uvs = attributes.containsKey('TEXCOORD_0')
         ? _readFloats(gltf, binary, attributes['TEXCOORD_0'] as int, 2)
         : Float32List((positions.length ~/ 3) * 2);
-    final Uint16List indices = _readIndices(gltf, binary, primitive['indices'] as int);
+    final Uint16List indices = _readIndices(
+      gltf,
+      binary,
+      primitive['indices'] as int,
+    );
 
     final _Surface surface = await _readBaseColour(gltf, binary, primitive);
 
@@ -128,8 +137,12 @@ class GlbReader {
       throw const FormatException('expected float vertex data');
     }
 
-    final Map<String, dynamic> view = _view(gltf, accessor['bufferView'] as int);
-    final int base = (view['byteOffset'] as int? ?? 0) +
+    final Map<String, dynamic> view = _view(
+      gltf,
+      accessor['bufferView'] as int,
+    );
+    final int base =
+        (view['byteOffset'] as int? ?? 0) +
         (accessor['byteOffset'] as int? ?? 0);
     final int count = accessor['count'] as int;
     final int stride = view['byteStride'] as int? ?? components * 4;
@@ -138,8 +151,10 @@ class GlbReader {
     final Float32List out = Float32List(count * components);
     for (int i = 0; i < count; i++) {
       for (int c = 0; c < components; c++) {
-        out[i * components + c] =
-            data.getFloat32(base + i * stride + c * 4, Endian.little);
+        out[i * components + c] = data.getFloat32(
+          base + i * stride + c * 4,
+          Endian.little,
+        );
       }
     }
     return out;
@@ -153,8 +168,12 @@ class GlbReader {
     final Map<String, dynamic> accessor =
         (gltf['accessors'] as List<dynamic>)[accessorIndex]
             as Map<String, dynamic>;
-    final Map<String, dynamic> view = _view(gltf, accessor['bufferView'] as int);
-    final int base = (view['byteOffset'] as int? ?? 0) +
+    final Map<String, dynamic> view = _view(
+      gltf,
+      accessor['bufferView'] as int,
+    );
+    final int base =
+        (view['byteOffset'] as int? ?? 0) +
         (accessor['byteOffset'] as int? ?? 0);
     final int count = accessor['count'] as int;
     final int componentType = accessor['componentType'] as int;
@@ -206,8 +225,11 @@ class GlbReader {
     final int start = view['byteOffset'] as int? ?? 0;
     final int length = view['byteLength'] as int;
 
-    final Uint8List encoded =
-        Uint8List.sublistView(binary, start, start + length);
+    final Uint8List encoded = Uint8List.sublistView(
+      binary,
+      start,
+      start + length,
+    );
     final ui.Codec codec = await ui.instantiateImageCodec(encoded);
     final ui.FrameInfo frame = await codec.getNextFrame();
 
@@ -224,8 +246,9 @@ class GlbReader {
         targetHeight: 4,
       );
       final ui.FrameInfo frame = await codec.getNextFrame();
-      final ByteData? pixels = await frame.image
-          .toByteData(format: ui.ImageByteFormat.rawRgba);
+      final ByteData? pixels = await frame.image.toByteData(
+        format: ui.ImageByteFormat.rawRgba,
+      );
       frame.image.dispose();
 
       if (pixels == null) {
@@ -244,8 +267,7 @@ class GlbReader {
 
       // Lifted well above the map's own average: a point of light stands for
       // the whole sunlit face, not the dim mean of a map that is half night.
-      double lift(int total) =>
-          ((total / count) * 1.7).clamp(70.0, 255.0);
+      double lift(int total) => ((total / count) * 1.7).clamp(70.0, 255.0);
 
       return ui.Color.fromARGB(
         255,

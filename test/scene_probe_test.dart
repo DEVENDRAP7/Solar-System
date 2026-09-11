@@ -8,6 +8,7 @@ import 'package:solar_system_app/models/asteroid_belt.dart';
 import 'package:solar_system_app/models/body_catalog.dart';
 import 'package:solar_system_app/models/celestial_body.dart';
 import 'package:solar_system_app/services/physics/simulation.dart';
+import 'package:solar_system_app/services/render/body_inspector.dart';
 import 'package:solar_system_app/services/render/mesh_asset.dart';
 import 'package:solar_system_app/services/render/mesh_library.dart';
 import 'package:solar_system_app/services/render/orbit_camera.dart';
@@ -24,9 +25,11 @@ Future<void> shoot(
   ui.Size size = const ui.Size(720, 1280),
   DateTime? at,
   bool showOrbits = true,
+  BodyInspector? inspector,
 }) async {
-  final SolarSystemSimulation simulation =
-      SolarSystemSimulation(start: at ?? DateTime.utc(2026, 9, 9));
+  final SolarSystemSimulation simulation = SolarSystemSimulation(
+    start: at ?? DateTime.utc(2026, 9, 9),
+  );
 
   final ui.PictureRecorder recorder = ui.PictureRecorder();
   final ui.Canvas canvas = ui.Canvas(recorder);
@@ -41,12 +44,14 @@ Future<void> shoot(
     showOrbits: showOrbits,
     showMoons: true,
     belt: belt,
+    inspector: inspector,
     repaint: ValueNotifier<int>(0),
   ).paint(canvas, size);
 
-  final ui.Image image = await recorder
-      .endRecording()
-      .toImage(size.width.toInt(), size.height.toInt());
+  final ui.Image image = await recorder.endRecording().toImage(
+    size.width.toInt(),
+    size.height.toInt(),
+  );
   final ByteData? png = await image.toByteData(format: ui.ImageByteFormat.png);
 
   final Directory out = Directory('build/render_probe')
@@ -59,8 +64,9 @@ void main() {
     await tester.runAsync(() async {
       final Map<String, MeshAsset> meshes = <String, MeshAsset>{};
       for (final CelestialBody body in BodyCatalog.all) {
-        meshes[body.key] =
-            await GlbReader.parse(await File(body.modelAsset).readAsBytes());
+        meshes[body.key] = await GlbReader.parse(
+          await File(body.modelAsset).readAsBytes(),
+        );
 
         // Ring systems are separate meshes, keyed by their file name.
         final String? ring = body.ringModelAsset;
@@ -70,7 +76,11 @@ void main() {
         }
       }
       expect(meshes.containsKey('saturn_rings'), isTrue);
-      expect(meshes.length, BodyCatalog.all.length + 1, reason: 'bodies plus Saturn\'s rings');
+      expect(
+        meshes.length,
+        BodyCatalog.all.length + 1,
+        reason: 'bodies plus Saturn\'s rings',
+      );
 
       final AsteroidBelt belt = AsteroidBelt.parse(
         File('assets/data/asteroids.csv').readAsStringSync(),
@@ -138,7 +148,12 @@ void main() {
       await shoot(
         'jupiter_moons',
         meshes,
-        camera: OrbitCamera(target: jupiter, distance: 7.5, yaw: 0.5, pitch: 0.25),
+        camera: OrbitCamera(
+          target: jupiter,
+          distance: 7.5,
+          yaw: 0.5,
+          pitch: 0.25,
+        ),
         scale: const ViewScale(),
         showOrbits: false,
       );
@@ -152,7 +167,12 @@ void main() {
       await shoot(
         'saturn_moons',
         meshes,
-        camera: OrbitCamera(target: saturn, distance: 6.5, yaw: 1.1, pitch: 0.95),
+        camera: OrbitCamera(
+          target: saturn,
+          distance: 6.5,
+          yaw: 1.1,
+          pitch: 0.95,
+        ),
         scale: const ViewScale(),
         showOrbits: false,
       );
@@ -168,9 +188,34 @@ void main() {
       await shoot(
         'earth',
         meshes,
-        camera: OrbitCamera(target: earth, distance: 2.4, yaw: 0.5, pitch: 0.25),
+        camera: OrbitCamera(
+          target: earth,
+          distance: 2.4,
+          yaw: 0.5,
+          pitch: 0.25,
+        ),
         scale: const ViewScale(),
       );
+
+      // Earth turned by hand, from one camera that never moves. Flick between
+      // these four and only the planet changes: the orbit rings, the stars and
+      // the Moon are pinned exactly where they were.
+      for (int step = 0; step < 4; step++) {
+        final BodyInspector inspector = BodyInspector()..focus('earth');
+        inspector.turn(step * 1.4, step * 0.12);
+        await shoot(
+          'earth_turn_$step',
+          meshes,
+          camera: OrbitCamera(
+            target: earth,
+            distance: 2.4,
+            yaw: 0.5,
+            pitch: 0.25,
+          ),
+          scale: const ViewScale(),
+          inspector: inspector,
+        );
+      }
     });
   });
 }

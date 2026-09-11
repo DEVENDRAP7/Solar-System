@@ -62,9 +62,21 @@ class BodyRenderer {
       final double z = mesh.positions[i * 3 + 2];
 
       // Transform into view space, where the camera looks down -z.
-      final double vx = modelView[0] * x + modelView[4] * y + modelView[8] * z + modelView[12];
-      final double vy = modelView[1] * x + modelView[5] * y + modelView[9] * z + modelView[13];
-      final double vz = modelView[2] * x + modelView[6] * y + modelView[10] * z + modelView[14];
+      final double vx =
+          modelView[0] * x +
+          modelView[4] * y +
+          modelView[8] * z +
+          modelView[12];
+      final double vy =
+          modelView[1] * x +
+          modelView[5] * y +
+          modelView[9] * z +
+          modelView[13];
+      final double vz =
+          modelView[2] * x +
+          modelView[6] * y +
+          modelView[10] * z +
+          modelView[14];
 
       depth[i] = vz;
 
@@ -85,23 +97,28 @@ class BodyRenderer {
         final double ny = mesh.normals[i * 3 + 1];
         final double nz = mesh.normals[i * 3 + 2];
 
-        final double wx = normalMatrix.entry(0, 0) * nx +
+        final double wx =
+            normalMatrix.entry(0, 0) * nx +
             normalMatrix.entry(0, 1) * ny +
             normalMatrix.entry(0, 2) * nz;
-        final double wy = normalMatrix.entry(1, 0) * nx +
+        final double wy =
+            normalMatrix.entry(1, 0) * nx +
             normalMatrix.entry(1, 1) * ny +
             normalMatrix.entry(1, 2) * nz;
-        final double wz = normalMatrix.entry(2, 0) * nx +
+        final double wz =
+            normalMatrix.entry(2, 0) * nx +
             normalMatrix.entry(2, 1) * ny +
             normalMatrix.entry(2, 2) * nz;
 
         double lambert =
-            wx * lightDirection.x + wy * lightDirection.y + wz * lightDirection.z;
+            wx * lightDirection.x +
+            wy * lightDirection.y +
+            wz * lightDirection.z;
         double facing = viewDirection == null
             ? 0.0
             : wx * viewDirection.x +
-                wy * viewDirection.y +
-                wz * viewDirection.z;
+                  wy * viewDirection.y +
+                  wz * viewDirection.z;
 
         // A ring is a sheet with two faces, and light passing through it lits
         // whichever side you are on. Taking the magnitude rather than clamping
@@ -153,7 +170,8 @@ class BodyRenderer {
 
       final double ax = screen[a * 2];
       final double ay = screen[a * 2 + 1];
-      final double area = (screen[b * 2] - ax) * (screen[c * 2 + 1] - ay) -
+      final double area =
+          (screen[b * 2] - ax) * (screen[c * 2 + 1] - ay) -
           (screen[c * 2] - ax) * (screen[b * 2 + 1] - ay);
       if (cull && area <= 0) {
         continue;

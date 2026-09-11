@@ -11,7 +11,7 @@ import 'kepler.dart';
 /// frame still advances the clock by a well-resolved amount.
 class SolarSystemSimulation {
   SolarSystemSimulation({DateTime? start})
-      : _julianDate = Kepler.julianDate(start ?? DateTime.now());
+    : _julianDate = Kepler.julianDate(start ?? DateTime.now());
 
   double _julianDate;
 
@@ -22,9 +22,9 @@ class SolarSystemSimulation {
 
   /// The simulated instant.
   DateTime get time => DateTime.fromMillisecondsSinceEpoch(
-        ((_julianDate - 2440587.5) * Duration.millisecondsPerDay).round(),
-        isUtc: true,
-      );
+    ((_julianDate - 2440587.5) * Duration.millisecondsPerDay).round(),
+    isUtc: true,
+  );
 
   set time(DateTime value) => _julianDate = Kepler.julianDate(value);
 

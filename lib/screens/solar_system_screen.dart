@@ -88,10 +88,7 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
                   right: 64,
                   top: MediaQuery.of(context).padding.top + 12,
                   child: _LoadErrors(
-                    errors: <String>[
-                      ?_loadError,
-                      ..._provider.library.errors,
-                    ],
+                    errors: <String>[?_loadError, ..._provider.library.errors],
                   ),
                 ),
               Positioned(

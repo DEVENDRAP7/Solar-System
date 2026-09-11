@@ -298,7 +298,6 @@ class BodyCatalog {
     ),
   );
 
-
   /// Kilometres in an astronomical unit.
   static const double _kmPerAu = 1.495978707e8;
 
@@ -354,143 +353,344 @@ class BodyCatalog {
   }
 
   static final List<CelestialBody> moons = <CelestialBody>[
-    _moon(key: 'phobos', label: 'Phobos', parentKey: 'mars',
-        semiMajorAxisKm: 9376, periodDays: 0.31891, radiusKm: 11.27,
-        eccentricity: 0.0151, inclinationToEquatorDeg: 1.093,
-        parentTiltDeg: 25.19, meanLongitudeDeg: 24, gravity: 0.0057,
-        description: 'Phobos circles Mars three times a day, faster than the '
-            'planet turns, so it rises in the west. It is drifting inward and '
-            'will break apart in some tens of millions of years.'),
-    _moon(key: 'deimos', label: 'Deimos', parentKey: 'mars',
-        semiMajorAxisKm: 23463, periodDays: 1.26244, radiusKm: 6.2,
-        eccentricity: 0.00033, inclinationToEquatorDeg: 1.788,
-        parentTiltDeg: 25.19, meanLongitudeDeg: 210, gravity: 0.003,
-        description: 'The smaller and outer of Mars\'s two moons, barely 12 km '
-            'across. From the surface it would look like a bright star.'),
+    _moon(
+      key: 'phobos',
+      label: 'Phobos',
+      parentKey: 'mars',
+      semiMajorAxisKm: 9376,
+      periodDays: 0.31891,
+      radiusKm: 11.27,
+      eccentricity: 0.0151,
+      inclinationToEquatorDeg: 1.093,
+      parentTiltDeg: 25.19,
+      meanLongitudeDeg: 24,
+      gravity: 0.0057,
+      description:
+          'Phobos circles Mars three times a day, faster than the '
+          'planet turns, so it rises in the west. It is drifting inward and '
+          'will break apart in some tens of millions of years.',
+    ),
+    _moon(
+      key: 'deimos',
+      label: 'Deimos',
+      parentKey: 'mars',
+      semiMajorAxisKm: 23463,
+      periodDays: 1.26244,
+      radiusKm: 6.2,
+      eccentricity: 0.00033,
+      inclinationToEquatorDeg: 1.788,
+      parentTiltDeg: 25.19,
+      meanLongitudeDeg: 210,
+      gravity: 0.003,
+      description:
+          'The smaller and outer of Mars\'s two moons, barely 12 km '
+          'across. From the surface it would look like a bright star.',
+    ),
 
-    _moon(key: 'io', label: 'Io', parentKey: 'jupiter',
-        semiMajorAxisKm: 421700, periodDays: 1.769138, radiusKm: 1821.6,
-        eccentricity: 0.0041, inclinationToEquatorDeg: 0.05,
-        parentTiltDeg: 3.13, meanLongitudeDeg: 42, gravity: 1.796,
-        meanTemperatureC: -163,
-        description: 'The most volcanic world in the solar system. Squeezed by '
-            'Jupiter and its neighbours, Io turns itself inside out, throwing '
-            'sulphur hundreds of kilometres above the surface.'),
-    _moon(key: 'europa', label: 'Europa', parentKey: 'jupiter',
-        semiMajorAxisKm: 671034, periodDays: 3.551181, radiusKm: 1560.8,
-        eccentricity: 0.009, inclinationToEquatorDeg: 0.47,
-        parentTiltDeg: 3.13, meanLongitudeDeg: 168, gravity: 1.314,
-        meanTemperatureC: -171,
-        description: 'Under a shell of cracked ice lies a salt water ocean '
-            'holding more water than every ocean on Earth combined. It is one '
-            'of the best places to look for life.'),
-    _moon(key: 'ganymede', label: 'Ganymede', parentKey: 'jupiter',
-        semiMajorAxisKm: 1070412, periodDays: 7.154553, radiusKm: 2634.1,
-        eccentricity: 0.0013, inclinationToEquatorDeg: 0.2,
-        parentTiltDeg: 3.13, meanLongitudeDeg: 291, gravity: 1.428,
-        meanTemperatureC: -163,
-        description: 'The largest moon in the solar system, bigger than '
-            'Mercury, and the only one with a magnetic field of its own.'),
-    _moon(key: 'callisto', label: 'Callisto', parentKey: 'jupiter',
-        semiMajorAxisKm: 1882709, periodDays: 16.689018, radiusKm: 2410.3,
-        eccentricity: 0.0074, inclinationToEquatorDeg: 0.192,
-        parentTiltDeg: 3.13, meanLongitudeDeg: 87, gravity: 1.235,
-        meanTemperatureC: -139,
-        description: 'The most heavily cratered object known. Its surface has '
-            'gone essentially unchanged for four billion years.'),
+    _moon(
+      key: 'io',
+      label: 'Io',
+      parentKey: 'jupiter',
+      semiMajorAxisKm: 421700,
+      periodDays: 1.769138,
+      radiusKm: 1821.6,
+      eccentricity: 0.0041,
+      inclinationToEquatorDeg: 0.05,
+      parentTiltDeg: 3.13,
+      meanLongitudeDeg: 42,
+      gravity: 1.796,
+      meanTemperatureC: -163,
+      description:
+          'The most volcanic world in the solar system. Squeezed by '
+          'Jupiter and its neighbours, Io turns itself inside out, throwing '
+          'sulphur hundreds of kilometres above the surface.',
+    ),
+    _moon(
+      key: 'europa',
+      label: 'Europa',
+      parentKey: 'jupiter',
+      semiMajorAxisKm: 671034,
+      periodDays: 3.551181,
+      radiusKm: 1560.8,
+      eccentricity: 0.009,
+      inclinationToEquatorDeg: 0.47,
+      parentTiltDeg: 3.13,
+      meanLongitudeDeg: 168,
+      gravity: 1.314,
+      meanTemperatureC: -171,
+      description:
+          'Under a shell of cracked ice lies a salt water ocean '
+          'holding more water than every ocean on Earth combined. It is one '
+          'of the best places to look for life.',
+    ),
+    _moon(
+      key: 'ganymede',
+      label: 'Ganymede',
+      parentKey: 'jupiter',
+      semiMajorAxisKm: 1070412,
+      periodDays: 7.154553,
+      radiusKm: 2634.1,
+      eccentricity: 0.0013,
+      inclinationToEquatorDeg: 0.2,
+      parentTiltDeg: 3.13,
+      meanLongitudeDeg: 291,
+      gravity: 1.428,
+      meanTemperatureC: -163,
+      description:
+          'The largest moon in the solar system, bigger than '
+          'Mercury, and the only one with a magnetic field of its own.',
+    ),
+    _moon(
+      key: 'callisto',
+      label: 'Callisto',
+      parentKey: 'jupiter',
+      semiMajorAxisKm: 1882709,
+      periodDays: 16.689018,
+      radiusKm: 2410.3,
+      eccentricity: 0.0074,
+      inclinationToEquatorDeg: 0.192,
+      parentTiltDeg: 3.13,
+      meanLongitudeDeg: 87,
+      gravity: 1.235,
+      meanTemperatureC: -139,
+      description:
+          'The most heavily cratered object known. Its surface has '
+          'gone essentially unchanged for four billion years.',
+    ),
 
-    _moon(key: 'mimas', label: 'Mimas', parentKey: 'saturn',
-        semiMajorAxisKm: 185539, periodDays: 0.942422, radiusKm: 198.2,
-        eccentricity: 0.0196, inclinationToEquatorDeg: 1.574,
-        parentTiltDeg: 26.73, meanLongitudeDeg: 15, gravity: 0.064,
-        description: 'One vast crater, Herschel, spans a third of its width. '
-            'The impact nearly split the moon apart.'),
-    _moon(key: 'enceladus', label: 'Enceladus', parentKey: 'saturn',
-        semiMajorAxisKm: 237948, periodDays: 1.370218, radiusKm: 252.1,
-        eccentricity: 0.0047, inclinationToEquatorDeg: 0.009,
-        parentTiltDeg: 26.73, meanLongitudeDeg: 133, gravity: 0.113,
-        meanTemperatureC: -198,
-        description: 'Jets of water vapour erupt from cracks at its south '
-            'pole, feeding one of Saturn\'s rings. There is an ocean beneath '
-            'the ice.'),
-    _moon(key: 'tethys', label: 'Tethys', parentKey: 'saturn',
-        semiMajorAxisKm: 294619, periodDays: 1.887802, radiusKm: 531.1,
-        eccentricity: 0.0001, inclinationToEquatorDeg: 1.091,
-        parentTiltDeg: 26.73, meanLongitudeDeg: 254, gravity: 0.146,
-        description: 'Almost pure water ice, and cut by Ithaca Chasma, a '
-            'canyon running most of the way around it.'),
-    _moon(key: 'dione', label: 'Dione', parentKey: 'saturn',
-        semiMajorAxisKm: 377396, periodDays: 2.736915, radiusKm: 561.4,
-        eccentricity: 0.0022, inclinationToEquatorDeg: 0.028,
-        parentTiltDeg: 26.73, meanLongitudeDeg: 61, gravity: 0.232,
-        description: 'Bright ice cliffs streak its trailing side, cracks in '
-            'the crust caught in sunlight.'),
-    _moon(key: 'rhea', label: 'Rhea', parentKey: 'saturn',
-        semiMajorAxisKm: 527108, periodDays: 4.518212, radiusKm: 763.8,
-        eccentricity: 0.0013, inclinationToEquatorDeg: 0.331,
-        parentTiltDeg: 26.73, meanLongitudeDeg: 189, gravity: 0.264,
-        description: 'Saturn\'s second largest moon, a cratered ball of ice '
-            'and rock with a tenuous oxygen atmosphere.'),
-    _moon(key: 'titan', label: 'Titan', parentKey: 'saturn',
-        semiMajorAxisKm: 1221870, periodDays: 15.945421, radiusKm: 2574.7,
-        eccentricity: 0.0288, inclinationToEquatorDeg: 0.348,
-        parentTiltDeg: 26.73, meanLongitudeDeg: 312, gravity: 1.352,
-        meanTemperatureC: -179,
-        description: 'The only moon with a thick atmosphere, and the only '
-            'world besides Earth with liquid on its surface — rivers and seas '
-            'of methane under an orange haze.'),
-    _moon(key: 'iapetus', label: 'Iapetus', parentKey: 'saturn',
-        semiMajorAxisKm: 3560820, periodDays: 79.3215, radiusKm: 734.5,
-        eccentricity: 0.0286, inclinationToEquatorDeg: 15.47,
-        parentTiltDeg: 26.73, meanLongitudeDeg: 98, gravity: 0.223,
-        description: 'One side is as dark as coal, the other as bright as '
-            'snow, and a ridge of mountains runs along its equator.'),
+    _moon(
+      key: 'mimas',
+      label: 'Mimas',
+      parentKey: 'saturn',
+      semiMajorAxisKm: 185539,
+      periodDays: 0.942422,
+      radiusKm: 198.2,
+      eccentricity: 0.0196,
+      inclinationToEquatorDeg: 1.574,
+      parentTiltDeg: 26.73,
+      meanLongitudeDeg: 15,
+      gravity: 0.064,
+      description:
+          'One vast crater, Herschel, spans a third of its width. '
+          'The impact nearly split the moon apart.',
+    ),
+    _moon(
+      key: 'enceladus',
+      label: 'Enceladus',
+      parentKey: 'saturn',
+      semiMajorAxisKm: 237948,
+      periodDays: 1.370218,
+      radiusKm: 252.1,
+      eccentricity: 0.0047,
+      inclinationToEquatorDeg: 0.009,
+      parentTiltDeg: 26.73,
+      meanLongitudeDeg: 133,
+      gravity: 0.113,
+      meanTemperatureC: -198,
+      description:
+          'Jets of water vapour erupt from cracks at its south '
+          'pole, feeding one of Saturn\'s rings. There is an ocean beneath '
+          'the ice.',
+    ),
+    _moon(
+      key: 'tethys',
+      label: 'Tethys',
+      parentKey: 'saturn',
+      semiMajorAxisKm: 294619,
+      periodDays: 1.887802,
+      radiusKm: 531.1,
+      eccentricity: 0.0001,
+      inclinationToEquatorDeg: 1.091,
+      parentTiltDeg: 26.73,
+      meanLongitudeDeg: 254,
+      gravity: 0.146,
+      description:
+          'Almost pure water ice, and cut by Ithaca Chasma, a '
+          'canyon running most of the way around it.',
+    ),
+    _moon(
+      key: 'dione',
+      label: 'Dione',
+      parentKey: 'saturn',
+      semiMajorAxisKm: 377396,
+      periodDays: 2.736915,
+      radiusKm: 561.4,
+      eccentricity: 0.0022,
+      inclinationToEquatorDeg: 0.028,
+      parentTiltDeg: 26.73,
+      meanLongitudeDeg: 61,
+      gravity: 0.232,
+      description:
+          'Bright ice cliffs streak its trailing side, cracks in '
+          'the crust caught in sunlight.',
+    ),
+    _moon(
+      key: 'rhea',
+      label: 'Rhea',
+      parentKey: 'saturn',
+      semiMajorAxisKm: 527108,
+      periodDays: 4.518212,
+      radiusKm: 763.8,
+      eccentricity: 0.0013,
+      inclinationToEquatorDeg: 0.331,
+      parentTiltDeg: 26.73,
+      meanLongitudeDeg: 189,
+      gravity: 0.264,
+      description:
+          'Saturn\'s second largest moon, a cratered ball of ice '
+          'and rock with a tenuous oxygen atmosphere.',
+    ),
+    _moon(
+      key: 'titan',
+      label: 'Titan',
+      parentKey: 'saturn',
+      semiMajorAxisKm: 1221870,
+      periodDays: 15.945421,
+      radiusKm: 2574.7,
+      eccentricity: 0.0288,
+      inclinationToEquatorDeg: 0.348,
+      parentTiltDeg: 26.73,
+      meanLongitudeDeg: 312,
+      gravity: 1.352,
+      meanTemperatureC: -179,
+      description:
+          'The only moon with a thick atmosphere, and the only '
+          'world besides Earth with liquid on its surface — rivers and seas '
+          'of methane under an orange haze.',
+    ),
+    _moon(
+      key: 'iapetus',
+      label: 'Iapetus',
+      parentKey: 'saturn',
+      semiMajorAxisKm: 3560820,
+      periodDays: 79.3215,
+      radiusKm: 734.5,
+      eccentricity: 0.0286,
+      inclinationToEquatorDeg: 15.47,
+      parentTiltDeg: 26.73,
+      meanLongitudeDeg: 98,
+      gravity: 0.223,
+      description:
+          'One side is as dark as coal, the other as bright as '
+          'snow, and a ridge of mountains runs along its equator.',
+    ),
 
-    _moon(key: 'miranda', label: 'Miranda', parentKey: 'uranus',
-        semiMajorAxisKm: 129390, periodDays: 1.413479, radiusKm: 235.8,
-        eccentricity: 0.0013, inclinationToEquatorDeg: 4.232,
-        parentTiltDeg: 97.77, meanLongitudeDeg: 71, gravity: 0.079,
-        description: 'A jumble of terrain that looks assembled rather than '
-            'formed, with cliffs twenty kilometres high.'),
-    _moon(key: 'ariel', label: 'Ariel', parentKey: 'uranus',
-        semiMajorAxisKm: 190900, periodDays: 2.520379, radiusKm: 578.9,
-        eccentricity: 0.0012, inclinationToEquatorDeg: 0.26,
-        parentTiltDeg: 97.77, meanLongitudeDeg: 199, gravity: 0.269,
-        description: 'The brightest of Uranus\'s moons, its surface cut by '
-            'valleys that were once flooded by ice.'),
-    _moon(key: 'umbriel', label: 'Umbriel', parentKey: 'uranus',
-        semiMajorAxisKm: 266000, periodDays: 4.144177, radiusKm: 584.7,
-        eccentricity: 0.0039, inclinationToEquatorDeg: 0.128,
-        parentTiltDeg: 97.77, meanLongitudeDeg: 33, gravity: 0.2,
-        description: 'The darkest of the major Uranian moons, marked by a '
-            'bright ring of unknown origin nicknamed the fluorescent cheerio.'),
-    _moon(key: 'titania', label: 'Titania', parentKey: 'uranus',
-        semiMajorAxisKm: 436300, periodDays: 8.705872, radiusKm: 788.4,
-        eccentricity: 0.0011, inclinationToEquatorDeg: 0.34,
-        parentTiltDeg: 97.77, meanLongitudeDeg: 155, gravity: 0.379,
-        description: 'The largest moon of Uranus, scarred by canyons formed as '
-            'its interior froze and expanded.'),
-    _moon(key: 'oberon', label: 'Oberon', parentKey: 'uranus',
-        semiMajorAxisKm: 583519, periodDays: 13.463239, radiusKm: 761.4,
-        eccentricity: 0.0014, inclinationToEquatorDeg: 0.058,
-        parentTiltDeg: 97.77, meanLongitudeDeg: 278, gravity: 0.346,
-        description: 'The outermost large Uranian moon, its old cratered '
-            'surface stained with dark material.'),
+    _moon(
+      key: 'miranda',
+      label: 'Miranda',
+      parentKey: 'uranus',
+      semiMajorAxisKm: 129390,
+      periodDays: 1.413479,
+      radiusKm: 235.8,
+      eccentricity: 0.0013,
+      inclinationToEquatorDeg: 4.232,
+      parentTiltDeg: 97.77,
+      meanLongitudeDeg: 71,
+      gravity: 0.079,
+      description:
+          'A jumble of terrain that looks assembled rather than '
+          'formed, with cliffs twenty kilometres high.',
+    ),
+    _moon(
+      key: 'ariel',
+      label: 'Ariel',
+      parentKey: 'uranus',
+      semiMajorAxisKm: 190900,
+      periodDays: 2.520379,
+      radiusKm: 578.9,
+      eccentricity: 0.0012,
+      inclinationToEquatorDeg: 0.26,
+      parentTiltDeg: 97.77,
+      meanLongitudeDeg: 199,
+      gravity: 0.269,
+      description:
+          'The brightest of Uranus\'s moons, its surface cut by '
+          'valleys that were once flooded by ice.',
+    ),
+    _moon(
+      key: 'umbriel',
+      label: 'Umbriel',
+      parentKey: 'uranus',
+      semiMajorAxisKm: 266000,
+      periodDays: 4.144177,
+      radiusKm: 584.7,
+      eccentricity: 0.0039,
+      inclinationToEquatorDeg: 0.128,
+      parentTiltDeg: 97.77,
+      meanLongitudeDeg: 33,
+      gravity: 0.2,
+      description:
+          'The darkest of the major Uranian moons, marked by a '
+          'bright ring of unknown origin nicknamed the fluorescent cheerio.',
+    ),
+    _moon(
+      key: 'titania',
+      label: 'Titania',
+      parentKey: 'uranus',
+      semiMajorAxisKm: 436300,
+      periodDays: 8.705872,
+      radiusKm: 788.4,
+      eccentricity: 0.0011,
+      inclinationToEquatorDeg: 0.34,
+      parentTiltDeg: 97.77,
+      meanLongitudeDeg: 155,
+      gravity: 0.379,
+      description:
+          'The largest moon of Uranus, scarred by canyons formed as '
+          'its interior froze and expanded.',
+    ),
+    _moon(
+      key: 'oberon',
+      label: 'Oberon',
+      parentKey: 'uranus',
+      semiMajorAxisKm: 583519,
+      periodDays: 13.463239,
+      radiusKm: 761.4,
+      eccentricity: 0.0014,
+      inclinationToEquatorDeg: 0.058,
+      parentTiltDeg: 97.77,
+      meanLongitudeDeg: 278,
+      gravity: 0.346,
+      description:
+          'The outermost large Uranian moon, its old cratered '
+          'surface stained with dark material.',
+    ),
 
-    _moon(key: 'proteus', label: 'Proteus', parentKey: 'neptune',
-        semiMajorAxisKm: 117647, periodDays: 1.122315, radiusKm: 210.0,
-        eccentricity: 0.00053, inclinationToEquatorDeg: 0.026,
-        parentTiltDeg: 28.32, meanLongitudeDeg: 4, gravity: 0.07,
-        description: 'About as large as a body can be without gravity pulling '
-            'it into a sphere, which is why it is distinctly boxy.'),
-    _moon(key: 'triton', label: 'Triton', parentKey: 'neptune',
-        semiMajorAxisKm: 354759, periodDays: 5.876854, radiusKm: 1353.4,
-        eccentricity: 0.000016, inclinationToEquatorDeg: 156.885,
-        parentTiltDeg: 28.32, eclipticInclinationDeg: 130.0,
-        meanLongitudeDeg: 246, gravity: 0.779, meanTemperatureC: -235,
-        description: 'Triton orbits backwards, which means Neptune captured it '
-            'rather than forming with it. Nitrogen geysers erupt from its pink '
-            'polar cap, and it is slowly spiralling in.'),
+    _moon(
+      key: 'proteus',
+      label: 'Proteus',
+      parentKey: 'neptune',
+      semiMajorAxisKm: 117647,
+      periodDays: 1.122315,
+      radiusKm: 210.0,
+      eccentricity: 0.00053,
+      inclinationToEquatorDeg: 0.026,
+      parentTiltDeg: 28.32,
+      meanLongitudeDeg: 4,
+      gravity: 0.07,
+      description:
+          'About as large as a body can be without gravity pulling '
+          'it into a sphere, which is why it is distinctly boxy.',
+    ),
+    _moon(
+      key: 'triton',
+      label: 'Triton',
+      parentKey: 'neptune',
+      semiMajorAxisKm: 354759,
+      periodDays: 5.876854,
+      radiusKm: 1353.4,
+      eccentricity: 0.000016,
+      inclinationToEquatorDeg: 156.885,
+      parentTiltDeg: 28.32,
+      eclipticInclinationDeg: 130.0,
+      meanLongitudeDeg: 246,
+      gravity: 0.779,
+      meanTemperatureC: -235,
+      description:
+          'Triton orbits backwards, which means Neptune captured it '
+          'rather than forming with it. Nitrogen geysers erupt from its pink '
+          'polar cap, and it is slowly spiralling in.',
+    ),
   ];
 
   /// The Sun and the planets, in order outward.

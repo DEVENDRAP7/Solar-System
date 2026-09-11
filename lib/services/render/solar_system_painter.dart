@@ -11,6 +11,7 @@ import '../../models/body_catalog.dart';
 import '../../models/celestial_body.dart';
 import '../physics/kepler.dart';
 import '../physics/simulation.dart';
+import 'body_inspector.dart';
 import 'body_renderer.dart';
 import 'mesh_asset.dart';
 import 'orbit_camera.dart';
@@ -88,6 +89,7 @@ class SolarSystemPainter extends CustomPainter {
     required this.repaint,
     this.belt,
     this.showBelt = true,
+    this.inspector,
   }) : super(repaint: repaint);
 
   final SolarSystemSimulation simulation;
@@ -105,6 +107,9 @@ class SolarSystemPainter extends CustomPainter {
 
   /// Filled in on every paint so hit testing matches what is on screen.
   final List<BodyHit> hits;
+
+  /// The turn the user has put on the body they are inspecting, if any.
+  final BodyInspector? inspector;
 
   static const double _starShell = 1600.0;
 
@@ -165,8 +170,12 @@ class SolarSystemPainter extends CustomPainter {
     final List<Offset> points = <Offset>[];
 
     for (final Vector3 direction in stars) {
-      final Offset? point =
-          _project(eye + direction * _starShell, view, size, focal);
+      final Offset? point = _project(
+        eye + direction * _starShell,
+        view,
+        size,
+        focal,
+      );
       if (point != null) {
         points.add(point);
       }
@@ -218,8 +227,10 @@ class SolarSystemPainter extends CustomPainter {
         size.height / 2 - focal * viewSpace.y / depth,
       );
 
-      if (screen.dx < -8 || screen.dy < -8 ||
-          screen.dx > size.width + 8 || screen.dy > size.height + 8) {
+      if (screen.dx < -8 ||
+          screen.dy < -8 ||
+          screen.dx > size.width + 8 ||
+          screen.dy > size.height + 8) {
         continue;
       }
 
@@ -248,7 +259,12 @@ class SolarSystemPainter extends CustomPainter {
     }
   }
 
-  void _paintOrbits(ui.Canvas canvas, ui.Size size, Matrix4 view, double focal) {
+  void _paintOrbits(
+    ui.Canvas canvas,
+    ui.Size size,
+    Matrix4 view,
+    double focal,
+  ) {
     final Paint paint = Paint()
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.1
@@ -260,14 +276,21 @@ class SolarSystemPainter extends CustomPainter {
         continue;
       }
 
-      final List<Vector3> path =
-          Kepler.orbitPath(orbit, simulation.centuries, segments: 160);
+      final List<Vector3> path = Kepler.orbitPath(
+        orbit,
+        simulation.centuries,
+        segments: 160,
+      );
       final Path line = Path();
       bool started = false;
 
       for (final Vector3 point in path) {
-        final Offset? screen =
-            _project(_toScene(_scaled(point)), view, size, focal);
+        final Offset? screen = _project(
+          _toScene(_scaled(point)),
+          view,
+          size,
+          focal,
+        );
         if (screen == null) {
           started = false;
           continue;
@@ -283,8 +306,15 @@ class SolarSystemPainter extends CustomPainter {
     }
   }
 
-  void _paintBodies(ui.Canvas canvas, ui.Size size, Matrix4 view, double focal) {
+  void _paintBodies(
+    ui.Canvas canvas,
+    ui.Size size,
+    Matrix4 view,
+    double focal,
+  ) {
     final List<_Placed> placed = <_Placed>[];
+    final Vector3 cameraRight = camera.right;
+    final BodyInspector? inspector = this.inspector;
 
     for (final CelestialBody body in BodyCatalog.all) {
       if (body.parentKey != null && !showMoons) {
@@ -305,8 +335,10 @@ class SolarSystemPainter extends CustomPainter {
 
     for (final _Placed item in placed) {
       final bool isMoon = item.body.parentKey != null;
-      final double radius =
-          scale.bodyRadius(item.body.radiusKm, isMoon: isMoon);
+      final double radius = scale.bodyRadius(
+        item.body.radiusKm,
+        isMoon: isMoon,
+      );
 
       // Moons are not drawn as points: the outer systems hold twenty of them
       // and they would crowd around their planet as a smear of dots.
@@ -320,10 +352,19 @@ class SolarSystemPainter extends CustomPainter {
           ? Vector3(0, 0, 1)
           : (-item.world.normalized());
 
+      // A body the user is turning by hand gets that turn on top of its own
+      // rotation. Only this body moves: the camera stays exactly where it is,
+      // so everything behind it holds still.
+      final Matrix4 tip = inspector == null
+          ? Matrix4.identity()
+          : inspector.tipFor(item.body.key, cameraRight);
+      final double handSpin = inspector?.spinFor(item.body.key) ?? 0.0;
+
       final Matrix4 model = Matrix4.identity()
         ..setTranslation(item.world)
+        ..multiply(tip)
         ..rotateZ(item.body.axialTiltDeg * math.pi / 180.0)
-        ..rotateY(simulation.spinRadians(item.body))
+        ..rotateY(simulation.spinRadians(item.body) + handSpin)
         ..scaleByDouble(radius, radius, radius, 1.0);
 
       // Too small to be worth triangles: draw it as a point of light instead,
@@ -363,11 +404,14 @@ class SolarSystemPainter extends CustomPainter {
       // passes behind it.
       final MeshAsset? rings = item.body.ringModelAsset == null
           ? null
-          : meshes[item.body.ringModelAsset!.split('/').last
-              .replaceAll('.glb', '')];
+          : meshes[item.body.ringModelAsset!
+                .split('/')
+                .last
+                .replaceAll('.glb', '')];
 
       final Matrix4 ringModel = Matrix4.identity()
         ..setTranslation(item.world)
+        ..multiply(tip)
         ..rotateZ(item.body.axialTiltDeg * math.pi / 180.0)
         ..scaleByDouble(radius, radius, radius, 1.0);
 
@@ -418,8 +462,7 @@ class SolarSystemPainter extends CustomPainter {
       final Offset? centre = _project(item.world, view, size, focal);
       if (centre != null) {
         final double depth = -item.depth;
-        final double screenRadius =
-            depth > 0 ? focal * radius / depth : 0.0;
+        final double screenRadius = depth > 0 ? focal * radius / depth : 0.0;
         hits.add(BodyHit(item.body.key, centre, math.max(screenRadius, 16.0)));
       }
     }

@@ -95,15 +95,16 @@ class Kepler {
 
     final double x =
         (cosArgument * cosNode - sinArgument * sinNode * cosInclination) *
-                xOrbital +
-            (-sinArgument * cosNode - cosArgument * sinNode * cosInclination) *
-                yOrbital;
+            xOrbital +
+        (-sinArgument * cosNode - cosArgument * sinNode * cosInclination) *
+            yOrbital;
     final double y =
         (cosArgument * sinNode + sinArgument * cosNode * cosInclination) *
-                xOrbital +
-            (-sinArgument * sinNode + cosArgument * cosNode * cosInclination) *
-                yOrbital;
-    final double z = (sinArgument * sinInclination) * xOrbital +
+            xOrbital +
+        (-sinArgument * sinNode + cosArgument * cosNode * cosInclination) *
+            yOrbital;
+    final double z =
+        (sinArgument * sinInclination) * xOrbital +
         (cosArgument * sinInclination) * yOrbital;
 
     return Vector3(x, y, z);

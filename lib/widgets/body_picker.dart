@@ -40,7 +40,8 @@ class BodyPicker extends StatelessWidget {
               alignment: Alignment.center,
               padding: const EdgeInsets.symmetric(horizontal: 14),
               decoration: BoxDecoration(
-                color: active ? AppTheme.accent.withValues(alpha: 0.22)
+                color: active
+                    ? AppTheme.accent.withValues(alpha: 0.22)
                     : AppTheme.panel,
                 border: Border.all(
                   color: active ? AppTheme.accent : AppTheme.panelBorder,

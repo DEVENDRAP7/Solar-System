@@ -48,8 +48,11 @@ void main() {
     test('all of them are moons of a real planet', () {
       for (final CelestialBody moon in BodyCatalog.moons) {
         expect(moon.type, BodyType.moon, reason: moon.label);
-        expect(BodyCatalog.byKey(moon.parentKey!), isNotNull,
-            reason: '${moon.label} has no parent');
+        expect(
+          BodyCatalog.byKey(moon.parentKey!),
+          isNotNull,
+          reason: '${moon.label} has no parent',
+        );
         expect(moon.elements, isNotNull, reason: moon.label);
       }
     });
@@ -71,50 +74,70 @@ void main() {
 
       expected.forEach((String key, List<double> values) {
         final CelestialBody moon = BodyCatalog.byKey(key)!;
-        expect(moon.elements!.semiMajorAxisAu * kmPerAu,
-            closeTo(values[0], 1.0), reason: '$key orbital radius');
-        expect(moon.orbitalPeriodDays, closeTo(values[1], 1e-5),
-            reason: '$key period');
+        expect(
+          moon.elements!.semiMajorAxisAu * kmPerAu,
+          closeTo(values[0], 1.0),
+          reason: '$key orbital radius',
+        );
+        expect(
+          moon.orbitalPeriodDays,
+          closeTo(values[1], 1e-5),
+          reason: '$key period',
+        );
         expect(moon.radiusKm, closeTo(values[2], 0.05), reason: '$key radius');
       });
     });
 
     test('each is tidally locked, turning once per orbit', () {
       for (final CelestialBody moon in BodyCatalog.moons) {
-        expect(moon.rotationHours, closeTo(moon.orbitalPeriodDays! * 24, 1e-6),
-            reason: moon.label);
+        expect(
+          moon.rotationHours,
+          closeTo(moon.orbitalPeriodDays! * 24, 1e-6),
+          reason: moon.label,
+        );
       }
     });
 
     test('Ganymede is larger than Mercury', () {
-      expect(BodyCatalog.byKey('ganymede')!.radiusKm,
-          greaterThan(BodyCatalog.mercury.radiusKm));
+      expect(
+        BodyCatalog.byKey('ganymede')!.radiusKm,
+        greaterThan(BodyCatalog.mercury.radiusKm),
+      );
     });
 
     test("Uranus's moons orbit nearly upright with the tipped planet", () {
       for (final CelestialBody moon in moonsOf('uranus')) {
         // The planet is tilted 98 degrees and its moons went with it, so their
         // orbits stand almost perpendicular to the ecliptic.
-        expect(moon.elements!.inclinationDeg, inInclusiveRange(93.0, 103.0),
-            reason: moon.label);
+        expect(
+          moon.elements!.inclinationDeg,
+          inInclusiveRange(93.0, 103.0),
+          reason: moon.label,
+        );
       }
     });
 
     test('Triton goes round backwards', () {
       // An inclination past 90 degrees is a retrograde orbit, the sign that
       // Neptune captured Triton rather than forming with it.
-      expect(BodyCatalog.byKey('triton')!.elements!.inclinationDeg,
-          greaterThan(90.0));
+      expect(
+        BodyCatalog.byKey('triton')!.elements!.inclinationDeg,
+        greaterThan(90.0),
+      );
     });
 
     test('they move at the right rate', () {
-      final SolarSystemSimulation sim =
-          SolarSystemSimulation(start: DateTime.utc(2026, 1, 1));
+      final SolarSystemSimulation sim = SolarSystemSimulation(
+        start: DateTime.utc(2026, 1, 1),
+      );
       final CelestialBody io = BodyCatalog.byKey('io')!;
 
       final start = sim.relativePosition(io);
-      sim.time = DateTime.utc(2026, 1, 1)
-          .add(const Duration(hours: 42, minutes: 27, seconds: 33));
+      sim.time = DateTime.utc(
+        2026,
+        1,
+        1,
+      ).add(const Duration(hours: 42, minutes: 27, seconds: 33));
       final after = sim.relativePosition(io);
 
       // Io goes round Jupiter in 1.769 days, so after one period it is back.
@@ -125,14 +148,21 @@ void main() {
   group('Where they are drawn', () {
     test('they keep their real order out from the planet', () {
       for (final String planet in <String>[
-        'mars', 'jupiter', 'saturn', 'uranus', 'neptune',
+        'mars',
+        'jupiter',
+        'saturn',
+        'uranus',
+        'neptune',
       ]) {
         final List<CelestialBody> moons = moonsOf(planet);
         double previous = 0;
         for (final CelestialBody moon in moons) {
           final double distance = drawnDistance(moon);
-          expect(distance, greaterThan(previous),
-              reason: '${moon.label} should be drawn beyond the one inside it');
+          expect(
+            distance,
+            greaterThan(previous),
+            reason: '${moon.label} should be drawn beyond the one inside it',
+          );
           previous = distance;
         }
       }
@@ -143,26 +173,34 @@ void main() {
       for (final CelestialBody moon in BodyCatalog.moons) {
         final CelestialBody parent = BodyCatalog.byKey(moon.parentKey!)!;
         final double surface = scale.bodyRadius(parent.radiusKm);
-        expect(drawnDistance(moon, phase: 0.6), greaterThan(surface),
-            reason: '${moon.label} would be inside ${parent.label}');
+        expect(
+          drawnDistance(moon, phase: 0.6),
+          greaterThan(surface),
+          reason: '${moon.label} would be inside ${parent.label}',
+        );
       }
     });
 
     test("Mimas stays outside Saturn's rings, where it really is", () {
       const ViewScale scale = ViewScale();
-      final double ringOuter = BodyCatalog.saturn.ringOuterRadii *
+      final double ringOuter =
+          BodyCatalog.saturn.ringOuterRadii *
           scale.bodyRadius(BodyCatalog.saturn.radiusKm);
-      expect(drawnDistance(BodyCatalog.byKey('mimas')!, phase: 0.8),
-          greaterThan(ringOuter));
+      expect(
+        drawnDistance(BodyCatalog.byKey('mimas')!, phase: 0.8),
+        greaterThan(ringOuter),
+      );
     });
 
     test('the moons are drawn smaller than their planets', () {
       const ViewScale scale = ViewScale();
       for (final CelestialBody moon in BodyCatalog.moons) {
         final CelestialBody parent = BodyCatalog.byKey(moon.parentKey!)!;
-        expect(scale.bodyRadius(moon.radiusKm, isMoon: true),
-            lessThan(scale.bodyRadius(parent.radiusKm)),
-            reason: '${moon.label} vs ${parent.label}');
+        expect(
+          scale.bodyRadius(moon.radiusKm, isMoon: true),
+          lessThan(scale.bodyRadius(parent.radiusKm)),
+          reason: '${moon.label} vs ${parent.label}',
+        );
       }
     });
   });

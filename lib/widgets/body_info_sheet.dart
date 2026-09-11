@@ -5,11 +5,7 @@ import '../models/celestial_body.dart';
 
 /// Details panel for the selected body.
 class BodyInfoSheet extends StatelessWidget {
-  const BodyInfoSheet({
-    required this.body,
-    required this.onClose,
-    super.key,
-  });
+  const BodyInfoSheet({required this.body, required this.onClose, super.key});
 
   final CelestialBody body;
   final VoidCallback onClose;
@@ -95,10 +91,7 @@ class BodyInfoSheet extends StatelessWidget {
               spacing: 26,
               runSpacing: 14,
               children: <Widget>[
-                _Fact(
-                  label: 'Radius',
-                  value: '${body.radiusKm.round()} km',
-                ),
+                _Fact(label: 'Radius', value: '${body.radiusKm.round()} km'),
                 _Fact(
                   label: 'Day',
                   value: describeRotation(body.rotationHours),

@@ -36,7 +36,11 @@ void main() {
     });
 
     test('panning carries the camera with the target', () {
-      final OrbitCamera camera = OrbitCamera(distance: 20, yaw: 0.4, pitch: 0.3);
+      final OrbitCamera camera = OrbitCamera(
+        distance: 20,
+        yaw: 0.4,
+        pitch: 0.3,
+      );
       final Vector3 eyeBefore = camera.eye;
       camera.pan(60, 25, 1000);
 
@@ -48,8 +52,11 @@ void main() {
 
     test('pan direction follows the heading', () {
       final OrbitCamera facingOne = OrbitCamera(distance: 20, yaw: 0, pitch: 0);
-      final OrbitCamera facingOther =
-          OrbitCamera(distance: 20, yaw: math.pi, pitch: 0);
+      final OrbitCamera facingOther = OrbitCamera(
+        distance: 20,
+        yaw: math.pi,
+        pitch: 0,
+      );
 
       facingOne.pan(50, 0, 1000);
       facingOther.pan(50, 0, 1000);
@@ -93,16 +100,20 @@ void main() {
 
   group('Holding time still', () {
     test('a finger on the scene stops the clock', () {
-      final SolarSystemProvider provider =
-          SolarSystemProvider(start: DateTime.utc(2026, 1, 1));
+      final SolarSystemProvider provider = SolarSystemProvider(
+        start: DateTime.utc(2026, 1, 1),
+      );
       addTearDown(provider.dispose);
       provider.setSpeedIndex(3);
 
       provider.setInteracting(true);
       final double held = provider.simulation.julianDate;
       provider.onFrame(1.0);
-      expect(provider.simulation.julianDate, closeTo(held, 1e-12),
-          reason: 'time must not move while the view is being dragged');
+      expect(
+        provider.simulation.julianDate,
+        closeTo(held, 1e-12),
+        reason: 'time must not move while the view is being dragged',
+      );
 
       provider.setInteracting(false);
       provider.onFrame(1.0);
@@ -118,10 +129,16 @@ void main() {
       // slow. It should be quick enough that the inner planets visibly travel:
       // Mercury goes round in 88 days, which should take a couple of minutes.
       final double mercuryOrbitSeconds = 87.969 / provider.speed.daysPerSecond;
-      expect(mercuryOrbitSeconds, lessThan(240),
-          reason: 'Mercury should round the Sun within a few minutes');
-      expect(mercuryOrbitSeconds, greaterThan(20),
-          reason: 'but not so fast that it is a blur');
+      expect(
+        mercuryOrbitSeconds,
+        lessThan(240),
+        reason: 'Mercury should round the Sun within a few minutes',
+      );
+      expect(
+        mercuryOrbitSeconds,
+        greaterThan(20),
+        reason: 'but not so fast that it is a blur',
+      );
     });
   });
 }

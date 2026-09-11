@@ -28,8 +28,11 @@ void main() {
       for (final double e in <double>[0.0, 0.02, 0.2, 0.5, 0.9, 0.97]) {
         for (double m = -3.0; m < 3.0; m += 0.37) {
           final double anomaly = Kepler.eccentricAnomaly(m, e);
-          expect(anomaly - e * math.sin(anomaly), closeTo(m, 1e-8),
-              reason: 'e=$e M=$m');
+          expect(
+            anomaly - e * math.sin(anomaly),
+            closeTo(m, 1e-8),
+            reason: 'e=$e M=$m',
+          );
         }
       }
     });
@@ -43,8 +46,12 @@ void main() {
     });
 
     test('one century on is 2100', () {
-      final DateTime later = DateTime.utc(2000, 1, 1, 12)
-          .add(const Duration(days: 36525));
+      final DateTime later = DateTime.utc(
+        2000,
+        1,
+        1,
+        12,
+      ).add(const Duration(days: 36525));
       expect(Kepler.centuriesSinceJ2000(later), closeTo(1.0, 1e-9));
     });
   });
@@ -53,8 +60,7 @@ void main() {
     test('Earth sits at its published mean longitude at J2000', () {
       // Earth's mean longitude at J2000 is 100.46°. The true longitude differs
       // by the equation of centre, under 2° for an orbit this circular.
-      final Vector3 earth =
-          Kepler.position(BodyCatalog.earth.elements!, 0.0);
+      final Vector3 earth = Kepler.position(BodyCatalog.earth.elements!, 0.0);
       expect(longitudeOf(earth), closeTo(100.46, 2.0));
     });
 
@@ -65,8 +71,11 @@ void main() {
           BodyCatalog.earth.elements!,
           Kepler.centuriesSinceJ2000(date),
         );
-        expect(position.length, inInclusiveRange(0.9825, 1.0175),
-            reason: 'day $day');
+        expect(
+          position.length,
+          inInclusiveRange(0.9825, 1.0175),
+          reason: 'day $day',
+        );
       }
     });
 
@@ -90,8 +99,9 @@ void main() {
     });
 
     test('planets keep their order out from the Sun', () {
-      final SolarSystemSimulation sim =
-          SolarSystemSimulation(start: DateTime.utc(2026, 9, 8));
+      final SolarSystemSimulation sim = SolarSystemSimulation(
+        start: DateTime.utc(2026, 9, 8),
+      );
       double previous = 0.0;
       for (final CelestialBody planet in BodyCatalog.planets) {
         final double r = sim.heliocentricPosition(planet).length;
@@ -116,10 +126,9 @@ void main() {
 
       expected.forEach((CelestialBody body, double periodDays) {
         final double start = longitudeOf(Kepler.position(body.elements!, 0.0));
-        final double after = longitudeOf(Kepler.position(
-          body.elements!,
-          periodDays / Kepler.daysPerCentury,
-        ));
+        final double after = longitudeOf(
+          Kepler.position(body.elements!, periodDays / Kepler.daysPerCentury),
+        );
         double drift = (after - start).abs();
         if (drift > 180.0) {
           drift = 360.0 - drift;
@@ -134,21 +143,26 @@ void main() {
       for (final CelestialBody planet in BodyCatalog.planets) {
         final double a = planet.elements!.semiMajorAxisAu;
         final double years = planet.orbitalPeriodDays! / 365.256363004;
-        expect(years * years / (a * a * a), closeTo(1.0, 0.001),
-            reason: planet.label);
+        expect(
+          years * years / (a * a * a),
+          closeTo(1.0, 0.001),
+          reason: planet.label,
+        );
       }
     });
 
     test('the Moon stays within its real distance range of Earth', () {
-      final SolarSystemSimulation sim =
-          SolarSystemSimulation(start: DateTime.utc(2026, 1, 1));
+      final SolarSystemSimulation sim = SolarSystemSimulation(
+        start: DateTime.utc(2026, 1, 1),
+      );
       const double kmPerAu = 1.495978707e8;
       double minimum = double.infinity;
       double maximum = 0.0;
 
       for (int day = 0; day < 60; day++) {
         sim.time = DateTime.utc(2026, 1, 1).add(Duration(days: day));
-        final double km = sim.relativePosition(BodyCatalog.moon).length * kmPerAu;
+        final double km =
+            sim.relativePosition(BodyCatalog.moon).length * kmPerAu;
         minimum = math.min(minimum, km);
         maximum = math.max(maximum, km);
       }
@@ -158,44 +172,54 @@ void main() {
     });
 
     test('the Moon completes a lunar month', () {
-      final SolarSystemSimulation sim =
-          SolarSystemSimulation(start: DateTime.utc(2026, 1, 1));
+      final SolarSystemSimulation sim = SolarSystemSimulation(
+        start: DateTime.utc(2026, 1, 1),
+      );
       final Vector3 start = sim.relativePosition(BodyCatalog.moon);
-      sim.time = DateTime.utc(2026, 1, 1)
-          .add(const Duration(days: 27, hours: 7, minutes: 43));
+      sim.time = DateTime.utc(
+        2026,
+        1,
+        1,
+      ).add(const Duration(days: 27, hours: 7, minutes: 43));
       final Vector3 after = sim.relativePosition(BodyCatalog.moon);
 
-      final double angle =
-          start.angleTo(after) * 180.0 / math.pi;
+      final double angle = start.angleTo(after) * 180.0 / math.pi;
       expect(angle, lessThan(2.0), reason: 'sidereal month drift $angle°');
     });
   });
 
   group('Simulation clock', () {
     test('time scale advances the clock proportionally', () {
-      final SolarSystemSimulation sim =
-          SolarSystemSimulation(start: DateTime.utc(2026, 1, 1));
+      final SolarSystemSimulation sim = SolarSystemSimulation(
+        start: DateTime.utc(2026, 1, 1),
+      );
       sim.daysPerSecond = 10.0;
       sim.advance(2.5);
-      expect(sim.julianDate - Kepler.julianDate(DateTime.utc(2026, 1, 1)),
-          closeTo(25.0, 1e-9));
+      expect(
+        sim.julianDate - Kepler.julianDate(DateTime.utc(2026, 1, 1)),
+        closeTo(25.0, 1e-9),
+      );
     });
 
     test('pausing stops the clock', () {
-      final SolarSystemSimulation sim =
-          SolarSystemSimulation(start: DateTime.utc(2026, 1, 1));
+      final SolarSystemSimulation sim = SolarSystemSimulation(
+        start: DateTime.utc(2026, 1, 1),
+      );
       sim.paused = true;
       sim.advance(100.0);
-      expect(sim.daysSinceJ2000,
-          closeTo(Kepler.julianDate(DateTime.utc(2026, 1, 1)) - 2451545.0, 1e-9));
+      expect(
+        sim.daysSinceJ2000,
+        closeTo(Kepler.julianDate(DateTime.utc(2026, 1, 1)) - 2451545.0, 1e-9),
+      );
     });
 
     test('retrograde bodies spin the other way', () {
       // spinRadians reports an angle in 0..2*pi, so direction shows up in how
       // the angle moves over time rather than in its sign.
       double step(CelestialBody body) {
-        final SolarSystemSimulation sim =
-            SolarSystemSimulation(start: DateTime.utc(2026, 1, 1));
+        final SolarSystemSimulation sim = SolarSystemSimulation(
+          start: DateTime.utc(2026, 1, 1),
+        );
         final double before = sim.spinRadians(body);
         sim.daysPerSecond = 1.0;
         sim.advance(0.01);
@@ -222,8 +246,7 @@ void main() {
       const ViewScale scale = ViewScale();
       double previous = 0.0;
       for (final CelestialBody planet in BodyCatalog.planets) {
-        final double units =
-            scale.distance(planet.elements!.semiMajorAxisAu);
+        final double units = scale.distance(planet.elements!.semiMajorAxisAu);
         expect(units, greaterThan(previous), reason: planet.label);
         previous = units;
       }
@@ -231,19 +254,26 @@ void main() {
 
     test('explore mode preserves ordering of radii', () {
       const ViewScale scale = ViewScale();
-      expect(scale.bodyRadius(BodyCatalog.jupiter.radiusKm),
-          greaterThan(scale.bodyRadius(BodyCatalog.earth.radiusKm)));
-      expect(scale.bodyRadius(BodyCatalog.earth.radiusKm),
-          greaterThan(scale.bodyRadius(BodyCatalog.moon.radiusKm)));
-      expect(scale.bodyRadius(BodyCatalog.sun.radiusKm),
-          greaterThan(scale.bodyRadius(BodyCatalog.jupiter.radiusKm)));
+      expect(
+        scale.bodyRadius(BodyCatalog.jupiter.radiusKm),
+        greaterThan(scale.bodyRadius(BodyCatalog.earth.radiusKm)),
+      );
+      expect(
+        scale.bodyRadius(BodyCatalog.earth.radiusKm),
+        greaterThan(scale.bodyRadius(BodyCatalog.moon.radiusKm)),
+      );
+      expect(
+        scale.bodyRadius(BodyCatalog.sun.radiusKm),
+        greaterThan(scale.bodyRadius(BodyCatalog.jupiter.radiusKm)),
+      );
     });
 
     test('the Sun does not swallow the innermost orbit', () {
       const ViewScale scale = ViewScale();
       final double sunRadius = scale.bodyRadius(BodyCatalog.sun.radiusKm);
-      final double mercuryOrbit =
-          scale.distance(BodyCatalog.mercury.elements!.semiMajorAxisAu);
+      final double mercuryOrbit = scale.distance(
+        BodyCatalog.mercury.elements!.semiMajorAxisAu,
+      );
       expect(sunRadius, lessThan(mercuryOrbit * 0.5));
     });
 
@@ -251,15 +281,21 @@ void main() {
       const ViewScale scale = ViewScale();
       final List<CelestialBody> planets = BodyCatalog.planets;
       for (int i = 1; i < planets.length; i++) {
-        final double inner =
-            scale.distance(planets[i - 1].elements!.semiMajorAxisAu);
-        final double outer =
-            scale.distance(planets[i].elements!.semiMajorAxisAu);
+        final double inner = scale.distance(
+          planets[i - 1].elements!.semiMajorAxisAu,
+        );
+        final double outer = scale.distance(
+          planets[i].elements!.semiMajorAxisAu,
+        );
         final double gap = outer - inner;
-        final double radii = scale.bodyRadius(planets[i - 1].radiusKm) +
+        final double radii =
+            scale.bodyRadius(planets[i - 1].radiusKm) +
             scale.bodyRadius(planets[i].radiusKm);
-        expect(gap, greaterThan(radii),
-            reason: '${planets[i - 1].label} to ${planets[i].label}');
+        expect(
+          gap,
+          greaterThan(radii),
+          reason: '${planets[i - 1].label} to ${planets[i].label}',
+        );
       }
     });
 
@@ -273,8 +309,10 @@ void main() {
     test('the Moon is drawn outside its planet', () {
       const ViewScale scale = ViewScale();
       final double earthRadius = scale.bodyRadius(BodyCatalog.earth.radiusKm);
-      final double moonRadius =
-          scale.bodyRadius(BodyCatalog.moon.radiusKm, isMoon: true);
+      final double moonRadius = scale.bodyRadius(
+        BodyCatalog.moon.radiusKm,
+        isMoon: true,
+      );
       final double moonDistance = scale.satelliteDistance(
         astronomicalUnits: 0.00257,
         semiMajorAxisAu: 0.00257,
@@ -289,8 +327,11 @@ void main() {
   group('Catalog and generated models agree', () {
     test('every body has a model file, and radii match the manifest', () {
       final File file = File('assets/data/bodies.json');
-      expect(file.existsSync(), isTrue,
-          reason: 'run tools/blender/build_models.py');
+      expect(
+        file.existsSync(),
+        isTrue,
+        reason: 'run tools/blender/build_models.py',
+      );
 
       final Map<String, dynamic> manifest =
           json.decode(file.readAsStringSync()) as Map<String, dynamic>;
@@ -298,18 +339,26 @@ void main() {
 
       final Map<String, Map<String, dynamic>> byKey =
           <String, Map<String, dynamic>>{
-        for (final dynamic entry in entries)
-          (entry as Map<String, dynamic>)['key'] as String: entry,
-      };
+            for (final dynamic entry in entries)
+              (entry as Map<String, dynamic>)['key'] as String: entry,
+          };
 
       for (final CelestialBody body in BodyCatalog.all) {
-        expect(byKey.containsKey(body.key), isTrue,
-            reason: 'no generated model for ${body.key}');
-        expect(File(body.modelAsset).existsSync(), isTrue,
-            reason: '${body.modelAsset} missing');
-        expect((byKey[body.key]!['radiusKm'] as num).toDouble(),
-            closeTo(body.radiusKm, 0.001),
-            reason: '${body.label} radius drifted from the manifest');
+        expect(
+          byKey.containsKey(body.key),
+          isTrue,
+          reason: 'no generated model for ${body.key}',
+        );
+        expect(
+          File(body.modelAsset).existsSync(),
+          isTrue,
+          reason: '${body.modelAsset} missing',
+        );
+        expect(
+          (byKey[body.key]!['radiusKm'] as num).toDouble(),
+          closeTo(body.radiusKm, 0.001),
+          reason: '${body.label} radius drifted from the manifest',
+        );
       }
 
       const CelestialBody saturn = BodyCatalog.saturn;
