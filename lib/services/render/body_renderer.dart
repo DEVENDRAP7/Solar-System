@@ -29,8 +29,11 @@ class BodyRenderer {
     required Vector3 lightDirection,
     Vector3? viewDirection,
     bool emissive = false,
-    double ambient = 0.16,
-    double fill = 0.30,
+    // Space is genuinely almost black, but a planet you cannot see is no use.
+    // Ambient lifts the night side to where its markings still read, and the
+    // fill from the camera keeps whatever you are looking at lit.
+    double ambient = 0.30,
+    double fill = 0.40,
     bool cull = true,
     bool twoSided = false,
     double? nearerThan,
@@ -71,7 +74,10 @@ class BodyRenderer {
       screen[i * 2 + 1] = halfHeight - focalLength * vy / denominator;
 
       texCoords[i * 2] = mesh.uvs[i * 2] * texture.width;
-      texCoords[i * 2 + 1] = mesh.uvs[i * 2 + 1] * texture.height;
+      // glTF measures v down from the top of the image while the meshes are
+      // authored with it running up, so it is flipped here. Without this every
+      // body is drawn upside down.
+      texCoords[i * 2 + 1] = (1.0 - mesh.uvs[i * 2 + 1]) * texture.height;
 
       double shade = 1.0;
       if (!emissive) {

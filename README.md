@@ -18,8 +18,9 @@ integration, more moons, and atmospheric effects.
 
 - Real-time 3D rendering of the Sun, the eight planets and the Moon
 - Orbits computed from published Keplerian elements, not animation loops
-- Free movement through the system: one finger orbits the view, two fingers
-  pan across it, pinch zooms, and a control returns to the overview
+- Free movement through the system: a one-finger drag either swings the view
+  around or moves across it, whichever you pick from the controls; two fingers
+  pinch to zoom and drag to move; and a control returns to the overview
 - Time holds still while you move the view, so a planet stays put long enough
   to look at its far side
 - Tap a body for its details, or jump straight to one
@@ -112,6 +113,11 @@ is one toggle away, and shows why nobody draws it that way.
 nodes — position, axial tilt, spin — so a planet can orbit, lean and rotate
 independently. Tap selection is a raycast against the scene.
 
+**Lighting.** A lambert term from the direction of the Sun, plus a weak fill
+from the camera so whatever you are looking at stays readable, over an ambient
+floor. Space really is almost black, but a planet you cannot see is no use, so
+the night side is lifted to where its markings still show.
+
 **Rendering.** There is no 3D engine and no OpenGL plugin. The models are read
 straight out of their glTF binaries, and the app transforms and projects the
 vertices itself, then hands the triangles to `Canvas.drawVertices` with the
@@ -203,8 +209,10 @@ snow lines on Earth, wind bands on the gas giants. A full rebuild takes about
 20 seconds on any machine, with no GPU required, and is deterministic: the same
 seed always produces the same planets.
 
-Meshes are unit spheres (2,208 triangles each; 10.8 MB for all 31, most of it
-the Moon's crater relief). True
+Meshes are unit spheres (2,208 triangles each; 3.7 MB for all 31). The
+renderer lights each body from its mesh normals and never samples a normal map,
+so the pipeline does not bake them — doing so added six megabytes to the
+download for no visible difference. `--normals 1` turns them back on. True
 sizes, rotation periods and axial tilts are in `assets/data/bodies.json` so the
 app picks its own scale — a solar system at literal scale is mostly empty space.
 See [tools/blender/README.md](tools/blender/README.md) for the details.

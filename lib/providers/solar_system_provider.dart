@@ -6,6 +6,7 @@ import '../models/body_catalog.dart';
 import '../models/celestial_body.dart';
 import '../services/physics/simulation.dart';
 import '../services/render/mesh_library.dart';
+import '../widgets/solar_system_view.dart' show DragMode;
 
 /// One entry on the time control.
 class TimeSpeed {
@@ -56,9 +57,11 @@ class SolarSystemProvider extends ChangeNotifier {
     TimeSpeed('1 year/s', 365.25),
   ];
 
-  /// Starts at an hour per second: fast enough to see motion, slow enough
-  /// that a planet is not spinning while you try to look at it.
-  int speedIndex = 2;
+  /// A day per second, so the inner planets visibly travel their orbits —
+  /// Mercury rounds the Sun in about a minute and a half. The clock holds
+  /// still while the view is being moved, so this no longer gets in the way of
+  /// looking at something.
+  int speedIndex = 3;
 
   bool get paused => simulation.paused;
 
@@ -69,6 +72,9 @@ class SolarSystemProvider extends ChangeNotifier {
   bool showOrbits = true;
   bool showMoons = true;
   bool showBelt = true;
+
+  /// What a one-finger drag does: swing around, or move across the system.
+  DragMode dragMode = DragMode.orbit;
   ScaleMode scaleMode = ScaleMode.explore;
 
   /// Ticks once per frame so the clock display can rebuild on its own.
@@ -140,6 +146,11 @@ class SolarSystemProvider extends ChangeNotifier {
 
   void setBeltVisible(bool visible) {
     showBelt = visible;
+    notifyListeners();
+  }
+
+  void setDragMode(DragMode mode) {
+    dragMode = mode;
     notifyListeners();
   }
 

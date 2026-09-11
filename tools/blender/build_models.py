@@ -12,6 +12,11 @@ Options (after the ``--``):
                    mobile, so each doubling of width quadruples the load time.
     --only KEYS    comma separated body keys, e.g. ``earth,mars``
     --seed N       master seed; the same seed always builds the same planets
+    --normals 1    also bake normal maps. Off by default: the app lights each
+                   body from its mesh normals and never samples a normal map,
+                   so baking them only adds megabytes to the download. Turn
+                   them on to inspect relief in preview.py, or if the renderer
+                   ever grows to use them.
 
 Meshes are unit spheres. Physical sizes, rotation periods and axial tilts are
 written to ``assets/data/bodies.json`` so the app picks its own scale.
@@ -38,7 +43,8 @@ import surfaces  # noqa: E402
 
 def parse_args():
     argv = sys.argv[sys.argv.index('--') + 1:] if '--' in sys.argv else []
-    options = {'out': 'assets/models', 'res': 512, 'only': None, 'seed': 20260908}
+    options = {'out': 'assets/models', 'res': 512, 'only': None,
+               'seed': 20260908, 'normals': '0'}
     for index in range(0, len(argv) - 1, 2):
         key = argv[index].lstrip('-')
         if key in options:
@@ -284,7 +290,9 @@ def build():
         )
 
         normal_image = None
-        if relief is not None and spec.get('bump_strength', 0.0) > 0.0:
+        if (options['normals'] != '0'
+                and relief is not None
+                and spec.get('bump_strength', 0.0) > 0.0):
             from textures import height_to_normal
             normal = height_to_normal(relief, strength=float(spec['bump_strength']))
             normal_image = save_image(

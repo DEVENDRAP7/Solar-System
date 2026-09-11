@@ -21,7 +21,7 @@
       "rotationHours": 1407.6,
       "axialTiltDeg": 0.034,
       "triangles": 2208,
-      "bytes": 1606820
+      "bytes": 142616
     },
     {
       "key": "venus",
@@ -51,7 +51,7 @@
       "rotationHours": 655.72,
       "axialTiltDeg": 6.68,
       "triangles": 2208,
-      "bytes": 4418976
+      "bytes": 1120236
     },
     {
       "key": "mars",
@@ -61,7 +61,7 @@
       "rotationHours": 24.623,
       "axialTiltDeg": 25.19,
       "triangles": 2208,
-      "bytes": 1214160
+      "bytes": 176312
     },
     {
       "key": "jupiter",
@@ -111,7 +111,7 @@
       "rotationHours": 7.654,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 152576
+      "bytes": 62260
     },
     {
       "key": "deimos",
@@ -121,7 +121,7 @@
       "rotationHours": 30.299,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 151464
+      "bytes": 63164
     },
     {
       "key": "io",
@@ -131,7 +131,7 @@
       "rotationHours": 42.459,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 142900
+      "bytes": 65752
     },
     {
       "key": "europa",
@@ -141,7 +141,7 @@
       "rotationHours": 85.228,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 139704
+      "bytes": 70364
     },
     {
       "key": "ganymede",
@@ -151,7 +151,7 @@
       "rotationHours": 171.709,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 150344
+      "bytes": 66504
     },
     {
       "key": "callisto",
@@ -161,7 +161,7 @@
       "rotationHours": 400.536,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 151048
+      "bytes": 63028
     },
     {
       "key": "mimas",
@@ -171,7 +171,7 @@
       "rotationHours": 22.618,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 153568
+      "bytes": 66420
     },
     {
       "key": "enceladus",
@@ -181,7 +181,7 @@
       "rotationHours": 32.885,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 144212
+      "bytes": 69344
     },
     {
       "key": "tethys",
@@ -191,7 +191,7 @@
       "rotationHours": 45.307,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 152036
+      "bytes": 68800
     },
     {
       "key": "dione",
@@ -201,7 +201,7 @@
       "rotationHours": 65.686,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 151104
+      "bytes": 68564
     },
     {
       "key": "rhea",
@@ -211,7 +211,7 @@
       "rotationHours": 108.437,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 153160
+      "bytes": 68388
     },
     {
       "key": "titan",
@@ -231,7 +231,7 @@
       "rotationHours": 1903.716,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 155068
+      "bytes": 70228
     },
     {
       "key": "miranda",
@@ -241,7 +241,7 @@
       "rotationHours": 33.924,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 156424
+      "bytes": 68524
     },
     {
       "key": "ariel",
@@ -251,7 +251,7 @@
       "rotationHours": 60.489,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 151668
+      "bytes": 68680
     },
     {
       "key": "umbriel",
@@ -261,7 +261,7 @@
       "rotationHours": 99.46,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 148016
+      "bytes": 63832
     },
     {
       "key": "titania",
@@ -271,7 +271,7 @@
       "rotationHours": 208.941,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 150840
+      "bytes": 67428
     },
     {
       "key": "oberon",
@@ -281,7 +281,7 @@
       "rotationHours": 323.118,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 151036
+      "bytes": 66952
     },
     {
       "key": "proteus",
@@ -291,7 +291,7 @@
       "rotationHours": 26.936,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 150984
+      "bytes": 63312
     },
     {
       "key": "triton",
@@ -301,7 +301,7 @@
       "rotationHours": 141.045,
       "axialTiltDeg": 0.0,
       "triangles": 2208,
-      "bytes": 142952
+      "bytes": 68932
     },
     {
       "key": "saturn_rings",

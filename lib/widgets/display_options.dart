@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../config/theme.dart';
 import '../config/view_scale.dart';
+import 'solar_system_view.dart' show DragMode;
 
 /// Toggles for what the scene shows.
 class DisplayOptions extends StatelessWidget {
@@ -15,6 +16,8 @@ class DisplayOptions extends StatelessWidget {
     required this.onBeltChanged,
     required this.onScaleModeChanged,
     required this.onRecenter,
+    required this.dragMode,
+    required this.onDragModeChanged,
     super.key,
   });
 
@@ -27,6 +30,8 @@ class DisplayOptions extends StatelessWidget {
   final ValueChanged<bool> onBeltChanged;
   final ValueChanged<ScaleMode> onScaleModeChanged;
   final VoidCallback onRecenter;
+  final DragMode dragMode;
+  final ValueChanged<DragMode> onDragModeChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -40,6 +45,18 @@ class DisplayOptions extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
+          _Toggle(
+            icon: dragMode == DragMode.move
+                ? Icons.pan_tool_alt_rounded
+                : Icons.threesixty_rounded,
+            tooltip: dragMode == DragMode.move
+                ? 'Dragging moves across the system'
+                : 'Dragging swings the view around',
+            active: dragMode == DragMode.move,
+            onPressed: () => onDragModeChanged(
+              dragMode == DragMode.move ? DragMode.orbit : DragMode.move,
+            ),
+          ),
           _Toggle(
             icon: Icons.filter_center_focus_rounded,
             tooltip: 'Back to the whole system',

@@ -78,6 +78,7 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
                   onTapBody: _provider.select,
                   onFrame: _provider.onFrame,
                   onInteracting: _provider.setInteracting,
+                  dragMode: _provider.dragMode,
                   recenterRequests: _provider.recenterRequests,
                 ),
               ),
@@ -106,6 +107,8 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
                   onBeltChanged: _provider.setBeltVisible,
                   onScaleModeChanged: _provider.setScaleMode,
                   onRecenter: _provider.recenter,
+                  dragMode: _provider.dragMode,
+                  onDragModeChanged: _provider.setDragMode,
                 ),
               ),
               Positioned(

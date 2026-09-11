@@ -12,6 +12,15 @@ import '../services/render/mesh_library.dart';
 import '../services/render/orbit_camera.dart';
 import '../services/render/solar_system_painter.dart';
 
+/// What a one-finger drag does to the view.
+enum DragMode {
+  /// Swing the camera around what it is looking at.
+  orbit,
+
+  /// Slide across the system, going wherever you like.
+  move,
+}
+
 /// The 3D view: gestures, the animation clock, and the painter.
 class SolarSystemView extends StatefulWidget {
   const SolarSystemView({
@@ -26,6 +35,7 @@ class SolarSystemView extends StatefulWidget {
     required this.onTapBody,
     required this.onFrame,
     required this.onInteracting,
+    required this.dragMode,
     required this.recenterRequests,
     super.key,
   });
@@ -47,6 +57,9 @@ class SolarSystemView extends StatefulWidget {
   /// Raised while a finger is on the scene, so time can be held still.
   final void Function(bool interacting) onInteracting;
 
+  /// What a one-finger drag does.
+  final DragMode dragMode;
+
   /// Bumped when the view should return to the overview.
   final ValueListenable<int> recenterRequests;
 
@@ -67,6 +80,17 @@ class _SolarSystemViewState extends State<SolarSystemView>
   Duration _last = Duration.zero;
   double _zoomStart = 1.0;
   Size _viewport = Size.zero;
+
+  /// True once a gesture has involved more than one finger.
+  bool _multiTouch = false;
+
+  /// Radians of rotation per pixel dragged. A full swipe across a phone turns
+  /// the view about two thirds of the way round, which is quick without being
+  /// uncontrollable.
+  static const double _rotateSpeed = 0.0032;
+
+  /// Scale changes smaller than this are treated as noise rather than a pinch.
+  static const double _zoomDeadzone = 0.004;
 
   /// While true the camera keeps a selected body centred. Panning away turns
   /// it off, which is what lets you wander off on your own.
@@ -177,30 +201,48 @@ class _SolarSystemViewState extends State<SolarSystemView>
 
   void _handleScaleStart(ScaleStartDetails details) {
     _zoomStart = 1.0;
+    _multiTouch = details.pointerCount > 1;
     // Hold the clock while a finger is down. Without this a planet turns and
     // drifts away as you try to look at it, and its far side stays hidden.
     widget.onInteracting(true);
   }
 
   void _handleScaleUpdate(ScaleUpdateDetails details) {
+    // Once a gesture has had two fingers on it, it stays a two-finger gesture
+    // until every finger lifts. Reading the count live means that lifting one
+    // finger at the end of a pinch turns the last moments of it into a spin.
     if (details.pointerCount > 1) {
-      final double step = details.scale / _zoomStart;
-      _zoomStart = details.scale;
-      _camera.zoom(step);
-
-      // Two fingers also drag the view across the system.
-      final Offset delta = details.focalPointDelta;
-      if (delta != Offset.zero && _viewport.height > 0) {
-        _camera.pan(delta.dx, delta.dy, _viewport.height);
-        _following = false;
-      }
-    } else {
-      _camera.rotate(
-        -details.focalPointDelta.dx * 0.006,
-        details.focalPointDelta.dy * 0.006,
-      );
+      _multiTouch = true;
     }
+
+    final Offset delta = details.focalPointDelta;
+
+    if (_multiTouch) {
+      // Pinch and drag together. The scale reading is never perfectly steady
+      // during a two-finger drag, so small changes are ignored — otherwise
+      // every attempt to move the view zooms it slightly as well.
+      final double step = details.scale / _zoomStart;
+      if ((step - 1.0).abs() > _zoomDeadzone) {
+        _zoomStart = details.scale;
+        _camera.zoom(step);
+      }
+      _movePan(delta);
+    } else if (widget.dragMode == DragMode.move) {
+      _movePan(delta);
+    } else {
+      _camera.rotate(-delta.dx * _rotateSpeed, delta.dy * _rotateSpeed);
+    }
+
     _destination = null;
+  }
+
+  void _movePan(Offset delta) {
+    if (delta == Offset.zero || _viewport.height <= 0) {
+      return;
+    }
+    _camera.pan(delta.dx, delta.dy, _viewport.height);
+    // Moving away from a body stops the camera following it.
+    _following = false;
   }
 
   void _handleScaleEnd(ScaleEndDetails details) => widget.onInteracting(false);

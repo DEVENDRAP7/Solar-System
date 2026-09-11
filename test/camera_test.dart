@@ -109,12 +109,19 @@ void main() {
       expect(provider.simulation.julianDate, greaterThan(held));
     });
 
-    test('the default speed is gentle enough to look at a planet', () {
+    test('the default speed shows the planets actually moving', () {
       final SolarSystemProvider provider = SolarSystemProvider();
       addTearDown(provider.dispose);
-      // A day per second spins Earth once a second, which is unusable for
-      // looking at a surface. An hour per second gives a full turn in ~24s.
-      expect(provider.speed.daysPerSecond, lessThanOrEqualTo(1.0 / 24.0));
+
+      // Holding the clock while the view is being dragged is what makes a
+      // planet sit still to be looked at, so the default no longer has to be
+      // slow. It should be quick enough that the inner planets visibly travel:
+      // Mercury goes round in 88 days, which should take a couple of minutes.
+      final double mercuryOrbitSeconds = 87.969 / provider.speed.daysPerSecond;
+      expect(mercuryOrbitSeconds, lessThan(240),
+          reason: 'Mercury should round the Sun within a few minutes');
+      expect(mercuryOrbitSeconds, greaterThan(20),
+          reason: 'but not so fast that it is a blur');
     });
   });
 }
