@@ -1,3 +1,5 @@
+import 'dart:ui' show Color;
+
 import 'celestial_body.dart';
 import 'orbital_elements.dart';
 
@@ -61,6 +63,8 @@ class BodyCatalog {
 
   static const CelestialBody venus = CelestialBody(
     key: 'venus',
+    atmosphere: Color(0xFFF6E3B4),
+    atmosphereDepth: 0.075,
     label: 'Venus',
     type: BodyType.terrestrial,
     radiusKm: 6051.8,
@@ -90,6 +94,8 @@ class BodyCatalog {
 
   static const CelestialBody earth = CelestialBody(
     key: 'earth',
+    atmosphere: Color(0xFF6FA8FF),
+    atmosphereDepth: 0.06,
     label: 'Earth',
     type: BodyType.terrestrial,
     radiusKm: 6371.0,
@@ -150,6 +156,9 @@ class BodyCatalog {
 
   static const CelestialBody mars = CelestialBody(
     key: 'mars',
+    atmosphere: Color(0xFFD9A07A),
+    // Mars's air is a hundredth of Earth's: a thin dusty edge, not a halo.
+    atmosphereDepth: 0.026,
     label: 'Mars',
     type: BodyType.terrestrial,
     radiusKm: 3389.5,
@@ -179,6 +188,8 @@ class BodyCatalog {
 
   static const CelestialBody jupiter = CelestialBody(
     key: 'jupiter',
+    atmosphere: Color(0xFFE8CBA0),
+    atmosphereDepth: 0.045,
     label: 'Jupiter',
     type: BodyType.gasGiant,
     radiusKm: 69911.0,
@@ -209,6 +220,8 @@ class BodyCatalog {
 
   static const CelestialBody saturn = CelestialBody(
     key: 'saturn',
+    atmosphere: Color(0xFFE7D2A6),
+    atmosphereDepth: 0.045,
     label: 'Saturn',
     type: BodyType.gasGiant,
     radiusKm: 58232.0,
@@ -241,6 +254,8 @@ class BodyCatalog {
 
   static const CelestialBody uranus = CelestialBody(
     key: 'uranus',
+    atmosphere: Color(0xFF9FE6E8),
+    atmosphereDepth: 0.055,
     label: 'Uranus',
     type: BodyType.iceGiant,
     radiusKm: 25362.0,
@@ -270,6 +285,8 @@ class BodyCatalog {
 
   static const CelestialBody neptune = CelestialBody(
     key: 'neptune',
+    atmosphere: Color(0xFF7FA8F0),
+    atmosphereDepth: 0.055,
     label: 'Neptune',
     type: BodyType.iceGiant,
     radiusKm: 24622.0,
@@ -323,11 +340,15 @@ class BodyCatalog {
     double? eclipticInclinationDeg,
     double? gravity,
     double? meanTemperatureC,
+    Color? atmosphere,
+    double atmosphereDepth = 0.055,
   }) {
     return CelestialBody(
       key: key,
       label: label,
       type: BodyType.moon,
+      atmosphere: atmosphere,
+      atmosphereDepth: atmosphereDepth,
       radiusKm: radiusKm,
       // Every one of these is tidally locked, turning once per orbit.
       rotationHours: periodDays * 24.0,
@@ -542,6 +563,8 @@ class BodyCatalog {
     ),
     _moon(
       key: 'titan',
+      atmosphere: const Color(0xFFE0A45C),
+      atmosphereDepth: 0.07,
       label: 'Titan',
       parentKey: 'saturn',
       semiMajorAxisKm: 1221870,

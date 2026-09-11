@@ -106,6 +106,8 @@ def generate(spec, width, height_px, seed):
             # The bump maps are derived from real altimetry, so this is the
             # body's actual topography rather than invented roughness.
             relief = _stretch(sources.load_grey(bump, width, height_px))
+            color = sources.relief_shade(
+                color, relief, float(spec.get('relief_shade', 0.0)))
         return np.clip(color, 0.0, 1.0), relief
 
     if surface == 'earth_real':
@@ -141,6 +143,9 @@ def generate(spec, width, height_px, seed):
             dirs,
             minimum_km=float(spec.get('crater_minimum_km', 4.0)),
         )
+        # Twenty-four thousand real craters, cut into the map as curvature.
+        color = sources.relief_shade(
+            color, relief, float(spec.get('relief_shade', 0.0)))
         return np.clip(color, 0.0, 1.0), relief
 
     if surface == 'star':

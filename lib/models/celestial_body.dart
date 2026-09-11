@@ -1,3 +1,5 @@
+import 'dart:ui' show Color;
+
 import 'orbital_elements.dart';
 
 /// What kind of object a body is, which drives how it is rendered and
@@ -23,7 +25,18 @@ class CelestialBody {
     this.ringModelAsset,
     this.ringInnerRadii = 0.0,
     this.ringOuterRadii = 0.0,
+    this.atmosphere,
+    this.atmosphereDepth = 0.055,
   });
+
+  /// Colour of the body's air, seen edge-on against space, or null for a body
+  /// with none. It is what gives a planet a soft rim instead of a hard edge —
+  /// the giveaway, at a glance, between a world and a billiard ball.
+  final Color? atmosphere;
+
+  /// How far the air reaches past the surface, as a fraction of the radius.
+  /// Exaggerated: Earth's is nearer 1%, which would be a single pixel.
+  final double atmosphereDepth;
 
   /// Stable identifier, matching the model file name.
   final String key;

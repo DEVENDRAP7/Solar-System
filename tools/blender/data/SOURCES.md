@@ -15,6 +15,19 @@ dataset, so they are listed separately below.
 
 NASA imagery is not subject to copyright. Natural Earth is public domain.
 
+## Higher-resolution maps
+
+Everything above is 1024x512 or 2048x1024, which is what is reachable from a
+sandbox whose egress only allows GitHub. Solar System Scope publishes the same
+bodies at 2k, 4k and 8k under CC BY 4.0 — usable commercially with attribution,
+unlike most high-resolution planetary packs, which are non-commercial. Run the
+`Fetch textures` workflow to pull those on a runner and commit them to a branch,
+then rebuild the models from it.
+
+Note on what was deliberately not used: the Real Solar System texture pack
+(github.com/KSP-RO/RSS-Textures) has 4k and 8k maps in-repo, but is CC-BY-NC-SA
+— non-commercial and share-alike — so it is not in here.
+
 ## Published scientific data
 
 `moon_craters.csv` — 24,520 craters as longitude, latitude and diameter in

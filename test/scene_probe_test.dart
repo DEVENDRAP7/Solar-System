@@ -198,6 +198,32 @@ void main() {
         scale: const ViewScale(),
       );
 
+      // The rocky bodies close up, lit from the side, which is the only way
+      // relief ever shows: their real topography is displaced into the mesh.
+      for (final String key in <String>['mercury', 'mars', 'venus']) {
+        final CelestialBody body = BodyCatalog.byKey(key)!;
+        final vm.Vector3 at = bodyWorldPosition(
+          SolarSystemSimulation(start: DateTime.utc(2026, 9, 9)),
+          const ViewScale(),
+          body,
+        );
+        await shoot(
+          '${key}_close',
+          meshes,
+          camera: OrbitCamera(
+            target: at,
+            distance: const ViewScale().bodyRadius(body.radiusKm) * 4.0,
+            yaw: math.atan2(
+              math.cos(math.atan2(at.x, at.z)),
+              -math.sin(math.atan2(at.x, at.z)),
+            ),
+            pitch: 0.12,
+          ),
+          scale: const ViewScale(),
+          showOrbits: false,
+        );
+      }
+
       // Day and night. The camera is placed relative to the Sun rather than
       // by eye: a quarter turn round from it puts the terminator straight down
       // the middle of the disc, and directly opposite it shows the whole night

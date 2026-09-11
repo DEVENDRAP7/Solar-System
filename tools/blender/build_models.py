@@ -113,7 +113,7 @@ def set_input(node, name, value):
 # ---------------------------------------------------------------------------
 
 
-def make_sphere(name):
+def make_sphere(name, relief=None, strength=0.0):
     bpy.ops.mesh.primitive_uv_sphere_add(
         segments=body_defs.SPHERE_SEGMENTS,
         ring_count=body_defs.SPHERE_RINGS,
@@ -122,8 +122,49 @@ def make_sphere(name):
     obj = bpy.context.active_object
     obj.name = name
     obj.data.name = name
+
+    if relief is not None and strength > 0.0:
+        displace(obj, relief, strength)
+
     bpy.ops.object.shade_smooth()
     return obj
+
+
+def displace(obj, relief, strength):
+    """Push every vertex out along its own normal by the height field.
+
+    The relief maps are real altimetry — MESSENGER for Mercury, MOLA for Mars,
+    the LOLA crater catalogue for the Moon — so this is each body's actual
+    topography, not invented roughness. It is displaced into the mesh rather
+    than faked with a normal map because the renderer lights from the mesh's
+    own normals: geometry is the only thing it can see.
+    """
+    rows, columns = relief.shape
+    # Centre it, so the body keeps its radius and only the detail moves.
+    field = relief - float(np.mean(relief))
+
+    vertices = obj.data.vertices
+    coordinates = np.empty(len(vertices) * 3, dtype=np.float64)
+    vertices.foreach_get('co', coordinates)
+    points = coordinates.reshape(-1, 3)
+
+    radius = np.linalg.norm(points, axis=1)
+    safe = np.where(radius > 0, radius, 1.0)
+    unit = points / safe[:, None]
+
+    # Same mapping the maps are generated with: u spans longitude from -pi,
+    # v spans latitude with v = 0 at the south pole.
+    longitude = np.arctan2(unit[:, 1], unit[:, 0])
+    latitude = np.arcsin(np.clip(unit[:, 2], -1.0, 1.0))
+
+    column = np.clip(((longitude + np.pi) / (2.0 * np.pi) * columns).astype(int),
+                     0, columns - 1)
+    row = np.clip(((latitude + np.pi / 2.0) / np.pi * rows).astype(int),
+                  0, rows - 1)
+
+    scale = 1.0 + strength * field[row, column]
+    vertices.foreach_set('co', (unit * (radius * scale)[:, None]).ravel())
+    obj.data.update()
 
 
 def make_annulus(name, inner, outer, segments):
@@ -316,7 +357,11 @@ def build():
                 color_data=True, lossless=True,
             )
 
-        obj = make_sphere(key)
+        obj = make_sphere(
+            key,
+            relief=relief,
+            strength=float(spec.get('relief_strength', 0.0)),
+        )
         obj.data.materials.append(
             surface_material(spec, color_image, normal_image, night_image))
 

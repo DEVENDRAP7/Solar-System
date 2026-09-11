@@ -10,8 +10,8 @@
       "radiusKm": 696340.0,
       "rotationHours": 609.12,
       "axialTiltDeg": 7.25,
-      "triangles": 2208,
-      "bytes": 129560
+      "triangles": 5040,
+      "bytes": 193788
     },
     {
       "key": "mercury",
@@ -20,8 +20,8 @@
       "radiusKm": 2439.7,
       "rotationHours": 1407.6,
       "axialTiltDeg": 0.034,
-      "triangles": 2208,
-      "bytes": 142672
+      "triangles": 5040,
+      "bytes": 436128
     },
     {
       "key": "venus",
@@ -30,8 +30,8 @@
       "radiusKm": 6051.8,
       "rotationHours": -5832.5,
       "axialTiltDeg": 177.36,
-      "triangles": 2208,
-      "bytes": 82540
+      "triangles": 5040,
+      "bytes": 146772
     },
     {
       "key": "earth",
@@ -40,8 +40,8 @@
       "radiusKm": 6371.0,
       "rotationHours": 23.934,
       "axialTiltDeg": 23.44,
-      "triangles": 2208,
-      "bytes": 650368
+      "triangles": 5040,
+      "bytes": 707420
     },
     {
       "key": "moon",
@@ -50,8 +50,8 @@
       "radiusKm": 1737.4,
       "rotationHours": 655.72,
       "axialTiltDeg": 6.68,
-      "triangles": 2208,
-      "bytes": 1120132
+      "triangles": 5040,
+      "bytes": 1358724
     },
     {
       "key": "mars",
@@ -60,8 +60,8 @@
       "radiusKm": 3389.5,
       "rotationHours": 24.623,
       "axialTiltDeg": 25.19,
-      "triangles": 2208,
-      "bytes": 176288
+      "triangles": 5040,
+      "bytes": 342760
     },
     {
       "key": "jupiter",
@@ -70,8 +70,8 @@
       "radiusKm": 69911.0,
       "rotationHours": 9.925,
       "axialTiltDeg": 3.13,
-      "triangles": 2208,
-      "bytes": 182876
+      "triangles": 5040,
+      "bytes": 247104
     },
     {
       "key": "saturn",
@@ -80,8 +80,8 @@
       "radiusKm": 58232.0,
       "rotationHours": 10.656,
       "axialTiltDeg": 26.73,
-      "triangles": 2208,
-      "bytes": 92836
+      "triangles": 5040,
+      "bytes": 157068
     },
     {
       "key": "uranus",
@@ -90,8 +90,8 @@
       "radiusKm": 25362.0,
       "rotationHours": -17.24,
       "axialTiltDeg": 97.77,
-      "triangles": 2208,
-      "bytes": 69516
+      "triangles": 5040,
+      "bytes": 133744
     },
     {
       "key": "neptune",
@@ -100,8 +100,8 @@
       "radiusKm": 24622.0,
       "rotationHours": 16.11,
       "axialTiltDeg": 28.32,
-      "triangles": 2208,
-      "bytes": 83208
+      "triangles": 5040,
+      "bytes": 147436
     },
     {
       "key": "phobos",
@@ -110,8 +110,8 @@
       "radiusKm": 11.27,
       "rotationHours": 7.654,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 62256
+      "triangles": 5040,
+      "bytes": 126484
     },
     {
       "key": "deimos",
@@ -120,8 +120,8 @@
       "radiusKm": 6.2,
       "rotationHours": 30.299,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 63172
+      "triangles": 5040,
+      "bytes": 127400
     },
     {
       "key": "io",
@@ -130,8 +130,8 @@
       "radiusKm": 1821.6,
       "rotationHours": 42.459,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 65744
+      "triangles": 5040,
+      "bytes": 129972
     },
     {
       "key": "europa",
@@ -140,8 +140,8 @@
       "radiusKm": 1560.8,
       "rotationHours": 85.228,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 70368
+      "triangles": 5040,
+      "bytes": 134596
     },
     {
       "key": "ganymede",
@@ -150,8 +150,8 @@
       "radiusKm": 2634.1,
       "rotationHours": 171.709,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 66512
+      "triangles": 5040,
+      "bytes": 130740
     },
     {
       "key": "callisto",
@@ -160,8 +160,8 @@
       "radiusKm": 2410.3,
       "rotationHours": 400.536,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 63032
+      "triangles": 5040,
+      "bytes": 127260
     },
     {
       "key": "mimas",
@@ -170,8 +170,8 @@
       "radiusKm": 198.2,
       "rotationHours": 22.618,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 66392
+      "triangles": 5040,
+      "bytes": 130620
     },
     {
       "key": "enceladus",
@@ -180,8 +180,8 @@
       "radiusKm": 252.1,
       "rotationHours": 32.885,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 69332
+      "triangles": 5040,
+      "bytes": 133560
     },
     {
       "key": "tethys",
@@ -190,8 +190,8 @@
       "radiusKm": 531.1,
       "rotationHours": 45.307,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 68796
+      "triangles": 5040,
+      "bytes": 133024
     },
     {
       "key": "dione",
@@ -200,8 +200,8 @@
       "radiusKm": 561.4,
       "rotationHours": 65.686,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 68556
+      "triangles": 5040,
+      "bytes": 132784
     },
     {
       "key": "rhea",
@@ -210,8 +210,8 @@
       "radiusKm": 763.8,
       "rotationHours": 108.437,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 68396
+      "triangles": 5040,
+      "bytes": 132624
     },
     {
       "key": "titan",
@@ -220,8 +220,8 @@
       "radiusKm": 2574.7,
       "rotationHours": 382.69,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 63268
+      "triangles": 5040,
+      "bytes": 127496
     },
     {
       "key": "iapetus",
@@ -230,8 +230,8 @@
       "radiusKm": 734.5,
       "rotationHours": 1903.716,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 70236
+      "triangles": 5040,
+      "bytes": 134464
     },
     {
       "key": "miranda",
@@ -240,8 +240,8 @@
       "radiusKm": 235.8,
       "rotationHours": 33.924,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 68516
+      "triangles": 5040,
+      "bytes": 132744
     },
     {
       "key": "ariel",
@@ -250,8 +250,8 @@
       "radiusKm": 578.9,
       "rotationHours": 60.489,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 68664
+      "triangles": 5040,
+      "bytes": 132892
     },
     {
       "key": "umbriel",
@@ -260,8 +260,8 @@
       "radiusKm": 584.7,
       "rotationHours": 99.46,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 63836
+      "triangles": 5040,
+      "bytes": 128064
     },
     {
       "key": "titania",
@@ -270,8 +270,8 @@
       "radiusKm": 788.4,
       "rotationHours": 208.941,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 67420
+      "triangles": 5040,
+      "bytes": 131648
     },
     {
       "key": "oberon",
@@ -280,8 +280,8 @@
       "radiusKm": 761.4,
       "rotationHours": 323.118,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 66964
+      "triangles": 5040,
+      "bytes": 131192
     },
     {
       "key": "proteus",
@@ -290,8 +290,8 @@
       "radiusKm": 210.0,
       "rotationHours": 26.936,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 63288
+      "triangles": 5040,
+      "bytes": 127516
     },
     {
       "key": "triton",
@@ -300,8 +300,8 @@
       "radiusKm": 1353.4,
       "rotationHours": 141.045,
       "axialTiltDeg": 0.0,
-      "triangles": 2208,
-      "bytes": 68912
+      "triangles": 5040,
+      "bytes": 133140
     },
     {
       "key": "saturn_rings",

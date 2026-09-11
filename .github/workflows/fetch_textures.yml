@@ -1,0 +1,45 @@
+name: Fetch textures
+
+# Manual only. It costs Actions minutes and rewrites the source imagery, so it
+# should run when you ask for it and not before.
+on:
+  workflow_dispatch:
+    inputs:
+      size:
+        description: Texture size to fetch
+        type: choice
+        options: ['2k', '4k', '8k']
+        default: '2k'
+
+jobs:
+  fetch:
+    name: Fetch higher-resolution surface maps
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: write
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Download
+        run: python3 tools/blender/fetch_hires.py --size "${{ inputs.size }}"
+
+      - name: Show what changed
+        run: git -c core.pager=cat diff --stat
+
+      - name: Commit to a branch
+        run: |
+          if git diff --quiet; then
+            echo "No change — the committed maps already match."
+            exit 0
+          fi
+          branch="textures/${{ inputs.size }}-$(date +%Y%m%d%H%M)"
+          git config user.name "${{ github.actor }}"
+          git config user.email "${{ github.actor }}@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add tools/blender/data
+          git commit -m "Fetch ${{ inputs.size }} surface maps"
+          git push -u origin "$branch"
+          echo "Pushed $branch. The models still need rebuilding from it:"
+          echo "  blender --background --python tools/blender/build_models.py -- --out assets/models"

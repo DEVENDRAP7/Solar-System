@@ -6,10 +6,13 @@ own scale — true-to-life, logarithmic, or artistic — without re-exporting th
 models.
 """
 
-# Mesh resolution. 48 segments x 24 rings is 1,152 quads (~2,300 triangles),
-# inside the 1,500-3,000 triangle budget for a mobile scene.
-SPHERE_SEGMENTS = 48
-SPHERE_RINGS = 24
+# Mesh resolution. 72 segments x 36 rings is 2,592 quads (~5,000 triangles).
+# The scene is transformed a vertex at a time in Dart, so this is a real cost
+# on the phone and `test/performance_test.dart` guards it. It buys two things:
+# a limb smooth enough not to read as a polygon when a body fills the screen,
+# and enough vertices for the real topography below to show at all.
+SPHERE_SEGMENTS = 72
+SPHERE_RINGS = 36
 
 # Surface recipes are interpreted by ``materials.build_surface``.
 BODIES = [
@@ -50,8 +53,13 @@ BODIES = [
         'colour_contrast': 0.55,
         # The map paints in its own crater shadows, so soften it and let the
         # real topography light the craters instead.
-        'soften': 1.8,
+        'soften': 0.5,
         'bump_strength': 0.26,
+        'relief_shade': 0.55,
+        # Relief displaced into the mesh itself, as a fraction of the
+        # radius. Exaggerated, as every relief map is: real topography is
+        # a rounding error on a globe this size and would not be visible.
+        'relief_strength': 0.009,
     },
     {
         'key': 'venus',
@@ -70,6 +78,7 @@ BODIES = [
         # No normal map: Venus is smooth cloud deck, and every map costs a
         # pure-Dart image decode on the device at load time.
         'bump_strength': 0.0,
+        'relief_shade': 0.35,
     },
     {
         'key': 'earth',
@@ -80,6 +89,10 @@ BODIES = [
         'night_gain': 1.25,
         'cloud_opacity': 0.55,
         'border_opacity': 0.30,
+        # The day side now reaches full brightness, so the map no longer
+        # needs lifting: at the old exposure the Sahara blew out to white.
+        'gamma': 0.92,
+        'gain': 1.02,
         'resolution': 2048,
         'radius_km': 6371.0,
         'rotation_hours': 23.934,
@@ -109,6 +122,11 @@ BODIES = [
         'crater_max': 0.11,
         'maria': True,
         'bump_strength': 0.5,
+        'relief_shade': 0.6,
+        # Relief displaced into the mesh itself, as a fraction of the
+        # radius. Exaggerated, as every relief map is: real topography is
+        # a rounding error on a globe this size and would not be visible.
+        'relief_strength': 0.01,
     },
     {
         'key': 'mars',
@@ -124,8 +142,13 @@ BODIES = [
         'resolution': 1024,
         'colour_keep': 0.6,
         'tint': (1.0, 0.86, 0.72),
-        'target_mean': 0.40,
+        'target_mean': 0.50,
         'bump_strength': 0.3,
+        'relief_shade': 0.4,
+        # Relief displaced into the mesh itself, as a fraction of the
+        # radius. Exaggerated, as every relief map is: real topography is
+        # a rounding error on a globe this size and would not be visible.
+        'relief_strength': 0.012,
     },
     {
         'key': 'jupiter',

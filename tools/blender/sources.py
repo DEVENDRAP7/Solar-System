@@ -92,6 +92,45 @@ def load_map(name, width, height):
     return np.flipud(array).copy()
 
 
+def relief_shade(color, relief, strength):
+    """Bake a height field's own curvature into a colour map.
+
+    The renderer lights a body from its mesh normals, and a mesh coarse enough
+    to draw sixty times a second cannot carry a crater. So the fine relief goes
+    into the map instead — but as curvature rather than as light from some fixed
+    direction, which would fight the real terminator and leave every crater with
+    two shadows. Concave ground (crater floors, valleys) darkens and convex
+    ground (rims, ridges) lifts, whichever way the Sun happens to be. It is what
+    the eye reads as depth, and it stays true as the body turns.
+    """
+    if strength <= 0.0:
+        return color
+
+    # Height fields arrive on whatever scale suits the body they came from —
+    # the crater catalogue's are signed depths — so normalise before blurring
+    # rather than clipping, which would flatten every crater floor to nothing.
+    height = relief.astype(np.float64)
+    low, high = float(np.min(height)), float(np.max(height))
+    if high - low <= 1e-9:
+        return color
+    height = (height - low) / (high - low)
+
+    # Curvature: how far each point sits below its own neighbourhood.
+    smooth = np.asarray(
+        Image.fromarray((height * 255).astype(np.uint8))
+        .filter(ImageFilter.GaussianBlur(2.0)),
+        dtype=np.float64,
+    ) / 255.0
+    curvature = height - smooth
+
+    spread = float(np.std(curvature))
+    if spread <= 1e-9:
+        return color
+
+    shade = np.clip(curvature / (spread * 3.0), -1.0, 1.0)
+    return np.clip(color * (1.0 + strength * shade)[..., None], 0.0, 1.0)
+
+
 def load_grey(name, width, height):
     """Load a single-channel map, flipped to match [load_map]."""
     image = Image.open(_path(name)).convert('L')

@@ -116,6 +116,12 @@ class SolarSystemPainter extends CustomPainter {
   /// Below this many pixels across, a body is drawn as a point of light.
   static const double _pointThreshold = 2.6;
 
+  /// Below this radius in pixels, a body is drawn as a shaded disc rather than
+  /// as a mesh. Five thousand triangles for a dot ten pixels wide is most of a
+  /// frame spent on something no one can see; at this size the disc and the
+  /// mesh are the same picture, phase and all.
+  static const double _meshThreshold = 11.0;
+
   /// Ecliptic coordinates are z-up; the scene is y-up.
   static Vector3 _toScene(Vector3 ecliptic) =>
       Vector3(ecliptic.x, ecliptic.z, -ecliptic.y);
@@ -352,6 +358,16 @@ class SolarSystemPainter extends CustomPainter {
           ? Vector3(0, 0, 1)
           : (-item.world.normalized());
 
+      final Vector3 toEye = (camera.eye - item.world);
+      if (toEye.length > 1e-6) {
+        toEye.normalize();
+      }
+
+      // How much of the face turned toward us the Sun reaches: 1 when it is
+      // behind us and the body shows full, -1 when the body lies between us
+      // and the Sun and shows a crescent.
+      final double phase = toEye.dot(toSun).clamp(-1.0, 1.0);
+
       // A body the user is turning by hand gets that turn on top of its own
       // rotation. Only this body moves: the camera stays exactly where it is,
       // so everything behind it holds still.
@@ -394,10 +410,47 @@ class SolarSystemPainter extends CustomPainter {
         continue;
       }
 
-      final Vector3 toEye = (camera.eye - item.world);
-      if (toEye.length > 1e-6) {
-        toEye.normalize();
+      final Offset? centre = _project(item.world, view, size, focal);
+      if (centre == null) {
+        continue;
       }
+
+      // Which way the Sun lies on screen, for shading the disc and the rim.
+      Offset sunOnScreen = Offset.zero;
+      final Offset? sunward = _project(
+        item.world + toSun * (radius * 4.0),
+        view,
+        size,
+        focal,
+      );
+      if (sunward != null && (sunward - centre).distance > 1e-3) {
+        sunOnScreen = (sunward - centre) / (sunward - centre).distance;
+      }
+
+      final double lit = item.body.isStar ? 1.0 : phase;
+
+      if (screenSize < _meshThreshold) {
+        _paintAtmosphere(
+          canvas,
+          item.body,
+          centre,
+          screenSize,
+          lit,
+          sunOnScreen,
+        );
+        _paintDisc(
+          canvas,
+          centre,
+          screenSize,
+          item.mesh.averageColour,
+          sunOnScreen,
+          lit,
+        );
+        hits.add(BodyHit(item.body.key, centre, math.max(screenSize, 16.0)));
+        continue;
+      }
+
+      _paintAtmosphere(canvas, item.body, centre, screenSize, lit, sunOnScreen);
 
       // A ring lies in its planet's equator, sharing the tilt but not the
       // spin. It is drawn in two passes around the planet so the far side
@@ -466,14 +519,138 @@ class SolarSystemPainter extends CustomPainter {
         );
       }
 
-      final Offset? centre = _project(item.world, view, size, focal);
-      if (centre != null) {
-        final double depth = -item.depth;
-        final double screenRadius = depth > 0 ? focal * radius / depth : 0.0;
-        hits.add(BodyHit(item.body.key, centre, math.max(screenRadius, 16.0)));
-      }
+      hits.add(BodyHit(item.body.key, centre, math.max(screenSize, 16.0)));
     }
   }
+
+  /// Draw a distant body as a flat disc carrying its phase.
+  ///
+  /// [sunOnScreen] points from the body toward the Sun in screen space, and
+  /// [phase] is how much of the face turned toward us is lit: 1 is full, -1 is
+  /// new. Together they put the terminator in the same place the mesh would.
+  void _paintDisc(
+    ui.Canvas canvas,
+    Offset centre,
+    double radius,
+    ui.Color colour,
+    Offset sunOnScreen,
+    double phase,
+  ) {
+    final ui.Color night = ui.Color.fromARGB(
+      colour.a >= 1.0 ? 255 : (colour.a * 255).round(),
+      (colour.r * 255 * _nightFraction).round(),
+      (colour.g * 255 * _nightFraction).round(),
+      (colour.b * 255 * _nightFraction).round(),
+    );
+
+    if (sunOnScreen == Offset.zero) {
+      canvas.drawCircle(centre, radius, Paint()..color = colour);
+      return;
+    }
+
+    // Slide the light and dark halves apart along the Sun's direction by the
+    // phase, so a body lit from behind shows a crescent and one lit from over
+    // our shoulder shows a full face.
+    final Offset lit = centre + sunOnScreen * radius;
+    final Offset dark = centre - sunOnScreen * radius;
+    final double edge = ((1.0 - phase) / 2.0).clamp(0.0, 1.0);
+
+    canvas.drawCircle(
+      centre,
+      radius,
+      Paint()
+        ..shader = ui.Gradient.linear(
+          lit,
+          dark,
+          <ui.Color>[colour, colour, night, night],
+          <double>[
+            0.0,
+            (edge - 0.18).clamp(0.0, 1.0),
+            (edge + 0.18).clamp(0.0, 1.0),
+            1.0,
+          ],
+        ),
+    );
+  }
+
+  /// The soft rim of air around a body that has any.
+  ///
+  /// Drawn as a halo outside the disc, brightest where the Sun catches it. It
+  /// is the cheapest thing in the scene that makes a planet read as a world
+  /// rather than a textured ball.
+  void _paintAtmosphere(
+    ui.Canvas canvas,
+    CelestialBody body,
+    Offset centre,
+    double radius,
+    double phase,
+    Offset sunOnScreen,
+  ) {
+    final ui.Color? air = body.atmosphere;
+    if (air == null || radius < 3.0) {
+      return;
+    }
+
+    final double outer = radius * (1.0 + body.atmosphereDepth * _airSpread);
+    // A body lit from behind shows only a thin bright ring; one lit from in
+    // front shows the whole rim. Never quite nothing: even a new moon has a
+    // rim of scattered light, which is half of why it looks real.
+    final double strength = (0.30 + 0.70 * ((phase + 1.0) / 2.0)) * _airOpacity;
+
+    canvas.drawCircle(
+      centre,
+      outer,
+      Paint()
+        ..shader = ui.Gradient.radial(
+          centre,
+          outer,
+          <ui.Color>[
+            air.withValues(alpha: 0.0),
+            air.withValues(alpha: 0.10 * strength),
+            air.withValues(alpha: strength),
+            air.withValues(alpha: 0.0),
+          ],
+          <double>[0.0, radius / outer * 0.82, radius / outer, 1.0],
+        ),
+    );
+
+    if (sunOnScreen == Offset.zero) {
+      return;
+    }
+
+    // The limb the Sun is behind burns much brighter than the rest of the rim.
+    // This is drawn before the body itself, so the half of the blob that falls
+    // across the disc is painted over and only the crescent outside survives.
+    // Sat just inside the limb and scaled to the depth of the air, so it
+    // reads as the rim catching the light rather than a blob stuck to the
+    // side. Most of it falls on the disc and is painted over.
+    final Offset hot = centre + sunOnScreen * (radius * 0.94);
+    final double reach = (outer - radius) * 2.6;
+    canvas.drawCircle(
+      hot,
+      reach,
+      Paint()
+        ..shader = ui.Gradient.radial(
+          hot,
+          reach,
+          <ui.Color>[
+            air.withValues(alpha: 0.80 * _airOpacity),
+            air.withValues(alpha: 0.0),
+          ],
+          <double>[0.0, 1.0],
+        ),
+    );
+  }
+
+  /// How dark the unlit half of a distant body is drawn, matching the
+  /// renderer's own ambient so a body does not change brightness as it crosses
+  /// the size at which it stops being a mesh.
+  static const double _nightFraction = 0.22;
+
+  /// Multipliers on the atmosphere's depth and opacity. Both are exaggerated:
+  /// at true scale Earth's air is a pixel thick and nearly invisible.
+  static const double _airSpread = 2.6;
+  static const double _airOpacity = 0.42;
 
   Vector3 _worldPosition(CelestialBody body) =>
       bodyWorldPosition(simulation, scale, body);
