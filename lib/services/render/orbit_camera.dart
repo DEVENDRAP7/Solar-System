@@ -6,7 +6,7 @@ import 'package:vector_math/vector_math_64.dart';
 class OrbitCamera {
   OrbitCamera({
     Vector3? target,
-    this.distance = 26.0,
+    this.distance = 32.0,
     this.yaw = 0.6,
     this.pitch = 0.42,
   }) : target = target ?? Vector3.zero();
@@ -48,7 +48,7 @@ class OrbitCamera {
   ///
   /// This is what makes the view free: without it the camera is pinned to one
   /// point and dragging only ever circles that point.
-  void pan(double dx, double dy, double viewportHeight) {
+  void pan(double dx, double dy, double viewportReference) {
     final Vector3 forward = (target - eye).normalized();
     final Vector3 right = forward.cross(Vector3(0, 1, 0));
     if (right.length2 < 1e-9) {
@@ -60,7 +60,7 @@ class OrbitCamera {
     // Move by the same world distance the finger covered on screen, so the
     // scene tracks the fingertip regardless of zoom.
     final double worldPerPixel =
-        2.0 * distance * math.tan(fieldOfView / 2.0) / viewportHeight;
+        2.0 * distance * math.tan(fieldOfView / 2.0) / viewportReference;
 
     target = target - right * (dx * worldPerPixel) + up * (dy * worldPerPixel);
   }
@@ -92,9 +92,14 @@ class OrbitCamera {
   /// World-to-view transform, with the camera looking down its own -z.
   Matrix4 get view => makeViewMatrix(eye, target, Vector3(0, 1, 0));
 
-  /// Focal length in pixels for a viewport of [height].
-  double focalLength(double height) =>
-      (height / 2.0) / math.tan(fieldOfView / 2.0);
+  /// Focal length in pixels for a viewport of [width] by [height].
+  ///
+  /// The field of view is applied to the shorter side of the screen. On a
+  /// phone held upright that is the width, and anchoring to the height instead
+  /// left the view only a few units wide — narrow enough that Earth's orbit
+  /// fell outside the frame and the inner planets were never on screen.
+  double focalLength(double width, double height) =>
+      (math.min(width, height) / 2.0) / math.tan(fieldOfView / 2.0);
 
   OrbitCamera copy() => OrbitCamera(
         target: target.clone(),

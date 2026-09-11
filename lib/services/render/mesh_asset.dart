@@ -16,6 +16,7 @@ class MeshAsset {
     required this.uvs,
     required this.indices,
     this.texture,
+    this.averageColour = const ui.Color(0xFFBFC6D2),
   });
 
   /// Vertex positions, three floats each.
@@ -32,6 +33,10 @@ class MeshAsset {
 
   /// Decoded base colour texture.
   final ui.Image? texture;
+
+  /// The body's overall colour, used to draw it as a point of light when it is
+  /// too far away to be worth triangles.
+  final ui.Color averageColour;
 
   int get vertexCount => positions.length ~/ 3;
   int get triangleCount => indices.length ~/ 3;
@@ -95,14 +100,15 @@ class GlbReader {
         : Float32List((positions.length ~/ 3) * 2);
     final Uint16List indices = _readIndices(gltf, binary, primitive['indices'] as int);
 
-    final ui.Image? texture = await _readBaseColour(gltf, binary, primitive);
+    final _Surface surface = await _readBaseColour(gltf, binary, primitive);
 
     return MeshAsset(
       positions: positions,
       normals: normals,
       uvs: uvs,
       indices: indices,
-      texture: texture,
+      texture: surface.image,
+      averageColour: surface.average,
     );
   }
 
@@ -165,14 +171,14 @@ class GlbReader {
     return out;
   }
 
-  static Future<ui.Image?> _readBaseColour(
+  static Future<_Surface> _readBaseColour(
     Map<String, dynamic> gltf,
     Uint8List binary,
     Map<String, dynamic> primitive,
   ) async {
     final int? materialIndex = primitive['material'] as int?;
     if (materialIndex == null) {
-      return null;
+      return const _Surface(null, ui.Color(0xFFBFC6D2));
     }
 
     final Map<String, dynamic> material =
@@ -186,7 +192,7 @@ class GlbReader {
         (pbr?['baseColorTexture'] ?? material['emissiveTexture'])
             as Map<String, dynamic>?;
     if (textureRef == null) {
-      return null;
+      return const _Surface(null, ui.Color(0xFFBFC6D2));
     }
 
     final Map<String, dynamic> texture =
@@ -204,6 +210,59 @@ class GlbReader {
         Uint8List.sublistView(binary, start, start + length);
     final ui.Codec codec = await ui.instantiateImageCodec(encoded);
     final ui.FrameInfo frame = await codec.getNextFrame();
-    return frame.image;
+
+    return _Surface(frame.image, await _averageOf(encoded));
   }
+
+  /// The mean colour of a map, taken from a thumbnail so it costs almost
+  /// nothing: the engine decodes straight to the smaller size.
+  static Future<ui.Color> _averageOf(Uint8List encoded) async {
+    try {
+      final ui.Codec codec = await ui.instantiateImageCodec(
+        encoded,
+        targetWidth: 8,
+        targetHeight: 4,
+      );
+      final ui.FrameInfo frame = await codec.getNextFrame();
+      final ByteData? pixels = await frame.image
+          .toByteData(format: ui.ImageByteFormat.rawRgba);
+      frame.image.dispose();
+
+      if (pixels == null) {
+        return const ui.Color(0xFFBFC6D2);
+      }
+
+      int red = 0;
+      int green = 0;
+      int blue = 0;
+      final int count = pixels.lengthInBytes ~/ 4;
+      for (int i = 0; i < count; i++) {
+        red += pixels.getUint8(i * 4);
+        green += pixels.getUint8(i * 4 + 1);
+        blue += pixels.getUint8(i * 4 + 2);
+      }
+
+      // Lifted well above the map's own average: a point of light stands for
+      // the whole sunlit face, not the dim mean of a map that is half night.
+      double lift(int total) =>
+          ((total / count) * 1.7).clamp(70.0, 255.0);
+
+      return ui.Color.fromARGB(
+        255,
+        lift(red).round(),
+        lift(green).round(),
+        lift(blue).round(),
+      );
+    } catch (_) {
+      return const ui.Color(0xFFBFC6D2);
+    }
+  }
+}
+
+/// A body's surface map and its overall colour.
+class _Surface {
+  const _Surface(this.image, this.average);
+
+  final ui.Image? image;
+  final ui.Color average;
 }

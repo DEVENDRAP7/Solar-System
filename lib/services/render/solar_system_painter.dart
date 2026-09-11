@@ -108,6 +108,9 @@ class SolarSystemPainter extends CustomPainter {
 
   static const double _starShell = 1600.0;
 
+  /// Below this many pixels across, a body is drawn as a point of light.
+  static const double _pointThreshold = 2.6;
+
   /// Ecliptic coordinates are z-up; the scene is y-up.
   static Vector3 _toScene(Vector3 ecliptic) =>
       Vector3(ecliptic.x, ecliptic.z, -ecliptic.y);
@@ -142,7 +145,7 @@ class SolarSystemPainter extends CustomPainter {
     );
 
     final Matrix4 view = camera.view;
-    final double focal = camera.focalLength(size.height);
+    final double focal = camera.focalLength(size.width, size.height);
 
     _paintStars(canvas, size, view, focal);
     if (showOrbits) {
@@ -305,11 +308,11 @@ class SolarSystemPainter extends CustomPainter {
       final double radius =
           scale.bodyRadius(item.body.radiusKm, isMoon: isMoon);
 
-      // A moon only a pixel or two across is not worth the triangles; the
-      // outer systems hold a lot of them.
+      // Moons are not drawn as points: the outer systems hold twenty of them
+      // and they would crowd around their planet as a smear of dots.
       if (isMoon) {
         final double depth = -item.depth;
-        if (depth <= 0 || focal * radius / depth < 0.9) {
+        if (depth <= 0 || focal * radius / depth < _pointThreshold) {
           continue;
         }
       }
@@ -322,6 +325,33 @@ class SolarSystemPainter extends CustomPainter {
         ..rotateZ(item.body.axialTiltDeg * math.pi / 180.0)
         ..rotateY(simulation.spinRadians(item.body))
         ..scaleByDouble(radius, radius, radius, 1.0);
+
+      // Too small to be worth triangles: draw it as a point of light instead,
+      // in its own colour, so a planet is always visible however far out you
+      // are. Without this the inner planets simply vanish at system scale.
+      final double bodyDepth = -item.depth;
+      final double screenSize = bodyDepth > 0 ? focal * radius / bodyDepth : 0;
+
+      if (screenSize < _pointThreshold) {
+        final Offset? spot = _project(item.world, view, size, focal);
+        if (spot != null) {
+          final double glow = math.max(screenSize, 1.4);
+          canvas.drawCircle(
+            spot,
+            glow * 2.6,
+            Paint()
+              ..color = item.mesh.averageColour.withValues(alpha: 0.22)
+              ..maskFilter = MaskFilter.blur(BlurStyle.normal, glow * 1.4),
+          );
+          canvas.drawCircle(
+            spot,
+            glow,
+            Paint()..color = item.mesh.averageColour,
+          );
+          hits.add(BodyHit(item.body.key, spot, math.max(glow * 4, 18.0)));
+        }
+        continue;
+      }
 
       final Vector3 toEye = (camera.eye - item.world);
       if (toEye.length > 1e-6) {

@@ -77,6 +77,15 @@ void main() {
       );
       expect(belt.count, greaterThan(1000));
 
+      // Exactly the view the app opens on.
+      await shoot(
+        'opening',
+        meshes,
+        camera: OrbitCamera.overview(),
+        scale: const ViewScale(),
+        belt: belt,
+      );
+
       await shoot(
         'system',
         meshes,

@@ -113,6 +113,14 @@ is one toggle away, and shows why nobody draws it that way.
 nodes — position, axial tilt, spin — so a planet can orbit, lean and rotate
 independently. Tap selection is a raycast against the scene.
 
+**Framing.** The field of view is applied to the shorter side of the screen.
+Anchoring it to the height, as is the obvious thing to do, left a phone held
+upright showing only a few units across — narrow enough that Earth's orbit fell
+outside the frame and the inner planets were never on screen at all.
+
+A body too small to be worth drawing as geometry is drawn as a point of light
+in its own colour instead, so a planet stays visible however far out you go.
+
 **Lighting.** A lambert term from the direction of the Sun, plus a weak fill
 from the camera so whatever you are looking at stays readable, over an ambient
 floor. Space really is almost black, but a planet you cannot see is no use, so

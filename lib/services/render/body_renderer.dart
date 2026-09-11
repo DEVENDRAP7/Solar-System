@@ -32,8 +32,8 @@ class BodyRenderer {
     // Space is genuinely almost black, but a planet you cannot see is no use.
     // Ambient lifts the night side to where its markings still read, and the
     // fill from the camera keeps whatever you are looking at lit.
-    double ambient = 0.30,
-    double fill = 0.40,
+    double ambient = 0.38,
+    double fill = 0.42,
     bool cull = true,
     bool twoSided = false,
     double? nearerThan,

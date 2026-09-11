@@ -240,7 +240,7 @@ class _SolarSystemViewState extends State<SolarSystemView>
     if (delta == Offset.zero || _viewport.height <= 0) {
       return;
     }
-    _camera.pan(delta.dx, delta.dy, _viewport.height);
+    _camera.pan(delta.dx, delta.dy, _viewport.shortestSide);
     // Moving away from a body stops the camera following it.
     _following = false;
   }
