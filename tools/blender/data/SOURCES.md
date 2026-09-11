@@ -9,6 +9,7 @@ dataset, so they are listed separately below.
 |------|------------|--------|
 | `earth_base.jpg` | Earth surface, 2048x1024 | NASA Visible Earth, "Blue Marble" |
 | `earth_clouds.png` | Cloud cover, coverage in the alpha channel | NASA Visible Earth |
+| `earth_night.png` | City lights, 2048x1024, for Earth's night side | NASA Earth Observatory, "Black Marble" |
 | `moon_base.jpg` | Lunar albedo, 1024x512 | NASA / JPL lunar mosaic |
 | `countries.geojson` | National boundaries at 1:110m | Natural Earth |
 

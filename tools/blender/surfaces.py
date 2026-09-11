@@ -51,6 +51,32 @@ def _latitude_bands(dirs, lat, spec, seed):
     return 0.5 + 0.5 * np.sin(phase * 2.0)
 
 
+def night_lights(spec, width, height_px):
+    """The map a body shows on the side facing away from the Sun.
+
+    Only Earth has one: the lit half of a planet is the Sun's doing, but the
+    dark half of Earth is lit from the ground up by its own cities, which is
+    what makes a night side something to look at rather than a black hole in
+    the picture. Every other body simply goes dark.
+    """
+    source = spec.get('night')
+    if not source:
+        return None
+
+    lights = sources.load_map(source, width, height_px)
+
+    # The map has a faint floor over the whole globe — sensor noise, airglow,
+    # moonlight on cloud. It is nothing on its own, but this layer is *added*
+    # to the night side, so a floor left in would lift the entire dark half
+    # into a grey wash and undo the terminator. Only what stands above it is
+    # kept, rescaled so the cities lose no brightness.
+    floor = float(spec.get('night_floor', 0.20))
+    glow = np.clip((lights - floor) / (1.0 - floor), 0.0, 1.0)
+    glow = np.clip(glow * float(spec.get('night_gain', 1.25)), 0.0, 1.0)
+    warm = np.array([1.0, 0.86, 0.60])
+    return np.clip(glow * warm, 0.0, 1.0)
+
+
 def generate(spec, width, height_px, seed):
     surface = spec['surface']
     dirs, lat, lon = sphere_grid(width, height_px)

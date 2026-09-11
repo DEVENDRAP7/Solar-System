@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'dart:math' as math;
 import 'dart:ui' as ui;
 
 import 'package:flutter/foundation.dart';
@@ -196,6 +197,48 @@ void main() {
         ),
         scale: const ViewScale(),
       );
+
+      // Day and night. The camera is placed relative to the Sun rather than
+      // by eye: a quarter turn round from it puts the terminator straight down
+      // the middle of the disc, and directly opposite it shows the whole night
+      // side with the cities lit.
+      double towardSun(vm.Vector3 body) => math.atan2(body.x, body.z);
+
+      for (final MapEntry<String, vm.Vector3> body in <String, vm.Vector3>{
+        'earth': earth,
+        'moon': moon,
+      }.entries) {
+        final double sunward = towardSun(body.value);
+        final double distance = body.key == 'earth' ? 2.4 : 0.9;
+
+        await shoot(
+          '${body.key}_terminator',
+          meshes,
+          camera: OrbitCamera(
+            target: body.value,
+            distance: distance,
+            // A quarter turn round from the Sun: half lit, half dark.
+            yaw: math.atan2(math.cos(sunward), -math.sin(sunward)),
+            pitch: 0.1,
+          ),
+          scale: const ViewScale(),
+          showOrbits: false,
+        );
+
+        await shoot(
+          '${body.key}_nightside',
+          meshes,
+          camera: OrbitCamera(
+            target: body.value,
+            distance: distance,
+            // Directly away from the Sun, so the whole face is in darkness.
+            yaw: sunward,
+            pitch: 0.1,
+          ),
+          scale: const ViewScale(),
+          showOrbits: false,
+        );
+      }
 
       // Earth turned by hand, from one camera that never moves. Flick between
       // these four and only the planet changes: the orbit rings, the stars and

@@ -16,6 +16,7 @@ class MeshAsset {
     required this.uvs,
     required this.indices,
     this.texture,
+    this.nightTexture,
     this.averageColour = const ui.Color(0xFFBFC6D2),
   });
 
@@ -31,8 +32,14 @@ class MeshAsset {
   /// Triangle indices.
   final Uint16List indices;
 
-  /// Decoded base colour texture.
+  /// Decoded base colour texture: the body under full sunlight.
   final ui.Image? texture;
+
+  /// What the body shows where the sunlight does not reach.
+  ///
+  /// Only Earth has one — its city lights — carried on the glTF material's
+  /// emissive channel. Everything else simply darkens.
+  final ui.Image? nightTexture;
 
   /// The body's overall colour, used to draw it as a point of light when it is
   /// too far away to be worth triangles.
@@ -117,6 +124,7 @@ class GlbReader {
       uvs: uvs,
       indices: indices,
       texture: surface.image,
+      nightTexture: surface.night,
       averageColour: surface.average,
     );
   }
@@ -206,14 +214,40 @@ class GlbReader {
     final Map<String, dynamic>? pbr =
         material['pbrMetallicRoughness'] as Map<String, dynamic>?;
 
-    // Emissive bodies carry their colour on the emissive channel instead.
-    final Map<String, dynamic>? textureRef =
-        (pbr?['baseColorTexture'] ?? material['emissiveTexture'])
-            as Map<String, dynamic>?;
+    final Map<String, dynamic>? baseRef =
+        pbr?['baseColorTexture'] as Map<String, dynamic>?;
+    final Map<String, dynamic>? emissiveRef =
+        material['emissiveTexture'] as Map<String, dynamic>?;
+
+    // A body with no base colour carries its surface on the emissive channel
+    // instead: that is how the Sun is authored, lit by nothing. When both are
+    // present the emissive one is the night side rather than the surface.
+    final Map<String, dynamic>? textureRef = baseRef ?? emissiveRef;
     if (textureRef == null) {
       return const _Surface(null, ui.Color(0xFFBFC6D2));
     }
 
+    final Uint8List encoded = _imageBytes(gltf, binary, textureRef);
+    final ui.Codec codec = await ui.instantiateImageCodec(encoded);
+    final ui.FrameInfo frame = await codec.getNextFrame();
+
+    ui.Image? night;
+    if (baseRef != null && emissiveRef != null) {
+      final ui.Codec nightCodec = await ui.instantiateImageCodec(
+        _imageBytes(gltf, binary, emissiveRef),
+      );
+      night = (await nightCodec.getNextFrame()).image;
+    }
+
+    return _Surface(frame.image, await _averageOf(encoded), night);
+  }
+
+  /// The encoded bytes behind a glTF texture reference.
+  static Uint8List _imageBytes(
+    Map<String, dynamic> gltf,
+    Uint8List binary,
+    Map<String, dynamic> textureRef,
+  ) {
     final Map<String, dynamic> texture =
         (gltf['textures'] as List<dynamic>)[textureRef['index'] as int]
             as Map<String, dynamic>;
@@ -225,15 +259,7 @@ class GlbReader {
     final int start = view['byteOffset'] as int? ?? 0;
     final int length = view['byteLength'] as int;
 
-    final Uint8List encoded = Uint8List.sublistView(
-      binary,
-      start,
-      start + length,
-    );
-    final ui.Codec codec = await ui.instantiateImageCodec(encoded);
-    final ui.FrameInfo frame = await codec.getNextFrame();
-
-    return _Surface(frame.image, await _averageOf(encoded));
+    return Uint8List.sublistView(binary, start, start + length);
   }
 
   /// The mean colour of a map, taken from a thumbnail so it costs almost
@@ -283,8 +309,9 @@ class GlbReader {
 
 /// A body's surface map and its overall colour.
 class _Surface {
-  const _Surface(this.image, this.average);
+  const _Surface(this.image, this.average, [this.night]);
 
   final ui.Image? image;
   final ui.Color average;
+  final ui.Image? night;
 }

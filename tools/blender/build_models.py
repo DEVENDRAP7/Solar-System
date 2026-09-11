@@ -71,7 +71,7 @@ def srgb_to_linear(values):
     return np.where(values <= 0.04045, values / 12.92, ((values + 0.055) / 1.055) ** 2.4)
 
 
-def save_image(array, name, path, color_data=True, quality=92):
+def save_image(array, name, path, color_data=True, quality=92, lossless=False):
     """Write an ``(H, W, 3 or 4)`` float array to disk and return the datablock."""
     height, width = array.shape[:2]
     has_alpha = array.shape[2] == 4
@@ -83,15 +83,6 @@ def save_image(array, name, path, color_data=True, quality=92):
 
     rgba = np.concatenate([rgb, alpha], axis=-1)
 
-    # The sphere's texture coordinates run the opposite way round to the
-    # generators' longitude, so a map applied as-is comes out mirrored: east
-    # ends up on the left. Flipping here fixes every body at once.
-    rgba = np.fliplr(rgba)
-    if not color_data:
-        # A mirrored tangent-space normal map needs its sideways component
-        # negated too, or the relief would light from the wrong side.
-        rgba[..., 0] = 1.0 - rgba[..., 0]
-
     # Blender image rows run bottom to top.
     flat = np.flipud(rgba).astype(np.float32).ravel()
 
@@ -100,7 +91,8 @@ def save_image(array, name, path, color_data=True, quality=92):
         image.colorspace_settings.name = 'Non-Color'
     image.pixels.foreach_set(flat)
 
-    image.file_format = 'PNG' if (has_alpha or not color_data) else 'JPEG'
+    image.file_format = ('PNG' if (has_alpha or not color_data or lossless)
+                        else 'JPEG')
     image.filepath_raw = path
     bpy.context.scene.render.image_settings.quality = quality
     image.save()
@@ -169,7 +161,7 @@ def make_annulus(name, inner, outer, segments):
 # ---------------------------------------------------------------------------
 
 
-def surface_material(spec, color_image, normal_image):
+def surface_material(spec, color_image, normal_image, night_image=None):
     material = bpy.data.materials.new('{}_surface'.format(spec['key']))
     material.use_nodes = True
     tree = material.node_tree
@@ -191,6 +183,17 @@ def surface_material(spec, color_image, normal_image):
         tree.links.new(color_node.outputs['Color'], principled.inputs['Emission Color'])
     else:
         tree.links.new(color_node.outputs['Color'], principled.inputs['Base Color'])
+
+    if night_image is not None:
+        # The night side rides on the emission channel, which glTF carries as
+        # the material's emissiveTexture. The app reads it back from there and
+        # fades it in exactly where the sunlight runs out.
+        night_node = tree.nodes.new('ShaderNodeTexImage')
+        night_node.image = night_image
+        night_node.location = (-700, -500)
+
+        set_input(principled, 'Emission Strength', 1.0)
+        tree.links.new(night_node.outputs['Color'], principled.inputs['Emission Color'])
 
     if normal_image is not None:
         normal_node = tree.nodes.new('ShaderNodeTexImage')
@@ -301,8 +304,21 @@ def build():
                 color_data=False,
             )
 
+        night = surfaces.night_lights(spec, body_width, body_height)
+        night_image = None
+        if night is not None:
+            # Lossless: the map is black almost everywhere with pinpricks of
+            # light, and JPEG's ringing around those specks becomes a grey haze
+            # that lifts the entire night side once it is added to the scene.
+            night_image = save_image(
+                night, '{}_night'.format(key),
+                os.path.join(work_dir, '{}_night.png'.format(key)),
+                color_data=True, lossless=True,
+            )
+
         obj = make_sphere(key)
-        obj.data.materials.append(surface_material(spec, color_image, normal_image))
+        obj.data.materials.append(
+            surface_material(spec, color_image, normal_image, night_image))
 
         path = os.path.join(out_dir, '{}.glb'.format(key))
         export(obj, path)
@@ -353,10 +369,23 @@ def build():
 
     data_path = os.path.join(os.path.dirname(out_dir), 'data', 'bodies.json')
     os.makedirs(os.path.dirname(data_path), exist_ok=True)
+
+    # A --only build touches a few models, so the entries it did not rebuild
+    # are carried over. Writing just the rebuilt ones would quietly empty the
+    # manifest for every other body.
+    merged = []
+    if os.path.exists(data_path):
+        with open(data_path) as handle:
+            merged = json.load(handle).get('bodies', [])
+
+    rebuilt = {entry['key']: entry for entry in manifest}
+    combined = [rebuilt.pop(entry['key'], entry) for entry in merged]
+    combined.extend(entry for entry in manifest if entry['key'] in rebuilt)
+
     with open(data_path, 'w') as handle:
-        json.dump({'units': {'mesh': 'unit sphere, radius 1.0'}, 'bodies': manifest},
+        json.dump({'units': {'mesh': 'unit sphere, radius 1.0'}, 'bodies': combined},
                   handle, indent=2)
-    print('[build] wrote {}'.format(data_path))
+    print('[build] wrote {} ({} bodies)'.format(data_path, len(combined)))
 
     total = sum(entry['bytes'] for entry in manifest)
     print('[build] {} models, {:.2f} MB total'.format(len(manifest), total / 1048576.0))

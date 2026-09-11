@@ -29,11 +29,20 @@ class BodyRenderer {
     required Vector3 lightDirection,
     Vector3? viewDirection,
     bool emissive = false,
-    // Space is genuinely almost black, but a planet you cannot see is no use.
-    // Ambient lifts the night side to where its markings still read, and the
-    // fill from the camera keeps whatever you are looking at lit.
-    double ambient = 0.38,
-    double fill = 0.42,
+    // The Sun is the only real light out here, so the half of a body facing it
+    // is day and the half facing away is night. Ambient lifts that night side
+    // just far enough that its outline and markings still read rather than
+    // becoming a hole in the picture, and the fill from the camera is small
+    // enough not to wash the terminator back out.
+    double ambient = 0.14,
+    double fill = 0.06,
+    // Width of the terminator in units of the surface's angle to the Sun.
+    // Nothing in the sky has a knife edge between day and night: the Sun is a
+    // disc rather than a point, and on Earth the air carries light some way
+    // round the limb.
+    double terminator = 0.16,
+    // How brightly a body's own night-side lights burn.
+    double nightStrength = 1.0,
     bool cull = true,
     bool twoSided = false,
     double? nearerThan,
@@ -48,10 +57,17 @@ class BodyRenderer {
     final Matrix4 modelView = view * model;
     final Matrix3 normalMatrix = model.getRotation();
 
+    final ui.Image? night = emissive ? null : mesh.nightTexture;
+
     final Float32List screen = Float32List(count * 2);
     final Float32List texCoords = Float32List(count * 2);
     final Int32List colors = Int32List(count);
     final Float32List depth = Float32List(count);
+
+    final Float32List? nightCoords = night == null
+        ? null
+        : Float32List(count * 2);
+    final Int32List? nightColors = night == null ? null : Int32List(count);
 
     final double halfWidth = size.width / 2.0;
     final double halfHeight = size.height / 2.0;
@@ -91,6 +107,11 @@ class BodyRenderer {
       // body is drawn upside down.
       texCoords[i * 2 + 1] = (1.0 - mesh.uvs[i * 2 + 1]) * texture.height;
 
+      if (night != null) {
+        nightCoords![i * 2] = mesh.uvs[i * 2] * night.width;
+        nightCoords[i * 2 + 1] = (1.0 - mesh.uvs[i * 2 + 1]) * night.height;
+      }
+
       double shade = 1.0;
       if (!emissive) {
         final double nx = mesh.normals[i * 3];
@@ -128,11 +149,23 @@ class BodyRenderer {
           facing = facing.abs();
         }
 
-        shade = ambient + (1.0 - ambient - fill) * math.max(0.0, lambert);
+        // How much of the Sun this point sees: none on the night side, all on
+        // the day side, easing across the terminator between them.
+        final double day = _daylight(lambert, terminator);
+
+        shade = ambient + (1.0 - ambient - fill) * day;
 
         // A weak light from the camera keeps whatever you are looking at
         // readable without washing out the terminator.
         shade += fill * math.max(0.0, facing);
+
+        if (nightColors != null) {
+          // The lights come up as the sunlight goes down, and are added to the
+          // scene rather than painted over it — they are light, after all.
+          final double lights = ((1.0 - day) * nightStrength).clamp(0.0, 1.0);
+          final int glow = (lights * 255).round();
+          nightColors[i] = 0xFF000000 | (glow << 16) | (glow << 8) | glow;
+        }
       }
 
       final int level = (shade.clamp(0.0, 1.0) * 255).round();
@@ -173,7 +206,7 @@ class BodyRenderer {
       final double area =
           (screen[b * 2] - ax) * (screen[c * 2 + 1] - ay) -
           (screen[c * 2] - ax) * (screen[b * 2 + 1] - ay);
-      if (cull && area <= 0) {
+      if (cull && area >= 0) {
         continue;
       }
 
@@ -207,5 +240,44 @@ class BodyRenderer {
     // Modulate multiplies the texture by the per-vertex shade, which is what
     // turns flat colour into a lit sphere.
     canvas.drawVertices(vertices, ui.BlendMode.modulate, paint);
+
+    if (night == null || nightColors == null || nightCoords == null) {
+      return;
+    }
+
+    // The night side again, with the body's own lights. The map is black
+    // everywhere but the cities, and it is added rather than composited, so
+    // the day side is left exactly as it was drawn.
+    canvas.drawVertices(
+      ui.Vertices.raw(
+        ui.VertexMode.triangles,
+        screen,
+        textureCoordinates: nightCoords,
+        colors: nightColors,
+        indices: Uint16List.sublistView(visible, 0, written),
+      ),
+      ui.BlendMode.modulate,
+      ui.Paint()
+        ..filterQuality = ui.FilterQuality.medium
+        ..blendMode = ui.BlendMode.plus
+        ..shader = ui.ImageShader(
+          night,
+          ui.TileMode.clamp,
+          ui.TileMode.clamp,
+          Matrix4.identity().storage,
+          filterQuality: ui.FilterQuality.medium,
+        ),
+    );
+  }
+
+  /// Fraction of full sunlight at a surface whose normal makes [lambert] with
+  /// the direction of the Sun, eased over a terminator of [width].
+  static double _daylight(double lambert, double width) {
+    if (width <= 0) {
+      return math.max(0.0, lambert);
+    }
+    final double t = ((lambert + width) / (2.0 * width)).clamp(0.0, 1.0);
+    // Smoothstep, so the edge of night arrives gently rather than as a seam.
+    return t * t * (3.0 - 2.0 * t);
   }
 }

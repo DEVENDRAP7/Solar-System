@@ -22,6 +22,9 @@ IMAGERY = {
     'earth_clouds.png':
         'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/'
         'textures/planets/earth_clouds_1024.png',
+    'earth_night.png':
+        'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/'
+        'textures/planets/earth_lights_2048.png',
     'moon_base.jpg':
         'https://raw.githubusercontent.com/mrdoob/three.js/dev/examples/'
         'textures/planets/moon_1024.jpg',

@@ -427,6 +427,11 @@ class SolarSystemPainter extends CustomPainter {
           viewDirection: toEye,
           cull: false,
           twoSided: true,
+          // A ring is a thin sheet lit through from both sides, so it has no
+          // day and night of its own. It keeps the flat lighting it was
+          // tuned with rather than the terminator the globes now get.
+          ambient: 0.38,
+          fill: 0.42,
           fartherThan: item.depth,
         );
       }
@@ -455,6 +460,8 @@ class SolarSystemPainter extends CustomPainter {
           viewDirection: toEye,
           cull: false,
           twoSided: true,
+          ambient: 0.38,
+          fill: 0.42,
           nearerThan: item.depth,
         );
       }
