@@ -25,6 +25,19 @@ jobs:
       - name: Download
         run: python3 tools/blender/fetch_hires.py --size "${{ inputs.size }}"
 
+      - name: Check nothing but images landed
+        run: |
+          # Belt and braces around the script's own check: a bot-protection
+          # page is served with a 200, and one run committed eleven of them.
+          fail=0
+          for f in $(git diff --name-only -- tools/blender/data); do
+            case "$(file -b --mime-type "$f")" in
+              image/*) ;;
+              *) echo "NOT AN IMAGE: $f -> $(file -b --mime-type "$f")"; fail=1 ;;
+            esac
+          done
+          exit $fail
+
       - name: Show what changed
         run: git -c core.pager=cat diff --stat
 

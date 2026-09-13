@@ -1,33 +1,42 @@
 """Fetch higher-resolution surface maps for the bodies that have them.
 
-Separate from ``fetch_data.py`` because these come from Solar System Scope,
-which the development sandbox cannot reach — its egress only allows GitHub. A
-GitHub Actions runner has open internet, so this is meant to be run there, by
-the `Fetch textures` workflow, which commits what it gets to a branch.
+Separate from ``fetch_data.py`` because these do not come from GitHub, which is
+the only host the development sandbox can reach. A GitHub Actions runner has
+open internet, so this is meant to be run there by the `Fetch textures`
+workflow, which commits what it gets to a branch.
 
-The maps are CC BY 4.0 and based on NASA imagery, so they are usable
-commercially with attribution — unlike most of the high-resolution planetary
-texture packs, which are non-commercial. See `data/SOURCES.md`.
+The maps are the Solar System Scope set — CC BY 4.0, based on NASA imagery, so
+usable commercially with attribution, unlike most high-resolution planetary
+texture packs. They are taken from Wikimedia Commons rather than from
+solarsystemscope.com directly: that site puts bot protection in front of its
+downloads, and a datacentre address such as a CI runner is served a CAPTCHA
+page rather than an image.
 
-    python3 tools/blender/fetch_hires.py [--size 2k]
+    python3 tools/blender/fetch_hires.py [--size 4k] [--dry-run]
 """
 
 import argparse
+import json
 import os
 import urllib.error
+import urllib.parse
 import urllib.request
 
 DATA_DIR = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
 
-BASE = 'https://www.solarsystemscope.com/textures/download'
+API = 'https://commons.wikimedia.org/w/api.php'
 
-# Local name -> the stem Solar System Scope publishes it under.
+# Wikimedia asks that automated clients identify themselves and refuses
+# requests that do not.
+AGENT = ('SolarSystemApp-TextureFetch/1.0 '
+         '(https://github.com/DEVENDRAP7/Solar-System)')
+
+# Local name -> the body as Solar System Scope names it on Commons.
 MAPS = {
     'mercury_base.jpg': 'mercury',
-    'venus_base.jpg': 'venus_surface',
-    'venus_clouds.jpg': 'venus_atmosphere',
-    'earth_base.jpg': 'earth_daymap',
-    'earth_night.png': 'earth_nightmap',
+    'venus_base.jpg': 'venus surface',
+    'earth_base.jpg': 'earth daymap',
+    'earth_night.png': 'earth nightmap',
     'moon_base.jpg': 'moon',
     'mars_base.jpg': 'mars',
     'jupiter_base.jpg': 'jupiter',
@@ -37,40 +46,100 @@ MAPS = {
     'sun_base.jpg': 'sun',
 }
 
+# Smallest plausible size for a real map. The failure this guards against is
+# not a 404 — it is a 200 carrying a CAPTCHA or an error page, which is how a
+# previous run committed eleven HTML files named .jpg.
+MINIMUM_BYTES = 40 * 1024
 
-def fetch(url):
-    request = urllib.request.Request(url, headers={'User-Agent': 'curl/8'})
+SIGNATURES = (b'\xff\xd8\xff', b'\x89PNG\r\n\x1a\n')
+
+
+def get(url):
+    request = urllib.request.Request(url, headers={'User-Agent': AGENT})
     with urllib.request.urlopen(request, timeout=180) as response:
         return response.read()
 
 
+def find(size, body):
+    """Search Commons for one texture and return its direct URL, or None."""
+    query = urllib.parse.urlencode({
+        'action': 'query',
+        'format': 'json',
+        'generator': 'search',
+        'gsrsearch': 'Solarsystemscope texture {} {}'.format(size, body),
+        'gsrnamespace': '6',
+        'gsrlimit': '5',
+        'prop': 'imageinfo',
+        'iiprop': 'url|size',
+    })
+    payload = json.loads(get('{}?{}'.format(API, query)).decode('utf-8'))
+
+    pages = payload.get('query', {}).get('pages', {})
+    wanted = body.replace(' ', '')
+    for page in pages.values():
+        title = page.get('title', '').lower().replace('_', '').replace(' ', '')
+        if size not in title or wanted not in title:
+            continue
+        info = (page.get('imageinfo') or [{}])[0]
+        if info.get('url'):
+            return page['title'], info['url'], info.get('width'), info.get('height')
+    return None
+
+
+def looks_like_an_image(data):
+    return (len(data) >= MINIMUM_BYTES
+            and any(data.startswith(signature) for signature in SIGNATURES))
+
+
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--size', default='2k', choices=['2k', '4k', '8k'])
+    parser.add_argument('--size', default='4k', choices=['2k', '4k', '8k'])
+    parser.add_argument('--dry-run', action='store_true',
+                        help='report what would be fetched, write nothing')
     options = parser.parse_args()
 
     os.makedirs(DATA_DIR, exist_ok=True)
     got = 0
 
-    for name, stem in MAPS.items():
-        extension = os.path.splitext(name)[1]
-        url = '{}/{}_{}{}'.format(BASE, options.size, stem, extension)
+    for name, body in MAPS.items():
         try:
-            data = fetch(url)
+            found = find(options.size, body)
         except (urllib.error.URLError, urllib.error.HTTPError) as error:
-            # Not every body is published at every size, and the naming has
-            # changed before. Skipping leaves the committed map in place.
-            print('{:<22} skipped: {}'.format(name, error))
+            print('{:<22} search failed: {}'.format(name, error))
+            continue
+
+        if found is None:
+            print('{:<22} not published at {}'.format(name, options.size))
+            continue
+
+        title, url, width, height = found
+        if options.dry_run:
+            print('{:<22} {}x{}  {}'.format(name, width, height, title))
+            got += 1
+            continue
+
+        try:
+            data = get(url)
+        except (urllib.error.URLError, urllib.error.HTTPError) as error:
+            print('{:<22} download failed: {}'.format(name, error))
+            continue
+
+        if not looks_like_an_image(data):
+            # Refuse rather than write: a bot-protection page is a 200 too.
+            print('{:<22} REFUSED: {} bytes, not an image'.format(
+                name, len(data)))
             continue
 
         with open(os.path.join(DATA_DIR, name), 'wb') as handle:
             handle.write(data)
         got += 1
-        print('{:<22} {:>8.0f} KB  {}'.format(name, len(data) / 1024, url))
+        print('{:<22} {}x{} {:>8.0f} KB  {}'.format(
+            name, width, height, len(data) / 1024, title))
 
-    print('\n{} of {} maps fetched at {}'.format(got, len(MAPS), options.size))
-    if got == 0:
-        raise SystemExit('nothing fetched — check the URLs above')
+    print('\n{} of {} maps at {}'.format(got, len(MAPS), options.size))
+    if got < len(MAPS) // 2:
+        raise SystemExit(
+            'too few maps fetched to be worth a commit — see the lines above')
 
 
 if __name__ == '__main__':
