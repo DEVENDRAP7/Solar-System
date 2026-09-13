@@ -169,4 +169,77 @@ void main() {
 
     expect(inspector.isActive, isFalse);
   });
+
+  testWidgets('a flick keeps the view moving, then settles', (
+    WidgetTester tester,
+  ) async {
+    final BodyInspector inspector = BodyInspector();
+    await tester.pumpWidget(
+      harness(
+        onInteracting: (bool _) {},
+        focusKey: 'mars',
+        inspector: inspector,
+      ),
+    );
+    await tester.pump();
+
+    // A quick flick: enough distance in enough of a hurry to count as a throw.
+    await tester.fling(find.byType(SolarSystemView), const Offset(220, 0), 900);
+    await tester.pump();
+
+    final double onRelease = inspector.yaw;
+    expect(onRelease.abs(), greaterThan(0.0));
+
+    // It should carry on after the finger has gone...
+    await tester.pump(const Duration(milliseconds: 120));
+    final double coasting = inspector.yaw;
+    expect(
+      coasting.abs(),
+      greaterThan(onRelease.abs()),
+      reason: 'the throw should carry the turn past where the finger left it',
+    );
+
+    // ...and then stop, rather than spinning for ever.
+    for (int i = 0; i < 30; i++) {
+      await tester.pump(const Duration(milliseconds: 100));
+    }
+    final double settled = inspector.yaw;
+    await tester.pump(const Duration(milliseconds: 400));
+
+    expect(
+      inspector.yaw,
+      closeTo(settled, 1e-9),
+      reason: 'the glide should come to rest',
+    );
+  });
+
+  testWidgets('putting a finger down stops the glide dead', (
+    WidgetTester tester,
+  ) async {
+    final BodyInspector inspector = BodyInspector();
+    await tester.pumpWidget(
+      harness(
+        onInteracting: (bool _) {},
+        focusKey: 'mars',
+        inspector: inspector,
+      ),
+    );
+    await tester.pump();
+
+    await tester.fling(find.byType(SolarSystemView), const Offset(220, 0), 900);
+    await tester.pump(const Duration(milliseconds: 60));
+
+    // Catch it, the way you would catch a spinning globe.
+    final TestGesture catcher = await tester.startGesture(
+      const Offset(200, 300),
+    );
+    await tester.pump();
+    final double caught = inspector.yaw;
+
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(inspector.yaw, closeTo(caught, 1e-9));
+
+    await catcher.up();
+    await tester.pump();
+  });
 }

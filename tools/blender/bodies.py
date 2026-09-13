@@ -45,17 +45,20 @@ BODIES = [
         # Real MESSENGER-derived imagery and topography.
         'photo': 'mercury_base.jpg',
         'bump': 'mercury_bump.jpg',
-        'resolution': 1024,
+        'resolution': 2048,
         # The source map is heavily colourised; Mercury is close to grey.
         'colour_keep': 0.12,
         'tint': (1.0, 0.98, 0.95),
-        'target_mean': 0.58,
+        'target_mean': 0.64,
         'colour_contrast': 0.55,
-        # The map paints in its own crater shadows, so soften it and let the
-        # real topography light the craters instead.
-        'soften': 0.5,
+        # The 8k map is a real photograph with its craters already in it, so
+        # it is left alone. The 1k map this replaced was painted, with crater
+        # shadows baked in that fought the relief, and had to be blurred.
+        'soften': 0.0,
         'bump_strength': 0.26,
-        'relief_shade': 0.55,
+        # Only a touch: the altimetry is a 1k map stretched over a 2k
+        # surface, so leaning on it turns real craters into sandpaper.
+        'relief_shade': 0.15,
         # Relief displaced into the mesh itself, as a fraction of the
         # radius. Exaggerated, as every relief map is: real topography is
         # a rounding error on a globe this size and would not be visible.
@@ -72,6 +75,9 @@ BODIES = [
         # from space; the radar map of the surface below is in data/ as
         # venus_base.jpg if the ground is wanted instead.
         'palette': ['#C9AE7A', '#E0CDA0', '#F2E6C8', '#FAF3E2'],
+        # Venus is procedural cloud rather than a photograph, but 512 — the
+        # build default it was falling through to — was visibly soft.
+        'resolution': 1024,
         'roughness': 0.85,
         'contrast': 0.5,
         'noise_scale': 6.0,
@@ -111,8 +117,8 @@ BODIES = [
         'resolution': 2048,
         # The Moon reflects about an eighth of the light hitting it, so the
         # honest imagery needs a firm lift to read on a screen.
-        'gamma': 0.78,
-        'gain': 1.45,
+        'gamma': 0.95,
+        'gain': 1.0,
         'radius_km': 1737.4,
         'rotation_hours': 655.72,
         'axial_tilt_deg': 6.68,
@@ -122,7 +128,10 @@ BODIES = [
         'crater_max': 0.11,
         'maria': True,
         'bump_strength': 0.5,
-        'relief_shade': 0.6,
+        # The 8k map already carries fine crater detail, so the curvature bake
+        # only has to deepen it. At the strength the 1k map needed it swamped
+        # the maria, leaving a uniformly pale ball.
+        'relief_shade': 0.34,
         # Relief displaced into the mesh itself, as a fraction of the
         # radius. Exaggerated, as every relief map is: real topography is
         # a rounding error on a globe this size and would not be visible.
@@ -139,12 +148,12 @@ BODIES = [
         'roughness': 0.92,
         'photo': 'mars_base.jpg',
         'bump': 'mars_bump.jpg',
-        'resolution': 1024,
+        'resolution': 2048,
         'colour_keep': 0.6,
         'tint': (1.0, 0.86, 0.72),
         'target_mean': 0.50,
         'bump_strength': 0.3,
-        'relief_shade': 0.4,
+        'relief_shade': 0.26,
         # Relief displaced into the mesh itself, as a fraction of the
         # radius. Exaggerated, as every relief map is: real topography is
         # a rounding error on a globe this size and would not be visible.
@@ -160,7 +169,7 @@ BODIES = [
         'palette': ['#6B4423', '#A9713F', '#D6B48A', '#EFE2CC', '#B04A33'],
         'roughness': 0.6,
         'photo': 'jupiter_base.jpg',
-        'resolution': 1024,
+        'resolution': 2048,
         'colour_keep': 0.8,
         'target_mean': 0.55,
         'bump_strength': 0.0,
@@ -175,7 +184,7 @@ BODIES = [
         'palette': ['#8A6B36', '#B99459', '#DCC189', '#F2E6C8', '#C7A96B'],
         'roughness': 0.6,
         'photo': 'saturn_base.jpg',
-        'resolution': 1024,
+        'resolution': 2048,
         'colour_keep': 0.85,
         'target_mean': 0.58,
         'bump_strength': 0.0,

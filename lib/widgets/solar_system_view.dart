@@ -1,3 +1,4 @@
+import 'dart:math' as math;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
@@ -12,6 +13,10 @@ import '../services/render/body_inspector.dart';
 import '../services/render/mesh_library.dart';
 import '../services/render/orbit_camera.dart';
 import '../services/render/solar_system_painter.dart';
+
+/// What a drag is moving: the camera around the scene, the camera across it,
+/// or the body the camera is looking at.
+enum _Drag { orbit, slide, turnBody }
 
 /// What a one-finger drag does to the view.
 enum DragMode {
@@ -103,6 +108,23 @@ class _SolarSystemViewState extends State<SolarSystemView>
   /// it off, which is what lets you wander off on your own.
   bool _following = false;
 
+  /// Speed left over from the last drag, in pixels per second, and what it is
+  /// moving. The view keeps going after the finger lifts and slows to a stop,
+  /// so a flick across the system carries instead of stopping dead.
+  Offset _glide = Offset.zero;
+  _Drag _glideKind = _Drag.orbit;
+
+  /// What fraction of the glide's speed survives each second. Low enough to
+  /// settle in about a second, high enough that a throw goes somewhere.
+  static const double _glideDecay = 0.06;
+
+  /// Below this many pixels a second the glide has arrived.
+  static const double _glideFloor = 12.0;
+
+  /// Flicks faster than this are treated as a throw rather than the small
+  /// involuntary movement of lifting a finger off the glass.
+  static const double _glideThreshold = 140.0;
+
   @override
   void initState() {
     super.initState();
@@ -130,6 +152,8 @@ class _SolarSystemViewState extends State<SolarSystemView>
 
     widget.onFrame(delta.clamp(0.0, 0.25));
 
+    _coast(delta);
+
     final OrbitCamera? destination = _destination;
     final String? focus = widget.focusKey;
 
@@ -149,6 +173,19 @@ class _SolarSystemViewState extends State<SolarSystemView>
     }
 
     _frame.value++;
+  }
+
+  /// Carry the last drag on for a moment, slowing as it goes.
+  void _coast(double seconds) {
+    if (_glide == Offset.zero || seconds <= 0) {
+      return;
+    }
+    if (_glide.distance < _glideFloor) {
+      _glide = Offset.zero;
+      return;
+    }
+    _apply(_glide * seconds, _glideKind);
+    _glide = _glide * math.pow(_glideDecay, seconds).toDouble();
   }
 
   vm.Vector3 _targetFor(String key) {
@@ -224,6 +261,9 @@ class _SolarSystemViewState extends State<SolarSystemView>
   void _handleScaleStart(ScaleStartDetails details) {
     _zoomStart = 1.0;
     _multiTouch = details.pointerCount > 1;
+    // A finger on the glass stops the view where it is, the way catching a
+    // spinning globe does.
+    _glide = Offset.zero;
     // Hold the clock while a finger is down. Without this a planet turns and
     // drifts away as you try to look at it, and its far side stays hidden.
     widget.onInteracting(true);
@@ -249,17 +289,34 @@ class _SolarSystemViewState extends State<SolarSystemView>
         _camera.zoom(step);
         _destination = null;
       }
-      _movePan(delta);
-    } else if (widget.dragMode == DragMode.move) {
-      _movePan(delta);
-    } else if (_inspector.isActive) {
-      // A body is selected, so the drag turns that body rather than flying the
-      // camera around it. The camera does not move, so the planets, orbits and
-      // belt behind it stay put while its far side comes into view.
-      _inspector.turn(delta.dx * _rotateSpeed, delta.dy * _rotateSpeed);
-    } else {
-      _camera.rotate(-delta.dx * _rotateSpeed, delta.dy * _rotateSpeed);
-      _destination = null;
+    }
+    _apply(delta, _dragKind);
+  }
+
+  /// What the drag in progress is moving.
+  _Drag get _dragKind {
+    if (_multiTouch || widget.dragMode == DragMode.move) {
+      return _Drag.slide;
+    }
+    // A body is selected, so a drag turns that body rather than flying the
+    // camera around it. The camera does not move, so the planets, orbits and
+    // belt behind it stay put while its far side comes into view.
+    return _inspector.isActive ? _Drag.turnBody : _Drag.orbit;
+  }
+
+  /// Move the view by [delta] pixels, however that drag is being spent.
+  ///
+  /// The finger and the glide that follows it both come through here, so a
+  /// throw carries on doing exactly what the hand was doing.
+  void _apply(Offset delta, _Drag kind) {
+    switch (kind) {
+      case _Drag.slide:
+        _movePan(delta);
+      case _Drag.turnBody:
+        _inspector.turn(delta.dx * _rotateSpeed, delta.dy * _rotateSpeed);
+      case _Drag.orbit:
+        _camera.rotate(-delta.dx * _rotateSpeed, delta.dy * _rotateSpeed);
+        _destination = null;
     }
   }
 
@@ -275,34 +332,51 @@ class _SolarSystemViewState extends State<SolarSystemView>
     _inspector.focus(null);
   }
 
-  void _handleScaleEnd(ScaleEndDetails details) => widget.onInteracting(false);
+  void _handleScaleEnd(ScaleEndDetails details) {
+    widget.onInteracting(false);
+
+    final Offset thrown = details.velocity.pixelsPerSecond;
+    if (thrown.distance >= _glideThreshold) {
+      _glide = thrown;
+      _glideKind = _dragKind;
+    } else {
+      _glide = Offset.zero;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(
       builder: (BuildContext context, BoxConstraints constraints) {
         _viewport = constraints.biggest;
-        return GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTapUp: _handleTap,
-          onScaleStart: _handleScaleStart,
-          onScaleUpdate: _handleScaleUpdate,
-          onScaleEnd: _handleScaleEnd,
-          child: CustomPaint(
-            size: Size.infinite,
-            painter: SolarSystemPainter(
-              simulation: widget.simulation,
-              camera: _camera,
-              meshes: widget.library.meshes,
-              scale: widget.scale,
-              stars: _stars,
-              hits: _hits,
-              showOrbits: widget.showOrbits,
-              showMoons: widget.showMoons,
-              belt: widget.belt,
-              showBelt: widget.showBelt,
-              inspector: _inspector,
-              repaint: _frame,
+        return Listener(
+          // A finger touching the glass stops the glide at once, the way
+          // catching a spinning globe does. It has to be the raw pointer: the
+          // scale gesture does not start until the arena resolves, so a finger
+          // resting still would let the view carry on sliding underneath it.
+          onPointerDown: (PointerDownEvent _) => _glide = Offset.zero,
+          child: GestureDetector(
+            behavior: HitTestBehavior.opaque,
+            onTapUp: _handleTap,
+            onScaleStart: _handleScaleStart,
+            onScaleUpdate: _handleScaleUpdate,
+            onScaleEnd: _handleScaleEnd,
+            child: CustomPaint(
+              size: Size.infinite,
+              painter: SolarSystemPainter(
+                simulation: widget.simulation,
+                camera: _camera,
+                meshes: widget.library.meshes,
+                scale: widget.scale,
+                stars: _stars,
+                hits: _hits,
+                showOrbits: widget.showOrbits,
+                showMoons: widget.showMoons,
+                belt: widget.belt,
+                showBelt: widget.showBelt,
+                inspector: _inspector,
+                repaint: _frame,
+              ),
             ),
           ),
         );

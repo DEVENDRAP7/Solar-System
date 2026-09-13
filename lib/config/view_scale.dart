@@ -27,13 +27,35 @@ class ViewScale {
   static const double _earthOrbitUnits = 12.0;
 
   /// Compression exponent for orbital distance.
-  static const double _distanceExponent = 0.55;
+  ///
+  /// Lower compresses the outer system harder and, for the same Earth orbit,
+  /// pushes the inner planets further apart. Both are wanted: it leaves room
+  /// for a Sun that reads as the Sun without swallowing Mercury's orbit, and
+  /// it brings Neptune in from 78 units to 50, so the whole system is framed
+  /// from closer in and every body is larger on screen.
+  static const double _distanceExponent = 0.42;
 
   /// Scene units for Earth's radius in [ScaleMode.explore].
-  static const double _earthRadiusUnits = 0.58;
+  static const double _earthRadiusUnits = 0.55;
 
   /// Compression exponent for body radius.
-  static const double _radiusExponent = 1.0 / 3.0;
+  ///
+  /// A cube root flattened the bodies into near-uniformity: Jupiter came out
+  /// 2.2 times Earth when it is really 11, and Mercury 0.73 when it is 0.38.
+  /// A square root keeps everything on one screen while letting a giant look
+  /// like a giant — Jupiter 3.3 times Earth, Mercury 0.62.
+  static const double _radiusExponent = 0.5;
+
+  /// Mercury's semi-major axis, which sets how much room the Sun has.
+  static const double _mercuryOrbitAu = 0.387;
+
+  /// The most of Mercury's orbit the Sun's disc may fill.
+  ///
+  /// The Sun is 109 times Earth's radius and would be drawn at ten times
+  /// Jupiter — far outside Mercury's orbit, swallowing the inner system. It is
+  /// held here instead, which is still a wild exaggeration: in life the Sun
+  /// spans about one part in eighty of that orbit, not two fifths.
+  static const double _starShareOfInnerOrbit = 0.40;
 
   static const double _earthRadiusKm = 6371.0;
   static const double _kmPerAu = 1.495978707e8;
@@ -66,13 +88,20 @@ class ViewScale {
     final double factor = isMoon ? _moonScale : 1.0;
     switch (mode) {
       case ScaleMode.explore:
-        return _earthRadiusUnits *
+        final double drawn =
+            _earthRadiusUnits *
             factor *
             math.pow(radiusKm / _earthRadiusKm, _radiusExponent).toDouble();
+        // The Sun is on a different order from everything else and is the one
+        // body the shared rule cannot hold.
+        return math.min(drawn, _starCeiling);
       case ScaleMode.trueScale:
         return _trueUnitsPerAu * radiusKm / _kmPerAu;
     }
   }
+
+  /// The largest any body is drawn: how far the Sun may reach toward Mercury.
+  double get _starCeiling => _starShareOfInnerOrbit * distance(_mercuryOrbitAu);
 
   /// Scene distance for a moon from the planet it orbits.
   ///

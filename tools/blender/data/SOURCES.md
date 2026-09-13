@@ -15,14 +15,26 @@ dataset, so they are listed separately below.
 
 NASA imagery is not subject to copyright. Natural Earth is public domain.
 
+## Solar System Scope, via Wikimedia Commons (CC BY 4.0)
+
+Mercury, Venus, Earth (day and night), the Moon, Mars, Jupiter, Saturn and the
+Sun are the Solar System Scope textures at 8k or 4k, based on NASA imagery and
+distributed under CC Attribution 4.0 International — usable commercially with
+attribution. Fetched by the `Fetch textures` workflow.
+
+They come from Wikimedia Commons rather than solarsystemscope.com because that
+site serves a CAPTCHA to datacentre addresses, so a CI runner gets an HTML page
+where it asked for a JPEG.
+
+Uranus and Neptune are not in that set under a title the search matches, so
+they are still the 1k maps listed above. Both are close to featureless in
+visible light, so little is lost.
+
 ## Higher-resolution maps
 
-Everything above is 1024x512 or 2048x1024, which is what is reachable from a
-sandbox whose egress only allows GitHub. Solar System Scope publishes the same
-bodies at 2k, 4k and 8k under CC BY 4.0 — usable commercially with attribution,
-unlike most high-resolution planetary packs, which are non-commercial. Run the
-`Fetch textures` workflow to pull those on a runner and commit them to a branch,
-then rebuild the models from it.
+Run the `Fetch textures` workflow to pull a different size on a runner — the
+development sandbox can only reach GitHub — and commit it to a branch, then
+rebuild the models from that branch.
 
 Note on what was deliberately not used: the Real Solar System texture pack
 (github.com/KSP-RO/RSS-Textures) has 4k and 8k maps in-repo, but is CC-BY-NC-SA
