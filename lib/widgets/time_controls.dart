@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../config/theme.dart';
 import '../providers/solar_system_provider.dart';
+import 'glass_panel.dart';
 
 /// Pause, time scale and the simulated date.
 class TimeControls extends StatelessWidget {
@@ -50,64 +51,93 @@ class TimeControls extends StatelessWidget {
     final TextTheme text = Theme.of(context).textTheme;
     final TimeSpeed speed = SolarSystemProvider.speeds[speedIndex];
 
-    return Container(
-      margin: const EdgeInsets.fromLTRB(12, 0, 12, 12),
-      padding: const EdgeInsets.fromLTRB(14, 8, 14, 10),
-      decoration: BoxDecoration(
-        color: AppTheme.panel,
-        border: Border.all(color: AppTheme.panelBorder),
-        borderRadius: BorderRadius.circular(16),
-      ),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              IconButton(
-                onPressed: onTogglePaused,
-                tooltip: paused ? 'Play' : 'Pause',
-                icon: Icon(
-                  paused ? Icons.play_arrow_rounded : Icons.pause_rounded,
-                  color: AppTheme.accent,
+    return Padding(
+      padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
+      child: GlassPanel(
+        padding: const EdgeInsets.fromLTRB(8, 4, 8, 6),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                IconButton(
+                  onPressed: onTogglePaused,
+                  tooltip: paused ? 'Play' : 'Pause',
+                  icon: Icon(
+                    paused ? Icons.play_arrow_rounded : Icons.pause_rounded,
+                    color: AppTheme.accent,
+                  ),
                 ),
-              ),
-              Expanded(
-                child: ValueListenableBuilder<DateTime>(
-                  valueListenable: clock,
-                  builder: (BuildContext context, DateTime time, Widget? _) {
-                    return Text(
-                      formatDate(time),
-                      textAlign: TextAlign.center,
-                      style: text.titleMedium,
-                    );
-                  },
+                Expanded(
+                  child: ValueListenableBuilder<DateTime>(
+                    valueListenable: clock,
+                    builder: (BuildContext context, DateTime time, Widget? _) {
+                      return Text(
+                        formatDate(time),
+                        textAlign: TextAlign.center,
+                        style: text.titleMedium?.copyWith(
+                          // Figures of equal width, or the date jitters
+                          // sideways every second the clock ticks.
+                          fontFeatures: const <FontFeature>[
+                            FontFeature.tabularFigures(),
+                          ],
+                          letterSpacing: 0.2,
+                        ),
+                      );
+                    },
+                  ),
                 ),
-              ),
-              IconButton(
-                onPressed: onResetToNow,
-                tooltip: 'Back to now',
-                icon: const Icon(
-                  Icons.restore_rounded,
-                  color: AppTheme.textSecondary,
+                IconButton(
+                  onPressed: onResetToNow,
+                  tooltip: 'Back to now',
+                  icon: const Icon(
+                    Icons.restore_rounded,
+                    color: AppTheme.textSecondary,
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Text(speed.label, style: text.labelSmall),
-              Expanded(
-                child: Slider(
-                  value: speedIndex.toDouble(),
-                  min: 0,
-                  max: (SolarSystemProvider.speeds.length - 1).toDouble(),
-                  divisions: SolarSystemProvider.speeds.length - 1,
-                  onChanged: (double value) => onSpeedChanged(value.round()),
+              ],
+            ),
+            Row(
+              children: <Widget>[
+                const SizedBox(width: 6),
+                Expanded(
+                  child: SliderTheme(
+                    data: SliderTheme.of(context).copyWith(
+                      inactiveTrackColor: AppTheme.panelBorder,
+                      overlayShape: const RoundSliderOverlayShape(
+                        overlayRadius: 14,
+                      ),
+                      thumbShape: const RoundSliderThumbShape(
+                        enabledThumbRadius: 6,
+                      ),
+                    ),
+                    child: Slider(
+                      value: speedIndex.toDouble(),
+                      min: 0,
+                      max: (SolarSystemProvider.speeds.length - 1).toDouble(),
+                      divisions: SolarSystemProvider.speeds.length - 1,
+                      onChanged: (double value) =>
+                          onSpeedChanged(value.round()),
+                    ),
+                  ),
                 ),
-              ),
-            ],
-          ),
-        ],
+                // The speed sits at the end, in a fixed-width slot, so the
+                // slider does not shuffle along as the label changes length.
+                SizedBox(
+                  width: 76,
+                  child: Text(
+                    speed.label,
+                    textAlign: TextAlign.right,
+                    maxLines: 1,
+                    overflow: TextOverflow.ellipsis,
+                    style: text.labelSmall?.copyWith(color: AppTheme.accent),
+                  ),
+                ),
+                const SizedBox(width: 4),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

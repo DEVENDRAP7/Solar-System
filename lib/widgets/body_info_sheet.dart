@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../config/theme.dart';
 import '../models/celestial_body.dart';
+import 'body_orb.dart';
 
 /// Details panel for the selected body.
 class BodyInfoSheet extends StatelessWidget {
@@ -64,6 +65,10 @@ class BodyInfoSheet extends StatelessWidget {
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(right: 12, top: 2),
+                  child: BodyOrb(body: body, size: 40),
+                ),
                 Expanded(
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,

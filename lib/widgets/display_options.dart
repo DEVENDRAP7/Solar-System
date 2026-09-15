@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../config/theme.dart';
 import '../config/view_scale.dart';
+import 'glass_panel.dart';
 import 'solar_system_view.dart' show DragMode;
 
 /// Toggles for what the scene shows.
@@ -35,13 +36,9 @@ class DisplayOptions extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 4),
-      decoration: BoxDecoration(
-        color: AppTheme.panel,
-        border: Border.all(color: AppTheme.panelBorder),
-        borderRadius: BorderRadius.circular(14),
-      ),
+    return GlassPanel(
+      padding: const EdgeInsets.symmetric(horizontal: 4, vertical: 4),
+      radius: 20,
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: <Widget>[
@@ -114,14 +111,30 @@ class _Toggle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return IconButton(
-      onPressed: onPressed,
-      tooltip: tooltip,
-      iconSize: 20,
-      visualDensity: VisualDensity.compact,
-      icon: Icon(
-        icon,
-        color: active ? AppTheme.accent : AppTheme.textSecondary,
+    return Tooltip(
+      message: tooltip,
+      child: GestureDetector(
+        onTap: onPressed,
+        behavior: HitTestBehavior.opaque,
+        child: AnimatedContainer(
+          duration: const Duration(milliseconds: 140),
+          margin: const EdgeInsets.symmetric(vertical: 2),
+          width: 38,
+          height: 34,
+          decoration: BoxDecoration(
+            // On is a lit key, off is bare: a tint alone is hard to read at
+            // a glance against a scene that is itself mostly dark.
+            color: active
+                ? AppTheme.accent.withValues(alpha: 0.18)
+                : Colors.transparent,
+            borderRadius: BorderRadius.circular(12),
+          ),
+          child: Icon(
+            icon,
+            size: 19,
+            color: active ? AppTheme.accent : AppTheme.textSecondary,
+          ),
+        ),
       ),
     );
   }
