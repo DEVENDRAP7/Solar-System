@@ -130,6 +130,9 @@ def main():
         rows = ROW.findall(page)
         kept = []
         conventions = set()
+        seen_classes = []
+        if rows:
+            seen_classes = [classes for classes, _ in CELL.findall(rows[0])]
 
         for row in rows:
             name = cell(row, 'featurename')
@@ -157,10 +160,22 @@ def main():
         if kept:
             found[body] = kept
 
-        print('{:<10} {:>5} rows -> {:>3} kept  {:<28} {}'.format(
+        print('{:<10} {:>5} rows -> {:>3} kept  {:<30} {}'.format(
             body, len(rows), len(kept),
-            '; '.join(sorted(conventions))[:28],
+            '; '.join(sorted(conventions))[:30],
             kept[0][0] if kept else '-'))
+
+        # A body that yields nothing says what its cells were actually called,
+        # so a mismatch is diagnosed by the run that hit it rather than by
+        # another round trip.
+        if not kept and seen_classes:
+            print('           columns: {}'.format(' | '.join(seen_classes)))
+            first = rows[0]
+            for classes in seen_classes:
+                value = cell(first, classes.split()[0].lower())
+                if value:
+                    print('             {:<34} {}'.format(
+                        classes.split()[0], value[:44]))
 
     if len(found) < 4:
         raise SystemExit('too few bodies came back to be worth a commit')
