@@ -9,6 +9,7 @@ import 'package:solar_system_app/models/body_catalog.dart';
 import 'package:solar_system_app/models/celestial_body.dart';
 import 'package:solar_system_app/services/physics/simulation.dart';
 import 'package:solar_system_app/services/render/mesh_asset.dart';
+import 'package:solar_system_app/services/render/star_field.dart';
 import 'package:solar_system_app/services/render/orbit_camera.dart';
 import 'package:solar_system_app/services/render/solar_system_painter.dart';
 import 'package:vector_math/vector_math_64.dart' as vm;
@@ -43,7 +44,7 @@ Future<Uint8List> render(
     ),
     meshes: meshes,
     scale: const ViewScale(),
-    stars: <vm.Vector3>[],
+    stars: <StarBand>[],
     hits: <BodyHit>[],
     showOrbits: false,
     showMoons: false,

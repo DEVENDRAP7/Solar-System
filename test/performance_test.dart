@@ -9,7 +9,7 @@ import 'package:solar_system_app/models/body_catalog.dart';
 import 'package:solar_system_app/models/celestial_body.dart';
 import 'package:solar_system_app/services/physics/simulation.dart';
 import 'package:solar_system_app/services/render/mesh_asset.dart';
-import 'package:solar_system_app/services/render/mesh_library.dart';
+import 'package:solar_system_app/services/render/star_field.dart';
 import 'package:solar_system_app/services/render/orbit_camera.dart';
 import 'package:solar_system_app/services/render/solar_system_painter.dart';
 import 'package:vector_math/vector_math_64.dart' as vm;
@@ -40,7 +40,7 @@ void main() {
       final AsteroidBelt belt = AsteroidBelt.parse(
         File('assets/data/asteroids.csv').readAsStringSync(),
       );
-      final List<vm.Vector3> stars = MeshLibrary.makeStars(1200);
+      final List<StarBand> stars = StarField.banded(StarField.make(2600));
 
       double paint(OrbitCamera camera, int frames) {
         final Stopwatch clock = Stopwatch()..start();

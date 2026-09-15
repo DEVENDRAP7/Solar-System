@@ -72,19 +72,21 @@ BODIES = [
         'rotation_hours': -5832.5,
         'axial_tilt_deg': 177.36,
         # Venus is drawn as the cloud deck, which is all that is ever visible
-        # from space; the radar map of the surface below is in data/ as
-        # venus_base.jpg if the ground is wanted instead.
+        # from space; the radar map of the ground below is in data/ as
+        # venus_base.jpg if the surface is wanted instead. The deck itself is
+        # now a real photograph rather than invented noise.
+        'photo': 'venus_clouds.jpg',
         'palette': ['#C9AE7A', '#E0CDA0', '#F2E6C8', '#FAF3E2'],
-        # Venus is procedural cloud rather than a photograph, but 512 — the
-        # build default it was falling through to — was visibly soft.
-        'resolution': 1024,
+        'resolution': 2048,
+        'colour_keep': 0.5,
+        'tint': (1.0, 0.93, 0.76),
+        'target_mean': 0.72,
         'roughness': 0.85,
         'contrast': 0.5,
         'noise_scale': 6.0,
         # No normal map: Venus is smooth cloud deck, and every map costs a
         # pure-Dart image decode on the device at load time.
         'bump_strength': 0.0,
-        'relief_shade': 0.35,
     },
     {
         'key': 'earth',
@@ -199,7 +201,7 @@ BODIES = [
         'palette': ['#69AEB8', '#89C7CF', '#A8DBE1', '#C4E9ED', '#7FC0C9'],
         'roughness': 0.5,
         'photo': 'uranus_base.jpg',
-        'resolution': 1024,
+        'resolution': 2048,
         'target_mean': 0.62,
         'bump_strength': 0.0,
     },
@@ -213,7 +215,7 @@ BODIES = [
         'palette': ['#1B3C8C', '#2A56B5', '#4E82D8', '#9CC0EE', '#12296B'],
         'roughness': 0.5,
         'photo': 'neptune_base.jpg',
-        'resolution': 1024,
+        'resolution': 2048,
         # Voyager's images were contrast-stretched; reprocessing shows Neptune
         # is much paler, close to Uranus but a little bluer.
         'colour_keep': 0.32,
@@ -231,7 +233,10 @@ RINGS = {
     'inner_radius': 1.24,
     'outer_radius': 2.27,
     'segments': 128,
-    'photo': 'saturn_ring.jpg',
+    # The 8k strip carries the ring's own transparency in its alpha, so
+    # the Cassini division is a real gap rather than one inferred from
+    # how dark the pixels are.
+    'photo': 'saturn_ring_hi.png',
 }
 
 # ---------------------------------------------------------------------------

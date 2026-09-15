@@ -131,6 +131,22 @@ def relief_shade(color, relief, strength):
     return np.clip(color * (1.0 + strength * shade)[..., None], 0.0, 1.0)
 
 
+def load_optional_grey(name, width, height):
+    """Like [load_grey], but None when the file is not there."""
+    if not os.path.exists(_path(name)):
+        return None
+    return load_grey(name, width, height)
+
+
+def load_rgba(name, width, height):
+    """Load a map with its alpha, or None when it has none to give."""
+    image = Image.open(_path(name))
+    if 'A' not in image.getbands():
+        return None
+    image = image.convert('RGBA').resize((width, height), Image.LANCZOS)
+    return np.flipud(np.asarray(image, dtype=np.float64) / 255.0).copy()
+
+
 def load_grey(name, width, height):
     """Load a single-channel map, flipped to match [load_map]."""
     image = Image.open(_path(name)).convert('L')

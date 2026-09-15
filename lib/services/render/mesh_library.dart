@@ -1,8 +1,5 @@
-import 'dart:math' as math;
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
-import 'package:vector_math/vector_math_64.dart';
 
 import '../../models/body_catalog.dart';
 import '../../models/celestial_body.dart';
@@ -57,17 +54,6 @@ class MeshLibrary {
     }
 
     status.value = 'Ready';
-  }
-
-  /// Random directions used for the star field.
-  static List<Vector3> makeStars(int count, {int seed = 20260908}) {
-    final math.Random random = math.Random(seed);
-    return List<Vector3>.generate(count, (int _) {
-      final double u = random.nextDouble() * 2.0 - 1.0;
-      final double theta = random.nextDouble() * 2.0 * math.pi;
-      final double r = math.sqrt(1.0 - u * u);
-      return Vector3(r * math.cos(theta), u, r * math.sin(theta));
-    });
   }
 
   void dispose() {

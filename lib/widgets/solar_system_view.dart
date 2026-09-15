@@ -11,6 +11,7 @@ import '../models/celestial_body.dart';
 import '../services/physics/simulation.dart';
 import '../services/render/body_inspector.dart';
 import '../services/render/mesh_library.dart';
+import '../services/render/star_field.dart';
 import '../services/render/orbit_camera.dart';
 import '../services/render/solar_system_painter.dart';
 
@@ -86,7 +87,7 @@ class _SolarSystemViewState extends State<SolarSystemView>
   final OrbitCamera _camera = OrbitCamera();
   late final BodyInspector _inspector = widget.inspector ?? BodyInspector();
   final List<BodyHit> _hits = <BodyHit>[];
-  late final List<vm.Vector3> _stars = MeshLibrary.makeStars(1200);
+  late final List<StarBand> _stars = StarField.banded(StarField.make(2600));
 
   OrbitCamera? _destination;
   Duration _last = Duration.zero;

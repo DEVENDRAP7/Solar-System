@@ -31,7 +31,7 @@
       "rotationHours": -5832.5,
       "axialTiltDeg": 177.36,
       "triangles": 5040,
-      "bytes": 196308
+      "bytes": 362856
     },
     {
       "key": "earth",
@@ -41,7 +41,7 @@
       "rotationHours": 23.934,
       "axialTiltDeg": 23.44,
       "triangles": 5040,
-      "bytes": 589780
+      "bytes": 747660
     },
     {
       "key": "moon",
@@ -91,7 +91,7 @@
       "rotationHours": -17.24,
       "axialTiltDeg": 97.77,
       "triangles": 5040,
-      "bytes": 133744
+      "bytes": 179916
     },
     {
       "key": "neptune",
@@ -101,7 +101,7 @@
       "rotationHours": 16.11,
       "axialTiltDeg": 28.32,
       "triangles": 5040,
-      "bytes": 147436
+      "bytes": 287208
     },
     {
       "key": "phobos",
@@ -310,7 +310,7 @@
       "innerRadius": 1.24,
       "outerRadius": 2.27,
       "triangles": 256,
-      "bytes": 12748
+      "bytes": 13496
     }
   ]
 }

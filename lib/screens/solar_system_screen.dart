@@ -112,29 +112,47 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
                 left: 0,
                 right: 0,
                 bottom: 0,
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    if (selected == null) ...<Widget>[
-                      BodyPicker(
-                        selectedKey: _provider.selectedKey,
-                        onSelected: _provider.select,
-                      ),
-                      const SizedBox(height: 10),
-                      TimeControls(
-                        speedIndex: _provider.speedIndex,
-                        paused: _provider.paused,
-                        clock: _provider.clock,
-                        onSpeedChanged: _provider.setSpeedIndex,
-                        onTogglePaused: _provider.togglePaused,
-                        onResetToNow: _provider.resetToNow,
-                      ),
-                    ] else
-                      BodyInfoSheet(
-                        body: selected,
-                        onClose: _provider.clearSelection,
-                      ),
-                  ],
+                child: Container(
+                  // A scrim under the controls. The scene behind them is
+                  // sometimes empty space and sometimes the face of the Sun,
+                  // and small text has to stay readable over both.
+                  decoration: const BoxDecoration(
+                    gradient: LinearGradient(
+                      begin: Alignment.bottomCenter,
+                      end: Alignment.topCenter,
+                      colors: <Color>[
+                        Color(0xF205060A),
+                        Color(0xB305060A),
+                        Color(0x0005060A),
+                      ],
+                      stops: <double>[0.0, 0.55, 1.0],
+                    ),
+                  ),
+                  padding: const EdgeInsets.only(top: 26),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.min,
+                    children: <Widget>[
+                      if (selected == null) ...<Widget>[
+                        BodyPicker(
+                          selectedKey: _provider.selectedKey,
+                          onSelected: _provider.select,
+                        ),
+                        const SizedBox(height: 10),
+                        TimeControls(
+                          speedIndex: _provider.speedIndex,
+                          paused: _provider.paused,
+                          clock: _provider.clock,
+                          onSpeedChanged: _provider.setSpeedIndex,
+                          onTogglePaused: _provider.togglePaused,
+                          onResetToNow: _provider.resetToNow,
+                        ),
+                      ] else
+                        BodyInfoSheet(
+                          body: selected,
+                          onClose: _provider.clearSelection,
+                        ),
+                    ],
+                  ),
                 ),
               ),
             ],

@@ -15,6 +15,7 @@ import 'body_inspector.dart';
 import 'body_renderer.dart';
 import 'mesh_asset.dart';
 import 'orbit_camera.dart';
+import 'star_field.dart';
 
 /// Scene position of [body], in scene units with y up.
 ///
@@ -96,7 +97,9 @@ class SolarSystemPainter extends CustomPainter {
   final OrbitCamera camera;
   final Map<String, MeshAsset> meshes;
   final ViewScale scale;
-  final List<Vector3> stars;
+
+  /// The sky, pre-grouped so drawing it is a handful of calls.
+  final List<StarBand> stars;
   final bool showOrbits;
   final bool showMoons;
   final Listenable repaint;
@@ -172,22 +175,51 @@ class SolarSystemPainter extends CustomPainter {
     // Stars sit on a distant shell centred on the camera, so they never move
     // with position, only with heading.
     final Vector3 eye = camera.eye;
-    final Paint paint = Paint()..color = const Color(0xCCE8EEFF);
     final List<Offset> points = <Offset>[];
 
-    for (final Vector3 direction in stars) {
-      final Offset? point = _project(
-        eye + direction * _starShell,
-        view,
-        size,
-        focal,
-      );
-      if (point != null) {
-        points.add(point);
+    for (final StarBand band in stars) {
+      points.clear();
+      for (final Vector3 direction in band.directions) {
+        final Offset? point = _project(
+          eye + direction * _starShell,
+          view,
+          size,
+          focal,
+        );
+        if (point != null) {
+          points.add(point);
+        }
       }
-    }
-    if (points.isNotEmpty) {
-      canvas.drawPoints(ui.PointMode.points, points, paint..strokeWidth = 1.6);
+      if (points.isEmpty) {
+        continue;
+      }
+
+      // The brightest few get a soft halo, which is what makes a star read as
+      // a point of light rather than a dot of paint.
+      if (band.size >= 2.2) {
+        canvas.drawPoints(
+          ui.PointMode.points,
+          points,
+          Paint()
+            ..color = band.colour.withValues(alpha: 0.18)
+            ..strokeWidth = band.size * 3.2
+            ..strokeCap = StrokeCap.round
+            ..maskFilter = const MaskFilter.blur(BlurStyle.normal, 2.0),
+        );
+      }
+
+      canvas.drawPoints(
+        ui.PointMode.points,
+        points,
+        Paint()
+          ..color = band.colour.withValues(
+            // Faint stars are faint as well as small, or the sky reads as
+            // uniform however much the sizes vary.
+            alpha: (0.30 + 0.24 * band.size).clamp(0.0, 1.0),
+          )
+          ..strokeWidth = band.size
+          ..strokeCap = StrokeCap.round,
+      );
     }
   }
 
@@ -451,6 +483,9 @@ class SolarSystemPainter extends CustomPainter {
       }
 
       _paintAtmosphere(canvas, item.body, centre, screenSize, lit, sunOnScreen);
+      if (item.body.isStar) {
+        _paintCorona(canvas, centre, screenSize);
+      }
 
       // A ring lies in its planet's equator, sharing the tilt but not the
       // spin. It is drawn in two passes around the planet so the far side
@@ -499,6 +534,7 @@ class SolarSystemPainter extends CustomPainter {
         lightDirection: toSun,
         viewDirection: toEye,
         emissive: item.body.isStar,
+        terminator: item.body.terminatorWidth,
       );
 
       if (rings != null) {
@@ -569,6 +605,33 @@ class SolarSystemPainter extends CustomPainter {
             (edge + 0.18).clamp(0.0, 1.0),
             1.0,
           ],
+        ),
+    );
+  }
+
+  /// The Sun's glow.
+  ///
+  /// A star seen from space has no sharp edge: the photosphere is the bright
+  /// disc, but the light around it falls off over several radii. Without this
+  /// the Sun is a flat yellow circle pasted on the sky.
+  void _paintCorona(ui.Canvas canvas, Offset centre, double radius) {
+    // Kept inside Mercury's orbit. At three radii the glow swallowed the
+    // inner system, washing out the one planet closest to it.
+    final double reach = radius * 1.75;
+    canvas.drawCircle(
+      centre,
+      reach,
+      Paint()
+        ..shader = ui.Gradient.radial(
+          centre,
+          reach,
+          const <ui.Color>[
+            ui.Color(0xCCFFE9A8),
+            ui.Color(0x66FFCF63),
+            ui.Color(0x1AFFAE33),
+            ui.Color(0x00FF9A1F),
+          ],
+          const <double>[0.0, 0.30, 0.58, 1.0],
         ),
     );
   }

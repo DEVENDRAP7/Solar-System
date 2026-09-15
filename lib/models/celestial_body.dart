@@ -38,6 +38,16 @@ class CelestialBody {
   /// Exaggerated: Earth's is nearer 1%, which would be a single pixel.
   final double atmosphereDepth;
 
+  /// How wide the band between day and night is, as a fraction of the angle
+  /// to the Sun.
+  ///
+  /// An airless body has a hard edge — on the Moon you can stand with one foot
+  /// in each. Air scatters light round the limb, and the thicker it is the
+  /// further round it reaches, which is why Venus fades into its night side
+  /// over tens of degrees and Mercury does not.
+  double get terminatorWidth =>
+      atmosphere == null ? 0.06 : 0.10 + atmosphereDepth * 2.5;
+
   /// Stable identifier, matching the model file name.
   final String key;
 

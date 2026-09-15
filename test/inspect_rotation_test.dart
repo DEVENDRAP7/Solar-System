@@ -11,7 +11,7 @@ import 'package:solar_system_app/models/celestial_body.dart';
 import 'package:solar_system_app/services/physics/simulation.dart';
 import 'package:solar_system_app/services/render/body_inspector.dart';
 import 'package:solar_system_app/services/render/mesh_asset.dart';
-import 'package:solar_system_app/services/render/mesh_library.dart';
+import 'package:solar_system_app/services/render/star_field.dart';
 import 'package:solar_system_app/services/render/orbit_camera.dart';
 import 'package:solar_system_app/services/render/solar_system_painter.dart';
 import 'package:vector_math/vector_math_64.dart' as vm;
@@ -52,7 +52,7 @@ Future<ui.Image> frame(
   );
 }
 
-final List<vm.Vector3> _stars = MeshLibrary.makeStars(1200);
+final List<StarBand> _stars = StarField.banded(StarField.make(2600));
 
 Future<Uint8List> pixels(ui.Image image) async => (await image.toByteData(
   format: ui.ImageByteFormat.rawRgba,

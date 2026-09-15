@@ -120,7 +120,13 @@ def generate(spec, width, height_px, seed):
 
         # Cloud deck, laid over the surface at partial strength so the land
         # underneath still reads.
-        clouds = sources.load_alpha('earth_clouds.png', width, height_px)
+        # The 8k cloud map has no alpha channel — it is white cloud on black,
+        # so coverage is its brightness. The 1k one carried coverage in alpha
+        # and is kept as the fallback.
+        clouds = sources.load_optional_grey('earth_clouds_hi.jpg',
+                                            width, height_px)
+        if clouds is None:
+            clouds = sources.load_alpha('earth_clouds.png', width, height_px)
         cover = np.clip(clouds * float(spec.get('cloud_opacity', 0.55)), 0.0, 1.0)
         color = color * (1.0 - cover[..., None]) + cover[..., None]
 
@@ -228,14 +234,20 @@ def ring_strip_from_map(name, width):
     """Ring colours read across a real ring texture.
 
     The map is a radial slice from the inner edge to the outer, so a single row
-    of it is the whole ring system. Transparency is taken from brightness: the
-    gaps are where there is nothing to reflect light.
+    of it is the whole ring system. Where the map carries its own alpha that is
+    the ring's real transparency and is used as-is; otherwise it is inferred
+    from brightness, on the reasoning that a gap is where there is nothing to
+    reflect light — true enough, but it cannot tell a gap from dark material.
     """
-    strip = sources.load_map(name, width, 8)
-    color = strip.mean(axis=0)
-
-    luminance = color @ np.array([0.2126, 0.7152, 0.0722])
-    alpha = np.clip(_stretch(luminance, 0.02, 0.99) * 1.25, 0.0, 1.0)
+    own = sources.load_rgba(name, width, 8)
+    if own is not None:
+        color = own[..., :3].mean(axis=0)
+        alpha = own[..., 3].mean(axis=0)
+    else:
+        strip = sources.load_map(name, width, 8)
+        color = strip.mean(axis=0)
+        luminance = color @ np.array([0.2126, 0.7152, 0.0722])
+        alpha = np.clip(_stretch(luminance, 0.02, 0.99) * 1.25, 0.0, 1.0)
 
     # Soften both edges so the annulus has no hard rim.
     t = (np.arange(width) + 0.5) / width
