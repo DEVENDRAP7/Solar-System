@@ -1,109 +1,934 @@
 body,name,lat,lon,diameter_km,kind
-moon,Oceanus Procellarum,18.4,-57.4,2568,Oceanus
-moon,Mare Imbrium,32.8,-15.6,1146,Mare
-moon,Mare Frigoris,56.0,1.4,1446,Mare
-moon,Mare Tranquillitatis,8.5,31.4,873,Mare
-moon,Mare Fecunditatis,-7.8,51.3,840,Mare
-moon,Mare Serenitatis,28.0,17.5,707,Mare
-moon,Mare Nubium,-21.3,-16.6,715,Mare
-moon,Mare Crisium,17.0,59.1,556,Mare
-moon,Mare Humorum,-24.4,-38.6,420,Mare
-moon,Mare Nectaris,-15.2,34.6,333,Mare
-moon,Mare Vaporum,13.3,3.6,242,Mare
-moon,Mare Orientale,-19.4,-92.8,327,Mare
-moon,Mare Ingenii,-33.7,163.5,282,Mare
-moon,Mare Moscoviense,27.3,147.9,277,Mare
-moon,Hertzsprung,1.4,-129.2,570,Crater
-moon,Apollo,-36.1,-151.8,537,Crater
-moon,Korolev,-4.0,-157.4,437,Crater
-moon,Bailly,-66.5,-69.1,287,Crater
-moon,Clavius,-58.6,-14.4,231,Crater
-moon,Schickard,-44.4,-55.1,212,Crater
-moon,Tsiolkovskiy,-21.2,128.9,185,Crater
-moon,Petavius,-25.1,60.4,177,Crater
-moon,Grimaldi,-5.4,-68.3,173,Crater
-moon,Ptolemaeus,-9.2,-1.8,158,Crater
-moon,Langrenus,-8.9,61.1,132,Crater
-moon,Copernicus,9.6,-20.1,96,Crater
-moon,Theophilus,-11.4,26.4,98,Crater
-moon,Plato,51.6,-9.3,101,Crater
-moon,Tycho,-43.3,-11.4,85,Crater
-moon,Aristarchus,23.7,-47.5,40,Crater
-moon,Montes Apenninus,18.9,3.7,401,Montes
-moon,Montes Caucasus,38.4,10.0,445,Montes
-moon,Montes Alpes,46.4,0.8,281,Montes
-mars,Valles Marineris,-14.0,301.4,3800,Vallis
-mars,Olympus Mons,18.65,226.2,610,Mons
-mars,Ascraeus Mons,11.8,255.5,456,Mons
-mars,Pavonis Mons,0.8,247.0,375,Mons
-mars,Arsia Mons,-8.35,239.9,475,Mons
-mars,Alba Mons,40.5,250.4,530,Mons
-mars,Elysium Mons,25.0,147.2,401,Mons
-mars,Hellas Planitia,-42.4,70.5,2300,Planitia
-mars,Utopia Planitia,46.7,117.5,3300,Planitia
-mars,Amazonis Planitia,24.8,196.0,2800,Planitia
-mars,Chryse Planitia,28.4,319.7,1600,Planitia
-mars,Isidis Planitia,12.9,87.0,1500,Planitia
-mars,Argyre Planitia,-49.4,316.0,800,Planitia
-mars,Syrtis Major Planum,9.3,69.5,1300,Planum
-mars,Noctis Labyrinthus,-7.2,258.3,1190,Labyrinthus
-mars,Schiaparelli,-2.7,16.8,459,Crater
-mars,Huygens,-13.9,55.6,467,Crater
-mars,Cassini,23.4,32.1,408,Crater
-mars,Gale,-5.4,137.8,154,Crater
-mars,Gusev,-14.5,175.4,158,Crater
-mars,Planum Boreum,88.0,15.0,1100,Planum
-mars,Planum Australe,-83.0,160.0,1400,Planum
-mercury,Caloris Planitia,30.5,189.8,1550,Planitia
-mercury,Rembrandt,-33.0,88.0,715,Crater
-mercury,Beethoven,-20.8,236.3,630,Crater
-mercury,Tolstoj,-16.3,196.5,355,Crater
-mercury,Dostoevskij,-44.9,183.1,411,Crater
-mercury,Raphael,-19.9,175.9,343,Crater
-mercury,Shakespeare,48.2,208.5,370,Crater
-mercury,Homer,-1.2,323.3,314,Crater
-mercury,Mozart,8.0,190.5,241,Crater
-mercury,Kuiper,-11.3,328.6,62,Crater
-venus,Aphrodite Terra,-10.0,105.0,10000,Terra
-venus,Ishtar Terra,70.4,27.5,5610,Terra
-venus,Lakshmi Planum,68.6,339.3,2345,Planum
-venus,Maxwell Montes,65.2,3.3,797,Montes
-venus,Beta Regio,25.3,282.8,2869,Regio
-venus,Alpha Regio,-25.5,4.5,1897,Regio
-venus,Phoebe Regio,-6.0,282.8,2852,Regio
-venus,Atla Regio,9.2,200.1,3200,Regio
-venus,Mead,12.5,57.2,269,Crater
-venus,Sacajawea,64.5,335.4,233,Patera
-io,Loki Patera,12.6,308.8,202,Patera
-io,Pele,-18.7,255.3,30,Patera
-io,Prometheus,-1.5,153.9,28,Eruptive centre
-io,Pan Mensa,-48.6,35.5,150,Mensa
-europa,Pwyll,-25.2,271.4,27,Crater
-europa,Tyre,34.0,146.6,44,Macula
-europa,Conamara Chaos,9.0,273.0,80,Chaos
-europa,Thera Macula,-46.9,181.3,80,Macula
-ganymede,Galileo Regio,35.0,125.4,3200,Regio
-ganymede,Marius Regio,10.0,90.0,2000,Regio
-ganymede,Osiris,-38.9,194.0,107,Crater
-ganymede,Tros,11.3,332.0,94,Crater
-callisto,Valhalla,15.9,55.3,3800,Multi-ring basin
-callisto,Asgard,30.1,140.3,1600,Multi-ring basin
-callisto,Heimdall,-62.6,92.0,210,Crater
-titan,Xanadu,-15.0,100.0,3400,Regio
-titan,Kraken Mare,68.0,310.0,1170,Mare
-titan,Ligeia Mare,79.0,248.0,500,Mare
-titan,Punga Mare,85.1,339.7,380,Mare
-mimas,Herschel,0.0,104.0,139,Crater
-iapetus,Cassini Regio,0.0,90.0,2500,Regio
-iapetus,Turgis,16.9,28.4,580,Crater
-enceladus,Damascus Sulcus,-80.0,300.0,140,Sulcus
-tethys,Odysseus,32.8,128.9,445,Crater
-tethys,Ithaca Chasma,-9.0,17.0,2000,Chasma
-rhea,Tirawa,34.2,151.7,360,Crater
-dione,Evander,-57.0,145.0,350,Crater
-miranda,Verona Rupes,-18.3,347.8,116,Rupes
-ariel,Kachina Chasmata,-24.5,245.0,622,Chasma
-titania,Messina Chasmata,-33.3,335.0,1492,Chasma
-oberon,Mommur Chasma,-16.3,323.5,537,Chasma
-triton,Slidr Sulci,-25.0,25.0,1200,Sulcus
-triton,Ruach Planitia,27.0,23.0,200,Planitia
+ariel,Kachina Chasmata,-33.7000,-114.0000,622.0,Chasma
+ariel,Kewpie Chasma,-28.3000,-33.1000,467.0,Chasma
+ariel,Korrigan Chasma,-27.6000,-12.5000,365.0,Chasma
+ariel,Sylph Chasma,-48.6000,-7.0000,349.0,Chasma
+ariel,Brownie Chasma,-16.0000,-22.4000,343.0,Chasma
+ariel,Leprechaun Vallis,-10.4000,10.2000,328.0,Vallis
+ariel,Sprite Vallis,-14.9000,-20.0000,305.0,Vallis
+ariel,Pixie Chasma,-20.4000,5.1000,278.0,Chasma
+ariel,Kra Chasma,-32.1000,-5.8000,142.0,Chasma
+ariel,Yangoor,-68.7000,-80.3000,78.0,Crater
+ariel,Domovoy,-71.5000,-20.3000,71.0,Crater
+ariel,Melusine,-52.9000,8.9000,50.0,Crater
+ariel,Rima,-18.3000,-99.2000,41.0,Crater
+ariel,Huon,-37.8000,33.7000,40.0,Crater
+callisto,Valhalla,14.7000,-56.0000,3000.0,Large ringed feature
+callisto,Asgard,32.2000,-139.9000,1400.0,Large ringed feature
+callisto,Adlinda,-48.5000,-35.6000,840.0,Large ringed feature
+callisto,Gipul Catena,68.5000,-54.2000,641.0,Catena
+callisto,Utgard,45.0000,-134.0000,610.0,Large ringed feature
+callisto,Kol Facula,4.5000,77.3000,390.0,Facula
+callisto,Gomul Catena,35.5000,-47.1000,342.6,Catena
+callisto,[Aningan],50.5000,-8.2000,287.0,Crater
+callisto,Fimbulthul Catena,8.2000,-64.8000,287.0,Catena
+callisto,Eikin Catena,-8.9000,-15.5000,223.1,Catena
+callisto,Heimdall,-63.5000,3.0000,210.0,Crater
+callisto,Lofn,-56.5000,-22.3000,200.0,Crater
+callisto,Svol Catena,10.6000,-37.2000,161.0,Catena
+callisto,Gunntro Catena,-19.5000,16.9000,149.0,Catena
+callisto,Debegey,10.2000,-166.2000,125.0,Crater
+callisto,Gloi,49.0000,115.0000,115.3,Crater
+callisto,Nori,45.2000,16.4000,114.0,Crater
+callisto,Geirvimul Catena,48.9000,12.8000,113.1,Catena
+callisto,Igaluk,5.6000,44.0000,111.7,Crater
+callisto,Grimr,41.5000,145.4000,103.2,Crater
+callisto,Ilma,-29.9000,-167.2000,102.0,Crater
+callisto,Valfödr,-1.3000,113.0000,101.5,Crater
+callisto,Tornarsuk,28.8000,-127.6000,99.0,Crater
+callisto,Alfr,-9.9000,137.3000,96.0,Crater
+callisto,Jalkr,-38.6000,-82.7000,93.5,Crater
+callisto,Skuld,10.0000,-37.9000,91.8,Crater
+callisto,Oluksak,-47.8000,-63.5000,86.7,Crater
+callisto,Buri,-37.5000,-45.5000,86.0,Crater
+callisto,Bavörr,49.1000,-20.0000,85.3,Crater
+callisto,Loni,-3.6000,145.7000,85.0,Crater
+callisto,Sid Catena,49.2000,-103.9000,81.4,Catena
+callisto,Hoenir,-33.7000,99.1000,81.1,Crater
+callisto,Akycha,72.6000,41.3000,81.0,Crater
+callisto,Audr,-30.9000,-80.6000,80.8,Crater
+callisto,Seqinek,55.5000,-25.4000,80.7,Crater
+callisto,Finnr,15.5000,-4.3000,80.0,Crater
+callisto,Ymir,51.5000,-99.7000,79.0,Crater
+callisto,Fadir,56.6000,-12.6000,78.6,Crater
+callisto,Bran,-24.2000,154.4000,78.0,Crater
+callisto,Vidarr,12.1000,166.6000,78.0,Crater
+callisto,Vestri,45.3000,-52.5000,77.3,Crater
+callisto,Hödr,69.1000,-89.2000,76.5,Crater
+callisto,Högni,-11.8000,-4.8000,76.0,Crater
+callisto,Tindr,-2.3000,4.5000,75.8,Crater
+callisto,Brami,28.8000,-19.0000,75.7,Crater
+callisto,Numi-Torum,-50.1000,-92.9000,75.6,Crater
+callisto,Burr,42.7000,-134.5000,75.4,Crater
+callisto,Veralden,33.3000,-95.5000,75.2,Crater
+callisto,Yuryung,-54.7000,-85.7000,75.1,Crater
+callisto,Ivarr,-5.8000,38.6000,73.1,Crater
+callisto,Vitr,-22.1000,10.6000,72.8,Crater
+callisto,Rigr,70.8000,115.4000,72.5,Crater
+callisto,Haki,25.0000,44.9000,72.2,Crater
+callisto,Lodurr,-50.8000,89.9000,72.0,Crater
+callisto,Ajleke,22.7000,-101.4000,70.0,Crater
+callisto,Sudri,55.9000,-135.6000,69.5,Crater
+callisto,Barri,-31.5000,-70.5000,69.0,Crater
+callisto,Askr,51.8000,35.9000,68.8,Crater
+callisto,Tyll,44.8000,-166.5000,68.7,Crater
+callisto,Höldr,43.9000,-108.2000,68.1,Crater
+deimos,Voltaire,22.0000,-3.5000,1.9,Crater
+deimos,Swift,12.5000,1.8000,1.0,Crater
+dione,Palatine Chasmata,-48.0000,44.0000,1100.0,Chasma
+dione,Padua Chasmata,17.7000,112.8300,1025.0,Chasma
+dione,Eurotas Chasmata,4.9400,58.6500,1000.0,Chasma
+dione,Janiculum Dorsa,24.6000,-144.1000,900.0,Dorsum
+dione,[Padua Linea],-20.0000,149.3000,780.0,Linea
+dione,[Palatine Linea],-40.6000,54.6000,645.0,Linea
+dione,Fidena Fossae,0.6600,-96.0000,550.0,Fossa
+dione,Carthage Fossae,11.9300,23.2500,500.0,Fossa
+dione,Andromache,5.8500,71.6400,439.0,Crater
+dione,Drepanum Chasma,-46.0000,95.0000,360.0,Chasma
+dione,Latium Chasma,20.0000,-63.9300,360.0,Chasma
+dione,Evander,-57.0000,-145.0000,350.0,Crater
+dione,Arpi Fossae,47.4700,-130.8000,330.0,Fossa
+dione,[Carthage Linea],12.7000,38.1000,318.0,Linea
+dione,Aurunca Chasmata,11.5600,93.3000,290.0,Chasma
+dione,Aufidus Catena,-78.0000,63.6000,275.0,Catena
+dione,Clusium Fossae,39.2700,58.4600,260.0,Fossa
+dione,Petelia Fossae,-8.1600,-82.4300,225.0,Fossa
+dione,Argiletum Fossae,65.1800,-32.1000,224.0,Fossa
+dione,Pantagias Catenae,-15.3000,-141.7000,200.0,Catena
+dione,Pactolus Catena,8.7900,32.8500,180.0,Catena
+dione,Aeneas,25.8900,-46.2700,161.0,Crater
+dione,Tibur Chasmata,60.0000,-69.3000,156.0,Chasma
+dione,Larissa Chasma,28.9800,-69.5000,150.0,Chasma
+dione,Himella Fossa,-45.6000,23.4500,147.0,Fossa
+dione,Latinus,52.1900,159.0000,130.0,Crater
+dione,Dido,-23.9700,-18.8200,122.0,Crater
+dione,Alcander,-52.8900,64.5100,120.0,Crater
+dione,Erulus,-35.0000,-104.7600,120.0,Crater
+dione,Acestes,50.1000,116.6300,108.0,Crater
+dione,Allecto,-7.7300,135.4400,106.0,Crater
+dione,Helorus Fossa,-31.8400,-76.4800,105.0,Fossa
+dione,Turnus,15.5900,14.6900,101.0,Crater
+dione,Ascanius,33.4300,127.8200,98.0,Crater
+dione,Prytanis,-46.2500,72.6000,96.0,Crater
+dione,Romulus,-8.1500,-26.8500,90.7,Crater
+dione,Sabinus,-43.6500,173.3400,88.0,Crater
+dione,Dercennus,29.7500,80.0700,86.2,Crater
+dione,Antenor,-7.0000,-11.5400,81.0,Crater
+dione,Daucus,-15.3800,58.8600,80.0,Crater
+dione,Galaesus,46.7700,63.7500,79.0,Crater
+dione,Lagus,-13.5600,-102.9500,77.0,Crater
+dione,Amata,5.1700,80.1900,76.0,Crater
+dione,Silvius,-32.7000,27.7400,74.0,Crater
+dione,Volcens,-13.8400,91.4900,74.0,Crater
+dione,Phorbas,81.2000,-131.2900,69.3,Crater
+dione,Pagasus,-3.0000,119.0000,67.0,Crater
+dione,Haemon,84.3300,83.6900,65.2,Crater
+dione,Entellus,-10.9300,149.4600,63.0,Crater
+dione,Amastrus,-9.9600,122.9700,62.4,Crater
+dione,Remus,-13.5800,-31.9000,62.0,Crater
+dione,Lamyrus,53.6700,104.3900,61.0,Crater
+dione,Assaracus,32.6500,-8.7900,60.0,Crater
+dione,Tiburtus,29.1100,170.2700,59.0,Crater
+dione,Herbesus,34.6800,-156.1100,58.4,Crater
+dione,Murranus,12.8200,-90.7300,56.8,Crater
+dione,Sulmo,55.9200,26.5000,56.0,Crater
+dione,Iasus,-22.1300,114.0800,54.0,Crater
+dione,Liger,24.0000,-126.6300,53.0,Crater
+dione,Sagaris,4.9300,-104.2000,53.0,Crater
+enceladus,Samarkand Sulci,30.0000,32.5000,360.0,Sulcus
+enceladus,Diyar Planitia,-13.4000,108.0500,325.0,Planitia
+enceladus,Harran Sulci,26.3900,114.0700,291.0,Sulcus
+enceladus,Khorasan Fossa,-19.0000,123.1300,290.0,Fossa
+enceladus,Cashmere Sulci,-52.0700,63.9400,260.0,Sulcus
+enceladus,Daryabar Fossa,9.6500,-5.4200,200.0,Fossa
+enceladus,Samaria Rupes,26.8600,134.8700,193.3,Rupes
+enceladus,[Samaria Fossa],26.8900,134.8300,190.1,Fossa
+enceladus,Al-Yaman Sulci,9.7000,168.2000,177.9,Sulcus
+enceladus,Baghdad Sulcus,-86.9100,129.4600,176.0,Sulcus
+enceladus,Makran Sulci,-54.4000,-135.8000,170.5,Sulcus
+enceladus,Isbanir Fossa,11.3000,1.7400,170.0,Fossa
+enceladus,Anbar Fossae,-8.7600,36.6800,165.0,Fossa
+enceladus,Cairo Sulcus,-81.6200,-154.4800,165.0,Sulcus
+enceladus,Sarandib Planitia,10.2300,48.1800,165.0,Planitia
+enceladus,Hamah Sulci,27.2600,54.0000,164.0,Sulcus
+enceladus,Bishangarh Fossae,-24.0000,134.2000,163.0,Fossa
+enceladus,Andalús Sulci,29.1000,-79.1000,162.0,Sulcus
+enceladus,Labtayt Sulci,-27.6900,73.9200,162.0,Sulcus
+enceladus,Euphrates Sulcus,-68.0000,83.9300,155.0,Sulcus
+enceladus,Láhej Sulci,-10.8900,58.0000,150.0,Sulcus
+enceladus,Damascus Sulcus,-80.5900,74.1300,125.0,Sulcus
+enceladus,Al-Medinah Sulci,-50.7000,1.4000,117.5,Sulcus
+enceladus,Sind Sulci,-16.4000,-107.3000,116.0,Sulcus
+enceladus,Fars Sulcus,-64.0600,69.8600,112.0,Sulcus
+enceladus,Alexandria Sulcus,-75.6300,-137.5600,111.0,Sulcus
+enceladus,Misr Sulci,18.0000,160.3000,109.8,Sulcus
+enceladus,Cufa Dorsa,3.1900,73.8300,90.0,Dorsum
+enceladus,Kaukabán Fossae,33.0000,94.0000,83.4,Fossa
+enceladus,Shiraz Sulcus,-57.2000,-39.4000,80.0,Sulcus
+enceladus,Camphor Sulcus,-70.7800,-149.4000,77.0,Sulcus
+enceladus,Bassorah Fossa,39.8000,-19.9000,75.0,Fossa
+enceladus,Ebony Dorsum,5.7400,79.4600,70.0,Dorsum
+enceladus,Mosul Sulci,-58.1000,23.2700,60.0,Sulcus
+enceladus,Bulak Sulcus,16.6700,-109.3200,49.4,Sulcus
+europa,Cadmus Linea,38.7000,168.3000,3548.0,Linea
+europa,Kennet Linea,-41.0000,48.0000,3200.0,Linea
+europa,Hyperenor Linea,-12.1000,35.6000,2996.0,Linea
+europa,Balgatan Regio,-50.0000,-30.0000,2500.0,Regio
+europa,Falga Regio,30.0000,150.0000,2500.0,Regio
+europa,Belus Linea,9.3000,128.6000,2437.0,Linea
+europa,Annwn Regio,20.0000,40.0000,2300.0,Regio
+europa,Chthonius Linea,-1.4000,55.8000,2180.0,Linea
+europa,Minos Linea,47.2000,164.8000,2170.0,Linea
+europa,Tectamus Linea,26.9000,160.8000,2096.0,Linea
+europa,Udaeus Linea,48.6000,120.6000,2050.0,Linea
+europa,Phineus Linea,-29.8000,40.1000,2004.0,Linea
+europa,Powys Regio,0.0000,-145.0000,2000.0,Regio
+europa,Asterius Linea,14.9000,89.2000,1943.0,Linea
+europa,Argadnel Regio,-14.6000,151.5000,1900.0,Regio
+europa,Butterdon Linea,-44.7000,-0.1000,1900.0,Linea
+europa,Tara Regio,-10.0000,-75.0000,1780.0,Regio
+europa,Dyfed Regio,10.0000,110.0000,1750.0,Regio
+europa,Rhadamanthys Linea,19.3000,159.5000,1747.0,Linea
+europa,Sharpitor Linea,65.4000,-171.7000,1650.0,Linea
+europa,Phoenix Linea,16.6000,171.2000,1621.0,Linea
+europa,Merrivale Linea,-41.0000,60.5000,1600.0,Linea
+europa,Sparti Linea,59.3000,114.5000,1600.0,Linea
+europa,Adonis Linea,-61.0000,-122.6000,1560.0,Linea
+europa,Pelorus Linea,-19.8000,171.7000,1535.0,Linea
+europa,Staldon Linea,-0.8000,-27.4000,1525.0,Linea
+europa,Ino Linea,-1.7000,-174.6000,1515.0,Linea
+europa,Drizzlecomb Linea,7.7000,-111.7000,1500.0,Linea
+europa,Mehen Linea,56.0000,123.3000,1500.0,Linea
+europa,Agenor Linea,-43.8000,146.5000,1496.0,Linea
+europa,Agave Linea,12.8000,86.9000,1440.0,Linea
+europa,Alphesiboea Linea,-25.1000,-175.9000,1438.0,Linea
+europa,Glaukos Linea,57.8000,129.1000,1400.0,Linea
+europa,Drumskinny Linea,48.3000,-161.0000,1375.0,Linea
+europa,Cilicia Flexus,-59.5000,-171.7000,1312.0,Flexus
+europa,Pasiphae Linea,41.0800,-8.0600,1306.0,Linea
+europa,Corick Linea,17.8000,-18.3000,1300.0,Linea
+europa,Euphemus Linea,-11.4000,-45.7000,1250.0,Linea
+europa,Harmonia Linea,28.0000,-171.7000,1154.0,Linea
+europa,Sidon Flexus,-66.4000,176.6000,1133.0,Flexus
+europa,Echion Linea,-11.6000,174.8000,1026.0,Linea
+europa,Arachne Linea,-8.8200,140.0400,954.0,Linea
+europa,Acacallis Linea,-5.2700,134.4400,940.0,Linea
+europa,Gortyna Flexus,-42.1000,-144.6000,940.0,Flexus
+europa,Maughanasilly Fossa,-34.2400,-155.1900,920.0,Fossa
+europa,Sarpedon Linea,-49.5000,-92.9000,900.0,Linea
+europa,Beenalaght Fossa,1.2000,-82.0800,882.0,Fossa
+europa,Tormsdale Linea,47.7000,102.0000,875.0,Linea
+europa,Onga Linea,-38.7000,148.7000,870.0,Linea
+europa,Astypalaea Linea,-75.8000,147.9000,817.0,Linea
+europa,Delphi Flexus,-68.2000,-174.1000,793.0,Flexus
+europa,Telephassa Linea,-0.8000,-177.2000,777.0,Linea
+europa,Autonoë Linea,18.2000,-165.1000,760.0,Linea
+europa,Androgeos Linea,11.7000,80.7000,723.0,Linea
+europa,Argiope Linea,-1.7000,164.4000,689.0,Linea
+europa,Thasus Linea,-66.1000,176.0000,669.3,Linea
+europa,Pelagon Linea,35.5000,-173.6000,616.7,Linea
+europa,Moytura Regio,-50.0000,65.7000,483.0,Regio
+europa,Goirias Chaos,10.7700,179.2500,470.0,Chaos
+europa,Rathcroghan Chaos,-10.0800,178.0800,430.0,Chaos
+ganymede,Mysia Sulci,-7.0000,-7.8000,5066.0,Sulcus
+ganymede,Marius Regio,2.5000,172.3000,4940.0,Regio
+ganymede,Galileo Regio,45.0000,-127.0000,4439.0,Regio
+ganymede,Melotte Regio,-12.0000,115.0000,4100.0,Regio
+ganymede,Nicholson Regio,-33.1000,-6.4000,3900.0,Regio
+ganymede,Arbela Sulcus,-34.0000,-4.0000,3850.0,Sulcus
+ganymede,Perrine Regio,34.0000,-28.0000,3800.0,Regio
+ganymede,Lakhmu Fossae,50.4000,-128.0000,3700.0,Fossa
+ganymede,Phrygia Sulcus,12.0000,-20.6000,3700.0,Sulcus
+ganymede,Borsippa Sulcus,-60.0000,0.0000,3300.0,Sulcus
+ganymede,Sippar Sulcus,-19.9000,-170.2000,3260.0,Sulcus
+ganymede,Barnard Regio,-6.8000,-11.6000,3200.0,Regio
+ganymede,Babylon Sulci,-22.5000,-95.5000,3100.0,Sulcus
+ganymede,Mashu Sulcus,34.0000,150.0000,2960.0,Sulcus
+ganymede,Zu Fossae,38.5000,-150.5000,2900.0,Fossa
+ganymede,Bubastis Sulci,-81.0000,135.0000,2730.0,Sulcus
+ganymede,Shuruppak Sulcus,-19.6200,128.2500,2730.0,Sulcus
+ganymede,Mummu Sulci,-39.0000,-180.0000,2680.0,Sulcus
+ganymede,Uruk Sulcus,3.4000,-160.0000,2200.0,Sulcus
+ganymede,Xibalba Sulcus,43.0000,-71.1000,2200.0,Sulcus
+ganymede,Hursag Sulcus,-9.4900,111.5400,2183.0,Sulcus
+ganymede,Sicyon Sulcus,33.7000,-15.3000,2125.0,Sulcus
+ganymede,Apsu Sulci,-37.5000,134.8000,1950.0,Sulcus
+ganymede,Nineveh Sulcus,23.2000,-53.0000,1700.0,Sulcus
+ganymede,Lagash Sulcus,-8.9900,-164.0100,1575.0,Sulcus
+ganymede,Dardanus Sulcus,-31.5000,-12.7000,1500.0,Sulcus
+ganymede,Elam Sulci,60.0000,160.0000,1500.0,Sulcus
+ganymede,Nun Sulci,49.5000,43.6000,1500.0,Sulcus
+ganymede,Nippur Sulcus,35.4100,176.6500,1425.0,Sulcus
+ganymede,Aquarius Sulcus,52.4000,-4.0000,1420.0,Sulcus
+ganymede,Harpagia Sulcus,-11.8000,46.5000,1400.0,Sulcus
+ganymede,Anshar Sulcus,18.9000,161.3000,1372.0,Sulcus
+ganymede,Tiamat Sulcus,4.1400,150.9000,1330.0,Sulcus
+ganymede,Umma Sulcus,4.1000,110.5000,1270.0,Sulcus
+ganymede,Kishar Sulcus,-6.4000,143.4000,1187.0,Sulcus
+ganymede,Ur Sulcus,49.5000,-177.5000,1145.0,Sulcus
+ganymede,Larsa Sulci,2.0000,100.0000,1130.0,Sulcus
+ganymede,Erech Sulcus,-7.3000,-179.2000,953.0,Sulcus
+ganymede,Philae Sulcus,68.4000,-168.2000,900.0,Sulcus
+ganymede,Byblus Sulcus,37.6000,160.3000,645.0,Sulcus
+ganymede,Philus Sulcus,44.5000,150.1000,465.0,Sulcus
+ganymede,Dukug Sulcus,83.7000,-2.5000,385.0,Sulcus
+ganymede,Lakhamu Fossa,-11.7000,132.8000,370.0,Fossa
+ganymede,Busiris Facula,16.0000,144.7000,369.0,Facula
+ganymede,Akitu Sulcus,39.0000,166.0000,365.0,Sulcus
+ganymede,Memphis Facula,14.1000,-131.9100,361.0,Facula
+ganymede,Thebes Facula,7.1000,157.8000,360.0,Facula
+ganymede,Epigeus,22.9600,179.3500,343.0,Crater
+ganymede,Coptos Facula,10.0000,151.0000,329.0,Facula
+ganymede,Terah Catena,7.1000,82.4000,283.0,Catena
+ganymede,Hermopolis Facula,22.3000,164.7000,260.0,Facula
+ganymede,Akhmin Facula,28.3000,170.2000,245.0,Facula
+ganymede,Buto Facula,13.3000,156.8000,245.0,Facula
+ganymede,[Punt Facula],-26.1000,117.8000,228.0,Facula
+ganymede,Bigeh Facula,29.0000,-94.3000,224.0,Facula
+ganymede,Siwah Facula,7.0000,-143.0000,220.0,Facula
+ganymede,Anzu,63.5100,-62.7300,210.0,Crater
+ganymede,Nidaba,17.7500,-123.4300,199.0,Crater
+ganymede,Ninki,-8.3700,-120.7900,194.0,Crater
+ganymede,Damkina,-30.1700,-4.8800,190.0,Crater
+iapetus,Saragossa Terra,-45.0000,-180.0000,2300.0,Terra
+iapetus,Roncevaux Terra,37.0000,120.5000,1284.0,Terra
+iapetus,Toledo Montes,0.0000,-136.0000,1100.0,Mons
+iapetus,Abisme,37.5300,-92.9200,767.7,Crater
+iapetus,Carcassone Montes,0.0000,143.3000,740.0,Mons
+iapetus,Turgis,16.9000,-28.4000,580.0,Crater
+iapetus,Engelier,-40.5000,95.3000,504.0,Crater
+iapetus,Gerin,-45.6000,127.0000,445.0,Crater
+iapetus,Falsaron,33.8000,-82.6000,424.0,Crater
+iapetus,Malprimis,-15.2000,-118.2000,377.0,Crater
+iapetus,Tortelosa Montes,0.0000,-64.7000,294.0,Mons
+iapetus,Naimon,9.3000,30.7000,244.0,Crater
+iapetus,Ganelon,-44.3000,-19.8000,230.0,Crater
+iapetus,Bramimond,38.0000,-178.0000,200.0,Crater
+iapetus,Tibbald,57.0000,2.0000,160.0,Crater
+iapetus,Roland,73.3000,-25.2000,144.0,Crater
+iapetus,Marsilion,39.2000,-176.1000,136.0,Crater
+iapetus,Astor,14.9000,38.8000,122.0,Crater
+iapetus,Malun,5.9000,-41.3000,121.0,Crater
+iapetus,Milon,67.9000,89.8000,119.0,Crater
+iapetus,Oliver,62.5000,159.2000,113.0,Crater
+iapetus,Thierry,-55.0000,-8.0000,110.0,Crater
+iapetus,Jurfaleu,13.0000,-2.5000,107.0,Crater
+iapetus,Ivon,18.0000,45.0000,100.0,Crater
+iapetus,Ogier,42.5000,84.9000,100.0,Crater
+iapetus,Hamon,10.6000,90.0000,96.0,Crater
+iapetus,Charlemagne,55.0000,101.2000,95.0,Crater
+iapetus,Rabel,-64.4000,-166.2000,91.0,Crater
+iapetus,Turpin,47.7000,-1.4000,87.0,Crater
+iapetus,Othon,33.3000,12.2000,86.0,Crater
+iapetus,Cordova Mons,0.0000,153.8000,85.0,Mons
+iapetus,Berenger,62.1000,140.3000,84.0,Crater
+iapetus,Clarin,18.3000,-71.6000,84.0,Crater
+iapetus,Pinabel,-39.0000,-33.0000,83.0,Crater
+iapetus,Geboin,58.6000,-173.4000,81.0,Crater
+iapetus,Basbrun,-52.0000,-111.8000,80.0,Crater
+iapetus,Basan,33.3000,165.3000,76.0,Crater
+iapetus,Margaris,27.7000,-135.8000,75.0,Crater
+iapetus,Corsablis,0.9000,-114.2000,73.0,Crater
+iapetus,Seville Mons,0.0000,13.7000,69.0,Mons
+iapetus,Baligant,16.4000,135.1000,66.0,Crater
+iapetus,Gayne Mons,0.0000,-176.0000,65.0,Mons
+iapetus,Grandoyne,17.7000,145.5000,65.0,Crater
+iapetus,Johun,12.4000,-83.4000,64.0,Crater
+iapetus,Godefroy,71.9000,110.9000,63.0,Crater
+iapetus,Matthay,-3.5000,172.6000,58.0,Crater
+iapetus,Timozel,-9.9000,147.7000,58.0,Crater
+iapetus,Adelroth,6.6000,176.4000,57.0,Crater
+iapetus,Besgun,76.0000,50.2000,56.0,Crater
+iapetus,Valterne Mons,0.0000,-170.6000,50.0,Mons
+iapetus,Climborin,30.4000,-116.9000,49.0,Crater
+iapetus,Dapamort,36.6000,-84.9000,49.0,Crater
+iapetus,Nevelon,-33.2000,163.0000,49.0,Crater
+iapetus,Valdebron,29.6000,-104.4000,49.0,Crater
+iapetus,Anseïs,-40.7000,69.2000,48.0,Crater
+iapetus,Bevon,70.7000,-93.0000,48.0,Crater
+iapetus,Garlon,-3.2000,119.5000,47.0,Crater
+iapetus,Sorence Mons,0.0000,166.3000,46.0,Mons
+iapetus,Haltile Mons,0.0000,169.6000,45.0,Mons
+iapetus,Lorant,65.2000,-159.8000,44.0,Crater
+io,Colchis Regio,2.4700,151.5800,2860.0,Regio
+io,Media Regio,10.6200,-59.9000,2627.9,Regio
+io,Bosphorus Regio,-2.3000,-120.5700,1607.2,Regio
+io,Tarsus Regio,-36.6900,-53.4000,1498.6,Regio
+io,Illyrikon Regio,-70.8800,-177.7700,1000.5,Regio
+io,Nemea Planum,-72.3300,94.1800,888.5,Planum
+io,Chalybes Regio,56.8800,-84.6700,760.3,Regio
+io,Bactria Regio,-48.2500,-123.5300,663.1,Regio
+io,Mycenae Regio,-36.6000,-164.9500,594.0,Regio
+io,Lerna Regio,-61.8000,67.9200,580.9,Regio
+io,Dorian Montes,-25.1000,163.3100,566.2,Mons
+io,Cocytus Montes,60.9800,28.3300,542.0,Mons
+io,Boösaule Montes,-3.7500,90.8900,540.0,Mons
+io,Dodona Planum,-59.0700,11.7700,515.0,Planum
+io,Bulicame Regio,34.7900,170.0600,514.2,Regio
+io,Masubi,-50.2900,-57.3000,509.1,Eruptive center
+io,Hi'iaka Montes,-4.6800,-81.9600,500.0,Mons
+io,Masubi Fluctus,-50.8900,-57.7700,499.9,Fluctus
+io,Tung Yo Fluctus,-17.3200,3.4900,457.9,Fluctus
+io,Prometheus,-1.5200,-153.9400,438.8,Eruptive center
+io,Donar Fluctus,20.2900,173.0100,436.4,Fluctus
+io,Zal Montes,38.4300,-77.1800,436.0,Mons
+io,Tohil Mons,-28.4200,-161.5700,433.4,Mons
+io,Volund,29.3300,-171.7500,427.3,Eruptive center
+io,Lyrcea Planum,-41.9900,90.5700,424.9,Planum
+io,Nile Montes,53.6500,109.5400,417.0,Mons
+io,Acala Fluctus,9.0300,25.4000,415.3,Fluctus
+io,Amirani,25.0200,-115.1800,415.2,Eruptive center
+io,Fjorgynn Fluctus,10.9200,1.2000,413.8,Fluctus
+io,Marduk,-29.6400,150.1000,370.1,Eruptive center
+io,Uta Fluctus,-33.1200,-16.1400,366.7,Fluctus
+io,Lei-Kung Fluctus,40.1300,153.5600,347.4,Fluctus
+io,Haemus Montes,-70.1200,-46.6100,331.3,Mons
+io,Telegonus Mensae,-52.3700,-115.3700,329.5,Mensa
+io,Ethiopia Planum,-45.4800,-24.4500,328.0,Planum
+io,[Tvashtar Catena],62.7600,-123.5300,306.2,Catena
+io,Tvashtar Paterae,62.7600,-123.5300,305.0,Patera
+io,Monan Mons,15.5400,-104.2000,293.8,Mons
+io,Tvashtar Mensae,61.6000,-119.9400,293.0,Mensa
+io,Capaneus Mensa,-16.8200,-121.4000,288.1,Mensa
+io,Pan Mensa,-51.8000,-30.8600,287.5,Mensa
+io,Euxine Mons,26.3200,-126.4400,282.1,Mons
+io,Euboea Montes,-47.9400,24.2200,274.9,Mons
+io,Kanehekili Fluctus,-17.1800,-33.3700,258.7,Fluctus
+io,Skythia Mons,26.3300,-97.8100,249.6,Mons
+io,Danube Planum,-22.5800,101.9900,248.0,Planum
+io,Mixcoatl Fluctus,-46.3200,-141.1500,246.0,Fluctus
+io,[Mazda Catena],-8.8100,46.7200,240.8,Catena
+io,Thor,39.2000,-133.1200,240.3,Eruptive center
+io,Iopolis Planum,-35.2900,27.2900,234.7,Planum
+io,Loki Patera,13.0100,51.2100,226.6,Patera
+io,Mazda Paterae,-8.2000,46.9900,223.0,Patera
+io,Egypt Mons,-41.5600,103.0300,218.5,Mons
+io,Gish Bar Mons,18.5000,-88.9500,218.5,Mons
+io,Mongibello Mons,22.6700,-67.0500,214.6,Mons
+io,Shamshu Mons,-12.0400,-71.4100,210.0,Mons
+io,Echo Mensa,-79.9200,5.4700,205.1,Mensa
+io,Pillan Mons,-8.0200,114.5900,201.1,Mons
+io,Marduk Fluctus,-26.8000,148.6700,200.0,Fluctus
+io,Apis Tholus,-11.9200,12.3000,199.2,Tholus
+mars,Terra Cimmeria,-32.6800,147.7500,5855.9,Terra
+mars,Noachis Terra,-50.4100,-5.1600,5519.4,Terra
+mars,Arabia Terra,21.2500,5.7200,4851.7,Terra
+mars,Terra Sabaea,2.7200,51.3000,4688.4,Terra
+mars,Aonia Terra,-60.2000,-97.0500,3873.5,Terra
+mars,Valles Marineris,-14.0100,-58.5900,3761.3,Vallis
+mars,Terra Sirenum,-39.4900,-154.1500,3635.2,Terra
+mars,Utopia Planitia,46.7400,117.5200,3560.4,Planitia
+mars,Acidalia Planitia,49.7600,-20.7400,3505.0,Planitia
+mars,Promethei Terra,-64.3700,97.0000,3244.3,Terra
+mars,Elysium Planitia,2.9800,154.7400,3000.8,Planitia
+mars,Phlegra Dorsa,25.0800,170.3700,2818.6,Dorsum
+mars,Amazonis Planitia,25.7500,-162.9100,2809.0,Planitia
+mars,Margaritifer Terra,-1.8500,-24.9200,2733.2,Terra
+mars,Sirenum Fossae,-35.5700,-162.7400,2731.2,Fossa
+mars,Utopia Rupēs,43.5300,86.0300,2492.7,Rupes
+mars,Tyrrhena Terra,-11.9000,88.8400,2470.1,Terra
+mars,Tantalus Fossae,49.8300,-96.0900,2361.9,Fossa
+mars,Hellas Planitia,-42.4300,70.5000,2299.2,Planitia
+mars,Arcadia Planitia,49.0200,-171.8500,2245.0,Planitia
+mars,Nepenthes Mensae,9.1900,119.4200,2176.2,Mensa
+mars,Tempe Fossae,40.4200,-71.4000,2116.2,Fossa
+mars,Icaria Fossae,-48.0900,-125.1600,2115.4,Fossa
+mars,Alba Fossae,49.3900,-106.8200,2072.0,Fossa
+mars,Tharsis Montes,1.5700,-112.5800,2058.9,Mons
+mars,Claritas Fossae,-27.8900,-104.2400,2030.6,Fossa
+mars,Vastitas Borealis,87.7300,32.5300,2002.9,Vastitas
+mars,Tempe Terra,38.6900,-70.6100,1954.9,Terra
+mars,Arcadia Dorsa,55.9000,-137.5600,1952.7,Dorsum
+mars,Daedalia Planum,-18.3500,-125.9500,1922.0,Planum
+mars,Olympus Rupes,18.4000,-133.5600,1914.8,Rupes
+mars,Mareotis Fossae,44.3400,-76.1200,1907.9,Fossa
+mars,Xanthe Terra,1.6000,-48.0500,1867.7,Terra
+mars,Lunae Planum,10.7900,-65.5100,1817.7,Planum
+mars,Solis Planum,-26.4000,-89.6700,1811.2,Planum
+mars,Ares Vallis,10.2900,-25.6100,1757.7,Vallis
+mars,[Erythraeum Planum],-34.1800,-65.0000,1750.0,Planum
+mars,Tiu Valles,16.2300,-34.8600,1720.0,Vallis
+mars,Hephaestus Rupēs,23.5400,114.9000,1707.4,Rupes
+mars,Tartarus Colles,21.2400,175.1900,1672.7,Collis
+mars,Nepenthes Planum,14.0100,113.7900,1650.1,Planum
+mars,[Terra Meridiani],-7.1200,4.0000,1622.0,Terra
+mars,[Oenotria Scopulus],-7.7700,77.3600,1615.0,Scopulus
+mars,Hesperia Planum,-21.4200,109.8900,1601.7,Planum
+mars,Memnonia Fossae,-23.6300,-153.8200,1585.3,Fossa
+mars,Kasei Valles,25.1400,-62.8800,1580.0,Vallis
+mars,Cydnus Rupēs,52.5300,112.2100,1550.8,Rupes
+mars,Chryse Planitia,28.4300,-40.3100,1542.4,Planitia
+mars,Scandia Colles,65.4700,-139.1300,1521.7,Collis
+mars,Maja Valles,10.2300,-58.3800,1515.0,Vallis
+mars,Olympia Undae,81.1600,178.4800,1508.0,Unda
+mars,Labeatis Fossae,24.5800,-84.5300,1496.4,Fossa
+mars,Capri Chasma,-8.2700,-42.0700,1471.6,Chasma
+mars,Planum Australe,-83.3500,157.7000,1429.9,Planum
+mars,Oenotria Scopuli,-6.6200,77.1100,1425.0,Scopulus
+mars,Sacra Dorsa,11.2100,-66.0900,1416.0,Dorsum
+mars,Promethei Rupes,-75.5400,90.2400,1379.2,Rupes
+mars,Argentea Planum,-72.4900,-61.6700,1370.6,Planum
+mars,Phlegra Montes,40.4000,163.7100,1350.7,Mons
+mars,Lycus Sulci,28.1400,-144.4700,1350.6,Sulcus
+mercury,Borealis Planitia,67.3000,32.6000,3450.0,Planitia
+mercury,Stilbon Planitia,57.5400,150.3900,1550.0,Planitia
+mercury,Caloris Planitia,31.6500,161.9800,1500.0,Planitia
+mercury,Mearcair Planitia,31.4000,132.1000,1175.0,Planitia
+mercury,Sobkou Planitia,39.0000,-128.0200,1128.0,Planitia
+mercury,Apārangi Planitia,6.7000,70.6200,1077.0,Planitia
+mercury,Caloris Montes,31.4600,-174.1500,1023.0,Mons
+mercury,Meteor Rupēs,-47.7000,14.3000,990.0,Rupes
+mercury,Utaridi Planitia,-65.5000,89.8300,930.0,Planitia
+mercury,Altair Rupes,-70.4800,173.5100,895.6,Rupes
+mercury,Volasiga Rupes,-36.2200,-146.0000,830.0,Rupes
+mercury,Enterprise Rupes,-36.5400,76.5400,822.4,Rupes
+mercury,Budh Planitia,19.5200,-150.4600,816.0,Planitia
+mercury,Papsukkal Planitia,-16.2500,88.3700,810.0,Planitia
+mercury,Pettengill Dorsum,79.0000,-9.9600,804.0,Dorsum
+mercury,Grifo Rupes,7.9000,5.3800,783.0,Rupes
+mercury,Tir Planitia,-1.0400,-176.6900,754.0,Planitia
+mercury,Catuilla Planum,-8.7800,114.2200,735.0,Planum
+mercury,Rembrandt,-32.8900,87.8700,716.0,Crater
+mercury,Beagle Rupes,-3.2200,100.7600,630.0,Rupes
+mercury,Beethoven,-20.8600,-124.2100,630.0,Crater
+mercury,Turms Planitia,-31.0500,9.1900,622.0,Planitia
+mercury,Paramour Rupes,-0.0800,147.4600,616.0,Rupes
+mercury,Lugus Planitia,-6.2400,-98.6600,574.0,Planitia
+mercury,Suisei Planitia,60.8800,-147.8100,569.0,Planitia
+mercury,Sihtu Planitia,-2.8200,-55.5700,565.0,Planitia
+mercury,Chikyu Rupes,-53.8200,100.3800,561.0,Rupes
+mercury,Darshak Rupēs,-14.5000,-47.4200,560.0,Rupes
+mercury,Antares Rupes,18.0600,130.5800,530.0,Rupes
+mercury,Duyfken Rupes,-20.8800,-131.9300,518.0,Rupes
+mercury,Alpha Crucis Rupēs,-12.4800,131.6900,511.3,Rupes
+mercury,Arquipelago Rupēs,7.3600,130.6900,500.0,Rupes
+mercury,Sanai,-13.3700,-6.9900,490.0,Crater
+mercury,Blossom Rupes,-3.0400,89.8500,486.0,Rupes
+mercury,Odin Planitia,23.6000,-169.8600,473.0,Planitia
+mercury,Otaared Planitia,18.2600,22.3900,470.0,Planitia
+mercury,Aneirin,-27.4700,-2.6800,467.0,Crater
+mercury,Hero Rupes,-58.7200,-171.7000,456.0,Rupes
+mercury,Dostoevskij,-44.7300,-178.1100,430.1,Crater
+mercury,Belgica Rupes,-50.4500,63.7600,425.0,Rupes
+mercury,Discovery Rupes,-54.7000,-37.2400,412.0,Rupes
+mercury,Shakespeare,48.1000,-152.2500,399.0,Crater
+mercury,Borobudur Fossae,-32.7700,88.5000,395.0,Fossa
+mercury,Investigator Rupes,-25.3900,136.0400,390.0,Rupes
+mercury,Xuelong Rupes,57.2700,177.1300,390.0,Rupes
+mercury,Calypso Rupes,19.5300,43.5200,381.0,Rupes
+mercury,Hesperides Rupes,-2.9800,170.4500,374.0,Rupes
+mercury,Schiaparelli Dorsum,23.2600,-164.3000,374.0,Dorsum
+mercury,Soya Rupes,-6.4700,66.6300,372.0,Rupes
+mercury,Eltanin Rupes,-74.9900,90.6000,370.0,Rupes
+mercury,Trask Dorsum,56.2200,26.1700,360.0,Dorsum
+mercury,Antoniadi Dorsum,27.2000,-29.6500,359.4,Dorsum
+mercury,Tolstoj,-16.2300,-164.6400,355.0,Crater
+mercury,Unity Rupes,27.1600,84.8000,350.0,Rupes
+mercury,Nautilus Rupes,-28.2300,66.6700,348.0,Rupes
+mercury,Victoria Rupes,52.7100,-34.1600,347.0,Rupes
+mercury,Raphael,-20.4200,-76.3500,342.0,Crater
+mercury,Adventure Rupes,-65.4800,-65.3000,340.0,Rupes
+mercury,Kainan Rupēs,-29.8000,29.2000,325.0,Rupes
+mercury,Heemskerck Rupes,27.3000,-124.3100,320.0,Rupes
+mimas,Camelot Chasma,-43.0000,-23.4000,150.0,Chasma
+mimas,Pangea Chasma,-28.1200,19.5900,150.0,Chasma
+mimas,Herschel,-1.3800,-111.7600,139.0,Crater
+mimas,Tintagil Catena,-58.0000,125.0000,130.0,Catena
+mimas,Avalon Chasma,35.0000,-147.0000,120.0,Chasma
+mimas,Oeta Chasma,19.0000,-122.7000,110.0,Chasma
+mimas,Pelion Chasma,-25.3100,109.9200,100.0,Chasma
+mimas,Ossa Chasma,-23.5600,56.2500,95.0,Chasma
+mimas,Arthur,-35.4000,163.9600,64.0,Crater
+mimas,[Tintagil Chasma],-51.7600,146.6500,55.0,Chasma
+mimas,Accolon,-70.5600,175.5900,48.0,Crater
+mimas,Morgan,24.2100,115.0200,43.0,Crater
+mimas,Gwynevere,-17.6000,36.3000,42.0,Crater
+mimas,Lucas,40.7500,139.6500,40.0,Crater
+mimas,Melyodas,-74.9300,-77.1900,40.0,Crater
+miranda,Mantua Regio,-39.6000,-179.8000,399.0,Regio
+miranda,Elsinore Corona,-24.8000,-102.9000,323.0,Corona
+miranda,Arden Corona,-29.1000,73.7000,318.0,Corona
+miranda,Naples Sulcus,-32.0000,-100.0000,260.0,Sulcus
+miranda,Dunsinane Regio,-31.5000,11.9000,244.0,Regio
+miranda,Inverness Corona,-66.9000,-34.3000,234.0,Corona
+miranda,Ephesus Regio,-15.0000,-110.0000,225.0,Regio
+miranda,Sicilia Regio,-30.0000,-42.8000,174.0,Regio
+miranda,Argier Rupes,-43.2000,-37.2000,141.0,Rupes
+miranda,Verona Rupes,-18.3000,-12.2000,116.0,Rupes
+miranda,Syracusa Sulcus,-15.0000,-67.0000,40.0,Sulcus
+moon,Oceanus Procellarum,20.6700,-56.6800,2592.2,Oceanus
+moon,Mare Frigoris,57.5900,-0.0100,1446.4,Mare
+moon,Mare Imbrium,34.7200,-14.9100,1145.5,Mare
+moon,Mare Australe,-47.7700,91.9900,996.8,Mare
+moon,Montes Cordillera,-19.4400,-94.9300,963.5,Mons
+moon,Mare Tranquillitatis,8.3500,30.8300,875.8,Mare
+moon,Mare Fecunditatis,-7.8300,53.6700,840.4,Mare
+moon,Mare Nubium,-20.5900,-17.2900,714.5,Mare
+moon,Montes Rook,-19.4900,-94.9500,682.3,Mons
+moon,Mare Serenitatis,27.2900,18.3600,674.3,Mare
+moon,Vallis Snellius,-30.9300,57.8400,640.0,Vallis
+moon,Montes Apenninus,19.8700,0.0300,599.7,Mons
+moon,Mare Crisium,16.1800,59.1000,555.9,Mare
+moon,Rupes Altai,-24.3200,23.1200,545.2,Rupes
+moon,Hertzsprung,1.3700,-128.6600,536.4,Crater
+moon,Apollo,-35.6900,-151.4800,524.2,Crater
+moon,Mare Insularum,7.7900,-30.6400,511.9,Mare
+moon,Vallis Rheita,-42.5100,51.6500,509.1,Vallis
+moon,Vallis Planck,-57.2600,126.1600,502.9,Vallis
+moon,Catena Michelson (GIRD),-0.4400,-113.5800,450.6,Catena
+moon,Montes Caucasus,37.5200,9.9300,443.5,Mons
+moon,Lacus Somniorum,37.5600,30.8000,424.8,Lacus
+moon,Korolev,-4.1900,-157.4100,423.4,Crater
+moon,Montes Jura,47.4900,-36.1100,420.8,Mons
+moon,Mare Humorum,-24.4800,-38.5700,419.7,Mare
+moon,Rimae Sirsalis,-15.0100,-61.3600,405.0,Rima
+moon,Montes Haemus,17.1100,12.0300,384.7,Mons
+moon,Lacus Veris,-16.4800,-85.9100,382.9,Lacus
+moon,Lorentz,34.5900,-97.1900,378.4,Crater
+moon,Mare Smythii,-1.7100,87.0500,374.0,Mare
+moon,Dorsum Buckland,19.4300,14.3000,369.1,Dorsum
+moon,Mare Marginis,12.7000,86.5200,357.6,Mare
+moon,Mare Cognitum,-10.5300,-22.3100,350.0,Mare
+moon,Poincaré,-56.8600,163.9900,346.0,Crater
+moon,Mare Nectaris,-15.1900,34.6000,339.4,Mare
+moon,Harkhebi,40.8700,98.7400,337.1,Crater
+moon,Montes Alpes,48.3600,-0.5800,334.5,Mons
+moon,Montes Carpatus,14.5700,-23.6200,333.6,Mons
+moon,Birkhoff,58.4500,-145.6500,329.8,Crater
+moon,Rima Brayley,22.3000,-36.3500,327.3,Rima
+moon,Mendeleev,5.3800,141.1700,325.1,Crater
+moon,Rimae Pettit,-25.2200,-93.6300,320.0,Rima
+moon,Planck,-57.2700,135.3400,319.5,Crater
+moon,Sinus Aestuum,12.1000,-8.3400,316.5,Sinus
+moon,Schrödinger,-74.7300,132.9300,316.4,Crater
+moon,Vallis Schrödinger,-66.5200,104.8800,301.7,Vallis
+moon,Bailly,-66.8200,-68.9000,300.6,Crater
+moon,Palus Epidemiarum,-32.0000,-27.5400,300.4,Palus
+moon,Dorsum Oppel,19.3100,52.0900,297.6,Dorsum
+moon,Mare Orientale,-19.8700,-94.6700,294.2,Mare
+moon,Vallis Bouvard,-38.4500,-82.3200,287.9,Vallis
+moon,Sinus Medii,1.6300,1.0300,286.7,Sinus
+moon,Rima Marius,16.3700,-49.5400,283.5,Rima
+moon,Mare Ingenii,-33.2500,164.8300,282.2,Mare
+moon,Rima Sharp,46.0200,-50.3600,276.7,Rima
+moon,Mare Moscoviense,27.2800,148.1200,275.6,Mare
+moon,Rimae Hippalus,-25.6000,-29.3600,266.0,Rima
+moon,Gagarin,-19.6600,149.3500,261.8,Crater
+moon,Dorsa Ewing,-11.0600,-38.3100,261.6,Dorsum
+moon,Milne,-31.0000,112.7800,260.0,Crater
+oberon,Mommur Chasma,-16.3000,-36.5000,537.0,Chasma
+oberon,Hamlet,-46.1000,44.4000,206.0,Crater
+oberon,Macbeth,-58.4000,112.5000,203.0,Crater
+oberon,Romeo,-28.7000,89.4000,159.0,Crater
+oberon,Lear,-5.4000,31.5000,126.0,Crater
+oberon,Falstaff,-22.1000,19.0000,124.0,Crater
+oberon,Coriolanus,-11.4000,-14.8000,120.0,Crater
+oberon,Othello,-66.0000,42.9000,114.0,Crater
+oberon,Caesar,-26.6000,61.1000,76.0,Crater
+oberon,Antony,-27.5000,65.4000,47.0,Crater
+phobos,Kepler Dorsum,-45.0000,4.0000,15.0,Dorsum
+phobos,Laputa Regio,0.0000,95.0000,14.0,Regio
+phobos,Stickney,1.0000,-49.0000,9.0,Crater
+phobos,Gulliver,62.0000,-163.0000,5.5,Crater
+phobos,Hall,-80.0000,150.0000,5.4,Crater
+phobos,Drunlo,36.5000,-92.0000,4.2,Crater
+phobos,Lagado Planitia,19.0000,129.0000,4.0,Planitia
+phobos,Clustril,60.0000,-91.0000,3.4,Crater
+phobos,Reldresal,41.0000,-39.0000,2.9,Crater
+phobos,Grildrig,81.0000,165.0000,2.6,Crater
+phobos,Todd,-9.0000,-153.0000,2.6,Crater
+phobos,Roche,53.0000,177.0000,2.3,Crater
+phobos,D'Arrest,-39.0000,-179.0000,2.1,Crater
+phobos,Limtoc,-11.0000,-54.0000,2.0,Crater
+phobos,Öpik,-7.0000,63.0000,2.0,Crater
+phobos,Shklovsky,24.0000,112.0000,2.0,Crater
+phobos,Sharpless,-27.5000,-154.0000,1.8,Crater
+phobos,Wendell,-1.0000,-132.0000,1.7,Crater
+phobos,Flimnap,60.0000,10.0000,1.5,Crater
+phobos,Skyresh,52.5000,40.0000,1.5,Crater
+rhea,Galunlati Chasmata,38.0000,70.0000,740.0,Chasma
+rhea,Puchou Catenae,32.0000,-87.0000,620.0,Catena
+rhea,Avaiki Chasmata,25.0000,81.0000,580.0,Chasma
+rhea,Mamaldi,14.0000,176.0000,480.0,Crater
+rhea,Kirinyaga Linea,-1.8000,-128.8000,400.0,Linea
+rhea,Yamsi Chasmata,-28.0000,79.5000,380.0,Chasma
+rhea,Wungaran Catenae,22.5000,-79.0000,350.0,Catena
+rhea,Vaupas Chasma,-35.0000,100.0000,280.0,Chasma
+rhea,Powehiwehi,-8.2000,79.6000,271.2,Crater
+rhea,Onokoro Catenae,-44.7000,31.5000,240.0,Catena
+rhea,Thebeksan Catena,-39.5000,-174.0000,220.0,Catena
+rhea,Harahvaiti Fossa,-36.0000,-171.0000,190.0,Fossa
+rhea,Pulag Chasma,-33.0000,93.5000,190.0,Chasma
+rhea,Kunlun Linea,45.0000,52.0000,180.0,Linea
+rhea,Wakonda,48.6000,90.3000,123.0,Crater
+rhea,Parun Fossa,-46.5000,-152.0000,120.0,Fossa
+rhea,Nzame,9.0000,-24.9000,119.4,Crater
+rhea,Koykamou Catena,-70.0000,116.0000,110.0,Catena
+rhea,Nishanu,-9.0000,-129.0000,103.4,Crater
+rhea,Samni,-47.7000,-90.7000,101.4,Crater
+rhea,Purusa,-21.2000,-167.8000,96.7,Crater
+rhea,Vatea,16.0000,-150.4000,96.6,Crater
+rhea,Ehecatl,-54.7000,-175.6000,93.6,Crater
+rhea,Dohitt,-18.0000,-74.1000,93.4,Crater
+rhea,Seveki,12.9000,-164.7000,89.1,Crater
+rhea,Fatu,7.7000,-176.1000,88.0,Crater
+rhea,Abassi,-21.3000,-146.5000,87.2,Crater
+rhea,Wende,-56.3000,133.6000,83.0,Crater
+rhea,Madumda,-36.9000,-64.8000,82.6,Crater
+rhea,Tane,-12.5000,-57.4000,82.6,Crater
+rhea,Mouru Catena,48.5000,16.5000,80.0,Catena
+rhea,Ligoupup,-14.5000,-46.2000,78.8,Crater
+rhea,Dangun,7.2000,152.0000,77.5,Crater
+rhea,Zicum,-50.9000,-111.2000,76.8,Crater
+rhea,Kanobo,-63.8000,-37.4000,75.8,Crater
+rhea,Nishke,3.8000,-49.0000,74.2,Crater
+rhea,Juok,37.6000,-155.0000,73.8,Crater
+rhea,Nareau,-24.9000,118.1000,73.6,Crater
+rhea,Huracan,53.2000,171.5000,71.2,Crater
+rhea,Tulpar,56.1000,-158.6000,70.4,Crater
+rhea,Gucumatz,37.0000,-175.8000,68.6,Crater
+rhea,Mumbi,-1.9000,-131.2000,67.2,Crater
+rhea,Obatala,-1.1000,90.3000,67.2,Crater
+rhea,Amotken,0.7000,157.3000,64.6,Crater
+rhea,Glooskap,-35.0000,-57.2000,63.2,Crater
+rhea,Gborogboro,-12.7000,-162.2000,62.5,Crater
+rhea,Tawa,17.9000,-175.2000,62.2,Crater
+rhea,Singbonga,-54.8000,-146.9000,60.8,Crater
+rhea,Tasheting,-59.0000,-55.5000,60.8,Crater
+rhea,Xowalaci,2.4000,-56.3000,60.0,Crater
+rhea,Pouliuli,-16.9000,75.6000,59.8,Crater
+rhea,Tuwale,-78.0000,117.6000,59.6,Crater
+rhea,Olorun,24.7000,-155.4000,58.4,Crater
+rhea,Utleygon,-20.1000,165.1000,58.2,Crater
+rhea,Wak,29.6000,165.7000,57.8,Crater
+rhea,Gmerti,-52.0000,167.4000,57.2,Crater
+rhea,Kurkyl,-39.9000,-113.7000,57.1,Crater
+rhea,Napi,26.9000,-174.8000,55.8,Crater
+rhea,Inmar,-2.3000,58.4000,54.8,Crater
+rhea,Nainema,25.5000,13.6000,53.8,Crater
+tethys,Ithaca Chasma,-14.0000,-6.1000,1219.0,Chasma
+tethys,Odysseus,32.8200,-128.8900,445.0,Crater
+tethys,Telemus,-34.5300,3.1100,320.0,Crater
+tethys,Melanthius,-58.5000,167.3900,250.0,Crater
+tethys,Penelope,-10.8300,110.7800,207.5,Crater
+tethys,Dolius,-30.1500,149.6700,190.0,Crater
+tethys,Scheria Montes,30.0000,-131.0000,185.0,Mons
+tethys,Antinous,-59.8900,73.8500,138.0,Crater
+tethys,Demodocus,-59.3700,-18.2100,125.0,Crater
+tethys,Ogygia Chasma,56.0000,-95.2000,120.0,Chasma
+tethys,Anticleia,51.3100,-32.3700,100.7,Crater
+tethys,Salmoneus,-1.7700,24.8200,93.0,Crater
+tethys,Telemachus,54.0000,20.6200,92.0,Crater
+tethys,Aietes,-41.4400,-6.2300,91.0,Crater
+tethys,Ajax,-28.4100,78.0000,88.0,Crater
+tethys,Circe,-12.6000,-54.6600,79.0,Crater
+tethys,Phemius,11.3200,73.7800,75.9,Crater
+tethys,Polyphemus,-3.4800,77.0200,73.0,Crater
+tethys,Nausicaa,84.4000,-5.0000,69.0,Crater
+tethys,Hermione,-38.4000,-148.6900,68.2,Crater
+tethys,Poseidon,-55.7100,-101.3000,63.0,Crater
+tethys,Mentor,0.2500,-44.1600,62.0,Crater
+tethys,Elpenor,53.4300,96.3100,60.0,Crater
+tethys,Achilles,0.6000,35.6200,58.6,Crater
+tethys,Naubolos,-72.1900,54.8200,54.5,Crater
+tethys,Icarius,-5.8900,54.1500,54.4,Crater
+tethys,Laertes,-46.3600,-67.4600,51.1,Crater
+tethys,Periboea,8.0000,-34.8600,51.0,Crater
+tethys,Alcinous,30.3100,147.3900,50.0,Crater
+tethys,Diomedes,38.1200,70.5800,48.6,Crater
+tethys,Eurylochus,-5.0700,-27.6800,44.8,Crater
+titan,Xanadu,-15.0000,-100.0000,3400.0,Albedo Feature
+titan,Caladan Planitia,31.0000,134.0000,2800.0,Planitia
+titan,Paititi Terra,20.2200,110.6100,2100.0,Terra
+titan,Poritrin Planitia,48.0000,-24.0000,1900.0,Planitia
+titan,Concordia Regio,-20.0000,119.0000,1500.0,Regio
+titan,Shiwanni Virgae,-25.0000,-32.0000,1400.0,Virga
+titan,Tui Regio,-24.5000,-124.9000,1200.0,Regio
+titan,Kraken Mare,68.0000,50.0000,1170.0,Mare
+titan,Hetpet Regio,-22.0000,68.0000,1080.0,Regio
+titan,Hobal Virga,-35.0000,-166.0000,1075.0,Virga
+titan,Perkunas Virgae,-27.0000,-162.0000,980.0,Virga
+titan,Yalaing Terra,-19.5000,36.0000,980.0,Terra
+titan,Garotman Terra,-13.5000,12.0000,970.0,Terra
+titan,Ochumare Regio,10.4000,11.9000,939.0,Regio
+titan,Echoriath Montes,-7.4000,146.2000,930.0,Mons
+titan,Uanui Virgae,45.2000,124.7000,917.0,Virga
+titan,Buzzell Planitia,-66.3000,97.3000,870.0,Planitia
+titan,Ahmakiq Undae,2.2200,157.3000,812.0,Unda
+titan,Tollan Terra,6.4000,37.3000,800.0,Terra
+titan,Crete Facula,9.4000,-150.1000,680.0,Facula
+titan,Kalseru Virga,-36.0000,-137.0000,630.0,Virga
+titan,Hotei Arcus,-28.0000,-79.0000,600.0,Arcus
+titan,Tlaloc Virgae,23.7300,152.3000,600.0,Virga
+titan,Nicobar Faculae,2.0000,-159.0000,575.0,Facula
+titan,Tsiipiya Terra,2.8300,19.8800,573.2,Terra
+titan,Grumman Labyrinthus,-35.3000,-106.8000,540.0,Labyrinthus
+titan,Notus Undae,-10.0000,148.9000,530.0,Unda
+titan,Rossak Planitia,-71.0400,5.0000,512.0,Planitia
+titan,Elpis Macula,31.2000,-27.0000,500.0,Macula
+titan,Hotei Regio,-26.0000,-78.0000,500.0,Regio
+titan,Ligeia Mare,79.7000,112.1000,500.0,Mare
+titan,Aura Undae,13.7900,133.1400,490.0,Unda
+titan,Bacab Virgae,-19.0000,-151.0000,485.0,Virga
+titan,Junction Labyrinthus,-47.7000,144.7000,484.0,Labyrinthus
+titan,Oahu Facula,5.0000,-166.7000,465.0,Facula
+titan,Lankiveil Labyrinthus,-48.2000,-149.5000,450.0,Labyrinthus
+titan,Woytchugga Lacuna,68.8800,-109.0000,449.0,Lacuna
+titan,Lampadas Labyrinthus,-81.8000,-124.0000,445.0,Labyrinthus
+titan,Hagal Planitia,-60.5900,15.0500,435.0,Planitia
+titan,Dolmed Montes,-11.6000,143.2000,400.0,Mons
+titan,Romo Planitia,-82.7900,159.0400,400.0,Planitia
+titan,Menrva,20.1000,-87.2000,392.0,Crater
+titan,Punga Mare,85.1000,20.3000,380.0,Mare
+titan,Rerir Montes,-4.8000,147.9000,370.0,Mons
+titan,Harmonthep Labyrinthus,-72.3000,-101.4000,363.0,Labyrinthus
+titan,Ecaz Labyrinthus,-83.0000,-36.7000,360.0,Labyrinthus
+titan,Mohini Fluctus,-11.7800,-38.5300,347.0,Fluctus
+titan,Polaznik Macula,-41.1000,79.6000,346.9,Macula
+titan,Mindolluin Montes,-3.3000,151.0400,340.0,Mons
+titan,Arrakis Planitia,-78.4000,-117.0000,337.4,Planitia
+titan,Kokytos Flumina,72.2100,105.0000,305.0,Flumen
+titan,Giedi Planitia,5.2200,2.9800,303.2,Planitia
+titan,Gansireed Labyrinthus,-69.3000,120.7000,300.0,Labyrinthus
+titan,Winia Fluctus,49.0000,-46.0000,300.0,Fluctus
+titan,Shikoku Facula,-10.4000,-164.1000,285.0,Facula
+titan,Corrin Labyrinthus,-66.0000,-31.0000,280.0,Labyrinthus
+titan,Tishtrya Virgae,23.8400,-179.7500,276.0,Virga
+titan,Kronin Labyrinthus,-35.7000,-96.2700,270.0,Labyrinthus
+titan,Antilia Faculae,-11.0000,173.0000,260.0,Facula
+titan,Boreas Undae,-6.0000,145.0000,260.0,Unda
+titania,Messina Chasmata,-33.3000,-25.0000,1492.0,Chasma
+titania,Rousillon Rupes,-14.7000,26.5000,402.0,Rupes
+titania,Gertrude,-15.8000,-72.9000,326.0,Crater
+titania,Belmont Chasma,-8.5000,32.6000,258.0,Chasma
+titania,Ursula,-12.4000,45.2000,135.0,Crater
+titania,Mopsa,-11.9000,-57.8000,101.0,Crater
+titania,Calphurnia,-42.4000,-68.6000,100.0,Crater
+titania,Katherine,-51.2000,-28.1000,75.0,Crater
+titania,Elinor,-44.8000,-26.4000,74.0,Crater
+titania,Jessica,-55.3000,-74.1000,64.0,Crater
+titania,Valeria,-34.5000,4.2000,59.0,Crater
+titania,Lucetta,-14.7000,-82.9000,58.0,Crater
+titania,Bona,-55.8000,-8.8000,51.0,Crater
+titania,Adriana,-20.1000,3.9000,50.0,Crater
+titania,Marina,-15.5000,-44.0000,40.0,Crater
+triton,Xuuch,-6.4300,62.4500,14.0,Crater
+triton,Cay,-6.1500,54.7300,11.0,Crater
+triton,Yara,-6.1400,54.7400,11.0,Crater
+triton,Unga,-1.0800,40.0300,9.0,Crater
+triton,Abatos Planum,-21.5000,58.0000,0.0,Planum
+triton,Akupara Maculae,-27.5000,63.0000,0.0,Macula
+triton,Amarum,26.0000,24.5000,0.0,Crater
+triton,Andvari,20.5000,34.0000,0.0,Crater
+triton,Apep Cavus,20.0000,-58.5000,0.0,Cavus
+triton,Awib Dorsa,-7.0000,80.0000,0.0,Dorsum
+triton,Bheki Cavus,16.0000,-52.0000,0.0,Cavus
+triton,[Bia Sulci],-38.0000,3.0000,0.0,Sulcus
+triton,Boynne Sulci,-13.0000,-10.0000,0.0,Sulcus
+triton,Bubembe Regio,18.0000,-25.0000,0.0,Regio
+triton,Cipango Planum,11.5000,34.0000,0.0,Planum
+triton,Dagon Cavus,29.0000,-15.0000,0.0,Cavus
+triton,Dilolo Patera,26.0000,24.5000,0.0,Patera
+triton,Doro Macula,-27.5000,31.7000,0.0,Macula
+triton,Gandvik Patera,28.0000,5.5000,0.0,Patera
+triton,Hekt Cavus,26.0000,-18.0000,0.0,Cavus
+triton,Hili,-57.0000,35.0000,0.0,Plume
+triton,Hirugo Cavus,14.5000,-15.0000,0.0,Cavus
+triton,Ho Sulci,2.0000,-55.0000,0.0,Sulcus
+triton,Ilomba,-14.5000,57.0000,0.0,Crater
+triton,Jumna Fossae,-13.5000,44.0000,0.0,Fossa
+triton,Kasu Patera,39.0000,14.0000,0.0,Patera
+triton,Kasyapa Cavus,7.5000,-2.0000,0.0,Cavus
+triton,Kibu Patera,10.5000,43.0000,0.0,Patera
+triton,Kikimora Maculae,-31.0000,78.0000,0.0,Macula
+triton,Kormet Sulci,23.0000,-24.5000,0.0,Sulcus
+triton,Kraken Catena,14.0000,35.5000,0.0,Catena
+triton,Kulilu Cavus,41.0000,4.0000,0.0,Cavus
+triton,Kurma,-16.5000,61.0000,0.0,Crater
+triton,Leipter Sulci,7.0000,9.0000,0.0,Sulcus
+triton,Leviathan Patera,17.0000,28.5000,0.0,Patera
+triton,Lo Sulci,3.8000,-39.0000,0.0,Sulcus
+triton,Mah Cavus,38.0000,6.0000,0.0,Cavus
+triton,Mahilani,-50.5000,-0.5000,0.0,Plume
+triton,Mangwe Cavus,-7.0000,-17.0000,0.0,Cavus
+triton,Mazomba,-18.5000,63.5000,0.0,Crater
+triton,Medamothi Planum,3.5000,69.0000,0.0,Planum
+triton,Monad Regio,20.0000,37.0000,0.0,Regio
+triton,Namazu Macula,-25.5000,14.0000,0.0,Macula
+triton,Ob Sulci,-6.0000,-32.0000,0.0,Sulcus
+triton,Ormet Sulci,17.0000,-23.0000,0.0,Sulcus
+triton,Ravgga,-3.0000,71.5000,0.0,Crater
+triton,Raz Fossae,8.0000,21.5000,0.0,Fossa
+triton,Rem Maculae,13.0000,-10.5000,0.0,Macula
+triton,Ruach Planitia,28.0000,24.0000,0.0,Planitia
+triton,Ryugu Planitia,-5.0000,27.0000,0.0,Planitia
+triton,Set Catena,22.0000,33.5000,0.0,Catena
+triton,Sipapu Planitia,-4.0000,36.0000,0.0,Planitia
+triton,Slidr Sulci,23.5000,-10.0000,0.0,Sulcus
+triton,Tangaroa,-25.0000,65.5000,0.0,Crater
+triton,Tano Sulci,33.5000,-23.0000,0.0,Sulcus
+triton,Tuonela Planitia,34.0000,14.5000,0.0,Planitia
+triton,Uhlanga Regio,-37.0000,-3.0000,0.0,Regio
+triton,Ukupanio Cavus,35.0000,23.0000,0.0,Cavus
+triton,Vimur Sulci,-11.0000,59.0000,0.0,Sulcus
+triton,Viviane Macula,-31.0000,36.5000,0.0,Macula
+venus,Parga Chasmata,-20.0000,-105.0000,11000.0,Chasma
+venus,Aphrodite Terra,-5.8000,104.8000,10000.0,Terra
+venus,Lada Terra,-62.5000,20.0000,8615.0,Terra
+venus,Eistla Regio,10.5000,21.5000,8015.0,Regio
+venus,Guinevere Planitia,21.9000,-35.0000,7520.0,Planitia
+venus,Baltis Vallis,37.3000,161.4000,6000.0,Vallis
+venus,Ishtar Terra,70.4000,27.5000,5610.0,Terra
+venus,Ovda Regio,-2.8000,85.6000,5280.0,Regio
+venus,Ganiki Planitia,40.0000,-158.0000,5160.0,Planitia
+venus,Niobe Planitia,21.0000,112.3000,5008.0,Planitia
+venus,Aino Planitia,-40.5000,94.5000,4985.0,Planitia
+venus,Helen Planitia,-51.7000,-96.1000,4360.0,Planitia
+venus,Sudenitsa Tesserae,33.0000,-90.0000,4200.0,Tessera
+venus,Ulfrun Regio,27.0000,-135.0000,3954.0,Regio
+venus,Kawelu Planitia,32.8000,-113.5000,3910.0,Planitia
+venus,Bereghinya Planitia,28.6000,23.6000,3900.0,Planitia
+venus,Manatum Tessera,-4.0000,64.0000,3800.0,Tessera
+venus,Ganis Chasma,18.0000,-171.0000,3700.0,Chasma
+venus,Hinemoa Planitia,5.0000,-95.0000,3700.0,Planitia
+venus,Rusalka Planitia,3.0000,170.0000,3600.0,Planitia
+venus,Sedna Planitia,42.7000,-19.3000,3570.0,Planitia
+venus,Vedma Dorsa,42.0000,159.0000,3345.0,Dorsum
+venus,Atla Regio,9.2000,-159.9000,3200.0,Regio
+venus,Morrigan Linea,-54.5000,-49.0000,3200.0,Linea
+venus,Citlalpul Vallis,-51.8000,-173.0000,3160.0,Vallis
+venus,Hecate Chasma,18.2000,-105.7000,3145.0,Chasma
+venus,Artemis Chasma,-41.2000,138.5000,3087.0,Chasma
+venus,Fonueha Planitia,-44.0000,48.0000,3000.0,Planitia
+venus,Tahmina Planitia,-23.0000,80.0000,3000.0,Planitia
+venus,Leda Planitia,44.0000,65.1000,2890.0,Planitia
+venus,Beta Regio,25.3000,-77.2000,2869.0,Regio
+venus,Phoebe Regio,-6.0000,-77.2000,2852.0,Regio
+venus,Lavinia Planitia,-47.3000,-12.5000,2820.0,Planitia
+venus,Fortuna Tessera,69.9000,45.1000,2801.0,Tessera
+venus,Thetis Regio,-11.4000,129.9000,2801.0,Regio
+venus,Dzerassa Planitia,-15.0000,-65.0000,2800.0,Planitia
+venus,Undine Planitia,13.0000,-57.0000,2800.0,Planitia
+venus,Snegurochka Planitia,86.6000,-32.0000,2775.0,Planitia
+venus,Akhtamar Planitia,27.0000,65.0000,2700.0,Planitia
+venus,Laidamlulum Vallis,-73.0000,151.0000,2700.0,Vallis
+venus,Lowana Planitia,43.0000,98.0000,2700.0,Planitia
+venus,Artemis Corona,-35.0000,135.0000,2600.0,Corona
+venus,Haasttse-baad Tessera,6.0000,127.0000,2600.0,Tessera
+venus,Llorona Planitia,18.0000,145.0000,2600.0,Planitia
+venus,Unelanuhi Dorsa,12.0000,87.0000,2600.0,Dorsum
+venus,Wawalag Planitia,-30.0000,-143.0000,2600.0,Planitia
+venus,Tinatin Planitia,-2.0000,16.0000,2500.0,Planitia
+venus,Louhi Planitia,80.5000,120.5000,2440.0,Planitia
+venus,Kalaipahoa Linea,-60.5000,-23.5000,2400.0,Linea
+venus,Lakshmi Planum,68.6000,-20.7000,2345.0,Planum
+venus,Tellus Tessera,42.6000,76.8000,2329.0,Tessera
+venus,Agrona Linea,40.0000,-80.0000,2300.0,Linea
+venus,Dione Regio,-31.5000,-32.0000,2300.0,Regio
+venus,Hyndla Regio,22.5000,-65.5000,2300.0,Regio
+venus,Tilli-Hanum Planitia,54.0000,120.0000,2300.0,Planitia
+venus,Jokwa Linea,-17.0000,-150.0000,2200.0,Linea
+venus,Nuvakchin Dorsa,-53.0000,-148.0000,2200.0,Dorsum
+venus,Rokapi Dorsa,-55.0000,-138.0000,2200.0,Dorsum
+venus,Vellamo Planitia,45.4000,149.1000,2155.0,Planitia
+venus,Imapinua Planitia,-60.0000,142.0000,2100.0,Planitia
