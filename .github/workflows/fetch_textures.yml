@@ -1,4 +1,4 @@
-name: Fetch textures
+name: Fetch data
 
 # Manual only. It costs Actions minutes and rewrites the source imagery, so it
 # should run when you ask for it and not before.
@@ -8,8 +8,12 @@ on:
       size:
         description: Texture size to fetch
         type: choice
-        options: ['2k', '4k', '8k']
-        default: '2k'
+        options: ['2k', '4k', '8k', 'none']
+        default: '8k'
+      nomenclature:
+        description: Also fetch the IAU feature names
+        type: boolean
+        default: true
 
 jobs:
   fetch:
@@ -22,15 +26,20 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Download
+      - name: Download textures
+        if: inputs.size != 'none'
         run: python3 tools/blender/fetch_hires.py --size "${{ inputs.size }}"
+
+      - name: Download feature names
+        if: inputs.nomenclature
+        run: python3 tools/blender/fetch_nomenclature.py
 
       - name: Check nothing but images landed
         run: |
           # Belt and braces around the script's own check: a bot-protection
           # page is served with a 200, and one run committed eleven of them.
           fail=0
-          for f in $(git diff --name-only -- tools/blender/data); do
+          for f in $(git diff --name-only -- tools/blender/data | grep -E '\\.(jpg|png)$'); do
             case "$(file -b --mime-type "$f")" in
               image/*) ;;
               *) echo "NOT AN IMAGE: $f -> $(file -b --mime-type "$f")"; fail=1 ;;
@@ -47,11 +56,11 @@ jobs:
             echo "No change — the committed maps already match."
             exit 0
           fi
-          branch="textures/${{ inputs.size }}-$(date +%Y%m%d%H%M)"
+          branch="data/${{ inputs.size }}-$(date +%Y%m%d%H%M)"
           git config user.name "${{ github.actor }}"
           git config user.email "${{ github.actor }}@users.noreply.github.com"
           git checkout -b "$branch"
-          git add tools/blender/data
+          git add tools/blender/data assets/data
           git commit -m "Fetch ${{ inputs.size }} surface maps"
           git push -u origin "$branch"
           echo "Pushed $branch. The models still need rebuilding from it:"
