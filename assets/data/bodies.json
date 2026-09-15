@@ -311,6 +311,24 @@
       "outerRadius": 2.27,
       "triangles": 256,
       "bytes": 13496
+    },
+    {
+      "key": "uranus_rings",
+      "label": "Uranus rings",
+      "model": "assets/models/uranus_rings.glb",
+      "innerRadius": 1.6,
+      "outerRadius": 2.01,
+      "triangles": 192,
+      "bytes": 9788
+    },
+    {
+      "key": "neptune_rings",
+      "label": "Neptune rings",
+      "model": "assets/models/neptune_rings.glb",
+      "innerRadius": 1.65,
+      "outerRadius": 2.6,
+      "triangles": 192,
+      "bytes": 9392
     }
   ]
 }

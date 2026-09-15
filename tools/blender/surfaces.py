@@ -256,6 +256,41 @@ def ring_strip_from_map(name, width):
     return np.concatenate([color, alpha[:, None]], axis=-1)[None, :, :]
 
 
+def ring_strip_from_bands(spec, width):
+    """Colour + alpha strip built from a ring system's real geometry.
+
+    Uranus and Neptune have no usable photograph to slice — theirs are dark,
+    narrow rings known from stellar occultations rather than imaging — so the
+    strip is laid out from where the rings actually are. Each entry is a
+    position in planet radii, a width, and how much it blocks.
+    """
+    inner = float(spec['inner_radius'])
+    outer = float(spec['outer_radius'])
+    span = max(outer - inner, 1e-6)
+
+    # Radius in planet radii at each step across the annulus.
+    t = (np.arange(width, dtype=np.float64) + 0.5) / width
+    radius = inner + t * span
+
+    alpha = np.zeros(width, dtype=np.float64)
+    for centre, half_width, strength in spec['bands']:
+        alpha += strength * np.exp(
+            -((radius - centre) ** 2) / (2.0 * max(half_width, 1e-6) ** 2))
+
+    alpha = np.clip(alpha * float(spec.get('opacity', 1.0)), 0.0, 1.0)
+
+    # Soften both edges so the annulus has no hard rim.
+    alpha *= np.clip((t - 0.005) / 0.03, 0.0, 1.0)
+    alpha *= np.clip((0.995 - t) / 0.03, 0.0, 1.0)
+
+    tint = np.array(spec.get('tint', (1.0, 1.0, 1.0)), dtype=np.float64)
+    # Denser parts of a ring look a little brighter, being more of them.
+    colour = tint[None, :] * (0.55 + 0.45 * alpha)[:, None]
+
+    return np.concatenate(
+        [colour, alpha[:, None]], axis=-1)[None, :, :]
+
+
 def ring_strip(width, seed, inner=0.0, outer=1.0):
     """Colour + alpha strip for a planetary ring system.
 

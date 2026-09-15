@@ -80,6 +80,8 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
                   onInteracting: _provider.setInteracting,
                   dragMode: _provider.dragMode,
                   recenterRequests: _provider.recenterRequests,
+                  features: _provider.features,
+                  showLabels: _provider.showLabels,
                 ),
               ),
               if (_provider.library.errors.isNotEmpty || _loadError != null)
@@ -106,6 +108,8 @@ class _SolarSystemScreenState extends State<SolarSystemScreen> {
                   onRecenter: _provider.recenter,
                   dragMode: _provider.dragMode,
                   onDragModeChanged: _provider.setDragMode,
+                  showLabels: _provider.showLabels,
+                  onLabelsChanged: _provider.setLabelsVisible,
                 ),
               ),
               Positioned(

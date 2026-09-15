@@ -8,6 +8,7 @@ import 'package:solar_system_app/config/view_scale.dart';
 import 'package:solar_system_app/models/asteroid_belt.dart';
 import 'package:solar_system_app/models/body_catalog.dart';
 import 'package:solar_system_app/models/celestial_body.dart';
+import 'package:solar_system_app/models/surface_feature.dart';
 import 'package:solar_system_app/services/physics/simulation.dart';
 import 'package:solar_system_app/services/render/body_inspector.dart';
 import 'package:solar_system_app/services/render/mesh_asset.dart';
@@ -23,6 +24,8 @@ Future<void> shoot(
   required OrbitCamera camera,
   required ViewScale scale,
   AsteroidBelt? belt,
+  Map<String, List<SurfaceFeature>> features =
+      const <String, List<SurfaceFeature>>{},
   ui.Size size = const ui.Size(720, 1280),
   DateTime? at,
   bool showOrbits = true,
@@ -46,6 +49,7 @@ Future<void> shoot(
     showMoons: true,
     belt: belt,
     inspector: inspector,
+    features: features,
     repaint: ValueNotifier<int>(0),
   ).paint(canvas, size);
 
@@ -76,12 +80,35 @@ void main() {
               await GlbReader.parse(await File(ring).readAsBytes());
         }
       }
-      expect(meshes.containsKey('saturn_rings'), isTrue);
+      for (final String rings in <String>[
+        'saturn_rings',
+        'uranus_rings',
+        'neptune_rings',
+      ]) {
+        expect(meshes.containsKey(rings), isTrue, reason: rings);
+      }
       expect(
         meshes.length,
-        BodyCatalog.all.length + 1,
-        reason: 'bodies plus Saturn\'s rings',
+        BodyCatalog.all.length + 3,
+        reason: 'bodies plus three ring systems',
       );
+
+      final Map<String, List<SurfaceFeature>> named =
+          <String, List<SurfaceFeature>>{};
+      for (final SurfaceFeature feature in SurfaceFeature.parse(
+        File('assets/data/features.csv').readAsStringSync(),
+      )) {
+        named
+            .putIfAbsent(feature.bodyKey, () => <SurfaceFeature>[])
+            .add(feature);
+      }
+      for (final List<SurfaceFeature> list in named.values) {
+        list.sort(
+          (SurfaceFeature a, SurfaceFeature b) =>
+              b.diameterKm.compareTo(a.diameterKm),
+        );
+      }
+      expect(named['moon'], isNotEmpty);
 
       final AsteroidBelt belt = AsteroidBelt.parse(
         File('assets/data/asteroids.csv').readAsStringSync(),
@@ -200,7 +227,13 @@ void main() {
 
       // The rocky bodies close up, lit from the side, which is the only way
       // relief ever shows: their real topography is displaced into the mesh.
-      for (final String key in <String>['mercury', 'mars', 'venus']) {
+      for (final String key in <String>[
+        'mercury',
+        'mars',
+        'venus',
+        'uranus',
+        'neptune',
+      ]) {
         final CelestialBody body = BodyCatalog.byKey(key)!;
         final vm.Vector3 at = bodyWorldPosition(
           SolarSystemSimulation(start: DateTime.utc(2026, 9, 9)),
@@ -210,6 +243,7 @@ void main() {
         await shoot(
           '${key}_close',
           meshes,
+          features: named,
           camera: OrbitCamera(
             target: at,
             distance: const ViewScale().bodyRadius(body.radiusKm) * 4.0,
@@ -240,6 +274,7 @@ void main() {
         await shoot(
           '${body.key}_terminator',
           meshes,
+          features: named,
           camera: OrbitCamera(
             target: body.value,
             distance: distance,

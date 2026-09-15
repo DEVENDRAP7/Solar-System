@@ -9,6 +9,7 @@ import '../../config/view_scale.dart';
 import '../../models/asteroid_belt.dart';
 import '../../models/body_catalog.dart';
 import '../../models/celestial_body.dart';
+import '../../models/surface_feature.dart';
 import '../physics/kepler.dart';
 import '../physics/simulation.dart';
 import 'body_inspector.dart';
@@ -91,6 +92,8 @@ class SolarSystemPainter extends CustomPainter {
     this.belt,
     this.showBelt = true,
     this.inspector,
+    this.features = const <String, List<SurfaceFeature>>{},
+    this.showLabels = true,
   }) : super(repaint: repaint);
 
   final SolarSystemSimulation simulation;
@@ -114,6 +117,12 @@ class SolarSystemPainter extends CustomPainter {
   /// The turn the user has put on the body they are inspecting, if any.
   final BodyInspector? inspector;
 
+  /// The named places on each body, keyed by body.
+  final Map<String, List<SurfaceFeature>> features;
+
+  /// Whether those names are drawn.
+  final bool showLabels;
+
   static const double _starShell = 1600.0;
 
   /// Below this many pixels across, a body is drawn as a point of light.
@@ -124,6 +133,15 @@ class SolarSystemPainter extends CustomPainter {
   /// frame spent on something no one can see; at this size the disc and the
   /// mesh are the same picture, phase and all.
   static const double _meshThreshold = 11.0;
+
+  /// A body smaller than this on screen gets no feature names: there is
+  /// nowhere to put them near the thing they name.
+  static const double _labelThreshold = 38.0;
+
+  /// A moon this many pixels across is worth naming. Lower than the threshold
+  /// for surface features: a name beside a moon only has to point at it,
+  /// where a crater's name has to land on the right part of a disc.
+  static const double _moonNameThreshold = 4.0;
 
   /// Ecliptic coordinates are z-up; the scene is y-up.
   static Vector3 _toScene(Vector3 ecliptic) =>
@@ -353,6 +371,7 @@ class SolarSystemPainter extends CustomPainter {
     final List<_Placed> placed = <_Placed>[];
     final Vector3 cameraRight = camera.right;
     final BodyInspector? inspector = this.inspector;
+    final List<_Label> labels = <_Label>[];
 
     for (final CelestialBody body in BodyCatalog.all) {
       if (body.parentKey != null && !showMoons) {
@@ -365,7 +384,15 @@ class SolarSystemPainter extends CustomPainter {
 
       final Vector3 world = _worldPosition(body);
       final Vector3 viewSpace = view.transformed3(world);
-      placed.add(_Placed(body, mesh, world, viewSpace.z));
+      placed.add(
+        _Placed(
+          body,
+          mesh,
+          world,
+          viewSpace.z,
+          scale.bodyRadius(body.radiusKm, isMoon: body.parentKey != null),
+        ),
+      );
     }
 
     // Painter's algorithm between bodies: furthest first.
@@ -556,7 +583,159 @@ class SolarSystemPainter extends CustomPainter {
       }
 
       hits.add(BodyHit(item.body.key, centre, math.max(screenSize, 16.0)));
+
+      if (showLabels) {
+        _gatherFeatureLabels(
+          labels,
+          item,
+          model,
+          view,
+          size,
+          focal,
+          screenSize,
+        );
+        // Moons carry their own name. A planet has one in the picker and one
+        // in the details panel already; a moon has neither, so without this
+        // the outer systems are a scatter of anonymous dots.
+        if (item.body.parentKey != null && screenSize >= _moonNameThreshold) {
+          labels.add(
+            _Label(item.body.label, centre + Offset(0, -screenSize - 3), 2.0),
+          );
+        }
+      }
     }
+
+    if (showLabels) {
+      _paintLabels(canvas, size, labels);
+    }
+  }
+
+  /// Collect the named places on one body that are worth a label right now.
+  ///
+  /// A feature is only labelled when it is on the side of the body facing us
+  /// and the body is drawn large enough for the name to land somewhere near
+  /// the thing it names. They are gathered rather than drawn as we go, so no
+  /// planet drawn later can cover a name.
+  void _gatherFeatureLabels(
+    List<_Label> into,
+    _Placed item,
+    Matrix4 model,
+    Matrix4 view,
+    ui.Size size,
+    double focal,
+    double screenRadius,
+  ) {
+    final List<SurfaceFeature>? named = features[item.body.key];
+    if (named == null || named.isEmpty || screenRadius < _labelThreshold) {
+      return;
+    }
+
+    // More room means more names. A body filling the screen carries a dozen;
+    // one the size of a coin carries two without becoming a scribble.
+    final int allowed = ((screenRadius - _labelThreshold) / 26).round().clamp(
+      1,
+      14,
+    );
+
+    final Vector3 toEye = (camera.eye - item.world)..normalize();
+    int taken = 0;
+
+    for (final SurfaceFeature feature in named) {
+      if (taken >= allowed) {
+        break;
+      }
+
+      // The model matrix carries the body's tilt, its spin and any turn the
+      // user has put on it, so the name goes where the surface actually is.
+      final Vector3 out = model.rotated3(feature.direction)..normalize();
+      final double facing = out.dot(toEye);
+      if (facing < 0.22) {
+        continue;
+      }
+
+      final Offset? at = _project(
+        item.world + out * (item.radius * 1.01),
+        view,
+        size,
+        focal,
+      );
+      if (at == null) {
+        continue;
+      }
+
+      into.add(_Label(feature.name, at, facing));
+      taken++;
+    }
+  }
+
+  /// Draw the gathered names, dropping any that would sit on top of another.
+  void _paintLabels(ui.Canvas canvas, ui.Size size, List<_Label> labels) {
+    if (labels.isEmpty) {
+      return;
+    }
+    // Squarest-on first: when two names collide, the one nearer the middle of
+    // the disc — and so the more certainly placed — is the one that survives.
+    labels.sort((_Label a, _Label b) => b.facing.compareTo(a.facing));
+
+    final List<Rect> taken = <Rect>[];
+
+    for (final _Label label in labels) {
+      final TextPainter painter = _textFor(label.text);
+      final Offset at = label.at + const Offset(7, -6);
+      final Rect box = Rect.fromLTWH(
+        at.dx,
+        at.dy,
+        painter.width,
+        painter.height,
+      ).inflate(3);
+
+      if (box.right > size.width || box.bottom > size.height || box.left < 0) {
+        continue;
+      }
+      if (taken.any(box.overlaps)) {
+        continue;
+      }
+      taken.add(box);
+
+      canvas.drawCircle(
+        label.at,
+        1.7,
+        Paint()..color = const Color(0xCCDCE8FF),
+      );
+      canvas.drawLine(
+        label.at,
+        at + const Offset(-2, 6),
+        Paint()
+          ..color = const Color(0x66DCE8FF)
+          ..strokeWidth = 1,
+      );
+      painter.paint(canvas, at);
+    }
+  }
+
+  /// Laid-out text, kept between frames: laying a string out costs more than
+  /// drawing it, and these strings barely change.
+  static final Map<String, TextPainter> _textCache = <String, TextPainter>{};
+
+  static TextPainter _textFor(String text) {
+    return _textCache.putIfAbsent(text, () {
+      return TextPainter(
+        text: TextSpan(
+          text: text,
+          style: const TextStyle(
+            color: Color(0xF2EAF2FF),
+            fontSize: 11,
+            fontWeight: FontWeight.w500,
+            letterSpacing: 0.2,
+            shadows: <Shadow>[
+              Shadow(color: Color(0xE6000000), blurRadius: 3),
+              Shadow(color: Color(0x99000000), blurRadius: 7),
+            ],
+          ),
+        ),
+        textDirection: TextDirection.ltr,
+      )..layout();
+    });
   }
 
   /// Draw a distant body as a flat disc carrying its phase.
@@ -723,10 +902,22 @@ class SolarSystemPainter extends CustomPainter {
 }
 
 class _Placed {
-  const _Placed(this.body, this.mesh, this.world, this.depth);
+  const _Placed(this.body, this.mesh, this.world, this.depth, this.radius);
 
   final CelestialBody body;
   final MeshAsset mesh;
   final Vector3 world;
   final double depth;
+
+  /// Drawn radius in scene units.
+  final double radius;
+}
+
+/// A name waiting to be drawn, and how squarely its place faces us.
+class _Label {
+  const _Label(this.text, this.at, this.facing);
+
+  final String text;
+  final Offset at;
+  final double facing;
 }

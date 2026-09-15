@@ -82,3 +82,21 @@ files with the same names in this folder and rebuilding — no code changes.
 ```
 
 The files are committed so a build needs no network access.
+
+## Place names
+
+`assets/data/features.csv` — the named craters, seas, mountains, canyons and
+plains drawn as labels over each body. Names and positions follow the IAU
+Gazetteer of Planetary Nomenclature, but this file is a **curated subset
+entered by hand**, not an export of it: `tools/blender/fetch_nomenclature.py`
+was written to pull the real thing on a runner and its first run failed — the
+gazetteer's search endpoint wants an internal target id (`16_Moon`) rather than
+a target name, and returns HTTP 500 otherwise. The positions here are good to
+about a degree, which is a fraction of a pixel at the size a phone draws a
+planet, but they are not authoritative. Fixing the fetcher would replace this
+file wholesale.
+
+Jupiter's Great Red Spot and Neptune's Great Dark Spot are deliberately absent:
+both drift in longitude, so there is no fixed coordinate to put them at, and
+where they sit in our particular surface map is not something that was
+verified.

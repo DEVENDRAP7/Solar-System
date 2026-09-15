@@ -254,6 +254,9 @@ class BodyCatalog {
 
   static const CelestialBody uranus = CelestialBody(
     key: 'uranus',
+    ringModelAsset: 'assets/models/uranus_rings.glb',
+    ringInnerRadii: 1.60,
+    ringOuterRadii: 2.01,
     atmosphere: Color(0xFF9FE6E8),
     atmosphereDepth: 0.055,
     label: 'Uranus',
@@ -285,6 +288,9 @@ class BodyCatalog {
 
   static const CelestialBody neptune = CelestialBody(
     key: 'neptune',
+    ringModelAsset: 'assets/models/neptune_rings.glb',
+    ringInnerRadii: 1.65,
+    ringOuterRadii: 2.60,
     atmosphere: Color(0xFF7FA8F0),
     atmosphereDepth: 0.055,
     label: 'Neptune',

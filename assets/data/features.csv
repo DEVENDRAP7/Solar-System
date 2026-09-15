@@ -1,0 +1,109 @@
+body,name,lat,lon,diameter_km,kind
+moon,Oceanus Procellarum,18.4,-57.4,2568,Oceanus
+moon,Mare Imbrium,32.8,-15.6,1146,Mare
+moon,Mare Frigoris,56.0,1.4,1446,Mare
+moon,Mare Tranquillitatis,8.5,31.4,873,Mare
+moon,Mare Fecunditatis,-7.8,51.3,840,Mare
+moon,Mare Serenitatis,28.0,17.5,707,Mare
+moon,Mare Nubium,-21.3,-16.6,715,Mare
+moon,Mare Crisium,17.0,59.1,556,Mare
+moon,Mare Humorum,-24.4,-38.6,420,Mare
+moon,Mare Nectaris,-15.2,34.6,333,Mare
+moon,Mare Vaporum,13.3,3.6,242,Mare
+moon,Mare Orientale,-19.4,-92.8,327,Mare
+moon,Mare Ingenii,-33.7,163.5,282,Mare
+moon,Mare Moscoviense,27.3,147.9,277,Mare
+moon,Hertzsprung,1.4,-129.2,570,Crater
+moon,Apollo,-36.1,-151.8,537,Crater
+moon,Korolev,-4.0,-157.4,437,Crater
+moon,Bailly,-66.5,-69.1,287,Crater
+moon,Clavius,-58.6,-14.4,231,Crater
+moon,Schickard,-44.4,-55.1,212,Crater
+moon,Tsiolkovskiy,-21.2,128.9,185,Crater
+moon,Petavius,-25.1,60.4,177,Crater
+moon,Grimaldi,-5.4,-68.3,173,Crater
+moon,Ptolemaeus,-9.2,-1.8,158,Crater
+moon,Langrenus,-8.9,61.1,132,Crater
+moon,Copernicus,9.6,-20.1,96,Crater
+moon,Theophilus,-11.4,26.4,98,Crater
+moon,Plato,51.6,-9.3,101,Crater
+moon,Tycho,-43.3,-11.4,85,Crater
+moon,Aristarchus,23.7,-47.5,40,Crater
+moon,Montes Apenninus,18.9,3.7,401,Montes
+moon,Montes Caucasus,38.4,10.0,445,Montes
+moon,Montes Alpes,46.4,0.8,281,Montes
+mars,Valles Marineris,-14.0,301.4,3800,Vallis
+mars,Olympus Mons,18.65,226.2,610,Mons
+mars,Ascraeus Mons,11.8,255.5,456,Mons
+mars,Pavonis Mons,0.8,247.0,375,Mons
+mars,Arsia Mons,-8.35,239.9,475,Mons
+mars,Alba Mons,40.5,250.4,530,Mons
+mars,Elysium Mons,25.0,147.2,401,Mons
+mars,Hellas Planitia,-42.4,70.5,2300,Planitia
+mars,Utopia Planitia,46.7,117.5,3300,Planitia
+mars,Amazonis Planitia,24.8,196.0,2800,Planitia
+mars,Chryse Planitia,28.4,319.7,1600,Planitia
+mars,Isidis Planitia,12.9,87.0,1500,Planitia
+mars,Argyre Planitia,-49.4,316.0,800,Planitia
+mars,Syrtis Major Planum,9.3,69.5,1300,Planum
+mars,Noctis Labyrinthus,-7.2,258.3,1190,Labyrinthus
+mars,Schiaparelli,-2.7,16.8,459,Crater
+mars,Huygens,-13.9,55.6,467,Crater
+mars,Cassini,23.4,32.1,408,Crater
+mars,Gale,-5.4,137.8,154,Crater
+mars,Gusev,-14.5,175.4,158,Crater
+mars,Planum Boreum,88.0,15.0,1100,Planum
+mars,Planum Australe,-83.0,160.0,1400,Planum
+mercury,Caloris Planitia,30.5,189.8,1550,Planitia
+mercury,Rembrandt,-33.0,88.0,715,Crater
+mercury,Beethoven,-20.8,236.3,630,Crater
+mercury,Tolstoj,-16.3,196.5,355,Crater
+mercury,Dostoevskij,-44.9,183.1,411,Crater
+mercury,Raphael,-19.9,175.9,343,Crater
+mercury,Shakespeare,48.2,208.5,370,Crater
+mercury,Homer,-1.2,323.3,314,Crater
+mercury,Mozart,8.0,190.5,241,Crater
+mercury,Kuiper,-11.3,328.6,62,Crater
+venus,Aphrodite Terra,-10.0,105.0,10000,Terra
+venus,Ishtar Terra,70.4,27.5,5610,Terra
+venus,Lakshmi Planum,68.6,339.3,2345,Planum
+venus,Maxwell Montes,65.2,3.3,797,Montes
+venus,Beta Regio,25.3,282.8,2869,Regio
+venus,Alpha Regio,-25.5,4.5,1897,Regio
+venus,Phoebe Regio,-6.0,282.8,2852,Regio
+venus,Atla Regio,9.2,200.1,3200,Regio
+venus,Mead,12.5,57.2,269,Crater
+venus,Sacajawea,64.5,335.4,233,Patera
+io,Loki Patera,12.6,308.8,202,Patera
+io,Pele,-18.7,255.3,30,Patera
+io,Prometheus,-1.5,153.9,28,Eruptive centre
+io,Pan Mensa,-48.6,35.5,150,Mensa
+europa,Pwyll,-25.2,271.4,27,Crater
+europa,Tyre,34.0,146.6,44,Macula
+europa,Conamara Chaos,9.0,273.0,80,Chaos
+europa,Thera Macula,-46.9,181.3,80,Macula
+ganymede,Galileo Regio,35.0,125.4,3200,Regio
+ganymede,Marius Regio,10.0,90.0,2000,Regio
+ganymede,Osiris,-38.9,194.0,107,Crater
+ganymede,Tros,11.3,332.0,94,Crater
+callisto,Valhalla,15.9,55.3,3800,Multi-ring basin
+callisto,Asgard,30.1,140.3,1600,Multi-ring basin
+callisto,Heimdall,-62.6,92.0,210,Crater
+titan,Xanadu,-15.0,100.0,3400,Regio
+titan,Kraken Mare,68.0,310.0,1170,Mare
+titan,Ligeia Mare,79.0,248.0,500,Mare
+titan,Punga Mare,85.1,339.7,380,Mare
+mimas,Herschel,0.0,104.0,139,Crater
+iapetus,Cassini Regio,0.0,90.0,2500,Regio
+iapetus,Turgis,16.9,28.4,580,Crater
+enceladus,Damascus Sulcus,-80.0,300.0,140,Sulcus
+tethys,Odysseus,32.8,128.9,445,Crater
+tethys,Ithaca Chasma,-9.0,17.0,2000,Chasma
+rhea,Tirawa,34.2,151.7,360,Crater
+dione,Evander,-57.0,145.0,350,Crater
+miranda,Verona Rupes,-18.3,347.8,116,Rupes
+ariel,Kachina Chasmata,-24.5,245.0,622,Chasma
+titania,Messina Chasmata,-33.3,335.0,1492,Chasma
+oberon,Mommur Chasma,-16.3,323.5,537,Chasma
+triton,Slidr Sulci,-25.0,25.0,1200,Sulcus
+triton,Ruach Planitia,27.0,23.0,200,Planitia

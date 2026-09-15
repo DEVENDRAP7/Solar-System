@@ -8,6 +8,7 @@ import '../config/view_scale.dart';
 import '../models/asteroid_belt.dart';
 import '../models/body_catalog.dart';
 import '../models/celestial_body.dart';
+import '../models/surface_feature.dart';
 import '../services/physics/simulation.dart';
 import '../services/render/body_inspector.dart';
 import '../services/render/mesh_library.dart';
@@ -44,6 +45,8 @@ class SolarSystemView extends StatefulWidget {
     required this.onInteracting,
     required this.dragMode,
     required this.recenterRequests,
+    required this.features,
+    required this.showLabels,
     this.inspector,
     super.key,
   });
@@ -70,6 +73,12 @@ class SolarSystemView extends StatefulWidget {
 
   /// Bumped when the view should return to the overview.
   final ValueListenable<int> recenterRequests;
+
+  /// The named places on each body, keyed by body.
+  final Map<String, List<SurfaceFeature>> features;
+
+  /// Whether those names are drawn over the scene.
+  final bool showLabels;
 
   /// The hand-turn applied to a selected body. Supplied by tests; the view
   /// makes its own otherwise.
@@ -376,6 +385,8 @@ class _SolarSystemViewState extends State<SolarSystemView>
                 belt: widget.belt,
                 showBelt: widget.showBelt,
                 inspector: _inspector,
+                features: widget.features,
+                showLabels: widget.showLabels,
                 repaint: _frame,
               ),
             ),

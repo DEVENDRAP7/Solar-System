@@ -19,6 +19,8 @@ class DisplayOptions extends StatelessWidget {
     required this.onRecenter,
     required this.dragMode,
     required this.onDragModeChanged,
+    required this.showLabels,
+    required this.onLabelsChanged,
     super.key,
   });
 
@@ -33,6 +35,8 @@ class DisplayOptions extends StatelessWidget {
   final VoidCallback onRecenter;
   final DragMode dragMode;
   final ValueChanged<DragMode> onDragModeChanged;
+  final bool showLabels;
+  final ValueChanged<bool> onLabelsChanged;
 
   @override
   Widget build(BuildContext context) {
@@ -71,6 +75,12 @@ class DisplayOptions extends StatelessWidget {
             tooltip: 'Moons',
             active: showMoons,
             onPressed: () => onMoonsChanged(!showMoons),
+          ),
+          _Toggle(
+            icon: Icons.label_outline_rounded,
+            tooltip: 'Names of places and moons',
+            active: showLabels,
+            onPressed: () => onLabelsChanged(!showLabels),
           ),
           _Toggle(
             icon: Icons.grain_rounded,

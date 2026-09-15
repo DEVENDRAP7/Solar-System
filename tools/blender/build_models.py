@@ -252,7 +252,7 @@ def surface_material(spec, color_image, normal_image, night_image=None):
 
 
 def ring_material(image):
-    material = bpy.data.materials.new('saturn_rings')
+    material = bpy.data.materials.new('rings')
     material.use_nodes = True
     material.blend_method = 'BLEND'
     material.show_transparent_back = True
@@ -382,20 +382,31 @@ def build():
         print('    -> {} ({:.2f} MB, {} triangles)'.format(
             os.path.basename(path), entry['bytes'] / 1048576.0, entry['triangles']), flush=True)
 
-    # Saturn's rings.
-    if options['only'] is None or 'saturn_rings' in (options['only'] or []) or 'saturn' in (options['only'] or []):
-        spec = body_defs.RINGS
+    # Ring systems.
+    for spec in body_defs.RING_SYSTEMS:
+        wanted = options['only']
+        if wanted is not None and not (
+                spec['key'] in wanted or spec['planet'] in wanted):
+            continue
+
         print('[build] {}'.format(spec['key']), flush=True)
         clear_scene()
 
         ring_photo = spec.get('photo')
-        strip = (surfaces.ring_strip_from_map(ring_photo, 1024) if ring_photo
-                 else surfaces.ring_strip(1024, seed=options['seed'] + 5507))
-        image = save_image(strip, 'rings_color',
-                           os.path.join(work_dir, 'rings_color.png'), color_data=True)
+        if ring_photo:
+            strip = surfaces.ring_strip_from_map(ring_photo, 1024)
+        elif spec.get('bands'):
+            strip = surfaces.ring_strip_from_bands(spec, 1024)
+        else:
+            strip = surfaces.ring_strip(1024, seed=options['seed'] + 5507)
 
-        obj = make_annulus(spec['key'], spec['inner_radius'], spec['outer_radius'],
-                           spec['segments'])
+        image = save_image(strip, '{}_color'.format(spec['key']),
+                           os.path.join(work_dir,
+                                        '{}_color.png'.format(spec['key'])),
+                           color_data=True)
+
+        obj = make_annulus(spec['key'], spec['inner_radius'],
+                           spec['outer_radius'], spec['segments'])
         obj.data.materials.append(ring_material(image))
 
         path = os.path.join(out_dir, '{}.glb'.format(spec['key']))
@@ -410,7 +421,8 @@ def build():
             'bytes': os.path.getsize(path),
         })
         print('    -> {} ({:.2f} MB)'.format(os.path.basename(path),
-                                             manifest[-1]['bytes'] / 1048576.0), flush=True)
+                                             manifest[-1]['bytes'] / 1048576.0),
+              flush=True)
 
     data_path = os.path.join(os.path.dirname(out_dir), 'data', 'bodies.json')
     os.makedirs(os.path.dirname(data_path), exist_ok=True)

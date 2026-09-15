@@ -227,17 +227,67 @@ BODIES = [
 
 # Saturn's rings are a flat annulus with a generated colour + alpha texture,
 # expressed in multiples of the planet's radius.
-RINGS = {
-    'key': 'saturn_rings',
-    'label': 'Saturn rings',
-    'inner_radius': 1.24,
-    'outer_radius': 2.27,
-    'segments': 128,
-    # The 8k strip carries the ring's own transparency in its alpha, so
-    # the Cassini division is a real gap rather than one inferred from
-    # how dark the pixels are.
-    'photo': 'saturn_ring_hi.png',
-}
+RING_SYSTEMS = [
+    {
+        'key': 'saturn_rings',
+        'label': 'Saturn rings',
+        'planet': 'saturn',
+        'inner_radius': 1.24,
+        'outer_radius': 2.27,
+        'segments': 128,
+        # The 8k strip carries the ring's own transparency in its alpha, so
+        # the Cassini division is a real gap rather than one inferred from
+        # how dark the pixels are.
+        'photo': 'saturn_ring_hi.png',
+    },
+    {
+        # Uranus has thirteen rings, narrow and darker than charcoal — an
+        # albedo around 0.03, which is why they went unseen until a star
+        # winked out behind them in 1977. They matter to look at because the
+        # planet is tipped on its side, so they are presented nearly face-on
+        # rather than edge-on like Saturn's.
+        'key': 'uranus_rings',
+        'label': 'Uranus rings',
+        'planet': 'uranus',
+        'inner_radius': 1.60,
+        'outer_radius': 2.01,
+        'segments': 96,
+        'tint': (0.62, 0.64, 0.68),
+        'opacity': 0.55,
+        # Where each named ring sits, in planet radii, and how wide it is.
+        # The epsilon ring at the outer edge carries most of the mass and is
+        # the only one that is at all easy to see.
+        'bands': [
+            (1.637, 0.004, 0.35), (1.652, 0.004, 0.30), (1.666, 0.004, 0.30),
+            (1.750, 0.006, 0.45), (1.786, 0.008, 0.50), (1.834, 0.004, 0.30),
+            (1.863, 0.004, 0.40), (1.900, 0.005, 0.40), (1.957, 0.003, 0.25),
+            (1.990, 0.020, 1.00),
+        ],
+    },
+    {
+        # Neptune's rings are fainter still, and the outermost holds its dust
+        # in a handful of arcs rather than spreading it evenly round — the
+        # reason they were first seen as partial rings.
+        'key': 'neptune_rings',
+        'label': 'Neptune rings',
+        'planet': 'neptune',
+        'inner_radius': 1.65,
+        'outer_radius': 2.60,
+        'segments': 96,
+        'tint': (0.58, 0.63, 0.72),
+        'opacity': 0.38,
+        'bands': [
+            (1.692, 0.030, 0.30),
+            (2.148, 0.010, 0.55),
+            (2.230, 0.080, 0.18),
+            (2.310, 0.008, 0.35),
+            (2.540, 0.012, 0.70),
+        ],
+    },
+]
+
+# Kept for anything still reaching for the single-ring name.
+RINGS = RING_SYSTEMS[0]
 
 # ---------------------------------------------------------------------------
 # Moons

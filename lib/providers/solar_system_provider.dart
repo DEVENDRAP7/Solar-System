@@ -1,9 +1,11 @@
 import 'package:flutter/foundation.dart';
+import 'package:flutter/services.dart' show rootBundle;
 
 import '../config/view_scale.dart';
 import '../models/asteroid_belt.dart';
 import '../models/body_catalog.dart';
 import '../models/celestial_body.dart';
+import '../models/surface_feature.dart';
 import '../services/physics/simulation.dart';
 import '../services/render/mesh_library.dart';
 import '../widgets/solar_system_view.dart' show DragMode;
@@ -34,6 +36,18 @@ class SolarSystemProvider extends ChangeNotifier {
   /// The main-belt asteroids, once their data has loaded.
   AsteroidBelt? belt;
 
+  /// The named places on each body, keyed by body.
+  Map<String, List<SurfaceFeature>> features =
+      const <String, List<SurfaceFeature>>{};
+
+  /// Whether those names are drawn over the scene.
+  bool showLabels = true;
+
+  void setLabelsVisible(bool value) {
+    showLabels = value;
+    notifyListeners();
+  }
+
   /// Load the models. The scene can be drawn as soon as this completes.
   Future<void> load() async {
     await library.loadAll();
@@ -43,6 +57,32 @@ class SolarSystemProvider extends ChangeNotifier {
     } catch (error) {
       library.errors.add('Asteroid belt: \$error');
     }
+
+    try {
+      library.status.value = 'Place names';
+      final String csv = await rootBundle.loadString(
+        'assets/data/features.csv',
+      );
+      final Map<String, List<SurfaceFeature>> byBody =
+          <String, List<SurfaceFeature>>{};
+      for (final SurfaceFeature feature in SurfaceFeature.parse(csv)) {
+        byBody
+            .putIfAbsent(feature.bodyKey, () => <SurfaceFeature>[])
+            .add(feature);
+      }
+      // Largest first, so when there is only room for a few names they are
+      // the ones worth having.
+      for (final List<SurfaceFeature> list in byBody.values) {
+        list.sort(
+          (SurfaceFeature a, SurfaceFeature b) =>
+              b.diameterKm.compareTo(a.diameterKm),
+        );
+      }
+      features = byBody;
+    } catch (error) {
+      library.errors.add('Place names: \$error');
+    }
+
     notifyListeners();
   }
 

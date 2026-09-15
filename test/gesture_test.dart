@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:solar_system_app/config/view_scale.dart';
+import 'package:solar_system_app/models/surface_feature.dart';
 import 'package:solar_system_app/services/physics/simulation.dart';
 import 'package:solar_system_app/services/render/body_inspector.dart';
 import 'package:solar_system_app/services/render/mesh_library.dart';
@@ -46,6 +47,8 @@ void main() {
           onFrame: (double _) {},
           onInteracting: onInteracting,
           recenterRequests: recenter,
+          features: const <String, List<SurfaceFeature>>{},
+          showLabels: false,
         ),
       ),
     );
