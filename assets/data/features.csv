@@ -500,6 +500,13 @@ ganymede,Shu,43.1600,3.1600,44.0,Crater
 ganymede,Ba'al,24.9200,30.0300,43.0,Crater
 ganymede,Hamra Patera,-77.3500,-171.3700,43.0,Patera
 ganymede,Latpon,58.7400,-171.2100,43.0,Crater
+ganymede,Mor,30.5500,32.6500,41.0,Crater
+ganymede,Gushkin,20.7500,-45.9800,40.5,Crater
+ganymede,Achelous,61.9000,-11.7800,40.0,Crater
+ganymede,Diment,23.1400,8.2300,40.0,Crater
+ganymede,Humbaba,-55.1500,-67.3100,40.0,Crater
+ganymede,Nabu,-45.3900,-1.1900,40.0,Crater
+ganymede,Saltu,-14.1500,7.2300,40.0,Crater
 iapetus,Saragossa Terra,-45.0000,-180.0000,2300.0,Terra
 iapetus,Roncevaux Terra,37.0000,120.5000,1284.0,Terra
 iapetus,Toledo Montes,0.0000,-136.0000,1100.0,Mons
@@ -722,6 +729,64 @@ io,Kanassa Patera,-25.4100,102.6200,71.0,Patera
 io,Podja Patera,-18.5000,55.2500,69.6,Patera
 io,Arusha Patera,-38.9900,-101.4900,69.5,Patera
 io,Aramazd Patera,-73.5700,23.3900,69.3,Patera
+io,Chors Patera,68.4200,110.0900,68.9,Patera
+io,Pillan Patera,-12.3000,116.7100,68.9,Patera
+io,Girru Patera,22.8300,120.0000,67.3,Patera
+io,Kotar Patera,11.1800,-61.3700,67.0,Patera
+io,Pajonn Patera,83.3800,-90.7500,67.0,Patera
+io,Lu Huo Patera,-38.5600,6.9000,66.6,Patera
+io,Fuchi Patera,28.4100,32.4000,66.4,Patera
+io,Sengen Patera,-32.8600,56.2100,66.0,Patera
+io,Catha Patera,-53.7200,-101.5800,65.7,Patera
+io,Dusura Patera,37.5300,-119.0300,65.6,Patera
+io,Mulungu Patera,17.2900,142.1200,64.8,Patera
+io,Kibero Patera,-11.8300,54.8900,63.1,Patera
+io,Kava Patera,-16.8200,18.5900,63.0,Patera
+io,Verbti Patera,37.9900,-87.9200,62.0,Patera
+io,Masaya Patera,-22.6200,15.4200,61.9,Patera
+io,Viracocha Patera,-61.7500,79.9300,60.6,Patera
+io,Altjirra Patera,-34.4000,-108.8200,60.3,Patera
+io,Kagutsuchi Patera,43.0000,4.1900,60.0,Patera
+io,Reshef Patera,27.7000,-158.0500,59.2,Patera
+io,Isum Patera,29.8600,151.4700,59.1,Patera
+io,Mihr Patera,-16.4600,54.5800,58.7,Patera
+io,Laki-oi Patera,-40.0000,-58.3600,58.4,Patera
+io,Päive Patera,-45.6900,1.4500,57.4,Patera
+io,Pyerun Patera,-55.6500,108.9400,56.9,Patera
+io,Nyambe Patera,0.3200,16.8400,56.6,Patera
+io,Camaxtli Patera,15.2800,-136.8000,56.0,Patera
+io,Surya Patera,21.5300,-151.3600,55.8,Patera
+io,Susanoo Patera,22.4600,140.2500,55.2,Patera
+io,Thomagata Patera,25.6500,-165.9700,55.2,Patera
+io,Sêd Patera,-2.9400,56.2800,55.1,Patera
+io,Antu Patera,-62.0600,163.0600,55.0,Patera
+io,Bochica Patera,-61.5000,-18.8800,54.1,Patera
+io,Janus Patera,-4.5600,-39.0200,53.2,Patera
+io,Kisosen Patera,-48.8600,-71.7800,53.0,Patera
+io,Sigurd Patera,-5.7700,-98.0500,52.9,Patera
+io,Siun Patera,-49.7500,-0.3200,52.5,Patera
+io,Haokah Patera,-20.8500,173.3700,52.0,Patera
+io,Ekhi Patera,-28.3600,-88.4900,51.7,Patera
+io,Ruwa Patera,0.2000,-1.6500,51.4,Patera
+io,Gurzil Patera,50.4000,-48.2600,51.0,Patera
+io,Gabija Patera,-51.9000,157.4700,50.6,Patera
+io,Ot Patera,-1.1400,142.6200,50.1,Patera
+io,Ülgen Patera,-40.7400,72.7800,49.8,Patera
+io,Mbali Patera,-31.4300,-4.9600,49.8,Patera
+io,Tung Yo Patera,-18.0000,-0.9500,49.6,Patera
+io,Aten Patera,-48.4500,50.0300,48.8,Patera
+io,Tsũi Goab Tholus,-0.1800,-162.9500,48.5,Tholus
+io,Dingir Patera,-4.1200,18.6100,48.3,Patera
+io,Tawhaki Patera,3.3900,-76.2100,47.4,Patera
+io,Rata Patera,-35.6000,160.3100,47.3,Patera
+io,Shurdi Patera,-38.4700,69.2600,46.0,Patera
+io,Sobo Fluctus,14.0300,-150.7600,44.8,Fluctus
+io,Kinich Ahau Patera,49.3500,49.7500,44.3,Patera
+io,Maasaw Patera,-40.2800,20.8900,44.1,Patera
+io,Grannos Patera,11.1700,-145.3400,43.6,Patera
+io,Nina Patera,-38.1500,-162.6300,43.5,Patera
+io,Ra Patera,-8.5900,35.1800,41.2,Patera
+io,Hephaestus Patera,1.8500,70.2200,40.6,Patera
 mars,Terra Cimmeria,-32.6800,147.7500,5855.9,Terra
 mars,Noachis Terra,-50.4100,-5.1600,5519.4,Terra
 mars,Arabia Terra,21.2500,5.7200,4851.7,Terra
@@ -882,6 +947,888 @@ mars,Alpheus Colles,-39.3800,61.5300,633.0,Collis
 mars,Syria Colles,-13.4600,-100.7300,630.0,Collis
 mars,[Bathys Planum],-42.6600,-106.0000,626.0,Planum
 mars,Nectaris Fossae,-23.0900,-57.1600,623.1,Fossa
+mars,Cerberus Dorsa,-13.7400,105.2900,623.0,Dorsum
+mars,Ascuris Planum,40.5900,-80.7800,617.7,Planum
+mars,[Labeatis Fossae],20.6800,-95.0000,616.0,Fossa
+mars,Galaxias Colles,36.8000,147.4800,610.3,Collis
+mars,Olympus Mons,18.6500,-133.8000,610.1,Mons
+mars,Nirgal Vallis,-28.1600,-41.6800,610.0,Vallis
+mars,Galaxias Fluctūs,30.9600,143.0300,607.0,Fluctus
+mars,Al-Qahira Vallis,-18.2300,162.4100,600.0,Vallis
+mars,Astapus Colles,35.4600,88.0800,597.0,Collis
+mars,Liris Valles,-10.5000,58.2500,596.2,Vallis
+mars,Oxia Colles,21.2400,-26.2700,595.2,Collis
+mars,Hellas Chaos,-47.1200,64.4100,590.6,Chaos
+mars,Sinai Fossae,-14.0800,-78.6700,589.1,Fossa
+mars,Arena Colles,24.6300,82.9300,580.1,Collis
+mars,Sacra Mensa,24.6400,-68.2200,577.0,Mensa
+mars,Planum Chronium,-59.1400,139.5000,576.4,Planum
+mars,Coloe Fossae,36.6500,56.7800,575.9,Fossa
+mars,Zephyria Planum,-1.0800,153.7300,575.1,Planum
+mars,Ganges Chasma,-7.9600,-47.8900,574.1,Chasma
+mars,Promethei Lingula,-82.8000,119.8900,571.6,Lingula
+mars,Eumenides Dorsum,4.7900,-156.4000,569.3,Dorsum
+mars,Melas Fossae,-26.2800,-71.5200,568.2,Fossa
+mars,Icaria Planum,-43.2700,-106.0400,566.6,Planum
+mars,Aurorae Planum,-10.4100,-48.6200,564.5,Planum
+mars,Melas Chasma,-10.5200,-72.5400,563.5,Chasma
+mars,Aonia Planum,-57.9000,-78.6700,563.5,Planum
+mars,Tithoniae Catenae,-5.5000,-81.8200,562.0,Catena
+mars,Ultimi Scopuli,-77.8800,179.0400,560.5,Scopulus
+mars,Galaxias Fossae,36.6300,142.0000,552.0,Fossa
+mars,Ultima Lingula,-76.3200,142.5600,551.3,Lingula
+mars,Charybdis Scopulus,-24.1400,20.0800,551.3,Scopulus
+mars,Nanedi Valles,5.0500,-48.6200,550.0,Vallis
+mars,Thyles Rupes,-69.3200,132.2800,548.8,Rupes
+mars,Alba Mons,41.0800,-110.7100,548.0,Mons
+mars,Uranius Dorsum,23.7900,-75.0400,542.1,Dorsum
+mars,Aeolis Serpens,-1.3800,149.5700,538.5,Serpens
+mars,Mad Vallis,-56.2700,76.4700,537.4,Vallis
+mars,Aganippe Fossa,-8.4900,-126.0000,537.2,Fossa
+mars,[Cavi Novi],-67.2600,30.0000,535.0,Cavus
+mars,Bosporos Rupes,-42.7400,-57.5500,531.4,Rupes
+mars,Enipeus Vallis,36.8000,-92.8000,527.1,Vallis
+mars,Harmakhis Vallis,-40.9800,90.0600,526.7,Vallis
+mars,Louros Valles,-8.4100,-81.7700,516.1,Vallis
+mars,Ophir Catenae,-9.4600,-59.4000,509.0,Catena
+mars,Phison Patera,30.2700,48.7000,506.0,Patera
+mars,Australe Scopuli,-83.4800,-112.9400,504.6,Scopulus
+mars,Arsia Sulci,-6.2900,-129.8100,500.0,Sulcus
+mars,Navua Valles,-33.9400,82.6800,500.0,Vallis
+mars,Xanthe Montes,18.1300,-54.9200,499.3,Mons
+mars,Eos Chaos,-16.8200,-46.5200,497.9,Chaos
+mars,[Tithoniae Fossae],-6.3300,-82.5000,492.0,Fossa
+mars,Melas Dorsa,-18.9200,-72.1000,486.8,Dorsum
+mars,Gordii Dorsum,4.1100,-144.1400,481.6,Dorsum
+mars,Juventae Dorsa,0.3900,-71.0200,481.4,Dorsum
+mars,Echus Chaos,10.7900,-74.7200,480.5,Chaos
+mars,Scylla Scopulus,-25.2200,18.3400,476.9,Scopulus
+mars,Arsia Mons,-8.2600,-120.0900,470.0,Mons
+mars,Huygens,-13.8800,55.5800,467.2,Crater
+mars,Cerberus Palus,5.7800,148.1500,466.7,Palus
+mars,Hyperboreae Undae,79.9600,-49.4900,463.6,Unda
+mars,Chasma Boreale,82.5400,-47.6400,459.9,Chasma
+mars,Aeolis Dorsa,-5.0500,152.6300,459.2,Dorsum
+mars,Schiaparelli,-2.7100,16.7700,458.5,Crater
+mars,Greeley,-36.7900,3.9200,457.4,Crater
+mars,Sinai Dorsa,-12.7700,-78.9200,456.5,Dorsum
+mars,Ascraeus Mons,11.9200,-104.0800,456.4,Mons
+mars,Memnonia Sulci,-7.1600,-175.8300,452.7,Sulcus
+mars,Nilokeras Mensae,30.4800,-51.9500,450.9,Mensa
+mars,Iani Chaos,-2.1900,-17.0400,450.5,Chaos
+mars,Hadriacus Mons,-31.2900,91.8600,450.0,Mons
+mars,Chico Valles,-66.7700,-152.2300,446.4,Vallis
+mars,Abalos Undae,78.5200,-87.5000,442.7,Unda
+mars,Naro Vallis,-4.0000,60.7100,442.7,Vallis
+mars,Vichada Valles,-19.8700,88.1300,438.3,Vallis
+mars,Australe Lingula,-84.0500,68.5600,436.3,Lingula
+mars,Axius Valles,-54.5300,70.7200,435.9,Vallis
+mars,Pityusa Rupes,-63.9600,28.3200,430.1,Rupes
+mars,Pyrrhae Fossae,-29.2000,-23.8000,430.0,Fossa
+mars,Pavonis Sulci,4.0100,-117.3700,425.8,Sulcus
+mars,Sisyphi Cavi,-72.2000,-6.3000,423.6,Cavus
+mars,Acheron Catena,37.4700,-100.8000,421.8,Catena
+mars,Echus Fossae,2.6100,-76.7500,421.0,Fossa
+mars,Olympica Fossae,24.8500,-113.9200,420.0,Fossa
+mars,Hydraotes Chaos,1.1200,-35.2900,419.0,Chaos
+mars,Gigas Sulci,10.0200,-127.7300,418.6,Sulcus
+mars,Amazonis Mensa,-1.9800,-146.9000,414.0,Mensa
+mars,Phrixi Rupes,-44.6700,-67.0300,413.1,Rupes
+mars,Australe Montes,-80.1900,14.0500,411.7,Mons
+mars,Cassini,23.3500,32.1100,408.2,Crater
+mars,Chalcoporos Rupēs,-55.6400,20.5700,405.0,Rupes
+mars,Morpheos Rupes,-36.0000,125.5800,404.1,Rupes
+mars,Tractus Fossae,25.8900,-101.2800,403.1,Fossa
+mars,Elysium Mons,25.0200,147.2100,401.0,Mons
+mars,Antoniadi,21.3800,60.8300,400.9,Crater
+mars,Tinjar Valles,37.5400,124.2700,400.6,Vallis
+mars,Sulci Gordii,19.0200,-125.7300,400.0,Sulcus
+mars,Phlegethon Catena,38.8300,-103.2800,399.7,Catena
+mars,Scandia Tholi,73.9100,-158.7200,398.3,Tholus
+mars,Echus Montes,7.8100,-77.9500,397.1,Mons
+mars,[Pityusa Dorsa],-64.2400,29.5000,397.0,Dorsum
+mars,Uranius Fossae,25.2900,-90.1300,394.1,Fossa
+mars,Echus Chasma,2.4700,-79.9600,391.1,Chasma
+mars,Maumee Valles,19.5100,-52.8500,390.0,Vallis
+mars,Ravius Valles,46.1200,-110.1700,388.2,Vallis
+mars,Orcus Patera,14.1300,178.3500,387.6,Patera
+mars,Brazos Valles,-6.0800,18.7000,387.5,Vallis
+mars,Stygis Fossae,26.9200,149.8300,385.0,Fossa
+mars,Tisia Valles,-10.7500,46.7200,384.1,Vallis
+mars,Margaritifer Chaos,-9.3000,-21.7000,383.7,Chaos
+mars,Ulyxis Rupes,-68.7800,160.0200,383.1,Rupes
+mars,Thyles Montes,-69.8800,126.5400,380.0,Mons
+mars,[Tithoniae Catena],-5.4400,-82.0000,380.0,Catena
+mars,Nia Fossae,-14.7300,-71.7700,379.6,Fossa
+mars,Geryon Montes,-7.7200,-81.6200,377.8,Mons
+mars,[Arena Rupes],13.3500,70.5000,375.0,Rupes
+mars,Hyblaeus Fossae,21.4400,137.0600,375.0,Fossa
+mars,Oti Fossae,-9.6300,-117.0900,373.6,Fossa
+mars,Arena Dorsum,12.7100,68.9400,372.0,Dorsum
+mars,Gordii Fossae,14.8300,-127.6000,369.0,Fossa
+mars,Pavonis Mons,1.4800,-112.9600,366.5,Mons
+mars,Morava Valles,-13.5700,-24.2000,364.1,Vallis
+mars,Dollfus,-21.5900,-4.2600,363.1,Crater
+mars,Cydonia Colles,39.0700,-12.2200,362.8,Collis
+mars,Niger Vallis,-34.9600,92.5700,360.0,Vallis
+mars,Evros Vallis,-12.6500,13.8300,358.0,Vallis
+mars,Australe Sulci,-84.9900,133.0600,357.9,Sulcus
+mars,Acidalia Colles,50.3400,-23.0900,356.3,Collis
+mars,Planum Boreum,87.3200,54.9600,354.6,Planum
+mars,Uzboi Vallis,-29.4600,-36.9800,353.5,Vallis
+mars,Chasma Australe,-82.3500,95.0300,352.6,Chasma
+mars,Locras Valles,8.8400,48.2600,351.3,Vallis
+mars,Calydon Fossa,-7.4300,-87.9800,351.2,Fossa
+mars,Aureum Chaos,-3.8900,-26.9600,351.0,Chaos
+mars,Jhelum Vallis,6.1900,-23.6900,351.0,Vallis
+mars,Coprates Montes,-13.0000,-65.3900,350.0,Mons
+mars,Jovis Fossae,19.7700,-115.8300,348.6,Fossa
+mars,Auqakuh Vallis,30.2500,60.4100,347.0,Vallis
+mars,Eos Mensa,-11.0100,-42.1600,346.7,Mensa
+mars,Rahway Valles,8.4600,173.5800,346.2,Vallis
+mars,Sungari Vallis,-40.3300,88.5000,344.8,Vallis
+mars,Cydonia Labyrinthus,41.2900,-12.0600,344.1,Labyrinthus
+mars,Grjótá Valles,15.3800,166.3800,343.8,Vallis
+mars,Tikhonravov,13.2800,35.9300,343.7,Crater
+mars,Olympia Cavi,85.0600,-177.7700,342.8,Cavus
+mars,Indus Vallis,18.9500,38.8800,342.0,Vallis
+mars,Dorsa Argentea,-77.6300,-33.3900,339.3,Dorsum
+mars,Hydaspis Chaos,3.0900,-26.9300,336.0,Chaos
+mars,Cyane Sulci,25.4000,-128.6600,335.9,Sulcus
+mars,Argyre Rupes,-62.1500,-68.7500,335.4,Rupes
+mars,Olympia Mensae,78.0000,119.9800,335.4,Mensa
+mars,Amenthes Rupes,1.5100,110.6800,335.2,Rupes
+mars,Zephyria Mensae,-11.6200,171.9800,333.6,Mensa
+mars,Ausonia Montes,-25.4200,99.0400,333.1,Mons
+mars,Huo Hsing Vallis,30.1900,66.6100,332.3,Vallis
+mars,Paraná Valles,-23.1900,-9.8000,329.1,Vallis
+mars,Dzígai Vallis,-58.1000,-36.5900,327.3,Vallis
+mars,[Galaxias Mensae],36.1800,147.3000,327.0,Mensa
+mars,Hebrus Valles,19.8800,126.7400,325.0,Vallis
+mars,Fortuna Fossae,4.6400,-92.6900,324.3,Fossa
+mars,Ultimum Chasma,-81.1000,151.3700,322.1,Chasma
+mars,[Ultimi Cavi],-74.3200,155.5000,320.0,Cavus
+mars,Hebes Chasma,-1.0700,-76.0600,316.7,Chasma
+mars,Ophir Chasma,-4.0000,-72.3500,314.7,Chasma
+mars,Hiddekel Rupes,16.7700,16.4700,313.0,Rupes
+mars,Arnus Vallis,13.9700,70.6100,311.6,Vallis
+mars,Rubicon Valles,44.4100,-117.5200,308.2,Vallis
+mars,Zephyrus Fossae,23.9300,144.1900,306.2,Fossa
+mars,Tyrrhena Fossae,-22.2300,105.8000,305.6,Fossa
+mars,Juventae Chasma,-3.3700,-61.3900,305.0,Chasma
+mars,de Vaucouleurs,-13.3100,171.0000,302.3,Crater
+mars,Coprates Catena,-15.0000,-62.0900,302.1,Catena
+mars,Copernicus,-48.8400,-168.8300,301.8,Crater
+mars,Coogoon Valles,17.1900,-21.7400,300.0,Vallis
+mars,Newton,-40.5000,-158.0300,299.9,Crater
+mars,Pyramus Fossae,50.3900,66.3100,298.2,Fossa
+mars,Herschel,-14.4800,129.8900,297.9,Crater
+mars,Koval'sky,-29.5600,-141.5400,296.7,Crater
+mars,Avernus Dorsa,-6.0300,170.9000,296.6,Dorsum
+mars,Promethei Chasma,-82.6600,141.3900,295.3,Chasma
+mars,Nilus Dorsa,20.6800,-79.0600,292.9,Dorsum
+mars,Schroeter,-1.9000,55.9900,291.6,Crater
+mars,Ismeniae Fossae,41.3100,38.3500,286.9,Fossa
+mars,Okavango Valles,38.1000,8.9700,285.1,Vallis
+mars,Aram Chaos,2.5200,-22.3900,283.8,Chaos
+mars,Nilus Chaos,25.3900,-76.9500,283.0,Chaos
+mars,Capri Mensa,-13.7300,-47.1900,282.4,Mensa
+mars,Pasithea Dorsum,-55.1400,-41.5800,282.2,Dorsum
+mars,Sabrina Vallis,10.9900,-49.0400,280.0,Vallis
+mars,Artynia Catena,47.6900,-119.4500,279.3,Catena
+mars,Medusae Fossae,-2.1700,-164.2000,278.5,Fossa
+mars,Aesacus Dorsum,36.8200,153.1500,276.7,Dorsum
+mars,Apollinaris Mons,-9.1700,174.7900,275.4,Mons
+mars,Centauri Montes,-38.6700,95.5200,271.0,Mons
+mars,Athabasca Valles,8.5400,155.0100,270.0,Vallis
+mars,Tyrrhenus Mons,-21.6300,105.8800,269.8,Mons
+mars,Bahram Vallis,20.4200,-57.1400,269.7,Vallis
+mars,Scamander Vallis,15.8900,28.5300,269.0,Vallis
+mars,Dryas Mons,-44.3900,-172.4100,267.5,Mons
+mars,Nilokeras Fossa,24.5900,-57.8300,267.0,Fossa
+mars,Uranius Mons,26.9000,-92.1500,265.2,Mons
+mars,Capri Montes,-19.2000,-59.7200,265.0,Mons
+mars,Coronae Planum,-32.6800,65.4100,265.0,Planum
+mars,Moa Valles,35.6200,-54.7000,265.0,Vallis
+mars,Protva Valles,-29.1100,-60.5800,259.7,Vallis
+mars,Labou Vallis,-8.6300,-154.4200,257.8,Vallis
+mars,Ortygia Colles,53.9000,-9.3000,255.6,Collis
+mars,Newcomb,-24.2700,1.0400,254.1,Crater
+mars,Tartarus Scopulus,-4.2300,177.2500,251.3,Scopulus
+mars,Frento Vallis,-50.0300,-14.8400,251.1,Vallis
+mars,Charis Dorsum,-55.8600,-41.4700,251.0,Dorsum
+mars,Amazonis Sulci,-2.1500,-143.7100,250.6,Sulcus
+mars,Cusus Valles,14.0500,50.3700,250.2,Vallis
+mars,Zea Dorsa,-48.8700,80.5400,249.0,Dorsum
+mars,Coronae Montes,-34.3100,86.1100,247.4,Mons
+mars,Oenotria Cavi,-3.8600,78.9000,247.0,Cavus
+mars,Bashkaus Valles,-25.6800,-3.2600,246.9,Vallis
+mars,Coronae Scopulus,-33.2600,64.9400,245.2,Scopulus
+mars,Melas Mensa,-10.7200,-74.1500,245.0,Mensa
+mars,Rhabon Valles,21.2100,-91.2700,245.0,Vallis
+mars,Ladon Valles,-22.4300,-28.6100,244.6,Vallis
+mars,Felis Dorsa,-21.8700,-65.9000,244.0,Dorsum
+mars,Malea Patera,-63.5400,51.5900,241.6,Patera
+mars,Havel Vallis,0.7700,-57.4600,240.2,Vallis
+mars,Coprates Mensa,-12.2000,-71.1600,240.0,Mensa
+mars,Durius Valles,-17.3000,171.9800,240.0,Vallis
+mars,Licus Vallis,-3.0500,126.3500,240.0,Vallis
+mars,Avernus Colles,-1.7300,171.0200,238.7,Collis
+mars,Lethe Vallis,3.1600,154.9700,236.7,Vallis
+mars,Flaugergues,-16.8000,19.2200,236.1,Crater
+mars,Abalos Colles,76.8300,-71.6500,235.8,Collis
+mars,[Thyles Chasma],-70.7900,127.5000,235.0,Chasma
+mars,Galaxias Chaos,33.8300,146.5200,234.5,Chaos
+mars,Marte Vallis,14.0800,-177.1000,231.4,Vallis
+mars,Oxia Planum,17.2800,-25.7100,231.0,Planum
+mars,Kepler,-46.6900,140.9800,228.2,Crater
+mars,Waikato Vallis,-33.3300,113.7800,228.0,Vallis
+mars,[Cavi Frigorēs],-78.9700,-59.8000,228.0,Cavus
+mars,Acidalia Mensa,46.6900,-25.3400,226.9,Mensa
+mars,Galle,-50.6300,-31.0000,223.5,Crater
+mars,Secchi,-57.8400,102.1500,223.4,Crater
+mars,Avernus Rupes,-9.2000,172.8000,223.3,Rupes
+mars,Siton Undae,75.5500,-62.7200,223.0,Unda
+mars,Cimmeria Tholi,-34.5900,158.5500,222.4,Tholus
+mars,Lyot,50.4700,29.3400,221.5,Crater
+mars,Labeatis Catenae,19.4900,-93.1700,220.6,Catena
+mars,Hypanis Valles,9.4600,-46.4200,220.0,Vallis
+mars,Nectaris Montes,-14.6400,-54.6500,220.0,Mons
+mars,Aspledon Undae,73.0600,-50.3500,215.2,Unda
+mars,Sabis Vallis,-5.0100,-152.5100,212.9,Vallis
+mars,Vinogradov,-19.8300,-37.7400,209.7,Crater
+mars,Nilus Mensae,22.2000,-72.2300,206.8,Mensa
+mars,Planum Angustum,-79.8000,-83.2000,206.4,Planum
+mars,Warrego Valles,-41.8400,-92.1500,205.1,Vallis
+mars,Cyane Catena,36.2500,-118.3000,204.1,Catena
+mars,Phison Rupes,26.7000,50.3500,203.1,Rupes
+mars,Nen Valles,0.6400,123.0800,203.0,Vallis
+mars,Lowell,-51.9600,-81.5000,202.2,Crater
+mars,Idaeus Fossae,37.3300,-51.2000,202.0,Fossa
+mars,Kaiser,-46.1900,19.1100,201.7,Crater
+mars,Schmidt,-72.0700,-77.9000,201.3,Crater
+mars,Aeolis Chaos,-7.1300,150.6000,201.0,Chaos
+mars,Arsinoes Chaos,-7.6600,-27.9200,200.1,Chaos
+mars,Sinai Tholus,-15.5400,-80.0300,200.0,Tholus
+mars,Sisyphi Montes,-69.6500,13.0800,200.0,Mons
+mars,Tader Valles,-48.7800,-152.3000,200.0,Vallis
+mars,Schöner,19.9300,50.7000,199.0,Crater
+mars,Mutch,0.6000,-55.2100,198.8,Crater
+mars,Pityusa Patera,-66.8800,36.8600,196.5,Patera
+mars,Vistula Valles,13.4100,-51.9700,193.0,Vallis
+mars,Arimanes Rupes,-9.8400,-147.7000,192.7,Rupes
+mars,Tinto Vallis,-3.9700,111.5000,192.0,Vallis
+mars,Mosa Vallis,-15.0900,22.2000,191.6,Vallis
+mars,Medusae Sulci,-5.0400,-159.7000,191.5,Sulcus
+mars,Gigas Fossae,3.5500,-129.5600,190.0,Fossa
+mars,Apollinaris Sulci,-11.0600,177.4700,188.6,Sulcus
+mars,Ariadnes Colles,-34.5000,172.7800,188.0,Collis
+mars,Phillips,-66.3400,-44.8900,185.4,Crater
+mars,Dawes,-9.1100,38.0600,185.3,Crater
+mars,Ogygis Rupes,-33.0300,-54.5300,184.2,Rupes
+mars,Green,-52.3000,-8.5400,182.1,Crater
+mars,Hecates Tholus,32.1200,150.2400,181.6,Tholus
+mars,Atlantis Chaos,-34.2800,-177.3100,181.4,Chaos
+mars,Baldet,22.7600,65.4800,181.3,Crater
+mars,Baetis Mensa,-5.1700,-72.4500,181.1,Mensa
+mars,Margulis,-23.1600,8.4900,180.0,Crater
+mars,Trebia Valles,32.0800,150.1200,179.8,Vallis
+mars,Savich,-27.4900,96.1200,179.1,Crater
+mars,Elaver Vallis,-9.3800,-49.5200,178.9,Vallis
+mars,Tanaica Montes,39.5500,-90.8300,178.6,Mons
+mars,Darwin,-56.9700,-19.1500,176.4,Crater
+mars,Hadriacus Palus,-27.2500,77.3000,176.3,Palus
+mars,Himera Valles,-21.5400,-22.6600,175.0,Vallis
+mars,Flammarion,25.2200,48.2800,173.7,Crater
+mars,Arda Valles,-20.4000,-32.3100,173.7,Vallis
+mars,Tanais Fossae,38.7400,-86.4900,172.9,Fossa
+mars,Patapsco Vallis,23.7000,152.5100,172.9,Vallis
+mars,Proctor,-47.6300,29.7200,172.6,Crater
+mars,Australe Mensa,-86.8800,-2.7600,172.0,Mensa
+mars,Terby,-27.9600,74.1400,171.5,Crater
+mars,Allegheny Vallis,-9.0100,-53.9000,171.1,Vallis
+mars,Wallace,-52.4800,110.9000,170.8,Crater
+mars,Oltis Valles,-23.5000,-21.6500,169.3,Vallis
+mars,Molesworth,-27.5000,149.2700,168.9,Crater
+mars,Biblis Tholus,2.5200,-124.3800,168.6,Tholus
+mars,Henry,10.7900,23.4500,167.6,Crater
+mars,Oceanidum Fossa,-61.5800,-29.5100,167.2,Fossa
+mars,Chrysas Mensa,-6.7700,-70.1000,167.0,Mensa
+mars,Becquerel,21.8900,-7.9400,165.2,Crater
+mars,Ptolemaeus,-45.8800,-157.6000,165.2,Crater
+mars,Phaenna Dorsum,-53.7900,-43.2900,164.2,Dorsum
+mars,Osuga Valles,-15.3100,-38.5900,164.0,Vallis
+mars,Pyrrhae Chaos,-10.4600,-28.4000,162.3,Chaos
+mars,Stoney,-69.6100,-138.5100,161.4,Crater
+mars,Oxia Dorsum,18.1100,-23.6100,161.0,Dorsum
+mars,Ius Mensa,-8.6000,-75.3200,160.0,Mensa
+mars,Icaria Rupes,-35.7900,-139.6800,159.8,Rupes
+mars,Denning,-17.4300,33.5200,159.7,Crater
+mars,Hellas Montes,-37.6300,97.6100,159.7,Mons
+mars,Drava Valles,-48.8600,165.9900,159.0,Vallis
+mars,Schaeberle,-24.3700,50.2300,158.7,Crater
+mars,Albor Tholus,18.8700,150.4700,158.4,Tholus
+mars,Gusev,-14.5300,175.5200,158.1,Crater
+mars,Thymiamata Serpens,10.4700,-7.8300,158.0,Serpens
+mars,Dittaino Valles,-1.4300,-66.8600,157.4,Vallis
+mars,Mariner,-34.6800,-164.2400,156.6,Crater
+mars,Pavonis Fossae,4.1500,-111.2900,156.1,Fossa
+mars,Erythraea Fossa,-27.2700,-30.9400,155.2,Fossa
+mars,Albor Fossae,18.0900,150.7800,155.0,Fossa
+mars,Graff,-21.1800,153.8100,154.5,Crater
+mars,Gale,-5.3700,137.8100,154.1,Crater
+mars,Janssen,2.6900,37.6100,153.6,Crater
+mars,Bakhuysen,-22.9700,15.7300,152.9,Crater
+mars,Holden,-26.0400,-34.0200,152.7,Crater
+mars,Arago,10.2200,29.9300,152.3,Crater
+mars,Dejnev,-25.1400,-164.6400,152.1,Crater
+mars,Robert Sharp,-4.1700,133.4200,152.1,Crater
+mars,Lohse,-43.2400,-16.6900,151.0,Crater
+mars,Silinka Vallis,9.1300,-28.0500,150.9,Vallis
+mars,Gorgonum Chaos,-37.2600,-170.9000,150.7,Chaos
+mars,Tharsis Tholus,13.2500,-90.6900,149.3,Tholus
+mars,Ravi Vallis,-0.4200,-40.4800,148.8,Vallis
+mars,Trouvelot,16.0900,-12.9800,148.8,Crater
+mars,Hellas Chasma,-34.6400,65.4700,148.0,Chasma
+mars,Erythraeum Chaos,-21.8400,-12.3800,147.6,Chaos
+mars,Halex Fossae,27.3500,-126.0400,147.2,Fossa
+mars,Clasia Vallis,33.7700,57.0400,147.0,Vallis
+mars,Juventae Mons,-1.9200,-59.1700,147.0,Mons
+mars,Miyamoto,-2.8700,-6.9500,145.2,Crater
+mars,Alba Catena,35.0400,-114.5800,144.9,Catena
+mars,Tagus Valles,-6.6800,114.5400,144.6,Vallis
+mars,Teviot Vallis,-43.3700,102.2600,143.9,Vallis
+mars,Hegemone Dorsum,-54.7200,-44.9000,143.6,Dorsum
+mars,Eridania Mons,-57.0200,137.8600,143.3,Mons
+mars,Elysium Rupes,25.2400,148.0400,140.5,Rupes
+mars,Wislicenus,-18.1700,11.3900,140.2,Crater
+mars,Hibes Montes,3.7900,171.3400,140.0,Mons
+mars,Nia Vallis,-53.5300,-34.8100,140.0,Vallis
+mars,Nord Rupes,85.9900,-127.2600,140.0,Rupes
+mars,Doanus Vallis,-63.0200,-25.5900,139.9,Vallis
+mars,Roddenberry,-49.3700,-4.4300,139.2,Crater
+mars,Maggini,27.7800,9.5000,139.1,Crater
+mars,Ascraeus Sulci,12.0600,-108.7500,138.7,Sulcus
+mars,Hooke,-44.9200,-44.4000,137.7,Crater
+mars,Le Verrier,-37.7100,17.1000,137.6,Crater
+mars,Hale,-35.6900,-36.3600,137.3,Crater
+mars,Galilaei,5.7200,-26.9100,137.2,Crater
+mars,Quenisset,34.2700,40.6700,136.7,Crater
+mars,Ganges Mensa,-7.2300,-48.7500,135.9,Mensa
+mars,Mitchel,-67.5300,76.0100,135.9,Crater
+mars,Russell,-54.5000,12.4300,135.1,Crater
+mars,Hesperus Tholus,-37.5600,138.7200,135.0,Tholus
+mars,Candor Labes,-4.7900,-75.9900,134.9,Labes
+mars,Pallacopas Vallis,-54.7300,-20.4800,134.8,Vallis
+mars,Liu Hsin,-53.2000,-171.5500,134.5,Crater
+mars,Buvinda Vallis,33.1700,151.9600,134.2,Vallis
+mars,Phlegra,30.0000,170.0000,134.0,Albedo Feature
+mars,Ceti Mensa,-5.8900,-76.0200,133.9,Mensa
+mars,Verde Vallis,-0.5000,29.8800,133.0,Vallis
+mars,Cleia Dorsum,-54.8600,-45.9900,131.7,Dorsum
+mars,Moreux,41.7900,44.5400,131.6,Crater
+mars,Lomonosov,65.0400,-9.2400,130.5,Crater
+mars,Elysium Chasma,22.3900,141.5100,130.0,Chasma
+mars,Amphitrites Patera,-58.7000,60.8700,129.8,Patera
+mars,Abalos Mensa,81.1700,-75.6000,129.2,Mensa
+mars,Ceraunius Tholus,24.0000,-97.2500,128.6,Tholus
+mars,Nili Planum,18.6000,77.1000,128.6,Planum
+mars,Peneus Patera,-57.8200,52.6500,128.5,Patera
+mars,Bernard,-23.2400,-154.2100,128.1,Crater
+mars,Slipher,-47.3400,-84.4600,127.1,Crater
+mars,Ochus Valles,7.0700,-45.0400,127.0,Vallis
+mars,Rayleigh,-75.5700,118.9400,125.7,Crater
+mars,Campbell,-54.2500,165.5800,125.3,Crater
+mars,Hyperborea Lingula,80.3200,-53.5400,124.8,Lingula
+mars,Labeatis Mensa,25.5000,-74.4700,124.7,Mensa
+mars,Mädler,-10.6500,2.7700,124.2,Crater
+mars,Oudemans,-9.8400,-91.7700,124.2,Crater
+mars,Olympus Maculae,17.3600,-142.8400,124.0,Macula
+mars,Knobel,-6.5700,133.3100,123.3,Crater
+mars,Byrd,-65.2200,127.8300,123.3,Crater
+mars,Williams,-18.3900,-164.1400,123.2,Crater
+mars,Ituxi Vallis,25.4500,153.3200,123.1,Vallis
+mars,Deuteronilus Cavus,36.1500,14.0100,123.0,Cavus
+mars,Sirenum Mons,-38.2200,-147.8500,122.9,Mons
+mars,Liais,-75.3000,106.9300,122.8,Crater
+mars,Arrhenius,-40.0400,122.7100,122.7,Crater
+mars,Lyell,-69.9100,-15.4700,121.8,Crater
+mars,Apsus Vallis,34.9100,134.9900,121.6,Vallis
+mars,Gilbert,-68.0000,86.0800,121.3,Crater
+mars,Barnard,-61.0600,61.5900,121.1,Crater
+mars,Tenuis Mensa,81.1300,-92.9600,120.9,Mensa
+mars,Vogel,-36.7700,-13.2800,120.7,Crater
+mars,Barabashov,47.3300,-68.7500,120.7,Crater
+mars,Müller,-25.7400,127.8900,120.5,Crater
+mars,Wirtz,-48.2400,-25.8600,120.3,Crater
+mars,Chamberlin,-65.8400,-124.2900,120.2,Crater
+mars,Comas Sola,-19.5900,-158.5100,120.2,Crater
+mars,Roemer,-27.4600,8.0900,120.0,Crater
+mars,Burton,-13.8800,-156.3300,119.3,Crater
+mars,Drilon Vallis,7.1700,-52.3400,118.5,Vallis
+mars,Maraldi,-61.9200,-31.9600,118.2,Crater
+mars,Vedra Valles,19.1200,-55.4800,118.0,Vallis
+mars,Her Desher Vallis,-25.0800,-47.9300,117.3,Vallis
+mars,Arkhangelsky,-41.0900,-24.7900,116.8,Crater
+mars,Candor Mensa,-6.2600,-73.5200,116.6,Mensa
+mars,Moroz,-23.7700,-20.5700,116.3,Crater
+mars,Pasteur,19.3100,24.6200,116.2,Crater
+mars,Juventae Mensa,-7.9300,-65.6300,116.0,Mensa
+mars,Orson Welles,-0.1900,-45.9000,116.0,Crater
+mars,Hadley,-19.2600,156.9700,115.5,Crater
+mars,Masursky,12.0700,-32.3100,115.3,Crater
+mars,Pickering,-33.4800,-132.6100,115.2,Crater
+mars,Wien,-10.5700,139.7500,115.1,Crater
+mars,Avernus Cavi,-3.7200,172.5200,115.0,Cavus
+mars,Teisserenc de Bort,0.4300,45.0700,114.9,Crater
+mars,Niesten,-28.0000,57.7500,114.8,Crater
+mars,Very,-49.1700,-177.0300,114.8,Crater
+mars,Lunae Mensa,23.9100,-62.5000,114.8,Mensa
+mars,Clota Vallis,-25.5900,-20.5000,114.4,Vallis
+mars,Cerulli,32.2000,22.1200,114.3,Crater
+mars,Fournier,-4.3000,72.6400,114.3,Crater
+mars,Holmes,-74.8600,66.5500,114.1,Crater
+mars,Uranius Patera,26.3200,-92.8000,114.0,Patera
+mars,Wright,-58.5100,-151.0100,113.8,Crater
+mars,Ganges Chaos,-9.7600,-46.0400,113.7,Chaos
+mars,Milanković,54.4600,-146.5800,113.5,Crater
+mars,Millochau,-21.1900,85.1000,112.9,Crater
+mars,Burroughs,-72.2900,117.1000,112.7,Crater
+mars,Columbus,-29.2900,-165.9800,112.6,Crater
+mars,Hebes Mensa,-1.0200,-76.7800,112.5,Mensa
+mars,Hyperboreus Labyrinthus,80.2800,-59.7500,112.0,Labyrinthus
+mars,Aeolis Palus,-4.4700,137.4200,111.6,Palus
+mars,Helmholtz,-45.4000,-21.2700,111.3,Crater
+mars,Curie,28.7800,-4.7500,111.1,Crater
+mars,Krishtofovich,-48.0900,97.3400,111.1,Crater
+mars,Barth,7.4400,25.6700,111.0,Crater
+mars,Pohl,34.0400,-36.9900,111.0,Crater
+mars,Main,-76.5400,49.0100,111.0,Crater
+mars,Crommelin,5.0800,-10.1400,110.1,Crater
+mars,Tikhov,-50.6800,105.8000,110.1,Crater
+mars,Radau,16.9500,-4.7100,110.0,Crater
+mars,Sklodowska,33.5200,-2.9500,109.7,Crater
+mars,Abalos Scopuli,80.7200,-76.5600,109.2,Scopulus
+mars,Ister Chaos,12.9500,-56.5600,109.1,Chaos
+mars,Agassiz,-69.8800,-88.8900,108.8,Crater
+mars,Lasswitz,-9.3100,138.3100,108.0,Crater
+mars,Bouguer,-18.4600,27.2700,107.8,Crater
+mars,Melas Labes,-8.5300,-71.7000,107.2,Labes
+mars,Rudaux,38.0300,50.9600,107.2,Crater
+mars,Boeddicker,-14.8200,162.4900,107.1,Crater
+mars,Rutherford,19.0300,-10.5900,107.1,Crater
+mars,[Tyrrhena Mons],-24.1500,101.1000,107.0,Mons
+mars,Rabe,-43.6100,34.9100,107.0,Crater
+mars,Lau,-74.3000,-107.4800,106.9,Crater
+mars,Huxley,-62.6700,100.7700,106.5,Crater
+mars,Charlier,-68.5600,-168.4700,106.3,Crater
+mars,Li Fan,-46.8800,-153.0600,105.6,Crater
+mars,Tycho Brahe,-49.4100,146.1200,105.3,Crater
+mars,Ascraeus Chasmata,8.7700,-105.6300,105.2,Chasma
+mars,Atlantis Mons,-28.7100,-175.2300,105.0,Mons
+mars,Mellish,-72.6300,-23.7400,105.0,Crater
+mars,Bond,-32.7900,-35.9400,104.7,Crater
+mars,Electris Mons,-45.6700,152.7300,104.5,Mons
+mars,Porter,-50.3600,-113.7600,104.0,Crater
+mars,Magelhaens,-32.3600,-174.5800,103.8,Crater
+mars,Steno,-67.7500,-115.3700,103.5,Crater
+mars,Caralis Chaos,-37.2000,178.6000,103.3,Chaos
+mars,Ophir Mensa,-3.9900,-73.4900,103.3,Mensa
+mars,Tigre Valles,-12.0200,-37.0900,102.8,Vallis
+mars,Tyrrhenus Labyrinthus,-16.1800,101.1200,102.7,Labyrinthus
+mars,Ausonia Mensa,-30.0200,97.7200,102.5,Mensa
+mars,Ulysses Tholus,2.9600,-121.5000,102.5,Tholus
+mars,Nicholson,0.2100,-164.4300,102.5,Crater
+mars,Neukum,-44.9000,28.4000,102.0,Crater
+mars,South,-76.9400,21.9100,101.8,Crater
+mars,Coblentz,-54.9000,-90.3100,101.8,Crater
+mars,Luzin,27.0600,31.2800,101.0,Crater
+mars,Mie,48.1600,139.6500,100.9,Crater
+mars,Oyama,23.5700,-20.1100,100.8,Crater
+mars,[Ammonii Rupes],-6.5200,175.8000,100.0,Rupes
+mars,Chalce Montes,-53.7200,-37.6500,100.0,Mons
+mars,[Ortygia Tholus],69.7800,-8.0000,100.0,Tholus
+mars,Sharonov,27.0000,-58.5300,99.9,Crater
+mars,Hussey,-53.3200,-126.5900,99.7,Crater
+mars,Hartwig,-38.6600,-15.8600,99.3,Crater
+mars,Tyras Vallis,8.3300,-50.1500,99.1,Vallis
+mars,Eudoxus,-44.5200,-147.2200,98.5,Crater
+mars,Wells,-59.9400,122.4000,98.3,Crater
+mars,Melosh,2.4400,-15.9700,98.0,Crater
+mars,Clark,-55.1400,-133.2000,97.5,Crater
+mars,Tartarus Rupes,-6.5000,175.7100,97.5,Rupes
+mars,Arsia Chasmata,-7.4700,-119.3500,97.1,Chasma
+mars,Pizzarello,-40.9500,28.8900,97.0,Crater
+mars,Marth,12.9400,-3.4500,96.7,Crater
+mars,Pollack,-7.7900,25.2600,96.3,Crater
+mars,Da Vinci,1.4700,-39.2600,96.3,Crater
+mars,Du Martheray,5.4500,93.5800,96.1,Crater
+mars,Baphyras Catena,38.8300,-84.1600,95.5,Catena
+mars,Meridiani Serpentes,1.3000,8.1000,95.0,Serpens
+mars,Nia Mensa,-7.7200,-67.3200,95.0,Mensa
+mars,Hipparchus,-44.4500,-151.2000,94.8,Crater
+mars,Juventae Cavi,-3.9100,-58.1600,94.4,Cavus
+mars,Peridier,25.5100,83.9100,94.2,Crater
+mars,Cobres,-11.7000,-153.6000,93.8,Crater
+mars,Jarry-Desloges,-9.3700,83.8500,93.4,Crater
+mars,Briault,-9.9800,89.6800,93.1,Crater
+mars,Alexey Tolstoy,-47.4400,125.3400,93.0,Crater
+mars,Douglass,-51.3400,-70.5400,93.0,Crater
+mars,Hyperborei Cavi,79.9100,-49.7000,92.8,Cavus
+mars,Martz,-34.9100,144.1800,92.7,Crater
+mars,Lambert,-19.9700,25.3900,92.5,Crater
+mars,Ophir Labes,-11.0100,-68.2800,92.5,Labes
+mars,Huallaga Vallis,-26.6700,79.0700,92.5,Vallis
+mars,Pettit,12.2500,-173.8700,92.5,Crater
+mars,Baetis Chasma,-4.2900,-64.8700,92.2,Chasma
+mars,Murray,-23.2900,28.0600,92.0,Crater
+mars,Townsend,-51.8800,21.0300,92.0,Crater
+mars,Chia,1.5700,-59.6500,91.9,Crater
+mars,Hutton,-71.6300,104.6000,91.7,Crater
+mars,Simois Mons,-42.6700,-163.2400,91.5,Mons
+mars,Cantabras Dorsum,9.5000,-5.2800,91.0,Dorsum
+mars,McLaughlin,21.9000,-22.3700,90.9,Crater
+mars,Maunder,-49.6000,1.7500,90.8,Crater
+mars,Reynolds,-74.9900,-157.5900,90.7,Crater
+mars,Styx Dorsum,30.8100,151.8600,90.7,Dorsum
+mars,Ismenius Cavus,33.9000,17.0800,90.6,Cavus
+mars,Von Kármán,-64.2700,-58.7000,90.3,Crater
+mars,Sagan,10.7200,-30.6000,90.3,Crater
+mars,Adams,30.9100,163.1000,90.2,Crater
+mars,Keeler,-60.6900,-151.2400,90.2,Crater
+mars,Varus Valles,-8.5700,-155.9900,90.1,Vallis
+mars,Jones,-18.8800,-19.8300,90.1,Crater
+mars,Firsoff,2.7300,-9.3700,90.0,Crater
+mars,McCauley,-27.3500,83.2300,90.0,Crater
+mars,Minio Vallis,-4.3800,-151.6700,90.0,Vallis
+mars,Apollinaris Patera,-8.5700,174.1800,89.6,Patera
+mars,Sytinskaya,42.4200,-53.0600,89.2,Crater
+mars,Ramanathan,28.0900,27.9000,89.0,Crater
+mars,Richardson,-72.4700,-179.8600,89.0,Crater
+mars,Aeolis Mons,-5.0800,137.8500,89.0,Mons
+mars,Euripus Mons,-44.8200,105.1800,88.9,Mons
+mars,Bjerknes,-43.0100,171.4800,88.6,Crater
+mars,Dana,-72.4900,-32.7900,88.5,Crater
+mars,Baetis Labēs,-3.6700,-71.4600,88.0,Labes
+mars,Cruls,-42.9100,163.0300,87.9,Crater
+mars,Chekalin,-24.2800,-26.8100,87.8,Crater
+mars,Ogygis Undae,-49.6600,-66.2100,87.7,Unda
+mars,Napo Vallis,-25.9700,78.0300,87.5,Vallis
+mars,Fesenkov,21.6600,-86.5300,87.4,Crater
+mars,Iberus Vallis,21.2500,152.0700,87.3,Vallis
+mars,Lederberg,13.0100,-45.9200,87.2,Crater
+mars,Kasimov,-24.6300,-22.9400,87.2,Crater
+mars,Barlow,-11.6500,-89.9100,87.0,Crater
+mars,Novara,-24.9000,-10.6900,87.0,Crater
+mars,Simois Colles,-37.7200,-176.5900,86.9,Collis
+mars,Ibragimov,-25.4300,-59.5700,86.8,Crater
+mars,Eddie,12.3200,142.2000,86.4,Crater
+mars,Timoshenko,41.7600,-64.0000,86.1,Crater
+mars,Cantabras Serpens,9.9400,-4.7500,86.0,Serpens
+mars,Roddy,-21.6500,-39.3900,85.8,Crater
+mars,Lassell,-20.6100,-62.4600,85.6,Crater
+mars,Nordenskiöld,-52.3700,-158.7600,85.6,Crater
+mars,Beer,-14.4700,-8.1700,85.5,Crater
+mars,Heinlein,-64.4800,116.3100,85.3,Crater
+mars,López,-14.5700,98.0400,85.0,Crater
+mars,Olympus Paterae,18.3200,-133.1900,85.0,Patera
+mars,Columbia Valles,-9.4400,-42.9000,84.8,Vallis
+mars,Ulysses Colles,6.1400,-123.0900,84.8,Collis
+mars,Reuyl,-9.6300,166.9300,84.3,Crater
+mars,Halley,-48.3400,-59.2700,83.7,Crater
+mars,Aram Dorsum,7.8000,-11.2400,83.3,Dorsum
+mars,Heaviside,-70.5000,-95.2200,83.3,Crater
+mars,Gill,15.7600,5.5500,83.2,Crater
+mars,Tyndall,39.7300,169.9700,83.0,Crater
+mars,Perrotin,-2.8200,-77.9400,82.8,Crater
+mars,Huggins,-49.0400,155.8400,82.6,Crater
+mars,Ross,-57.3900,-107.8400,82.5,Crater
+mars,Hunten,-39.1800,23.6900,82.4,Crater
+mars,Saheki,-21.7400,73.1400,82.4,Crater
+mars,Auxo Dorsum,-55.7200,-41.7600,82.0,Dorsum
+mars,Weinbaum,-65.5300,114.5700,82.0,Crater
+mars,Ismenia Patera,38.5500,1.8000,82.0,Patera
+mars,Du Toit,-71.6200,-49.6000,81.8,Crater
+mars,Kuiper,-56.9900,-157.1300,81.8,Crater
+mars,Harris,-21.9000,66.8100,81.6,Crater
+mars,Korolev,72.7700,164.5800,81.4,Crater
+mars,Ganges Catena,-2.7000,-68.7800,81.3,Catena
+mars,Asimov,-46.9700,4.9300,80.8,Crater
+mars,Vishniac,-76.5200,84.1200,80.5,Crater
+mars,Rossby,-47.5200,167.9200,80.4,Crater
+mars,Newton Tholus,-40.4800,-165.1100,80.4,Tholus
+mars,Surinda Valles,-28.8000,-35.1100,80.1,Vallis
+mars,Fontana,-62.9100,-72.1200,80.1,Crater
+mars,Eden Patera,33.7700,-11.0600,80.0,Patera
+mars,Knudsen,-40.6700,34.5000,80.0,Crater
+mars,Lobo Vallis,26.8200,-61.1700,80.0,Vallis
+mars,Minami,-37.4900,33.1700,80.0,Crater
+mars,Bozkir,-44.1400,-32.1800,79.9,Crater
+mars,Daly,-66.2900,-23.1200,79.7,Crater
+mars,Owen,-13.4800,83.8400,79.3,Crater
+mars,Picardi,-8.0600,-159.5000,79.0,Crater
+mars,Sumgin,-36.5300,-48.6700,78.6,Crater
+mars,Gledhill,-53.1700,87.1000,78.5,Crater
+mars,Marca,-9.9800,-158.1500,78.3,Crater
+mars,Perepelkin,52.4400,-64.8300,77.5,Crater
+mars,Brashear,-53.8100,-119.0300,77.5,Crater
+mars,Mendel,-58.7800,161.2500,77.3,Crater
+mars,Ritchey,-28.4200,-50.9900,77.2,Crater
+mars,Isil,-27.0200,87.9300,77.1,Crater
+mars,Blount,-43.1600,17.6900,77.0,Crater
+mars,Krishnan,-2.9300,-52.1800,77.0,Crater
+mars,Joly,-74.5000,-42.6900,77.0,Crater
+mars,Morella,-9.5800,-51.3900,77.0,Crater
+mars,Lampland,-35.5400,-79.5200,76.8,Crater
+mars,Haldane,-52.7500,129.2600,76.8,Crater
+mars,Babakin,-36.0000,-71.4400,76.7,Crater
+mars,Lamont,-58.1700,-113.5400,76.6,Crater
+mars,Stege,3.7500,-59.5000,76.4,Crater
+mars,Farah Vallis,-6.0300,136.8000,76.4,Vallis
+mars,Peta,-21.2600,-9.1000,75.8,Crater
+mars,Voeykov,-32.1100,-76.1400,75.5,Crater
+mars,Trumpler,-61.4300,-150.7100,75.3,Crater
+mars,Escalante,0.1900,115.3900,75.3,Crater
+mars,Batson,-28.9100,84.1500,75.0,Crater
+mars,Elston,-15.3900,119.1800,75.0,Crater
+mars,Stura Vallis,22.7100,142.4700,75.0,Vallis
+mars,Dokuchaev,-60.6200,-127.0800,74.7,Crater
+mars,Nansen,-49.9200,-140.4200,74.6,Crater
+mars,Smith,-65.7600,-102.7300,74.3,Crater
+mars,Millman,-53.9500,-149.6400,73.8,Crater
+mars,Jeans,-69.6400,154.1800,73.6,Crater
+mars,Semeykin,41.5100,8.7500,73.5,Crater
+mars,Syria Mons,-13.8800,-104.2700,73.5,Mons
+mars,Candor Sulci,-4.9200,-76.8500,73.4,Sulcus
+mars,Ostrov,-26.5500,-28.1100,73.0,Crater
+mars,Aromatum Chaos,-1.0300,-42.9700,72.8,Chaos
+mars,Argyre Cavi,-48.3100,-40.1200,72.3,Cavus
+mars,Focas,33.5600,12.7500,72.0,Crater
+mars,Suess,-66.8800,-178.4900,71.9,Crater
+mars,Spallanzani,-58.0100,86.3800,71.7,Crater
+mars,Lockyer,27.8400,160.5100,71.3,Crater
+mars,Octantis Cavi,-52.5700,-45.9700,71.2,Cavus
+mars,Pál,-31.3100,108.7000,71.2,Crater
+mars,Gringauz,-20.6700,-35.7000,71.0,Crater
+mars,Bunge,-33.8200,-48.5900,70.8,Crater
+mars,Bianchini,-63.8500,-95.2900,70.7,Crater
+mars,Gorgonum Mons,-35.3400,-169.6900,70.0,Mons
+mars,Poynting,8.4200,-112.7500,69.7,Crater
+mars,Shatskiy,-32.3600,-14.8900,69.5,Crater
+mars,Hack,27.8600,11.4800,69.0,Crater
+mars,Lal,-20.9800,-150.6600,69.0,Crater
+mars,Capen,6.5800,14.3100,69.0,Crater
+mars,Wegener,-64.3000,-4.0700,68.5,Crater
+mars,Barsukov,7.9700,-29.0200,68.5,Crater
+mars,Greg,-38.5900,112.8900,68.1,Crater
+mars,Angustus Labyrinthus,-81.6200,-63.3900,67.5,Labyrinthus
+mars,Nili Patera,8.9700,67.1700,67.5,Patera
+mars,Kipini,25.8600,-31.5600,67.3,Crater
+mars,Papike,-43.7700,31.0600,67.0,Crater
+mars,Baetis Chaos,-0.1700,-60.4000,66.7,Chaos
+mars,Cross,-30.2000,-157.6900,66.6,Crater
+mars,Blunck,-27.2300,-36.9000,66.5,Crater
+mars,Wynn-Williams,-55.1000,60.2100,66.3,Crater
+mars,Kunowsky,56.8200,-9.6400,66.3,Crater
+mars,Vinogradsky,-56.1300,143.8500,66.3,Crater
+mars,Hadriaca Patera,-30.2000,92.7900,66.0,Patera
+mars,Hydrae Chaos,-5.9000,-59.9700,66.0,Chaos
+mars,Alba Patera,39.5300,-109.1800,66.0,Patera
+mars,Leighton,3.0800,57.7500,65.9,Crater
+mars,Kashira,-27.0900,-18.3100,65.8,Crater
+mars,Chinju,-4.5200,-42.1400,65.7,Crater
+mars,Timbuktu,-5.5600,-37.5200,65.7,Crater
+mars,[Diacria Patera],34.5800,-132.6000,65.5,Patera
+mars,Henry Moore,-59.7200,53.9000,65.5,Crater
+mars,Stygis Catena,23.2500,150.5700,65.4,Catena
+mars,Camichel,2.2600,-51.6100,65.3,Crater
+mars,Promethei Mons,-70.5700,87.4400,65.2,Mons
+mars,Dalu Cavus,-6.9000,-99.0000,65.0,Cavus
+mars,Zeus Patera,18.3900,-132.9300,65.0,Patera
+mars,Horowitz,-32.0600,140.7500,64.9,Crater
+mars,Hydrae Cavus,-7.9300,-61.3100,64.5,Cavus
+mars,Danielson,7.9700,-7.0500,64.3,Crater
+mars,Kārūn Valles,-35.9400,174.1000,64.0,Vallis
+mars,Kamloops,-53.4500,-32.6000,64.0,Crater
+mars,Renaudot,42.0400,62.6800,63.7,Crater
+mars,Sebec,-39.5000,99.4100,63.5,Crater
+mars,Bradbury,2.5800,85.8000,63.2,Crater
+mars,Wahoo,23.2300,-33.6800,63.1,Crater
+mars,Tuskegee,-2.8000,-36.0900,62.9,Crater
+mars,Chimbote,-1.4200,-39.6800,62.9,Crater
+mars,Sinton,40.7500,31.7300,62.8,Crater
+mars,Stokes,55.6300,171.2900,62.7,Crater
+mars,Playfair,-77.9100,-125.7800,62.2,Crater
+mars,Eberswalde,-23.9800,-33.3000,62.2,Crater
+mars,Boreum Cavus,84.6400,-20.1500,62.1,Cavus
+mars,Baum,-24.7200,28.3000,62.0,Crater
+mars,Sava Vallis,19.0900,77.1300,62.0,Vallis
+mars,Coprates Labes,-11.8200,-67.7900,62.0,Labes
+mars,Uranius Tholus,26.2500,-97.5700,61.4,Tholus
+mars,Matrona Vallis,-7.6600,176.1900,61.3,Vallis
+mars,Oenotria Plana,-8.1400,76.6400,61.2,Planum
+mars,Ius Labes,-7.4700,-78.4600,61.2,Labes
+mars,Martynov,-30.3600,-36.4100,61.1,Crater
+mars,Martin,-21.3400,-69.2500,61.1,Crater
+mars,Kemurdzhian,-43.2200,-171.3900,61.0,Crater
+mars,Varahamihira,15.3400,-22.1400,61.0,Crater
+mars,Abus Vallis,-5.4900,-147.2000,61.0,Vallis
+mars,Argyre Mons,-50.3700,-48.0900,60.6,Mons
+mars,Redi,-60.3300,92.8000,60.3,Crater
+mars,Hargraves,20.7400,75.7400,60.3,Crater
+mars,Roman,-4.3800,80.4200,60.0,Crater
+mars,Tombaugh,3.5600,161.9200,59.8,Crater
+mars,Tuscaloosa,-0.0200,28.7300,59.7,Crater
+mars,Xanthe Scopulus,19.3800,-52.5100,59.5,Scopulus
+mars,Hadriacus Cavi,-27.2500,78.0500,59.1,Cavus
+mars,Tibrikot,12.5600,-54.8700,59.1,Crater
+mars,Deuteronilus Colles,41.9500,21.7000,59.0,Collis
+mars,Drake,-39.8700,39.7800,59.0,Crater
+mars,Innsbruck,-6.3900,-39.9600,59.0,Crater
+mars,Sepik Vallis,-1.0100,-65.7300,59.0,Vallis
+mars,Kamativi,-20.5000,99.9900,58.8,Crater
+mars,Lorica,-19.8300,-28.3300,58.5,Crater
+mars,Soffen,-23.7300,140.8600,58.3,Crater
+mars,Jovis Tholus,18.2000,-117.4100,58.1,Tholus
+mars,Clanis Valles,33.2400,58.4700,58.0,Vallis
+mars,Pityusa Mons,-63.5600,17.5800,58.0,Mons
+mars,Mojave,7.4800,-32.9900,58.0,Crater
+mars,Ulysses Patera,2.9500,-121.4200,57.9,Patera
+mars,Izamal,3.7800,1.6200,57.5,Crater
+mars,Padus Vallis,-4.5200,-149.9800,57.4,Vallis
+mars,Ehden,8.2300,119.0100,57.4,Crater
+mars,Degana,-23.7200,-45.5000,57.0,Crater
+mars,Hyblaeus Chasma,21.9800,141.2600,56.6,Chasma
+mars,Tana Vallis,4.7800,-27.8900,56.5,Vallis
+mars,Peraea Cavus,-29.6100,95.4300,56.2,Cavus
+mars,Chronius Mons,-61.4900,178.0100,56.1,Mons
+mars,Mandora,12.2200,-53.6300,55.9,Crater
+mars,Bamberg,39.7100,-3.1000,55.7,Crater
+mars,Termes Vallis,-11.1100,-157.0100,55.6,Vallis
+mars,Vernal,5.9000,-4.4500,55.5,Crater
+mars,Tempe Mensa,27.9400,-71.5900,55.4,Mensa
+mars,Hydrae Chasma,-6.7500,-62.0100,55.2,Chasma
+mars,Xanthe Patera,-3.0200,-46.8800,55.0,Patera
+mars,Palos,-2.6900,110.9000,54.8,Crater
+mars,Issedon Tholus,36.0500,-94.8300,54.5,Tholus
+mars,Anio Valles,37.7500,55.8900,54.0,Vallis
+mars,Forro,-48.8900,33.8200,54.0,Crater
+mars,Sirenum Tholus,-34.6400,-144.7900,53.9,Tholus
+mars,Aonia Tholus,-59.0400,-80.0400,53.7,Tholus
+mars,Biblis Patera,2.3600,-123.8200,53.6,Patera
+mars,Deva Vallis,-7.6700,-156.8700,53.6,Vallis
+mars,Arima,-15.8400,-63.6800,53.6,Crater
+mars,Hermus Vallis,-5.3200,-147.8100,53.3,Vallis
+mars,[Iaxartes Tholus],71.8000,-15.0000,53.0,Tholus
+mars,Labria,-34.9400,-48.0700,52.6,Crater
+mars,Meroe Patera,6.9800,68.7700,52.6,Patera
+mars,Anseris Mons,-29.8100,86.6500,52.5,Mons
+mars,Kantang,-24.4400,-17.5800,52.4,Crater
+mars,Mazamba,-27.5300,-69.6700,52.3,Crater
+mars,Reykholt,40.4800,-86.1400,52.2,Crater
+mars,Kalpin,8.9300,141.2700,52.0,Crater
+mars,Negril,20.1900,69.4300,52.0,Crater
+mars,Gandzani,34.2400,-90.8300,51.9,Crater
+mars,Micoud,50.5600,16.3400,51.9,Crater
+mars,Puławy,-36.4100,-76.6200,51.8,Crater
+mars,Ottumwa,24.5800,-55.7500,51.6,Crater
+mars,Cantoura,14.8400,-51.7200,51.6,Crater
+mars,Tenuis Cavus,84.7600,1.3900,51.5,Cavus
+mars,Dinorwic,-30.0300,-101.4600,51.3,Crater
+mars,Katoomba,-79.0100,127.8100,51.2,Crater
+mars,Dokka,77.1700,-145.7600,51.1,Crater
+mars,Kinkora,-24.9500,112.8800,51.1,Crater
+mars,Aniak,-31.8400,-69.5600,51.0,Crater
+mars,Magadi,-34.5200,-46.0700,50.8,Crater
+mars,Baltisk,-42.2700,-54.6600,50.8,Crater
+mars,Globe,-23.6800,-27.3500,50.7,Crater
+mars,Virrat,-30.7300,-102.8800,50.7,Crater
+mars,Wulai,10.2400,0.9900,50.5,Crater
+mars,Ceraunius Catena,37.1000,-108.0900,50.5,Catena
+mars,Montevallo,15.2500,-54.2700,50.4,Crater
+mars,Sarh,-64.8500,-14.5800,50.3,Crater
+mars,Lipany,-0.2200,79.6700,50.1,Crater
+mars,Alitus,-34.9100,-38.1400,50.0,Crater
+mars,[Kison Tholus],72.8100,2.0000,50.0,Tholus
+mars,Kozova,3.9000,-0.9600,50.0,Crater
+mars,Krishnan Palus,-3.3800,-52.1800,50.0,Palus
+mars,Avarua,-35.9300,109.6600,50.0,Crater
+mars,Daga Vallis,-12.0700,-42.4200,49.9,Vallis
+mars,Ceti Chasma,-5.0300,-68.3700,49.8,Chasma
+mars,Ausonia Cavus,-31.9200,96.5500,49.5,Cavus
+mars,Fancy,-35.4500,113.6000,49.4,Crater
+mars,Gonnus Mons,41.2100,-90.8800,49.4,Mons
+mars,Jumla,-21.2900,86.4400,49.2,Crater
+mars,Lipik,-38.4100,111.6100,49.0,Crater
+mars,Matara,-49.6100,34.5900,48.8,Crater
+mars,Chryse Colles,8.1500,-41.8600,48.7,Collis
+mars,Elysium Catena,17.6900,149.7300,48.5,Catena
+mars,Cankuzo,-19.4200,52.0300,48.5,Crater
+mars,Layl Cavus,-10.4000,-98.6000,48.4,Cavus
+mars,Davies,45.9600,0.0900,48.1,Crater
+mars,Malam Cavus,-11.2000,-98.1000,48.0,Cavus
+mars,Moyo,-51.0200,20.8300,48.0,Crater
+mars,Nia Chaos,-6.7400,-67.3800,48.0,Chaos
+mars,Sidhi,-49.6900,24.4100,48.0,Crater
+mars,Tecolote,-24.5500,-106.8400,47.9,Crater
+mars,Chaman,-60.8600,50.9600,47.9,Crater
+mars,Jezero,18.4100,77.6900,47.5,Crater
+mars,Hydraotes Colles,-0.0200,-33.6800,47.5,Collis
+mars,Zilair,-31.8100,-32.9400,46.9,Crater
+mars,Saravan,-16.9300,-54.0200,46.9,Crater
+mars,Zongo,-33.7600,-41.6900,46.8,Crater
+mars,Ejriksson,-19.2000,-173.8300,46.6,Crater
+mars,Magong,11.8900,-46.6900,46.6,Crater
+mars,Nier,42.7900,106.1100,46.3,Crater
+mars,Pavonis Chasma,2.7300,-111.0200,45.9,Chasma
+mars,Dubis Vallis,-5.1600,-148.1300,45.4,Vallis
+mars,Elorza,-8.7600,-55.2100,45.2,Crater
+mars,Beruri,5.2700,81.2400,45.1,Crater
+mars,Chukhung,38.4700,-72.4200,45.0,Crater
+mars,Tupã,-42.6800,38.0900,45.0,Crater
+mars,Luga,-44.2500,-47.4200,44.6,Crater
+mars,Babati Mons,-3.2600,136.7300,44.0,Mons
+mars,Kotido,1.0000,-9.1100,44.0,Crater
+mars,Elim,-80.1700,96.8000,43.6,Crater
+mars,Majuro,-33.2600,84.3300,43.4,Crater
+mars,Žulanka,-2.2700,-42.1600,43.1,Crater
+mars,Ganges Cavus,-10.0900,-51.4500,43.1,Cavus
+mars,Airy,-5.1400,0.0500,43.0,Crater
+mars,Aarna,14.7000,-21.5700,43.0,Crater
+mars,Alofi,9.8400,-0.0200,43.0,Crater
+mars,Longwood,-25.8800,-160.5400,43.0,Crater
+mars,Nako,-29.6700,82.9300,43.0,Crater
+mars,Udzha,81.9200,77.3500,42.9,Crater
+mars,Labeatis Mons,37.4800,-75.8600,42.8,Mons
+mars,Torup,-27.8900,97.8100,42.7,Crater
+mars,Kaporo,-0.1200,14.3500,42.7,Crater
+mars,Priestley,-54.1200,130.7000,42.3,Crater
+mars,Pau,-55.4000,59.3000,42.2,Crater
+mars,Otepa,-26.3200,-161.4300,42.0,Crater
+mars,Pai,-41.1000,37.6000,42.0,Crater
+mars,Salkhad,-29.8500,83.6900,42.0,Crater
+mars,Usiku Cavus,-11.2000,-96.3000,42.0,Cavus
+mars,Zephyria Fluctus,0.7200,155.5300,42.0,Fluctus
+mars,Pital,-9.2700,-62.2800,41.7,Crater
+mars,Waspam,20.4500,-56.6300,41.6,Crater
+mars,Cañas,-31.1900,89.8600,41.5,Crater
+mars,Toro,17.0400,71.8200,41.4,Crater
+mars,Runanga,-26.6400,75.9600,41.4,Crater
+mars,Dogana,-10.0100,-53.6700,41.2,Crater
+mars,Kasabi,-27.7700,89.0600,41.1,Crater
+mars,Kolonga,8.3200,-54.9400,41.1,Crater
+mars,Banes,10.7600,-4.3200,41.0,Crater
+mars,Kirinda,-4.7800,79.1300,41.0,Crater
+mars,Dowa,-31.6600,110.2400,40.8,Crater
+mars,Asopus Vallis,-4.2900,-149.6100,40.8,Vallis
+mars,Wabash,21.3600,-33.6400,40.7,Crater
+mars,Bonestell,42.0000,-30.3900,40.7,Crater
+mars,Noma,-25.4300,-24.3100,40.5,Crater
+mars,Nat Cavus,-11.9000,-96.9000,40.4,Cavus
+mars,Auki,-15.7600,96.8700,40.0,Crater
+mars,[Australis Tholus],-58.7000,37.0000,40.0,Tholus
+mars,Marsabit,12.0300,-21.0300,40.0,Crater
+mars,Taung,11.0800,-43.9200,40.0,Crater
 mercury,Borealis Planitia,67.3000,32.6000,3450.0,Planitia
 mercury,Stilbon Planitia,57.5400,150.3900,1550.0,Planitia
 mercury,Caloris Planitia,31.6500,161.9800,1500.0,Planitia
@@ -969,14 +1916,14 @@ mercury,Gan De Dorsum,13.6500,46.2100,251.0,Dorsum
 mercury,Haydn,-27.2200,-71.6400,251.0,Crater
 mercury,Carrasco Rupēs,-9.6600,141.0300,249.0,Rupes
 mercury,Selen Rupēs,-8.1100,-178.9200,246.0,Rupes
-mercury,Kunisada,1.3600,112.8600,241.0,Crater
+mercury,Kunisada,1.3700,113.0200,241.4,Crater
 mercury,Mozart,7.7500,169.4100,241.0,Crater
 mercury,Gjöa Rupes,-66.8900,-158.5000,237.9,Rupes
 mercury,Endurance Rupes,21.6000,142.1900,237.0,Rupes
 mercury,Pushkin,-65.7900,-20.7300,232.0,Crater
 mercury,Baltica Rupes,-4.4800,56.5200,230.0,Rupes
-mercury,Michelangelo,-44.9200,-109.6900,230.0,Crater
 mercury,Rodin,21.7200,-18.8900,230.0,Crater
+mercury,Michelangelo,-44.9200,-109.7800,229.7,Crater
 mercury,Terror Rupes,-72.0600,84.3100,229.6,Rupes
 mercury,Santa María Rupes,5.8100,-20.0000,227.0,Rupes
 mercury,Surikov,-36.9800,-124.9000,224.0,Crater
@@ -1017,11 +1964,11 @@ mercury,Al-Shirazi Dorsum,-48.3300,-162.3600,188.0,Dorsum
 mercury,Alvin Rupes,8.3000,151.2800,188.0,Rupes
 mercury,Caravaggio,3.1800,87.2400,185.0,Crater
 mercury,Riemenschneider,-52.7500,-99.9500,183.0,Crater
-mercury,Milton,-26.1000,-175.0300,180.8,Crater
+mercury,Milton,-26.1300,-175.0600,180.0,Crater
 mercury,Astrea Rupes,-20.3100,115.8500,178.0,Rupes
 mercury,Carleton,-52.2000,56.6000,177.0,Crater
-mercury,Lange,6.2800,100.4700,176.2,Crater
 mercury,Dali,45.1600,119.7400,176.0,Crater
+mercury,Lange,6.4000,100.4100,176.0,Crater
 mercury,Aksakov,34.7100,-78.7400,174.0,Crater
 mercury,Izquierdo,-1.6600,107.0400,174.0,Crater
 mercury,Chaikovskij,7.8600,-50.9300,171.0,Crater
@@ -1042,6 +1989,331 @@ mercury,Pourquoi-Pas Rupes,-58.5400,-156.1700,164.7,Rupes
 mercury,Al-Hamadhani,39.1900,-91.7600,164.0,Crater
 mercury,Kipling,-19.3700,72.0200,164.0,Crater
 mercury,Travers,-28.0000,30.9000,164.0,Crater
+mercury,Zeehaen Rupes,49.6400,-158.1500,164.0,Rupes
+mercury,Henri,79.6800,152.9800,163.8,Crater
+mercury,Kālidāsā,-18.2100,-179.8200,160.0,Crater
+mercury,Ibsen,-24.3500,-35.8900,159.0,Crater
+mercury,Imhotep,-17.9700,-37.4800,159.0,Crater
+mercury,Delacroix,-44.3200,-129.5100,158.0,Crater
+mercury,Dowland,-53.5600,179.3000,158.0,Crater
+mercury,Rubens,60.5800,-77.9900,158.0,Crater
+mercury,Sōtatsu,-48.7300,-18.1700,157.0,Crater
+mercury,Bramante,-47.2300,-61.5500,156.0,Crater
+mercury,Derzhavin,45.6000,-36.9300,156.0,Crater
+mercury,Fram Rupes,-57.6800,-93.2000,156.0,Rupes
+mercury,Lysippus,1.0300,-132.7500,155.0,Crater
+mercury,Stoddart,-12.1700,-85.6600,155.0,Crater
+mercury,Rabelais,-60.5300,-61.8100,154.0,Crater
+mercury,Sullivan,-16.1900,-86.8800,153.2,Crater
+mercury,Pigalle,-37.6500,-9.6400,153.0,Crater
+mercury,Kurosawa,-52.4400,-21.4900,152.0,Crater
+mercury,Boccaccio,-80.9900,-23.0100,151.9,Crater
+mercury,Alver,-66.9700,77.2500,151.5,Crater
+mercury,Darío,-26.2800,-9.5100,151.0,Crater
+mercury,Magritte,-72.7800,121.6300,149.0,Crater
+mercury,Protea Rupes,-9.3600,156.9900,147.0,Rupes
+mercury,Melville,22.0100,-9.8900,146.0,Crater
+mercury,Sayat-Nova,-27.9800,-122.7000,146.0,Crater
+mercury,Liang K'ai,-39.8900,175.8400,145.0,Crater
+mercury,Proust,19.5600,-47.5900,145.0,Crater
+mercury,Verdi,64.3600,-169.7100,145.0,Crater
+mercury,Giotto,12.4600,-56.4800,144.0,Crater
+mercury,Chŏng Ch'ŏl,46.8700,-117.3100,143.0,Crater
+mercury,Kuan Han-Ch'ing,29.4400,-53.6700,143.0,Crater
+mercury,Shevchenko,-53.6400,-46.0200,143.0,Crater
+mercury,Mark Twain,-10.9100,-138.2800,142.0,Crater
+mercury,Sophocles,-6.9500,-146.0400,142.0,Crater
+mercury,Chao Meng-Fu,-88.4200,-156.3600,140.7,Crater
+mercury,Africanus Horton,-50.9600,-41.1900,140.0,Crater
+mercury,Arecibo Catena,-27.5800,-28.2900,139.8,Catena
+mercury,Lismer,81.5100,166.3700,139.1,Crater
+mercury,Bello,-18.8700,-120.1800,139.0,Crater
+mercury,Joplin,-38.5600,25.5100,139.0,Crater
+mercury,Molière,15.4000,-17.7100,139.0,Crater
+mercury,Resolution Rupes,-63.2500,-50.6600,139.0,Rupes
+mercury,Goya,-6.7900,-152.2900,138.0,Crater
+mercury,Handel,3.5300,-34.3800,138.0,Crater
+mercury,Hiroshige,-13.3400,-26.9600,138.0,Crater
+mercury,Sousa,46.6900,0.6300,138.0,Crater
+mercury,Ustad Isa,-31.9100,-166.1100,138.0,Crater
+mercury,Sei,-64.6100,-88.5900,137.0,Crater
+mercury,Botticelli,63.6300,-112.3500,136.3,Crater
+mercury,Kofi,56.7500,117.8700,136.0,Crater
+mercury,Takayoshi,-37.2300,-163.8200,136.0,Crater
+mercury,Turgenev,65.6800,-136.2600,136.0,Crater
+mercury,Monteverdi,64.4900,-81.0100,134.0,Crater
+mercury,Picasso,3.4400,50.2400,134.0,Crater
+mercury,Sinan,15.4600,-30.5900,134.0,Crater
+mercury,Stevenson,2.0500,-143.8800,134.0,Crater
+mercury,Wagner,-68.2500,-114.7800,134.0,Crater
+mercury,Vejas Rupes,35.7100,-162.2500,133.0,Rupes
+mercury,Duccio,58.2300,-52.4200,132.0,Crater
+mercury,Murasaki,-12.5400,-30.4000,132.0,Crater
+mercury,Scarlatti,40.7000,-101.1600,132.0,Crater
+mercury,Chopin,-65.4500,-123.4000,131.0,Crater
+mercury,Sūr Dās,-46.9800,-93.5700,131.0,Crater
+mercury,Asawa,27.2600,44.7200,130.0,Crater
+mercury,Inyoka Faculae,14.0000,162.3000,130.0,Facula
+mercury,Eminescu,10.6600,114.2100,129.0,Crater
+mercury,Rublev,-15.1200,-157.0800,129.0,Crater
+mercury,Stravinsky,51.9500,-78.9000,129.0,Crater
+mercury,Zeami,-2.9600,-147.4100,129.0,Crater
+mercury,Brunelleschi,-8.9400,-22.5100,128.6,Crater
+mercury,Velázquez,37.5900,-55.4300,128.0,Crater
+mercury,[Yakovlev],-41.3000,-162.8000,128.0,Crater
+mercury,Zarya Rupes,-42.7300,-20.4200,128.0,Rupes
+mercury,Ahmad Baba,58.3300,-128.3500,126.0,Crater
+mercury,Hemingway,17.3800,-3.1300,126.0,Crater
+mercury,Li Po,17.1000,-35.6900,126.0,Crater
+mercury,Heaney,-33.7700,122.2900,125.0,Crater
+mercury,Orm Faculae,26.5800,-59.6800,125.0,Facula
+mercury,Polygnotus,-0.1300,-69.2600,124.0,Crater
+mercury,Rūdaki,-3.9700,-51.7600,124.0,Crater
+mercury,Ts'ai Wen-Chi,23.4700,-23.1500,124.0,Crater
+mercury,Vostok Rupes,-37.8800,-19.6000,124.0,Rupes
+mercury,Barma,-40.9300,-163.4900,123.0,Crater
+mercury,Neumann,-37.2200,-34.5600,122.0,Crater
+mercury,Oskison,60.3600,145.2400,122.0,Crater
+mercury,Unkei,-31.7900,-62.6000,121.0,Crater
+mercury,Pampu Facula,-57.7600,-31.7900,120.4,Facula
+mercury,Hawthorne,-51.3100,-115.3400,120.0,Crater
+mercury,Ictinus,-79.5600,-174.2400,120.0,Crater
+mercury,Bartók,-29.2200,-135.0600,118.0,Crater
+mercury,Hauptmann,-23.7000,179.5900,118.0,Crater
+mercury,Abu Nuwas,17.6300,-21.1900,117.0,Crater
+mercury,Abedin,61.7300,-10.6600,116.2,Crater
+mercury,Timgad Vallis,60.8800,116.4400,116.0,Vallis
+mercury,Ejo Faculae,14.5000,159.5000,115.0,Facula
+mercury,Holbein,36.1600,-29.8400,115.0,Crater
+mercury,Mussorgskij,32.8200,-97.6500,115.0,Crater
+mercury,Boethius,-0.9800,-73.6400,114.0,Crater
+mercury,Hokusai,57.8400,16.6500,114.0,Crater
+mercury,Disney,-68.1500,99.8000,113.0,Crater
+mercury,Grainger,-44.0900,104.8100,113.0,Crater
+mercury,Khansa,-58.9500,-51.9400,113.0,Crater
+mercury,Coleridge,-55.6700,-66.6000,112.0,Crater
+mercury,Neruda,-52.6600,125.7900,112.0,Crater
+mercury,Prokofiev,85.7700,62.9200,112.0,Crater
+mercury,Roerich,-84.3900,-58.9400,111.7,Crater
+mercury,Thākur,-3.0500,-64.5700,111.0,Crater
+mercury,Bulsara,-34.1600,60.0000,110.0,Crater
+mercury,Ghiberti,-48.5500,-80.1500,110.0,Crater
+mercury,Kerouac,25.2100,129.1000,110.0,Crater
+mercury,Ts'ao Chan,-13.3100,-142.3500,110.0,Crater
+mercury,Andal,-47.5200,-37.7100,109.0,Crater
+mercury,Titian,-3.6900,-42.5300,109.0,Crater
+mercury,Wu Shujuan,-70.8000,13.2700,109.0,Crater
+mercury,Carducci,-36.5400,-90.3900,108.2,Crater
+mercury,Vincente,-56.7500,-142.9600,108.0,Crater
+mercury,Keats,-70.3100,-156.6500,107.8,Crater
+mercury,Harunobu,14.8800,-140.9300,107.0,Crater
+mercury,Byron,-8.4400,-33.0000,106.6,Crater
+mercury,Akutagawa,48.2500,-141.0900,106.0,Crater
+mercury,Alencar,-63.6400,-103.7800,106.0,Crater
+mercury,Gibran,35.7300,-111.4400,106.0,Crater
+mercury,Amaral,-26.4900,117.8200,105.0,Crater
+mercury,Enheduanna,48.3400,-33.5900,105.0,Crater
+mercury,Hitomaro,-16.0700,-15.6500,105.0,Crater
+mercury,Kenkō,-21.3500,-16.1600,105.0,Crater
+mercury,Balagtas,-22.5600,-13.9000,104.0,Crater
+mercury,Machaut,-2.0500,-82.3700,104.0,Crater
+mercury,Mahler,-19.6800,-18.8200,104.0,Crater
+mercury,Mickiewicz,23.1500,-103.2300,103.0,Crater
+mercury,Mofolo,-37.6800,-28.2200,103.0,Crater
+mercury,Equiano,-40.0000,-30.5900,102.0,Crater
+mercury,Goldstone Catena,-15.6200,-32.0200,102.0,Catena
+mercury,Mistral,4.7000,-54.6700,102.0,Crater
+mercury,Sor Juana,50.5100,-25.5900,102.0,Crater
+mercury,Van Dijck,75.8000,-166.6300,101.5,Crater
+mercury,Bagryana,-3.8900,76.2700,101.0,Crater
+mercury,Eitoku,-21.8000,-157.1800,101.0,Crater
+mercury,Hesiod,-58.2700,-34.2500,101.0,Crater
+mercury,Po Ya,-45.9200,-20.1700,101.0,Crater
+mercury,Catullus,21.9000,-67.5500,100.2,Crater
+mercury,Atget,25.5700,166.3800,100.0,Crater
+mercury,Bibilava Faculae,16.4000,157.2000,100.0,Facula
+mercury,Brahms,58.3200,-177.3600,100.0,Crater
+mercury,Chu Ta,2.0400,-105.6600,100.0,Crater
+mercury,Gluck,37.9500,-18.7800,100.0,Crater
+mercury,Stieglitz,72.5400,67.6300,100.0,Crater
+mercury,van Gogh,-76.8800,-138.6800,99.0,Crater
+mercury,Firdousi,3.4700,65.3200,98.0,Crater
+mercury,Guinness,15.7900,93.7200,97.0,Crater
+mercury,Tyagaraja,3.8900,-148.9000,97.0,Crater
+mercury,Lu Hsun,-0.0100,-23.7600,96.0,Crater
+mercury,Paestum Vallis,60.2800,126.0400,96.0,Vallis
+mercury,Flaubert,-13.8300,-72.7000,95.0,Crater
+mercury,Gainsborough,-35.7300,175.4800,95.0,Crater
+mercury,Lennon,-36.4100,41.1800,95.0,Crater
+mercury,Lessing,-28.5000,-90.3400,95.0,Crater
+mercury,Mansur,47.4100,-163.6100,95.0,Crater
+mercury,Repin,-19.1200,-63.3300,95.0,Crater
+mercury,Sarmiento,-29.2700,170.4200,95.0,Crater
+mercury,Angkor Vallis,57.2800,114.0400,95.0,Vallis
+mercury,Al-Akhtal,59.3800,-99.7100,94.3,Crater
+mercury,Sibelius,-49.5000,-145.3700,94.0,Crater
+mercury,Tintoretto,-47.9900,-22.9500,94.0,Crater
+mercury,Hals,-54.9600,-114.9900,93.0,Crater
+mercury,Jókai,71.9300,-138.4500,93.0,Crater
+mercury,Savage,-8.5900,93.4100,93.0,Crater
+mercury,Sōseki,39.3100,-38.7700,92.0,Crater
+mercury,Yeats,9.4400,-35.0300,92.0,Crater
+mercury,Warhol,-2.5500,-6.2700,91.0,Crater
+mercury,Carvalho,26.8200,-51.6100,90.0,Crater
+mercury,Neidr Facula,35.9000,57.3000,90.0,Facula
+mercury,Glinka,14.8300,-112.5500,89.0,Crater
+mercury,Zapiola Rupes,72.3600,-44.0200,89.0,Rupes
+mercury,Aśvaghosa,10.6100,-21.4900,88.0,Crater
+mercury,Capote,-21.1000,72.4100,88.0,Crater
+mercury,Purcell,80.4300,-152.2100,87.7,Crater
+mercury,El Husseini,-75.3400,26.6600,87.0,Crater
+mercury,Philoxenus,-8.6800,-111.7500,87.0,Crater
+mercury,Simonides,-29.1300,-44.8500,87.0,Crater
+mercury,Donne,2.9200,-14.0500,86.0,Crater
+mercury,Donelaitis,-52.9600,38.4200,85.0,Crater
+mercury,Judah Ha-Levi,10.7900,-108.0100,85.0,Crater
+mercury,Mansart,72.7200,-123.3600,85.0,Crater
+mercury,Geddes,27.1700,-29.7200,84.0,Crater
+mercury,Scopas,-81.2600,174.7100,83.2,Crater
+mercury,Al-Jāhiz,1.3600,-21.7600,83.0,Crater
+mercury,March,30.9500,-176.3000,83.0,Crater
+mercury,Moody,-13.2100,144.8500,83.0,Crater
+mercury,Tsurayuki,-62.9900,-20.3400,83.0,Crater
+mercury,Rilke,-44.8100,-12.5700,82.0,Crater
+mercury,Vlaminck,28.4800,-13.5100,82.0,Crater
+mercury,Debussy,-33.9500,12.5400,81.0,Crater
+mercury,Gaudí,76.9000,69.1600,81.0,Crater
+mercury,Castiglione,-40.8700,87.9600,80.0,Crater
+mercury,Couperin,29.7400,-151.9400,80.0,Crater
+mercury,Rajnis,4.3600,-96.2100,80.0,Crater
+mercury,Fet,-4.7200,179.7800,79.0,Crater
+mercury,Gogol,-28.2600,-147.4600,79.0,Crater
+mercury,Liszt,-16.1300,-168.3400,79.0,Crater
+mercury,Mahsati,39.5700,109.7100,79.0,Crater
+mercury,Truffaut,13.4900,-63.2100,79.0,Crater
+mercury,Ravel,-12.0100,-38.1900,78.0,Crater
+mercury,Rimbaud,-63.6200,-148.9000,78.0,Crater
+mercury,Serp Facula,3.9000,50.9400,78.0,Facula
+mercury,Dickens,-73.2600,-155.9600,77.3,Crater
+mercury,Cahokia Vallis,65.5500,126.9400,77.0,Vallis
+mercury,Nizāmī,70.4600,-166.7100,77.0,Crater
+mercury,Poe,43.7600,159.1000,77.0,Crater
+mercury,Sher-Gil,-45.2600,134.7400,77.0,Crater
+mercury,Puccini,-65.3900,-45.3200,76.0,Crater
+mercury,Yun Sǒn-Do,-73.4900,-110.0800,76.0,Crater
+mercury,Bjornson,73.1100,-113.9900,75.9,Crater
+mercury,Bashō,-32.3900,-170.4500,75.0,Crater
+mercury,Dvorák,-9.4000,-12.1300,75.0,Crater
+mercury,Rūmī,-24.2000,-105.3000,75.0,Crater
+mercury,Heine,32.4600,-124.8800,73.0,Crater
+mercury,Boznańska,59.6400,-40.7500,72.0,Crater
+mercury,Bruegel,49.7300,-109.4600,72.0,Crater
+mercury,Takanobu,30.6600,-108.5600,72.0,Crater
+mercury,Thoreau,5.9400,-132.6400,72.0,Crater
+mercury,Leopardi,-72.7600,175.1600,71.5,Crater
+mercury,To Ngoc Van,52.4900,-111.7000,71.0,Crater
+mercury,Belinskij,-77.0900,-103.9200,70.7,Crater
+mercury,Camões,-71.4200,-68.3900,70.0,Crater
+mercury,Gauguin,66.3600,-100.0100,70.0,Crater
+mercury,Madu Facula,-21.2400,-74.8700,70.0,Facula
+mercury,Po Chü-I,-6.9400,-165.2800,70.0,Crater
+mercury,Zola,49.7500,-178.2500,70.0,Crater
+mercury,Martí,-75.9600,-168.2600,69.5,Crater
+mercury,Giambologna,-42.5800,-124.1100,69.0,Crater
+mercury,Li Ch'ing-Chao,-77.9600,-71.1700,69.0,Crater
+mercury,Navoi,58.8200,160.4100,69.0,Crater
+mercury,Brontë,38.3900,-127.0600,68.0,Crater
+mercury,Callicrates,-66.5100,-30.3700,68.0,Crater
+mercury,de Graft,22.0500,1.8900,68.0,Crater
+mercury,Rude,-33.2200,-79.2900,68.0,Crater
+mercury,Balzac,10.6200,-144.6700,67.0,Crater
+mercury,Bilokur,-0.7900,-108.3300,67.0,Crater
+mercury,Calvino,-3.9900,-56.0300,67.0,Crater
+mercury,Cézanne,-8.4700,-123.6900,67.0,Crater
+mercury,Eastman,9.5200,125.7600,67.0,Crater
+mercury,Hurley,-87.3600,-6.9900,67.0,Crater
+mercury,Spitteler,-69.1800,-60.2600,67.0,Crater
+mercury,Villa-Lobos,5.2700,6.7900,67.0,Crater
+mercury,Sadī,-79.2400,-51.2600,66.5,Crater
+mercury,Nervo,42.7000,-179.8900,66.0,Crater
+mercury,Ōkyo,-70.0500,-74.6600,66.0,Crater
+mercury,Caral Vallis,62.6600,129.2900,64.0,Vallis
+mercury,Codesido,-68.1900,153.0100,64.0,Crater
+mercury,Holberg,-67.3700,-59.5700,64.0,Crater
+mercury,Kōshō,59.9300,-139.8700,64.0,Crater
+mercury,Nākahi Facula,-52.7000,17.8000,64.0,Facula
+mercury,Rizal,82.4800,-146.9800,64.0,Crater
+mercury,Ruysch,-10.7000,94.1200,64.0,Crater
+mercury,Saikaku,71.9600,-177.9700,64.0,Crater
+mercury,Seuss,7.6500,33.1600,64.0,Crater
+mercury,Whitman,41.4000,-111.6400,64.0,Crater
+mercury,Echegaray,43.4800,-20.2200,63.0,Crater
+mercury,Yelcho Rupes,23.5400,135.8900,63.0,Rupes
+mercury,Kuiper,-11.3400,-31.3200,62.0,Crater
+mercury,L’Engle,-86.6300,69.6200,62.0,Crater
+mercury,Endeavour Rupes,38.3600,-31.3800,61.0,Rupes
+mercury,Le Guin,-18.7600,-102.7400,61.0,Crater
+mercury,Petőfi,-83.5500,119.3500,61.0,Crater
+mercury,Traba,5.5600,-117.5300,61.0,Crater
+mercury,Tung Yüan,75.0200,-62.8300,60.5,Crater
+mercury,Beckett,-40.2000,111.2900,60.0,Crater
+mercury,Damer,36.3600,-115.8100,60.0,Crater
+mercury,Kandinsky,87.8900,78.7800,60.0,Crater
+mercury,Grieg,52.4900,-15.3600,59.0,Crater
+mercury,Gordimer,87.7300,-170.9000,58.0,Crater
+mercury,Guido d'Arezzo,-38.4100,-18.5300,58.0,Crater
+mercury,Karsh,-35.4900,78.8500,58.0,Crater
+mercury,Rameau,-54.5800,-37.2400,58.0,Crater
+mercury,Futabatei,-16.0500,-83.5200,57.0,Crater
+mercury,Munch,40.4800,152.8200,57.0,Crater
+mercury,Horace,-69.3400,-50.0200,56.0,Crater
+mercury,Nairne,-70.3400,1.5900,56.0,Crater
+mercury,We’wha,-42.5700,-151.3200,56.0,Crater
+mercury,Gata Facula,-52.9000,38.6000,55.0,Facula
+mercury,Degas,37.0800,-127.3400,54.0,Crater
+mercury,Kobro,-82.1600,81.2200,54.0,Crater
+mercury,Komeda,-82.7400,90.4700,54.0,Crater
+mercury,Pahinui,-28.1600,146.7900,54.0,Crater
+mercury,Ngu Facula,-22.7700,-90.8500,53.0,Facula
+mercury,Aristoxenus,83.9300,-17.4600,52.1,Crater
+mercury,Lucena,-25.2100,-156.1000,52.0,Crater
+mercury,Motonobu,0.7800,-65.3200,52.0,Crater
+mercury,Lovecraft,-86.2400,-73.8200,52.0,Crater
+mercury,Freire,-73.3600,145.5400,51.0,Crater
+mercury,Martial,68.4700,-178.3300,51.0,Crater
+mercury,Agwo Facula,22.4000,146.3000,50.0,Facula
+mercury,Han Kan,-72.1300,-146.4000,50.0,Crater
+mercury,Tolkien,88.8200,148.9200,50.0,Crater
+mercury,Nampeyo,-40.3300,-49.9600,49.0,Crater
+mercury,Erté,27.4400,-117.3300,48.5,Crater
+mercury,Coatl Facula,-29.7500,143.4500,48.3,Facula
+mercury,Grotell,71.0900,-31.6300,48.2,Crater
+mercury,Despréz,81.0800,-101.2500,47.0,Crater
+mercury,Amru Al-Qays,12.4300,-176.1100,47.0,Crater
+mercury,Janáček,55.7200,-154.8500,47.0,Crater
+mercury,Sander,42.4300,154.5600,47.0,Crater
+mercury,Canova,25.6000,-3.7100,46.0,Crater
+mercury,Theophanes,-5.0200,-142.7800,46.0,Crater
+mercury,Ahas Facula,-21.3700,-89.4000,45.0,Facula
+mercury,Amaru Facula,-49.8000,10.5000,45.0,Facula
+mercury,Bellini,-33.7700,87.1700,45.0,Crater
+mercury,Lorde,-69.1200,-49.5700,45.0,Crater
+mercury,Veronese,5.3000,-55.9500,45.0,Crater
+mercury,Halim,48.8700,-100.9400,44.0,Crater
+mercury,Burns,54.1000,-117.3700,43.0,Crater
+mercury,Flaiano,-21.2900,-76.7300,43.0,Crater
+mercury,MacNicol,-68.1900,4.0500,42.0,Crater
+mercury,Nasir,-20.3300,26.7000,42.0,Crater
+mercury,Wergeland,-37.9300,-56.3600,42.0,Crater
+mercury,Apollodorus,30.5400,163.2800,41.5,Crater
+mercury,Yinshe Facula,-46.3200,168.7800,41.0,Facula
+mercury,Chiang K'ui,14.7100,-102.8000,41.0,Crater
+mercury,Ovid,-69.7700,-20.2300,41.0,Crater
+mercury,Sontag,36.5900,166.6600,41.0,Crater
+mercury,Ular Facula,-55.1000,-29.9500,41.0,Facula
+mercury,Benoit,7.4800,104.3500,40.0,Crater
+mercury,Rainey,-33.5500,-39.5600,40.0,Crater
+mercury,Rivera,69.2900,32.1800,40.0,Crater
 mimas,Camelot Chasma,-43.0000,-23.4000,150.0,Chasma
 mimas,Pangea Chasma,-28.1200,19.5900,150.0,Chasma
 mimas,Herschel,-1.3800,-111.7600,139.0,Crater
@@ -1228,6 +2500,1046 @@ moon,Palus Somni,13.6900,44.7200,163.4,Palus
 moon,Hausen,-65.1100,-88.4900,163.2,Crater
 moon,Richardson,30.9300,99.8900,162.6,Crater
 moon,Drygalski,-79.5700,-87.1800,162.5,Crater
+moon,Catena Humboldt,-21.9800,84.7000,162.3,Catena
+moon,Lagrange,-32.6000,-71.4500,162.2,Crater
+moon,Rimae Grimaldi,-6.1800,-63.9000,162.0,Rima
+moon,Lippmann,-55.4300,-114.3200,160.1,Crater
+moon,Tsander (Zander),5.3900,-149.6900,159.9,Crater
+moon,Montes Agricola,29.0600,-54.0700,159.8,Mons
+moon,Sinus Concordiae,10.9800,42.4700,159.0,Sinus
+moon,Lacus Mortis,45.1300,27.3200,158.8,Lacus
+moon,Keeler,-9.7800,161.7800,158.1,Crater
+moon,Ashbrook,-81.1000,-110.5800,157.7,Crater
+moon,Rima Sheepshanks,58.2800,23.6900,157.5,Rima
+moon,Hedin,2.8700,-76.5700,157.4,Crater
+moon,Rima Suess,6.6200,-47.1400,156.4,Rima
+moon,Riccioli,-2.9000,-74.4200,155.7,Crater
+moon,Maginus,-50.0300,-5.9800,155.6,Crater
+moon,Vallis Alpes,49.2100,3.6300,155.4,Vallis
+moon,J. Herschel,62.3100,-41.8600,154.4,Crater
+moon,Ptolemaeus,-9.1600,-1.8400,153.7,Crater
+moon,Lacus Timoris,-39.4200,-27.9500,153.7,Lacus
+moon,Roche,-42.3700,136.5400,152.7,Crater
+moon,Rimae Repsold,50.7400,-80.4600,152.1,Rima
+moon,Sommerfeld,64.8300,-161.5400,150.9,Crater
+moon,Lyot,-50.4700,84.8000,150.6,Crater
+moon,[Rima Schröter],26.0000,-51.0000,150.0,Rima
+moon,Catena Gregory,-0.5900,129.8000,148.2,Catena
+moon,Fersman,17.9000,-126.0600,148.1,Crater
+moon,Dorsum Heim,32.2000,-29.8300,146.8,Dorsum
+moon,Babbage,59.5600,-57.3800,146.6,Crater
+moon,Montes Archimedes,25.3900,-5.2500,146.5,Mons
+moon,Mare Anguis,22.4300,67.5800,146.0,Mare
+moon,Jules Verne,-34.8500,147.2800,145.5,Crater
+moon,Longomontanus,-49.5500,-21.8800,145.5,Crater
+moon,Blackett,-37.5500,-115.8400,145.3,Crater
+moon,Hirayama,-6.0100,93.6300,145.2,Crater
+moon,Vallis Inghirami,-43.9500,-72.5900,145.1,Vallis
+moon,Rupes Liebig,-25.1400,-45.9200,144.8,Rupes
+moon,Pythagoras,63.6800,-62.9800,144.6,Crater
+moon,Neper,8.7600,84.5800,144.3,Crater
+moon,Hipparchus,-5.3600,4.9100,143.9,Crater
+moon,Mare Spumans,1.3000,65.3000,143.1,Mare
+moon,Pavlov,-28.2800,142.4000,143.1,Crater
+moon,Dorsa Mawson,-7.7700,52.4800,142.7,Dorsum
+moon,Vendelinus,-16.4600,61.5500,141.2,Crater
+moon,Rima Milichius,8.0300,-32.8700,140.7,Rima
+moon,Rimae Daniell,37.5300,24.3300,140.2,Rima
+moon,Mendel,-48.8300,-109.8600,139.7,Crater
+moon,Fowler,42.5900,-145.2700,139.5,Crater
+moon,Catena Sylvester,79.9900,-83.1200,139.0,Catena
+moon,Dorsa Whiston,29.7700,-56.9600,138.9,Dorsum
+moon,Curie,-23.0500,92.2800,138.9,Crater
+moon,Evans Q,-11.2100,-136.3000,138.4,Satellite Feature
+moon,Langemak N,-13.1900,119.1200,137.9,Satellite Feature
+moon,Antoniadi,-69.3000,-173.0600,137.9,Crater
+moon,Abel,-34.6300,85.7800,137.3,Crater
+moon,Minnaert,-67.5400,178.5700,137.3,Crater
+moon,Brianchon,74.7500,-88.3600,137.3,Crater
+moon,Balmer,-20.2700,70.2200,136.3,Crater
+moon,De La Rue,59.0200,52.8400,135.2,Crater
+moon,Repsold C,48.7300,-73.7800,135.1,Satellite Feature
+moon,Furnerius,-36.0000,60.5400,135.0,Crater
+moon,Walther,-33.2500,0.6200,134.2,Crater
+moon,Mee,-43.6300,-35.1900,134.1,Crater
+moon,Rima Bradley,24.1700,-0.6000,133.8,Rima
+moon,Hecataeus,-22.0600,79.6800,133.7,Crater
+moon,Galois Q,-14.8500,-154.4600,133.6,Satellite Feature
+moon,Rupes Mercator,-30.2100,-22.8400,132.4,Rupes
+moon,Nam Byeong-Cheol,-14.6600,-123.4100,132.0,Crater
+moon,Langrenus,-8.8600,61.0400,132.0,Crater
+moon,Lamarck D,-24.9000,-74.3500,131.3,Satellite Feature
+moon,Catena Artamonov,26.0900,105.7700,131.2,Catena
+moon,Albategnius,-11.2400,4.0100,130.8,Crater
+moon,Cleomedes,27.6000,55.5000,130.8,Crater
+moon,Mons Mouton,-84.6000,31.0000,130.0,Mons
+moon,Rimae Sosigenes,8.0800,18.7200,130.0,Rima
+moon,Rimae Zupus,-15.4600,-53.7600,130.0,Rima
+moon,Stöfler,-41.2400,5.9300,129.9,Crater
+moon,Avogadro,63.2100,165.3600,129.8,Crater
+moon,Stebbins,64.3600,-142.6400,129.7,Crater
+moon,Aitken,-16.4400,172.9600,129.7,Crater
+moon,Dorsa Cato,0.2100,47.7000,128.6,Dorsum
+moon,Röntgen,32.8800,-91.4200,128.4,Crater
+moon,Boussingault,-70.2100,53.7300,127.6,Crater
+moon,Poynting,17.5000,-133.3800,127.5,Crater
+moon,Paschen,-14.0600,-140.5300,127.4,Crater
+moon,Szilard,33.7100,105.7800,127.2,Crater
+moon,Debye,49.4300,-176.0300,127.0,Crater
+moon,Dorsa Aldrovandi,23.6100,28.6500,126.8,Dorsum
+moon,Sinus Successus,1.1200,58.5200,126.7,Sinus
+moon,Regiomontanus,-28.2800,-1.0900,126.6,Crater
+moon,Lagrange R,-31.3300,-76.6700,126.6,Satellite Feature
+moon,Fleming,14.9100,109.2800,126.4,Crater
+moon,Carnot,52.0900,-144.2000,126.1,Crater
+moon,Zwicky,-16.1700,167.6400,126.1,Crater
+moon,Sklodowska,-18.0400,96.1500,125.5,Crater
+moon,Le Gentil,-74.2700,-76.0200,125.4,Crater
+moon,Catena Mendeleev,6.6300,139.2200,125.2,Catena
+moon,Rima Agricola,29.2500,-53.4200,125.1,Rima
+moon,Leeuwenhoek,-29.2800,-178.8700,125.0,Crater
+moon,Heaviside K,-12.9100,168.5000,124.9,Satellite Feature
+moon,Meton,73.5700,19.6300,124.7,Crater
+moon,Dorsum Grabau,29.7600,-14.1900,123.7,Dorsum
+moon,Chaplygin,-5.7600,150.2400,123.4,Crater
+moon,Michelson,6.7200,-121.5500,123.1,Crater
+moon,Weyl,15.9700,-120.5300,122.8,Crater
+moon,Lacus Solitudinis,-27.5200,103.8800,122.7,Lacus
+moon,Messala,39.3100,60.0600,122.4,Crater
+moon,Darwin,-19.9300,-69.2100,122.2,Crater
+moon,Endymion,53.6100,56.4800,122.1,Crater
+moon,Lacus Bonitatis,23.1800,44.3200,122.1,Lacus
+moon,Hildegard,-51.6800,127.7400,122.0,Crater
+moon,Demonax,-78.0900,59.3600,121.9,Crater
+moon,Lebedev,-46.8000,107.8900,121.8,Crater
+moon,Nernst,35.5700,-94.6400,121.5,Crater
+moon,Klaproth,-69.8500,-26.2600,121.4,Crater
+moon,Engel'gardt (Engelhardt) B,7.8000,-158.1800,121.2,Satellite Feature
+moon,Orontius,-40.3700,-3.9600,121.0,Crater
+moon,Fracastorius,-21.3600,33.0700,120.6,Crater
+moon,Rima Mairan,38.2800,-46.8300,120.5,Rima
+moon,Eddington,21.5000,-72.0200,120.1,Crater
+moon,Orlov Y,-22.8400,-175.3700,120.0,Satellite Feature
+moon,Rimae Janssen,-45.8000,39.2600,120.0,Rima
+moon,Brouwer,-35.8200,-124.7500,119.6,Crater
+moon,Sinus Lunicus,32.3600,-1.8500,119.2,Sinus
+moon,South,57.5800,-50.9400,119.0,Crater
+moon,Petermann R,74.7800,55.6100,118.4,Satellite Feature
+moon,Riemann,39.3800,87.1800,117.8,Crater
+moon,Letronne,-10.5000,-42.4900,117.6,Crater
+moon,Xenophanes,57.4900,-82.0100,117.6,Crater
+moon,Thomson,-32.3200,166.0400,117.2,Crater
+moon,Volta,53.9000,-84.7700,117.2,Crater
+moon,Nansen,81.1700,95.3800,116.9,Crater
+moon,Rima Hadley,25.7200,3.1500,116.1,Rima
+moon,Kästner,-6.9000,78.9400,116.1,Crater
+moon,Rupes Recta,-21.6700,-7.7000,116.0,Rupes
+moon,Barnard,-29.7900,85.9500,115.7,Crater
+moon,Nassau F,-25.3300,-179.0900,115.4,Satellite Feature
+moon,Buisson Z,0.1300,113.2900,115.3,Satellite Feature
+moon,Maurolycus,-41.7700,13.9200,115.3,Crater
+moon,Goldschmidt,73.0400,-3.3700,115.3,Crater
+moon,Phocylides,-52.7900,-57.3100,115.2,Crater
+moon,Purbach,-25.5100,-2.0300,115.0,Crater
+moon,Lamarck,-23.1200,-70.0600,114.7,Crater
+moon,Emden,62.7600,-176.5100,114.6,Crater
+moon,Moretus,-70.6300,-5.9500,114.5,Crater
+moon,Plaskett,81.6300,176.7100,114.3,Crater
+moon,Mons Song,-43.6400,-153.3700,114.0,Mons
+moon,Gamow,65.2900,144.6500,113.9,Crater
+moon,Hevelius,2.2000,-67.4600,113.9,Crater
+moon,Thomson M,-35.9800,166.4400,113.8,Satellite Feature
+moon,Rayleigh,29.1200,89.4500,113.8,Crater
+moon,Kovalevskaya,30.8600,-129.4400,113.7,Crater
+moon,Hommel,-54.7400,32.9300,113.6,Crater
+moon,Wiener,40.9000,146.5100,113.4,Crater
+moon,Van der Waals,-43.5600,119.9800,113.4,Crater
+moon,Dorsa Barlow,14.0400,30.5700,112.6,Dorsum
+moon,Flamsteed P,-3.2500,-44.2500,112.2,Satellite Feature
+moon,Stefan,46.3300,-108.7700,112.2,Crater
+moon,Rimae Römer,26.9800,34.8600,112.0,Rima
+moon,Montes Teneriffe,47.8900,-13.1900,112.0,Mons
+moon,Rumford T,-28.5400,-172.1500,111.7,Satellite Feature
+moon,Sinus Honoris,11.7200,17.8700,111.6,Sinus
+moon,Alden,-23.5100,111.1100,111.4,Crater
+moon,Gassendi,-17.5500,-39.9600,111.4,Crater
+moon,Kurchatov,38.3000,141.7400,111.0,Crater
+moon,Alphonsus,-13.3900,-2.8500,110.5,Crater
+moon,Vallis Palitzsch,-26.1600,64.6400,110.5,Vallis
+moon,Helmholtz,-68.6400,65.3400,110.2,Crater
+moon,Scheiner,-60.3500,-27.8100,110.1,Crater
+moon,Rimae Gerard,45.5400,-84.3600,110.0,Rima
+moon,Rimae Petavius,-25.2300,60.4800,110.0,Rima
+moon,Charlier,36.2200,-131.6900,109.9,Crater
+moon,Sternfeld,-19.7500,-142.2700,109.8,Crater
+moon,Maxwell,29.9000,98.5300,109.2,Crater
+moon,H. G. Wells,40.8400,122.6300,108.9,Crater
+moon,Repsold,51.3100,-78.4100,108.7,Crater
+moon,Hermite,86.1700,-93.3200,108.6,Crater
+moon,Levi-Civita,-23.3400,143.1400,108.2,Crater
+moon,Pascal,74.3600,-70.6300,108.2,Crater
+moon,Ostwald,10.2400,121.9500,108.1,Crater
+moon,Amici M,-11.8100,-172.0200,107.9,Satellite Feature
+moon,Scott,-82.3500,48.5200,107.8,Crater
+moon,Dorsum Scilla,32.3400,-60.0000,107.5,Dorsum
+moon,Minkowski,-56.1300,-145.8000,107.5,Crater
+moon,van't Hoff,61.7500,-132.6800,107.3,Crater
+moon,Fizeau,-58.1900,-134.1100,107.1,Crater
+moon,Vallis Capella,-7.3900,35.0400,106.3,Vallis
+moon,Blancanus,-63.7700,-21.6300,105.8,Crater
+moon,Buffon,-40.6400,-133.5300,105.8,Crater
+moon,Numerov,-70.5200,-162.2000,105.4,Crater
+moon,Anderson,15.5000,170.7900,105.3,Crater
+moon,Rima Euler,21.0800,-30.3100,105.0,Rima
+moon,Langemak,-9.9300,119.4500,104.8,Crater
+moon,Rocca W,-10.2600,-66.5200,104.7,Satellite Feature
+moon,Fitzgerald,26.6700,-172.1400,104.2,Crater
+moon,Phillips,-26.5700,75.6700,104.2,Crater
+moon,Firsov S,3.3400,110.2700,104.2,Satellite Feature
+moon,Boussingault E,-67.0800,46.6400,104.1,Satellite Feature
+moon,Lamb,-42.6700,100.9400,103.5,Crater
+moon,Lundmark,-38.8700,152.5600,103.4,Crater
+moon,Wyld,-1.4200,98.1000,103.4,Crater
+moon,Amundsen,-84.4400,83.0700,103.4,Crater
+moon,Russell,26.5100,-75.5500,103.4,Crater
+moon,Saha,-1.6900,103.0400,103.3,Crater
+moon,Dorsum Azara,26.8600,19.1700,103.2,Dorsum
+moon,Dorsum Cloos,1.1500,90.4100,103.1,Dorsum
+moon,Lacus Doloris,16.8000,8.6100,102.9,Lacus
+moon,Casatus,-72.7000,-30.7500,102.8,Crater
+moon,Al-Khwarizmi G,6.7600,107.3500,102.8,Satellite Feature
+moon,Philolaus G,69.1800,-23.8200,102.7,Satellite Feature
+moon,Seyfert,29.2600,114.3400,102.6,Crater
+moon,Piazzi,-36.1600,-68.0100,102.6,Crater
+moon,Vasco da Gama P,12.0000,-80.3400,102.5,Satellite Feature
+moon,Bolyai,-33.8500,126.1200,102.2,Crater
+moon,Leeuwenhoek E,-28.5100,-176.2700,102.1,Satellite Feature
+moon,Eötvös,-35.6100,134.4300,101.8,Crater
+moon,Doppler,-12.5800,-159.8400,101.8,Crater
+moon,Gärtner,59.2400,34.7600,101.8,Crater
+moon,Yablochkov,60.7800,127.5800,101.5,Crater
+moon,Fridman (Friedmann),-12.4800,-126.8800,101.5,Crater
+moon,Wilhelm,-43.2100,-20.9400,100.8,Crater
+moon,Ventris,-4.7700,157.9700,100.7,Crater
+moon,Plato,51.6200,-9.3800,100.7,Crater
+moon,Dorsa Rubey,-9.8800,-42.3600,100.6,Dorsum
+moon,Kovalevskaya Q,29.1800,-131.4400,100.6,Satellite Feature
+moon,Pitatus,-29.8800,-13.5300,100.6,Crater
+moon,Cabeus,-85.3300,-42.1300,100.6,Crater
+moon,Gilbert,-3.2000,76.1600,100.2,Crater
+moon,Schuster,4.4400,146.4200,100.1,Crater
+moon,Olbers D,10.2300,-78.0300,100.0,Satellite Feature
+moon,Rimae Chacornac,29.0100,31.2400,100.0,Rima
+moon,Rimae Plinius,17.0500,23.1400,100.0,Rima
+moon,Rimae Ramsden,-32.9300,-31.3200,100.0,Rima
+moon,Dorsum Arduino,24.7700,-36.2700,99.7,Dorsum
+moon,Seares,73.7400,147.2300,99.5,Crater
+moon,Larmor,31.8500,-179.6700,99.5,Crater
+moon,Curtius,-67.0800,4.4000,99.3,Crater
+moon,Banachiewicz,5.2800,80.0100,99.1,Crater
+moon,Paraskevopoulos,50.0900,-150.3400,98.9,Crater
+moon,Gerard,44.5400,-80.5100,98.8,Crater
+moon,Catharina,-17.9800,23.5500,98.8,Crater
+moon,Chrétien,-46.1100,162.9900,98.6,Crater
+moon,Theophilus,-11.4500,26.2800,98.6,Crater
+moon,Lacus Felicitatis,18.5200,5.3600,98.5,Lacus
+moon,Guyot,11.6300,117.1200,98.3,Crater
+moon,Vavilov,-0.8700,-138.7700,98.2,Crater
+moon,Philolaus C,71.2300,-32.8200,98.1,Satellite Feature
+moon,Cyrillus,-13.2900,24.0700,98.1,Crater
+moon,Rimae Bürg,44.7000,25.2700,98.0,Rima
+moon,Kondratyuk,-15.3300,115.8000,98.0,Crater
+moon,Vestine,33.8700,93.6800,97.8,Crater
+moon,Sacrobosco,-23.7500,16.6400,97.7,Crater
+moon,Sikorsky,-65.8900,103.6500,97.7,Crater
+moon,Joule,27.1500,-144.1400,97.5,Crater
+moon,Byrd,85.4300,10.0700,97.5,Crater
+moon,Schlesinger,47.1200,-138.9800,97.3,Crater
+moon,Milne P,-37.4700,108.0800,97.1,Satellite Feature
+moon,Mitra,17.7600,-154.6500,97.1,Crater
+moon,Neujmin,-26.6800,125.1700,97.0,Crater
+moon,Arzachel,-18.2600,-1.9300,97.0,Crater
+moon,Fra Mauro,-6.0600,-16.9700,96.8,Crater
+moon,Anaximander D,65.7800,-50.6800,96.6,Satellite Feature
+moon,Krasovskiy T,3.6400,-177.0900,96.5,Satellite Feature
+moon,von Békésy,51.9200,126.7300,96.2,Crater
+moon,Vavilov D,0.0300,-137.4800,96.2,Satellite Feature
+moon,Longomontanus Z,-49.9100,-18.0000,96.1,Satellite Feature
+moon,Copernicus,9.6200,-20.0800,96.1,Crater
+moon,Manzinus,-67.5100,26.3700,96.0,Crater
+moon,Wegener,45.2100,-113.8100,95.8,Crater
+moon,Kästner G,-3.6800,79.3500,95.7,Satellite Feature
+moon,Vallis Bohr,10.2500,-88.8600,95.3,Vallis
+moon,Babcock,4.1300,94.1400,95.3,Crater
+moon,Pauli,-44.7600,137.3500,95.3,Crater
+moon,Dorsum Cayeux,0.7600,51.2200,95.1,Dorsum
+moon,Posidonius,31.8800,29.9900,95.1,Crater
+moon,Poincaré F,-57.9300,168.6000,95.0,Satellite Feature
+moon,Alexander,40.2500,13.6900,94.8,Crater
+moon,Koch,-42.1300,150.3300,94.7,Crater
+moon,Encke T,3.2300,-37.8800,94.7,Satellite Feature
+moon,Inghirami,-47.4900,-68.9500,94.6,Crater
+moon,Boguslawsky,-72.9000,43.2600,94.6,Crater
+moon,Parenago,25.8800,-108.9100,94.6,Crater
+moon,Wiener K,39.2600,147.9600,94.5,Satellite Feature
+moon,Schickard P,-42.9100,-48.5000,94.4,Satellite Feature
+moon,Vetchinkin,9.7700,131.0800,94.3,Crater
+moon,Kekulé,16.3100,-138.4700,94.2,Crater
+moon,Milanković,76.5300,171.3500,94.2,Crater
+moon,Rima Oppolzer,-1.5300,1.2800,94.2,Rima
+moon,Hecataeus K,-19.6000,79.6900,94.1,Satellite Feature
+moon,Isaev,-17.5700,147.4900,94.1,Crater
+moon,Rimae Maclear,12.2300,19.9000,94.0,Rima
+moon,Millikan,46.7600,121.5200,94.0,Crater
+moon,Barrow,71.2800,7.5900,93.8,Crater
+moon,Berlage,-63.0400,-163.6100,93.8,Crater
+moon,Icarus,-5.4900,-173.2600,93.7,Crater
+moon,Lemaître,-61.3600,-149.9800,93.7,Crater
+moon,Daedalus,-5.8300,179.4000,93.6,Crater
+moon,Vasco da Gama,13.7800,-83.9400,93.5,Crater
+moon,Crommelin,-67.4600,-147.9500,93.5,Crater
+moon,Petzval,-62.7300,-110.8300,93.5,Crater
+moon,Dyson Q,59.1900,-126.1300,93.2,Satellite Feature
+moon,Goddard,15.1500,89.1300,93.2,Crater
+moon,Arnold,66.9800,35.8300,93.1,Crater
+moon,Parkhurst,-33.2900,103.6900,93.1,Crater
+moon,Shayn,32.5200,172.4200,92.9,Crater
+moon,Montes Harbinger,26.8900,-41.2900,92.7,Mons
+moon,Bose,-53.9500,-169.3600,92.5,Crater
+moon,Davisson,-37.9300,-174.9700,92.5,Crater
+moon,Cockcroft,31.0900,-162.9100,92.2,Crater
+moon,Papaleksi,10.1500,163.9500,92.0,Crater
+moon,Rothmann G,-28.3900,24.3900,92.0,Satellite Feature
+moon,Vernadskiy,23.1100,130.4300,92.0,Crater
+moon,Dorsa Argand,28.2900,-40.3400,91.9,Dorsum
+moon,Legendre K,-29.7900,72.2100,91.9,Satellite Feature
+moon,Playfair G,-23.9900,6.0900,91.7,Satellite Feature
+moon,Kibal'chich,2.7200,-147.1800,91.7,Crater
+moon,Rosenberger,-55.4900,43.1500,91.7,Crater
+moon,Gruemberger,-67.0400,-10.3000,91.5,Crater
+moon,Langmuir,-35.8500,-128.8900,91.5,Crater
+moon,Ansgarius,-12.9200,79.7200,91.4,Crater
+moon,Karpinskiy,72.6100,166.8000,91.4,Crater
+moon,Pontécoulant,-58.7800,66.0700,91.4,Crater
+moon,Philolaus D,74.3700,-27.6600,91.3,Satellite Feature
+moon,Lipskiy,-2.1500,-179.3800,91.2,Crater
+moon,Abel M,-32.3800,83.5200,91.0,Satellite Feature
+moon,Lomonosov,27.3500,98.2800,90.7,Crater
+moon,Hess,-54.4700,174.1900,90.4,Crater
+moon,Sirsalis Z,-10.3700,-62.0400,90.3,Satellite Feature
+moon,Gerasimovich,-22.9500,-123.4200,90.2,Crater
+moon,Rima Archytas,53.6300,3.0000,90.2,Rima
+moon,Love,-6.3300,129.1700,90.1,Crater
+moon,Brenner,-39.0900,39.1100,90.0,Crater
+moon,Rimae Pitatus,-29.8400,-13.6200,90.0,Rima
+moon,Birmingham,65.1200,-10.7000,89.9,Crater
+moon,Robertson,21.8400,-105.3700,89.8,Crater
+moon,Short B,-75.8900,-5.1700,89.8,Satellite Feature
+moon,Coulomb,54.4600,-115.0000,89.7,Crater
+moon,Dorsum Termier,11.6300,57.1500,89.7,Dorsum
+moon,Rimae Apollonius,4.3900,54.3300,89.6,Rima
+moon,Leucippus Q,25.7000,-119.3800,89.5,Satellite Feature
+moon,Baillaud,74.6100,37.3500,89.4,Crater
+moon,Roberts,70.6600,-174.2500,89.4,Crater
+moon,Vlacq,-53.3900,38.6900,89.2,Crater
+moon,Laue,28.2900,-97.0500,89.2,Crater
+moon,Moseley,20.9500,-90.2000,88.9,Crater
+moon,Lagalla,-44.4800,-22.3600,88.8,Crater
+moon,Perepelkin,-9.9900,128.8000,88.7,Crater
+moon,Amici U,-8.7500,-175.4700,88.7,Satellite Feature
+moon,Vening Meinesz,-0.1000,162.5100,88.7,Crater
+moon,Chandler,43.6500,171.7600,88.6,Crater
+moon,McMath,16.6300,-166.0900,88.6,Crater
+moon,Gemma Frisius,-34.3300,13.3700,88.5,Crater
+moon,Lacus Gaudii,16.3300,12.2700,88.5,Lacus
+moon,Pingré,-58.6400,-73.9500,88.4,Crater
+moon,Ibn Firnas,6.8300,122.3000,88.3,Crater
+moon,Spencer Jones,13.0600,165.8400,88.2,Crater
+moon,Atlas,46.7400,44.3800,88.1,Crater
+moon,Hopmann,-51.0100,159.2300,87.8,Crater
+moon,Paschen M,-16.3000,-140.6200,87.8,Satellite Feature
+moon,Torricelli R,-5.2400,28.1400,87.6,Satellite Feature
+moon,Berkner,25.1300,-105.2400,87.6,Crater
+moon,Piccolomini,-29.7000,32.2000,87.6,Crater
+moon,Aristoteles,50.2400,17.3200,87.6,Crater
+moon,Schlüter,-5.9300,-83.3900,87.5,Crater
+moon,Prandtl,-59.6200,141.5400,87.5,Crater
+moon,Hahn,31.2200,73.5500,87.5,Crater
+moon,Perrine,42.1100,-127.9500,87.4,Crater
+moon,Meitner,-10.8700,113.1000,87.3,Crater
+moon,Lobachevskiy,9.7600,113.0700,87.3,Crater
+moon,Vieta,-29.3100,-56.5300,87.2,Crater
+moon,Rimae Alphonsus,-13.4000,-1.9400,87.0,Rima
+moon,Rimae Menelaus,17.1000,17.7700,87.0,Rima
+moon,Wurzelbauer,-34.0400,-16.0600,86.8,Crater
+moon,Tikhomirov,24.2000,161.3300,86.4,Crater
+moon,Scaliger,-27.2600,109.1400,86.4,Crater
+moon,Lacus Aestatis,-14.8300,-68.5700,86.4,Lacus
+moon,Bell,21.9800,-96.5300,86.3,Crater
+moon,Hayn,64.5600,83.8700,86.2,Crater
+moon,Meton C,70.4500,18.8700,86.1,Satellite Feature
+moon,Rima Louville,47.6100,-51.5400,86.0,Rima
+moon,Snellius,-29.3300,55.7000,86.0,Crater
+moon,Rupes Kelvin,-28.0300,-33.1700,85.9,Rupes
+moon,Paracelsus,-22.9200,163.4400,85.9,Crater
+moon,Schomberger,-76.6400,24.6900,85.8,Crater
+moon,Heraclitus,-49.3100,6.4200,85.7,Crater
+moon,Dorsum Cushman,1.4200,49.1900,85.7,Dorsum
+moon,Tycho,-43.3000,-11.2200,85.3,Crater
+moon,Cremona,67.2400,-90.8600,85.1,Crater
+moon,Lacus Tenebrarum,-86.7100,-87.6700,85.0,Lacus
+moon,Desargues,70.2500,-73.4200,84.8,Crater
+moon,Julius Caesar,9.1700,15.2100,84.7,Crater
+moon,Wargentin,-49.5300,-60.4400,84.7,Crater
+moon,Dorsum Bucher,30.7600,-39.5500,84.7,Dorsum
+moon,Mezentsev M,68.2900,-127.5900,84.6,Satellite Feature
+moon,Mezentsev,71.7700,-129.6400,84.5,Crater
+moon,Byrgius,-24.7300,-65.3800,84.5,Crater
+moon,Mersenius,-21.4900,-49.3400,84.5,Crater
+moon,Hale,-74.1300,91.7100,84.4,Crater
+moon,Neumayer,-71.1600,70.9200,84.4,Crater
+moon,Lamé,-14.7600,64.5600,84.3,Crater
+moon,Smoluchowski,60.2200,-96.9100,84.3,Crater
+moon,Wood,43.6600,-121.8300,84.2,Crater
+moon,Rocca,-12.8900,-72.8900,84.1,Crater
+moon,Tikhov,61.6600,172.2900,84.0,Crater
+moon,Ioffe,-14.3800,-129.1600,84.0,Crater
+moon,Newton,-76.5200,-17.4400,83.8,Crater
+moon,Maksutov,-40.7500,-168.6500,83.8,Crater
+moon,Metius,-40.4200,43.3700,83.8,Crater
+moon,Montgolfier,47.0600,-160.0800,83.7,Crater
+moon,Von Zeipel,42.1900,-141.9300,83.4,Crater
+moon,Lyman,-64.9600,162.4700,83.2,Crater
+moon,Montes Recti,48.3000,-19.7200,83.2,Mons
+moon,Lamont,5.1400,23.3200,83.2,Crater
+moon,Lyman Q,-68.2000,156.5100,83.2,Satellite Feature
+moon,Freundlich,25.0000,170.8900,83.2,Crater
+moon,Hertz,13.3200,104.5600,82.9,Crater
+moon,Mouchez,78.3800,-26.8200,82.8,Crater
+moon,Barocius,-44.9800,16.8100,82.7,Crater
+moon,Rabbi Levi,-34.7800,23.4600,82.4,Crater
+moon,Boole H,61.7300,-88.8300,82.4,Satellite Feature
+moon,Dorsa Dana,2.2600,89.6000,82.3,Dorsum
+moon,Alder,-48.6300,-177.8800,82.1,Crater
+moon,Hase,-29.3700,62.6800,82.1,Crater
+moon,Zhukovskiy,7.5500,-167.2800,82.1,Crater
+moon,Oresme,-42.6100,169.2200,82.0,Crater
+moon,Dellinger,-6.8700,140.7000,82.0,Crater
+moon,Geminus,34.4200,56.6600,82.0,Crater
+moon,Bridgman,43.3900,136.9800,81.9,Crater
+moon,Hubble,22.2900,86.9100,81.8,Crater
+moon,Sasserides,-39.2800,-9.4400,81.7,Crater
+moon,Birkeland,-30.1700,174.0100,81.6,Crater
+moon,Cabannes,-61.2400,-170.2100,81.3,Crater
+moon,Jeans,-55.5800,91.5100,81.1,Crater
+moon,Anaximenes,72.4900,-44.9800,81.1,Crater
+moon,Hess Z,-52.0800,173.7100,81.1,Satellite Feature
+moon,Garavito,-47.2100,156.7800,81.0,Crater
+moon,Ley,42.1100,154.8400,81.0,Crater
+moon,Archimedes,29.7200,-3.9900,81.0,Crater
+moon,Dorsa Andrusov,-1.5600,56.7700,81.0,Dorsum
+moon,Catena Dziewulski,18.7800,100.2700,80.7,Catena
+moon,Komarov,24.5900,152.2500,80.4,Crater
+moon,Carver M,-45.6600,127.4300,80.4,Satellite Feature
+moon,Al-Biruni,18.0700,92.6200,80.4,Crater
+moon,La Pérouse,-10.6700,76.2800,80.4,Crater
+moon,Elvey,9.0100,-100.6400,80.2,Crater
+moon,Lyot L,-54.2500,83.1500,80.1,Satellite Feature
+moon,Rimae Sulpicius Gallus,20.6500,9.9900,80.0,Rima
+moon,Olcott,20.5700,117.7900,79.9,Crater
+moon,Hansen B,14.4300,79.5200,79.9,Satellite Feature
+moon,Pitiscus,-50.6100,30.5700,79.8,Crater
+moon,Aliacensis,-30.6000,5.1300,79.7,Crater
+moon,Gauricus,-33.9100,-12.7400,79.6,Crater
+moon,Cyrano,-20.3700,157.3700,79.6,Crater
+moon,Hagecius,-59.9200,46.6300,79.5,Crater
+moon,Sniadecki Q,-22.9300,-170.2700,79.5,Satellite Feature
+moon,Nobile,-85.2800,53.2700,79.3,Crater
+moon,Doerfel Y,-67.9300,-108.7700,79.3,Satellite Feature
+moon,Anaximander B,68.0800,-61.2100,79.1,Satellite Feature
+moon,Colombo,-15.2600,46.0200,79.0,Crater
+moon,Zagut,-31.9400,21.8900,78.9,Crater
+moon,Fabricius,-42.7500,41.8400,78.9,Crater
+moon,Kolhörster,10.7900,-115.0100,78.8,Crater
+moon,Meton D,72.1600,24.4600,78.8,Satellite Feature
+moon,Gibbs,-18.3700,84.2700,78.8,Crater
+moon,Peary,88.6300,24.4000,78.8,Crater
+moon,Oken,-43.7600,76.0900,78.7,Crater
+moon,Coriolis,0.5600,171.8000,78.6,Crater
+moon,Hartwig,-6.1400,-80.4700,78.5,Crater
+moon,Olivier,58.7200,138.4400,78.5,Crater
+moon,Nasmyth,-50.4900,-56.3900,78.4,Crater
+moon,Frost,37.4100,-118.9000,78.3,Crater
+moon,Lacus Lenitatis,14.3200,12.0500,78.2,Lacus
+moon,Legendre,-28.9200,70.0200,78.1,Crater
+moon,Rimae Posidonius,32.0300,29.6100,78.0,Rima
+moon,Rynin,46.7800,-103.7300,77.9,Crater
+moon,Holetschek R,-29.1300,147.8300,77.8,Satellite Feature
+moon,Chauvenet,-11.6400,137.2000,77.7,Crater
+moon,Ganswindt,-79.4200,111.1700,77.5,Crater
+moon,Klute,36.9300,-141.7600,77.5,Crater
+moon,Yamamoto,58.1600,161.8700,77.5,Crater
+moon,Prager G,-4.7500,134.3400,77.5,Satellite Feature
+moon,Schliemann,-1.9900,155.1200,77.4,Crater
+moon,Zhiritskiy F,-24.9200,121.6100,77.4,Satellite Feature
+moon,Cuvier,-50.2900,9.6900,77.3,Crater
+moon,Mees Y,15.7300,-96.7400,77.3,Satellite Feature
+moon,Bragg,42.3300,-103.4400,77.2,Crater
+moon,Thebit P,-24.0600,-5.6300,77.1,Satellite Feature
+moon,Montanari,-45.8300,-20.7600,77.0,Crater
+moon,Biela,-54.9900,51.6300,77.0,Crater
+moon,Petermann,74.3500,67.8900,77.0,Crater
+moon,Clairaut,-47.8400,13.8600,76.9,Crater
+moon,Houzeau,-17.2500,-123.8900,76.8,Crater
+moon,Chapman,50.0900,-100.4700,76.8,Crater
+moon,Galvani,49.5100,-84.5600,76.8,Crater
+moon,Esnault-Pelterie,47.4100,-141.8300,76.8,Crater
+moon,Beijerinck,-13.4000,151.8400,76.8,Crater
+moon,Lacus Spei,43.4600,65.2000,76.7,Lacus
+moon,Birkhoff X,61.6200,-150.4200,76.6,Satellite Feature
+moon,Mons Bradley,21.7300,0.3800,76.5,Mons
+moon,Mutus,-63.6500,29.9300,76.3,Crater
+moon,King,4.9600,120.4900,76.2,Crater
+moon,Flammarion,-3.3300,-3.7300,76.2,Crater
+moon,Trumpler,29.3300,167.1400,76.2,Crater
+moon,Dorsa Sorby,18.6500,13.7000,76.0,Dorsum
+moon,Nassau,-24.9100,177.3400,75.8,Crater
+moon,Cantor,38.0400,118.6900,75.7,Crater
+moon,Chauvenet J,-14.2100,139.5100,75.7,Satellite Feature
+moon,Plummer,-24.6200,-154.8600,75.7,Crater
+moon,De Sitter M,81.1100,37.5700,75.5,Satellite Feature
+moon,Backlund,-16.2200,103.3500,75.5,Crater
+moon,Licetus,-47.1900,6.5400,75.4,Crater
+moon,Boussingault A,-69.9600,53.8700,75.4,Satellite Feature
+moon,Necho P,-6.9900,122.2800,75.3,Satellite Feature
+moon,McLaughlin,47.0100,-92.8300,75.3,Crater
+moon,Berosus,33.5000,69.9900,75.2,Crater
+moon,Sharonov,12.3700,173.1000,75.1,Crater
+moon,Razumov,38.9500,-114.6300,75.1,Crater
+moon,Rimae Fresnel,28.1100,3.7300,75.0,Rima
+moon,Rimae Ritter,3.5000,17.9700,75.0,Rima
+moon,Rozhdestvenskiy W,85.8900,114.6400,75.0,Satellite Feature
+moon,Waterman,-25.7000,128.1800,74.9,Crater
+moon,Condorcet,12.1000,69.5800,74.8,Crater
+moon,Von Neumann,40.2800,153.2500,74.8,Crater
+moon,Alekhin,-67.9400,-131.8500,74.8,Crater
+moon,Cajori,-47.6700,168.7000,74.7,Crater
+moon,Slipher,49.2800,160.2700,74.7,Crater
+moon,Saenger,4.4900,102.8000,74.6,Crater
+moon,Shternberg (Sternberg),19.3800,-116.8200,74.4,Crater
+moon,Rima Messier,-0.7600,44.5500,74.2,Rima
+moon,Hédervári,-81.7700,85.6000,74.1,Crater
+moon,Moiseev Z,11.1900,103.3800,74.1,Satellite Feature
+moon,Bouvard M,-40.5700,-77.4500,74.1,Satellite Feature
+moon,Einthoven,-5.0600,110.0600,73.9,Crater
+moon,Chappell,54.5300,-176.7700,73.9,Crater
+moon,Jansky,8.6300,89.5000,73.8,Crater
+moon,Jenner,-42.0100,95.9800,73.7,Crater
+moon,Vega,-45.4100,63.2700,73.5,Crater
+moon,Oenopides,57.1300,-64.2000,73.5,Crater
+moon,Reiner Gamma,7.3900,-58.9600,73.4,Albedo Feature
+moon,Deutsch,24.3500,110.9100,73.3,Crater
+moon,Mons Rümker,40.7600,-58.3800,73.2,Mons
+moon,Comstock,21.5900,-122.0500,73.2,Crater
+moon,Goclenius,-10.0500,45.0300,73.0,Crater
+moon,Olbers,7.3000,-76.1400,73.0,Crater
+moon,Avicenna,39.6300,-97.2800,73.0,Crater
+moon,Finsen,-42.2900,-177.7200,73.0,Crater
+moon,Orlov,-25.7700,-175.0800,72.9,Crater
+moon,Marconi,-9.4800,145.2000,72.9,Crater
+moon,Nearch,-58.5800,39.0100,72.8,Crater
+moon,Morse,21.9000,-175.2900,72.8,Crater
+moon,Lacus Odii,19.2200,7.2700,72.7,Lacus
+moon,Bolyai L,-36.4800,126.6600,72.7,Satellite Feature
+moon,Pannekoek R,-5.3300,138.5300,72.6,Satellite Feature
+moon,Schiller H,-50.6000,-37.7400,72.4,Satellite Feature
+moon,Malapert,-85.0000,11.4000,72.4,Crater
+moon,Denning R,-16.9700,141.3000,72.4,Satellite Feature
+moon,Lee M,-29.8300,-39.7000,72.3,Satellite Feature
+moon,Boltzmann,-74.8200,-90.4100,72.3,Crater
+moon,Mineur,24.6700,-161.7300,72.3,Crater
+moon,Obruchev,-38.6700,162.4300,72.2,Crater
+moon,Piccolomini F,-26.3600,31.7800,72.2,Satellite Feature
+moon,Racah,-13.5000,-179.8700,71.9,Crater
+moon,Riccius,-37.0200,26.4300,71.8,Crater
+moon,Bettinus,-63.4000,-45.1600,71.8,Crater
+moon,Subbotin,-29.3200,135.7100,71.7,Crater
+moon,Stevinus,-32.4900,54.1400,71.5,Crater
+moon,Pingré S,-60.3300,-82.3900,71.5,Satellite Feature
+moon,Paraskevopoulos S,48.5700,-155.2600,71.5,Satellite Feature
+moon,Philolaus,72.2200,-32.8800,71.4,Crater
+moon,Young,-41.5400,50.9800,71.4,Crater
+moon,Popov,16.9300,99.3800,71.4,Crater
+moon,Jackson,22.0500,-163.3200,71.4,Crater
+moon,Sarton,49.1200,-121.1400,71.3,Crater
+moon,Kircher,-67.0100,-45.4800,71.2,Crater
+moon,Lavoisier,38.1700,-81.2500,71.0,Crater
+moon,Rimae Maestlin,2.8800,-40.4800,71.0,Rima
+moon,Babbage D,58.6500,-61.1700,71.0,Satellite Feature
+moon,Rheita,-37.1000,47.1700,70.8,Crater
+moon,Sinus Fidei,17.9900,2.0400,70.7,Sinus
+moon,Parrot,-14.5700,3.2900,70.7,Crater
+moon,Gutenberg,-8.6100,41.2500,70.7,Crater
+moon,Lacus Perseverantiae,7.8400,61.9300,70.6,Lacus
+moon,Nonius,-34.9000,3.7900,70.6,Crater
+moon,Comrie K,21.9200,-112.5700,70.6,Satellite Feature
+moon,Werner,-28.0300,3.2900,70.6,Crater
+moon,Hainzel,-41.2300,-33.5200,70.6,Crater
+moon,O'Day,-30.4200,157.2900,70.4,Crater
+moon,Sirsalis E,-8.1600,-56.7000,70.3,Satellite Feature
+moon,Mariotte,-28.4600,-139.0600,70.3,Crater
+moon,Bhabha,-55.5000,-165.3100,70.2,Crater
+moon,Eudoxus,44.2700,16.2300,70.2,Crater
+moon,Pictet E,-41.4500,-7.8700,70.1,Satellite Feature
+moon,Bohr,12.7100,-86.5200,70.1,Crater
+moon,Kamerlingh Onnes,14.7200,-116.2900,70.0,Crater
+moon,Espin,28.1500,109.3400,70.0,Crater
+moon,Promontorium Taenarium,-18.6300,-7.3400,70.0,Promontorium
+moon,Rimae Gassendi,-17.4700,-39.8700,70.0,Rima
+moon,Rima Billy,-14.7400,-48.0400,69.8,Rima
+moon,Stratton,-5.6000,164.7000,69.8,Crater
+moon,Plutarch,24.1800,79.0500,69.6,Crater
+moon,Davy Y,-11.0500,-7.2500,69.6,Satellite Feature
+moon,Mercurius D,46.1300,69.0000,69.5,Satellite Feature
+moon,De Sitter L,78.8600,34.5200,69.4,Satellite Feature
+moon,Evans,-9.6300,-133.7800,69.4,Crater
+moon,Icarus D,-4.5500,-171.4200,69.4,Satellite Feature
+moon,Leavitt,-44.8600,-139.8900,69.3,Crater
+moon,Danjon,-11.4200,123.9000,69.3,Crater
+moon,Catena Taruntius,3.0400,48.7100,69.2,Catena
+moon,Balboa,19.2400,-83.3100,69.2,Crater
+moon,Milne Q,-34.3700,107.6600,69.2,Satellite Feature
+moon,Florey,87.0400,-19.7500,69.1,Crater
+moon,Faraday,-42.4500,8.7500,69.0,Crater
+moon,Florensky,25.4500,131.8500,69.0,Crater
+moon,Helberg C,23.3700,-100.9300,69.0,Satellite Feature
+moon,Dziewulski,20.9900,99.0200,68.9,Crater
+moon,Simpelius,-72.6100,14.7400,68.9,Crater
+moon,Henyey,12.7000,-152.3300,68.7,Crater
+moon,Anaximander,66.9700,-51.4400,68.7,Crater
+moon,Pontécoulant F,-57.6000,68.1700,68.7,Satellite Feature
+moon,Brashear P,-76.3700,-176.3200,68.7,Satellite Feature
+moon,Omar Khayyam,58.2100,-102.2200,68.6,Crater
+moon,Doerfel,-68.9700,-108.5300,68.6,Crater
+moon,Störmer,57.1400,146.6500,68.6,Crater
+moon,Gregory Q,0.1900,125.9400,68.6,Satellite Feature
+moon,Zach,-60.9200,5.2500,68.5,Crater
+moon,Capuanus P,-35.4400,-28.5900,68.5,Satellite Feature
+moon,Evershed E,35.5300,-158.4200,68.5,Satellite Feature
+moon,Stadius,10.4800,-13.7700,68.5,Crater
+moon,Oresme U,-41.7100,164.9400,68.4,Satellite Feature
+moon,Fernelius,-38.1800,4.8600,68.4,Crater
+moon,Titius,-26.7500,100.6600,68.4,Crater
+moon,Le Monnier,26.6600,30.5000,68.4,Crater
+moon,Raimond,14.7800,-159.6300,68.4,Crater
+moon,Hercules,46.8200,39.2100,68.3,Crater
+moon,Green,3.6900,133.1200,68.3,Crater
+moon,Danjon X,-10.0600,122.8600,68.2,Satellite Feature
+moon,Kirkwood,68.3400,-156.6600,68.1,Crater
+moon,Hecataeus B,-19.3800,75.6200,68.1,Satellite Feature
+moon,Konstantinov,19.5600,158.3400,68.1,Crater
+moon,Rima Artsimovich,26.6600,-38.6500,68.1,Rima
+moon,Lamb G,-43.0600,105.7000,68.0,Satellite Feature
+moon,Sinus Viscositatis,35.2500,-40.9900,68.0,Sinus
+moon,Poncelet C,77.5600,-74.5000,68.0,Satellite Feature
+moon,Short,-74.5400,-7.6800,67.9,Crater
+moon,Kostinskiy,14.4300,118.8500,67.9,Crater
+moon,Segner,-58.9600,-48.6800,67.8,Crater
+moon,Joule L,25.8200,-143.8900,67.8,Satellite Feature
+moon,Rima T. Mayer,13.2600,-31.3700,67.8,Rima
+moon,Kiess,-6.4100,84.1100,67.8,Crater
+moon,Rheita E,-34.2400,48.9200,67.7,Satellite Feature
+moon,Rosseland,-40.8200,130.6800,67.7,Crater
+moon,Lyapunov,26.4300,89.3600,67.6,Crater
+moon,Poncelet,75.9100,-54.5700,67.6,Crater
+moon,Crocco,-46.9800,150.5100,67.5,Crater
+moon,Pannekoek,-4.2000,140.6900,67.5,Crater
+moon,Glazenap P,-4.8800,136.3700,67.5,Satellite Feature
+moon,Gerard Q Inner,46.5400,-83.1300,67.3,Satellite Feature
+moon,Cori,-50.4800,-152.9100,67.2,Crater
+moon,La Caille,-23.6800,1.0800,67.2,Crater
+moon,Mons Kocher,-85.4600,-118.0600,67.0,Mons
+moon,Mons Malapert,-85.9800,-1.6700,67.0,Mons
+moon,Sierpinski,-26.9300,154.8100,66.9,Crater
+moon,Barringer,-28.2200,-150.4300,66.9,Crater
+moon,Zsigmondy,59.5200,-105.3000,66.9,Crater
+moon,Wilsing,-20.9700,-155.0500,66.8,Crater
+moon,Zeno,45.1500,72.9800,66.8,Crater
+moon,Zsigmondy S,59.3600,-107.2800,66.8,Satellite Feature
+moon,Planck Z,-55.8100,135.1000,66.8,Satellite Feature
+moon,St. John,10.0700,149.9800,66.7,Crater
+moon,Jeans N,-58.5200,90.6200,66.7,Satellite Feature
+moon,Daedalus W,-3.3400,177.4600,66.7,Satellite Feature
+moon,Bečvář,-2.5700,125.0700,66.6,Crater
+moon,Haskin,81.5100,133.1600,66.6,Crater
+moon,Wilson,-69.3300,-42.8300,66.6,Crater
+moon,Weiss,-31.7600,-19.5900,66.6,Crater
+moon,Watt,-49.6000,48.4800,66.5,Crater
+moon,Polzunov,25.5700,115.0100,66.5,Crater
+moon,Maraldi D,16.7400,36.0800,66.5,Satellite Feature
+moon,Korolev C,-0.7300,-153.2200,66.5,Satellite Feature
+moon,Krylov A,38.5400,-165.2100,66.5,Satellite Feature
+moon,Artem'ev,10.4000,-145.2200,66.4,Crater
+moon,Thiessen,74.8600,-169.5000,66.4,Crater
+moon,Buys-Ballot,20.8600,174.8200,66.4,Crater
+moon,Dorsa Stille,26.9100,-18.8500,66.3,Dorsum
+moon,Jacobi,-56.8200,11.3000,66.3,Crater
+moon,Bronk,25.9000,-134.6700,66.2,Crater
+moon,Endymion J,53.5100,50.7100,66.0,Satellite Feature
+moon,Agatharchides P,-20.3000,-28.7700,66.0,Satellite Feature
+moon,Meshcherskiy,12.1100,125.5300,65.9,Crater
+moon,Kugler,-53.4400,104.1000,65.9,Crater
+moon,Rima Furnerius,-35.3000,61.1700,65.8,Rima
+moon,Ricco,74.9200,177.0500,65.8,Crater
+moon,Huggins,-41.0700,-1.5200,65.8,Crater
+moon,Gadomski,36.2100,-147.3600,65.7,Crater
+moon,Keeler L,-13.0600,163.2100,65.7,Satellite Feature
+moon,Aitken C,-13.7600,175.5700,65.6,Satellite Feature
+moon,Chandler P,41.5400,170.1500,65.6,Satellite Feature
+moon,Tseraskiy (Ceraski),-48.6600,142.6400,65.6,Crater
+moon,Winlock M,32.0400,-106.2300,65.5,Satellite Feature
+moon,Barbier,-23.8500,157.9300,65.4,Crater
+moon,Baco,-51.0400,19.1000,65.3,Crater
+moon,Evershed,35.3000,-159.5100,65.3,Crater
+moon,Schubert N,1.7900,72.6500,65.1,Satellite Feature
+moon,Poinsot,78.9000,-146.2100,65.1,Crater
+moon,Gemma Frisius A,-35.8000,15.1500,65.1,Satellite Feature
+moon,Doppelmayer,-28.4800,-41.5100,65.1,Crater
+moon,Dunér,44.6800,179.4600,65.1,Crater
+moon,Valier,6.6500,174.2600,65.1,Crater
+moon,Mons Hua,45.7100,-52.2600,65.0,Mons
+moon,Kekulé V,18.3300,-141.7300,65.0,Satellite Feature
+moon,Dorsum Gast,24.3800,8.7100,64.9,Dorsum
+moon,Heinsius,-39.4800,-17.8200,64.9,Crater
+moon,Reichenbach,-30.4800,47.9500,64.8,Crater
+moon,Boscovich P,11.4700,10.3100,64.8,Satellite Feature
+moon,C. Mayer D,62.2000,18.5100,64.8,Satellite Feature
+moon,Nöther (Noether),66.3500,-114.1800,64.8,Crater
+moon,Alter,18.7400,-107.8000,64.7,Crater
+moon,Brisbane Z,-52.8900,72.8200,64.7,Satellite Feature
+moon,Hedin A,5.4000,-78.0600,64.7,Satellite Feature
+moon,Vesalius,-3.2300,114.7900,64.7,Crater
+moon,Lucretius,-8.2200,-121.2400,64.6,Crater
+moon,Appleton,37.0500,158.1700,64.6,Crater
+moon,Schlesinger B,51.0200,-135.1700,64.5,Satellite Feature
+moon,Pilâtre,-60.1700,-86.7000,64.4,Crater
+moon,Mercurius,46.6600,66.0700,64.3,Crater
+moon,Rocca A,-13.7600,-70.3200,64.2,Satellite Feature
+moon,Stöfler J,-42.1100,2.4900,64.2,Satellite Feature
+moon,Wichmann R,-6.6400,-38.9500,64.1,Satellite Feature
+moon,Fizeau S,-58.6600,-140.4300,64.1,Satellite Feature
+moon,Petropavlovskiy,36.9200,-115.2800,64.1,Crater
+moon,Abbe,-57.5800,174.7700,64.0,Crater
+moon,Winlock,35.4000,-105.9200,63.9,Crater
+moon,Gill,-63.7700,75.9500,63.9,Crater
+moon,Gregory,1.7600,127.2800,63.9,Crater
+moon,Dreyer,10.2400,97.0900,63.8,Crater
+moon,Euclides P,-4.5200,-27.6900,63.8,Satellite Feature
+moon,Nassau D,-23.6700,-179.3800,63.8,Satellite Feature
+moon,Sechenov,-6.9700,-143.0900,63.8,Crater
+moon,De Sitter,79.8100,38.5700,63.8,Crater
+moon,Paracelsus P,-24.7900,161.8800,63.8,Satellite Feature
+moon,Erro,5.6800,98.5400,63.8,Crater
+moon,Kidinnu E,36.0300,124.4600,63.7,Satellite Feature
+moon,Lexell,-35.7800,-4.2700,63.7,Crater
+moon,Leavitt Z,-42.5700,-139.5600,63.6,Satellite Feature
+moon,Lyot H,-51.5000,78.0000,63.6,Satellite Feature
+moon,Chrétien C,-44.7600,165.4200,63.6,Satellite Feature
+moon,Boguslawsky B,-73.9800,61.1200,63.5,Satellite Feature
+moon,Harlan,-38.3100,79.6500,63.5,Crater
+moon,Apianus,-26.9600,7.8700,63.4,Crater
+moon,Babcock H,3.1100,96.5100,63.4,Satellite Feature
+moon,Lebedinskiy,7.8400,-164.8900,63.4,Crater
+moon,Hartmann,2.7100,135.4500,63.3,Crater
+moon,Steinheil,-48.7100,46.6600,63.3,Crater
+moon,Adams,-31.8900,68.3900,63.3,Crater
+moon,Jeans U,-54.6800,86.9700,63.3,Satellite Feature
+moon,Bellinsgauzen (Bellingshausen),-60.7200,-164.8500,63.2,Crater
+moon,Cleostratus,60.3200,-77.4000,63.2,Crater
+moon,Zucchius,-61.3800,-50.6500,63.2,Crater
+moon,Dyson,60.8700,-121.7100,63.1,Crater
+moon,Stetson,-39.5800,-118.2000,63.1,Crater
+moon,Dorsum Higazy,27.9300,-17.4700,63.1,Dorsum
+moon,Lampland,-31.1700,131.5100,63.0,Crater
+moon,Fraunhofer J,-42.3100,63.4100,62.9,Satellite Feature
+moon,Becquerel,40.7900,129.5000,62.9,Crater
+moon,Schjellerup,69.0400,158.2400,62.8,Crater
+moon,Ventris N,-6.8100,157.5900,62.8,Satellite Feature
+moon,Macrobius,21.2600,45.9700,62.8,Crater
+moon,Edison,24.8800,99.2700,62.7,Crater
+moon,Euctemon,76.2600,30.5700,62.7,Crater
+moon,Siedentopf,22.0500,135.0800,62.7,Crater
+moon,Lowell,-12.9700,-103.4200,62.6,Crater
+moon,Paracelsus E,-22.5900,167.3000,62.6,Satellite Feature
+moon,Hayn F,68.0100,85.7500,62.5,Satellite Feature
+moon,Perkin,47.0200,-175.7300,62.5,Crater
+moon,Newton G,-78.0800,-18.9600,62.5,Satellite Feature
+moon,Promontorium Agarum,13.8700,65.7300,62.5,Promontorium
+moon,Artamonov,25.4400,103.7900,62.5,Crater
+moon,Carver,-43.4600,127.6000,62.5,Crater
+moon,Saenger B,5.6400,103.3200,62.4,Satellite Feature
+moon,Teisserenc,31.9600,-136.2800,62.3,Crater
+moon,Newton A,-80.0500,-20.8200,62.3,Satellite Feature
+moon,Santbech,-20.9900,44.0600,62.2,Crater
+moon,Abulfeda,-13.8700,13.9100,62.2,Crater
+moon,Bailly B,-68.7400,-63.2500,62.2,Satellite Feature
+moon,Strömgren,-21.7400,-132.3700,62.2,Crater
+moon,Anuchin,-48.8500,101.6600,62.1,Crater
+moon,Pirquet,-20.3400,139.9300,62.1,Crater
+moon,Nishina,-44.5700,-170.8000,62.1,Crater
+moon,Oenopides R,55.6000,-67.8900,62.0,Satellite Feature
+moon,Mandel'shtam A,5.6800,162.3800,61.9,Satellite Feature
+moon,Helberg,22.6300,-102.4600,61.9,Crater
+moon,Belopol'skiy,-17.2500,-128.2300,61.9,Crater
+moon,Phillips D,-25.0400,70.8000,61.9,Satellite Feature
+moon,von Braun,41.0400,-78.0800,61.8,Crater
+moon,Ohm,18.3200,-113.7800,61.8,Crater
+moon,Bredikhin,17.2500,-158.3700,61.7,Crater
+moon,Krasovskiy,3.7900,-175.6300,61.7,Crater
+moon,Phillips W,-25.1500,72.2300,61.6,Satellite Feature
+moon,Gavrilov,17.4100,131.2200,61.6,Crater
+moon,Nansen F,84.9500,62.4400,61.6,Satellite Feature
+moon,Perrine S,41.9700,-128.8700,61.6,Satellite Feature
+moon,[Vernadskiy B],25.1500,131.5600,61.6,Satellite Feature
+moon,Kramers,53.2800,-127.9800,61.6,Crater
+moon,Moiseev,9.4400,103.2600,61.6,Crater
+moon,Peirescius,-46.4000,67.8000,61.5,Crater
+moon,Reichenbach T,-29.3900,45.7500,61.5,Satellite Feature
+moon,Mons Argaeus,19.3300,29.0100,61.5,Mons
+moon,Kinau R,-60.2300,11.5500,61.5,Satellite Feature
+moon,Miller,-39.3700,0.7800,61.4,Crater
+moon,Boole,63.7900,-87.2900,61.3,Crater
+moon,Schumacher,42.4200,60.8100,61.3,Crater
+moon,Siedentopf G,20.5900,137.9700,61.3,Satellite Feature
+moon,Ramsay,-40.0200,145.0400,61.3,Crater
+moon,Buisson,-1.4700,112.9500,61.3,Crater
+moon,Zsigmondy A,62.4800,-102.4200,61.2,Satellite Feature
+moon,Lilius,-54.6000,6.0900,61.2,Crater
+moon,Rimae Focas,-27.6800,-97.5400,61.0,Rima
+moon,Artem'ev G,10.0100,-143.6900,60.9,Satellite Feature
+moon,Paneth,62.6000,-94.6300,60.9,Crater
+moon,Vasco da Gama R,9.9100,-83.5100,60.9,Satellite Feature
+moon,Cusanus,71.8200,69.4000,60.9,Crater
+moon,Rumford,-28.8100,-169.8000,60.8,Crater
+moon,Olivier N,56.6300,137.0800,60.8,Satellite Feature
+moon,Guericke,-11.5700,-14.1900,60.8,Crater
+moon,Mendel V,-46.5500,-116.7200,60.8,Satellite Feature
+moon,Bullialdus,-20.7500,-22.2600,60.7,Crater
+moon,Dalton,17.0700,-84.4500,60.7,Crater
+moon,Cockcroft N,28.7800,-163.6700,60.6,Satellite Feature
+moon,Pavlov M,-32.4700,141.9500,60.6,Satellite Feature
+moon,Nušl,32.1900,167.4500,60.6,Crater
+moon,Lauritsen Z,-25.8600,96.3500,60.6,Satellite Feature
+moon,Kulik,41.9800,-154.6300,60.5,Crater
+moon,Maestlin R,3.5300,-41.4700,60.4,Satellite Feature
+moon,Chamberlin,-58.8300,96.0400,60.4,Crater
+moon,Brashear,-73.5400,-171.5700,60.2,Crater
+moon,[Lavoisier D],41.1000,-78.1000,60.1,Satellite Feature
+moon,Poincaré E,-56.5900,171.0600,60.0,Satellite Feature
+moon,Harvey,19.3500,-146.5100,60.0,Crater
+moon,Pawsey,44.2400,145.2900,60.0,Crater
+moon,Pictet,-43.5600,-7.4900,60.0,Crater
+moon,Ten Bruggencate,-9.5800,134.6600,60.0,Crater
+moon,Blanchinus,-25.3200,2.4400,59.9,Crater
+moon,Saha C,1.4500,108.2200,59.9,Satellite Feature
+moon,Grissom,-46.9200,-147.9800,59.8,Crater
+moon,Idel'son,-81.3500,112.6900,59.8,Crater
+moon,Drebbel E,-38.2100,-51.4800,59.8,Satellite Feature
+moon,Pikel'ner S,-49.4500,121.1000,59.8,Satellite Feature
+moon,Capuanus,-34.0900,-26.7300,59.7,Crater
+moon,Ibn Yunus,14.1400,91.1400,59.7,Crater
+moon,Niepce,72.2000,-120.1500,59.7,Crater
+moon,Kramers C,54.6600,-126.1100,59.6,Satellite Feature
+moon,Cabeus B,-82.2600,-54.5800,59.6,Satellite Feature
+moon,Buys-Ballot Q,19.7400,172.9000,59.6,Satellite Feature
+moon,Dawson V,-66.3000,-137.7300,59.6,Satellite Feature
+moon,Hanno,-56.4600,71.3800,59.5,Crater
+moon,Wilkins,-29.5800,19.5800,59.4,Crater
+moon,Watson,-62.5900,-124.0500,59.4,Crater
+moon,Lindblad,70.0300,-99.2200,59.4,Crater
+moon,Römer P,26.5400,39.8100,59.4,Satellite Feature
+moon,Cavalerius,5.1000,-66.9300,59.4,Crater
+moon,Kozyrev,-46.6400,129.5900,59.4,Crater
+moon,Fechner,-58.2500,125.0300,59.3,Crater
+moon,Chernyshev,47.0100,174.4100,59.3,Crater
+moon,Sylvester,82.6500,-81.2200,59.3,Crater
+moon,Bonpland,-8.3800,-17.3300,59.2,Crater
+moon,Comrie,23.3900,-113.1700,59.2,Crater
+moon,Lyman T,-64.2800,156.1100,59.2,Satellite Feature
+moon,Hippocrates,70.2600,-146.5400,59.2,Crater
+moon,Buys-Ballot Z,22.5400,174.7300,59.2,Satellite Feature
+moon,Vestine T,33.6400,91.0500,59.2,Satellite Feature
+moon,Montes Spitzbergen,34.4700,-5.2100,59.2,Mons
+moon,Furnerius V,-35.7200,65.5000,59.2,Satellite Feature
+moon,Chappell E,55.4000,-171.1900,59.2,Satellite Feature
+moon,Langley,51.1700,-86.0500,59.2,Crater
+moon,Olcott E,20.7400,119.7300,59.1,Satellite Feature
+moon,Al-Khwarizmi B,9.0900,107.9200,59.1,Satellite Feature
+moon,Carpenter,69.5200,-51.2300,59.1,Crater
+moon,Endymion B,59.8600,67.7500,59.0,Satellite Feature
+moon,Mallet,-45.4100,54.0500,58.9,Crater
+moon,Milne K,-32.7100,113.5600,58.9,Satellite Feature
+moon,Mechnikov,-10.4700,-148.9900,58.8,Crater
+moon,Lilius D,-50.5700,2.9500,58.8,Satellite Feature
+moon,Eratosthenes,14.4700,-11.3200,58.8,Crater
+moon,Einthoven M,-7.7100,110.0300,58.6,Satellite Feature
+moon,Vernadskiy X,25.8200,129.0000,58.6,Satellite Feature
+moon,Street,-46.5800,-10.7400,58.5,Crater
+moon,Rocca Q,-15.2900,-69.1400,58.5,Satellite Feature
+moon,Wrottesley,-23.9000,56.6200,58.4,Crater
+moon,Daedalus C,-4.1500,-178.9100,58.4,Satellite Feature
+moon,Damoiseau M,-5.0800,-61.3800,58.3,Satellite Feature
+moon,Marinus B,-39.6700,74.6200,58.2,Satellite Feature
+moon,Birkhoff K,57.4000,-144.8100,58.2,Satellite Feature
+moon,Lagrange E,-29.0100,-72.8500,58.1,Satellite Feature
+moon,Lade,-1.3300,9.9900,58.1,Crater
+moon,Schorr A,-20.3800,88.1600,58.1,Satellite Feature
+moon,Keeler V,-8.7700,158.2100,58.0,Satellite Feature
+moon,Oberbeck,-83.5500,68.1400,58.0,Crater
+moon,Atlas E,48.6100,42.5000,58.0,Satellite Feature
+moon,Rowland M,51.4800,-162.7000,58.0,Satellite Feature
+moon,Lacchini,41.2900,-107.8300,58.0,Crater
+moon,Baade,-44.7500,-82.0300,57.9,Crater
+moon,Murchison,5.0700,-0.2100,57.8,Crater
+moon,Lade A,-0.1600,12.7300,57.8,Satellite Feature
+moon,Langevin,44.1700,162.6900,57.8,Crater
+moon,Firsov K,2.7500,113.5100,57.8,Satellite Feature
+moon,Fraunhofer,-39.5200,59.0600,57.8,Crater
+moon,Hanno H,-57.8400,74.9600,57.7,Satellite Feature
+moon,Boussingault B,-65.6900,47.0400,57.7,Satellite Feature
+moon,Congreve,-0.2800,-167.8400,57.6,Crater
+moon,Rima Delisle,30.8700,-32.3500,57.6,Rima
+moon,Mendel J,-51.5100,-107.2000,57.6,Satellite Feature
+moon,Cannon,19.8800,81.3600,57.6,Crater
+moon,McLaughlin C,48.1700,-91.7900,57.5,Satellite Feature
+moon,Legendre D,-31.6000,75.1500,57.5,Satellite Feature
+moon,Simpelius A,-69.9000,16.1000,57.5,Satellite Feature
+moon,Hagen,-48.3200,135.9500,57.5,Crater
+moon,De Vries,-19.6800,-176.7800,57.5,Crater
+moon,Hamilton,-42.7700,84.4100,57.5,Crater
+moon,Lagrange W,-32.9700,-63.8300,57.4,Satellite Feature
+moon,Perrine G,41.7000,-124.9100,57.4,Satellite Feature
+moon,Hippalus,-24.9200,-30.4200,57.4,Crater
+moon,Brisbane E,-50.2600,71.4100,57.4,Satellite Feature
+moon,Taruntius,5.5000,46.5400,57.3,Crater
+moon,Bel'kovich A,58.6500,87.4100,57.3,Satellite Feature
+moon,Backlund L,-18.3700,103.8200,57.2,Satellite Feature
+moon,Curtius D,-64.7000,8.3500,57.2,Satellite Feature
+moon,Boyle,-53.2900,177.8900,57.1,Crater
+moon,Lippmann L,-57.4900,-112.4400,57.1,Satellite Feature
+moon,Bergstrand Q,-19.9400,175.1900,57.1,Satellite Feature
+moon,Lovelace,82.0800,-109.5100,57.1,Crater
+moon,Ulugh Beigh,32.6700,-81.9600,57.0,Crater
+moon,Leucippus,29.2400,-116.4100,57.0,Crater
+moon,Rimae Arzachel,-18.3100,-1.3800,57.0,Rima
+moon,Merrill,74.8300,-117.4500,57.0,Crater
+moon,Schliemann A,1.2200,155.1900,57.0,Satellite Feature
+moon,Cassini,40.2500,4.6400,56.9,Crater
+moon,Krasovskiy L,-0.5200,-175.0300,56.9,Satellite Feature
+moon,Schneller,41.3400,-163.7300,56.9,Crater
+moon,Alden C,-22.6900,111.7400,56.8,Satellite Feature
+moon,Firmicus,7.2500,63.4300,56.8,Crater
+moon,Haber,83.4000,-94.6300,56.8,Crater
+moon,Guillaume,45.1600,-173.3800,56.8,Crater
+moon,Korolev M,-8.5000,-157.3700,56.8,Satellite Feature
+moon,Schaeberle,-26.3300,117.7100,56.7,Crater
+moon,Froelich,80.0000,-111.6300,56.7,Crater
+moon,Hase D,-31.1100,63.3000,56.7,Satellite Feature
+moon,Cassegrain,-51.9500,113.3000,56.7,Crater
+moon,Marinus,-39.3800,76.5700,56.5,Crater
+moon,Scoresby M,75.5700,8.1500,56.5,Satellite Feature
+moon,Pentland,-64.5700,11.3400,56.5,Crater
+moon,Schubert G,4.1900,75.3400,56.4,Satellite Feature
+moon,Eijkman,-63.2100,-142.5100,56.4,Crater
+moon,De Forest,-76.9400,-163.3300,56.3,Crater
+moon,Al-Khwarizmi,7.0200,107.0100,56.2,Crater
+moon,Kohlschütter,14.2400,153.9500,56.2,Crater
+moon,Behaim,-16.6100,79.4100,56.2,Crater
+moon,Jules Verne P,-37.9000,145.3000,56.2,Satellite Feature
+moon,Heraclitus D,-50.5100,5.1400,56.1,Satellite Feature
+moon,Lodygin,-17.4200,-146.7800,56.1,Crater
+moon,Oresme V,-40.7500,165.3900,56.1,Satellite Feature
+moon,Ten Bruggencate Y,-6.8200,134.3000,56.1,Satellite Feature
+moon,Morozov F,4.9200,130.2000,56.0,Satellite Feature
+moon,Kleymenov,-32.4800,-140.3600,56.0,Crater
+moon,Simpelius D,-71.5600,8.2900,55.9,Satellite Feature
+moon,Franklin,38.7300,47.6400,55.9,Crater
+moon,Belyaev,23.1000,143.1100,55.9,Crater
+moon,Boole A,63.4200,-80.5700,55.9,Satellite Feature
+moon,Khvol'son,-14.1300,111.8700,55.9,Crater
+moon,Mallet J,-48.7900,55.9900,55.9,Satellite Feature
+moon,Chappe,-61.2900,-91.2400,55.8,Crater
+moon,Vasco da Gama F,13.8600,-80.7800,55.8,Satellite Feature
+moon,Baldet,-53.3200,-151.9600,55.8,Crater
+moon,Lambert R,23.8800,-20.6600,55.7,Satellite Feature
+moon,Pontanus,-28.4200,14.3600,55.7,Crater
+moon,Baillaud A,75.6100,48.2800,55.6,Satellite Feature
+moon,Roberts R,69.0500,178.8100,55.6,Satellite Feature
+moon,Karrer,-52.0600,-142.2800,55.6,Crater
+moon,Hainzel A,-40.3100,-34.0200,55.5,Satellite Feature
+moon,Geminus E,33.8400,48.5800,55.5,Satellite Feature
+moon,Petrov,-61.3600,88.1800,55.4,Crater
+moon,Seidel,-32.6500,152.4700,55.4,Crater
+moon,Fizeau G,-58.9900,-124.5600,55.4,Satellite Feature
+moon,Congreve Q,-1.7400,-169.5600,55.4,Satellite Feature
+moon,Bi Sheng,78.3500,148.4600,55.3,Crater
+moon,Patsaev K,-18.9400,134.5700,55.3,Satellite Feature
+moon,Patsaev,-16.7700,133.6000,55.2,Crater
+moon,Bunsen,41.4000,-85.4600,55.2,Crater
+moon,Dellinger B,-5.5000,141.2400,55.2,Satellite Feature
+moon,Arnold A,68.7700,39.6000,55.1,Satellite Feature
+moon,Catena Krafft,14.9100,-72.2500,55.1,Catena
+moon,Kidinnu,35.7900,122.9500,55.1,Crater
+moon,Volterra,56.5500,131.6400,55.1,Crater
+moon,Sanford,32.3800,-139.2100,55.1,Crater
+moon,Tsander (Zander) B,9.0100,-147.6800,55.1,Satellite Feature
+moon,Donner,-31.3500,97.9900,55.0,Crater
+moon,Paschen K,-17.9300,-139.5700,55.0,Satellite Feature
+moon,Fabricius A,-44.6400,44.4000,55.0,Satellite Feature
+moon,Rimae Opelt,-13.6400,-18.1400,55.0,Rima
+moon,Kane,62.9900,25.8400,55.0,Crater
+moon,Bartels,24.5100,-89.8500,55.0,Crater
+moon,Rowland Y,58.6400,-163.2100,54.9,Satellite Feature
+moon,Scoresby,77.7300,14.1300,54.9,Crater
+moon,Priestley,-56.7100,108.4700,54.9,Crater
+moon,Pavlov V,-26.6500,138.6100,54.8,Satellite Feature
+moon,Bouvard N,-38.4300,-76.5100,54.8,Satellite Feature
+moon,Quetelet,42.6600,-135.3000,54.8,Crater
+moon,Congreve U,0.4000,-170.7500,54.7,Satellite Feature
+moon,Strabo,61.9400,54.4200,54.7,Crater
+moon,Moulton,-60.9100,97.5700,54.7,Crater
+moon,Laue U,28.6900,-101.5000,54.7,Satellite Feature
+moon,Azophi G,-23.8700,12.2700,54.6,Satellite Feature
+moon,Casatus A,-72.6800,-37.6300,54.6,Satellite Feature
+moon,Jeans S,-56.6500,86.9300,54.6,Satellite Feature
+moon,Mechnikov D,-9.7400,-147.1900,54.6,Satellite Feature
+moon,Thebit,-22.0100,-4.0200,54.6,Crater
+moon,Saussure,-43.3800,-3.8800,54.6,Crater
+moon,Gum,-40.3400,88.9100,54.5,Crater
+moon,Cannizzaro,55.5000,-99.7300,54.5,Crater
+moon,Epigenes,67.5000,-4.6200,54.5,Crater
+moon,Fowler A,46.1200,-145.0600,54.5,Satellite Feature
+moon,Paraskevopoulos H,49.4700,-147.6000,54.5,Satellite Feature
+moon,Dryden,-33.2100,-156.1500,54.5,Crater
+moon,De Moraes,49.3800,143.0000,54.4,Crater
+moon,Racah K,-16.5600,-178.7700,54.4,Satellite Feature
+moon,Aristillus,33.8800,1.2100,54.4,Crater
+moon,Burckhardt,31.1100,56.3900,54.4,Crater
+moon,Rocca Z,-16.2300,-75.5400,54.4,Satellite Feature
+moon,Hagecius A,-58.2600,47.1000,54.3,Satellite Feature
+moon,Maclaurin,-1.9200,67.9900,54.3,Crater
+moon,Balboa B,20.4900,-82.5700,54.2,Satellite Feature
+moon,Rima Agatharchides,-20.3800,-28.5600,54.2,Rima
+moon,Abul Wáfa,0.9600,116.6300,54.2,Crater
+moon,Rima Birt,-21.4000,-9.2800,54.2,Rima
+moon,Abel L,-34.5500,82.3900,54.1,Satellite Feature
+moon,Mandel'shtam R,4.4000,159.7900,54.0,Satellite Feature
+moon,Dante C,28.0100,-177.1000,54.0,Satellite Feature
+moon,Blazhko R,29.8200,-150.0100,54.0,Satellite Feature
+moon,Harriot A,35.5800,114.7500,54.0,Satellite Feature
+moon,Zelinskiy,-28.7400,166.8600,54.0,Crater
+moon,Prager,-3.9900,130.7800,53.9,Crater
+moon,Von der Pahlen,-24.8400,-133.0100,53.9,Crater
 oberon,Mommur Chasma,-16.3000,-36.5000,537.0,Chasma
 oberon,Hamlet,-46.1000,44.4000,206.0,Crater
 oberon,Macbeth,-58.4000,112.5000,203.0,Crater
@@ -1532,6 +3844,63 @@ titan,Montego Sinus,80.7600,130.9200,83.0,Sinus
 titan,Faramir Colles,4.0000,-153.8000,82.0,Collis
 titan,Sparrow Lacus,84.3000,-64.7000,81.4,Lacus
 titan,Coats Facula,-11.1000,-29.2000,80.0,Facula
+titan,Dingle Sinus,81.3600,23.5600,80.0,Sinus
+titan,Selk,7.0000,161.0000,80.0,Crater
+titan,Sinlap,11.3000,-16.0000,80.0,Crater
+titan,Xanthus Flumen,83.4700,117.2400,78.0,Flumen
+titan,Kivu Lacus,87.0000,-121.0000,77.5,Lacus
+titan,Ipyr Labyrinthus,86.2400,71.0000,77.0,Labyrinthus
+titan,Soi,24.3000,-140.9000,75.0,Crater
+titan,Krocylea Insulae,69.1000,57.6000,74.0,Insula
+titan,Misty Montes,56.8000,-62.4400,73.0,Mons
+titan,Skelton Sinus,76.8000,45.1000,73.0,Sinus
+titan,Ara Fluctus,39.8000,-118.4000,70.0,Fluctus
+titan,Tengiz Lacus,73.2000,-105.6000,70.0,Lacus
+titan,Palma Labyrinthus,-72.4000,-31.0000,69.0,Labyrinthus
+titan,Koitere Lacus,79.4000,-36.1400,68.0,Lacus
+titan,Gatun Lacus,72.7900,178.0400,67.0,Lacus
+titan,Seldon Fretum,66.0000,43.4000,67.0,Fretum
+titan,Abaya Lacus,73.1700,-45.5500,65.0,Lacus
+titan,Tortola Facula,8.8000,-143.1000,65.0,Facula
+titan,Apanohuaya Flumen,84.2900,62.7600,64.0,Flumen
+titan,Arwen Colles,-7.5000,100.0000,64.0,Collis
+titan,Planctae Insulae,77.5000,108.7000,64.0,Insula
+titan,Rannoch Lacus,74.2000,-129.3000,63.5,Lacus
+titan,Doom Mons,-14.6500,-40.4200,63.0,Mons
+titan,Sotonera Lacus,76.7500,-17.4900,63.0,Lacus
+titan,Winnipeg Lacus,78.0500,-153.3100,60.0,Lacus
+titan,Tsomgo Lacus,-86.3700,-162.4100,59.0,Lacus
+titan,Yojoa Lacus,78.1000,-54.1000,58.3,Lacus
+titan,Xolotlán Lacus,82.3000,-72.9000,57.4,Lacus
+titan,Bralgu Insulae,76.2000,108.5000,55.0,Insula
+titan,Guabonito,-10.9000,-150.8000,55.0,Large ringed feature
+titan,Mývatn Lacus,78.1900,-135.2800,55.0,Lacus
+titan,Boni Sinus,78.6900,14.6200,54.0,Sinus
+titan,Waikare Lacus,81.6000,-126.0000,52.5,Lacus
+titan,Avacha Sinus,82.8700,24.5700,51.0,Sinus
+titan,Oneida Lacus,76.1400,-131.8300,51.0,Lacus
+titan,Brienz Lacus,85.3000,-43.8000,50.6,Lacus
+titan,Dridzis Lacus,78.9000,-131.3000,50.0,Lacus
+titan,Erebor Mons,-4.9700,-36.2300,50.0,Mons
+titan,Buyan Insula,77.3000,114.9000,48.0,Insula
+titan,Enriquillo Lacus,71.4000,-122.4100,47.0,Lacus
+titan,Feia Lacus,73.7000,-64.4100,47.0,Lacus
+titan,Tibi Lacus,76.6500,-135.7500,47.0,Lacus
+titan,Sevan Lacus,69.7000,134.4000,46.9,Lacus
+titan,Roca Lacus,79.8000,-123.5000,46.0,Lacus
+titan,Vaca Lacus,77.0000,-131.9300,46.0,Lacus
+titan,Veles,2.0000,-137.3000,45.0,Large ringed feature
+titan,Qinghai Lacus,83.4000,-51.5000,44.3,Lacus
+titan,Vänern Lacus,70.4000,136.9000,43.9,Lacus
+titan,Prespa Lacus,73.1000,-135.7000,43.7,Lacus
+titan,Jerid Lacuna,66.7000,139.0000,42.6,Lacuna
+titan,Ihi,-7.8200,-165.1200,42.0,Crater
+titan,Orog Lacuna,70.8500,172.0600,42.0,Lacuna
+titan,Viedma Lacus,72.0000,-125.7000,42.0,Lacus
+titan,Crveno Lacus,-79.5500,175.0900,41.0,Lacus
+titan,Hlawga Lacus,76.6000,-103.6000,40.3,Lacus
+titan,Momoy,11.6000,-44.6000,40.0,Crater
+titan,Sotra Patera,-14.5400,-40.0000,40.0,Patera
 titania,Messina Chasmata,-33.3000,-25.0000,1492.0,Chasma
 titania,Rousillon Rupes,-14.7000,26.5000,402.0,Rupes
 titania,Gertrude,-15.8000,-72.9000,326.0,Crater
@@ -1771,3 +4140,1043 @@ venus,Tkashi-mapa Chasma,13.0000,-154.0000,1100.0,Chasma
 venus,Tsovinar Dorsa,-46.0000,-106.0000,1100.0,Dorsum
 venus,Uottakh-sulus Valles,12.5000,-121.0000,1100.0,Vallis
 venus,Zaryanitsa Dorsa,0.0000,170.0000,1100.0,Dorsum
+venus,Yumyn-Udyr Dorsa,81.4000,164.7000,1086.0,Dorsum
+venus,[Tezan Dorsa],81.4000,47.1000,1079.0,Dorsum
+venus,Tezan Lineae,81.4000,47.1000,1079.0,Linea
+venus,Ananke Tessera,53.3000,137.0000,1060.0,Tessera
+venus,Heng-o Corona,2.0000,-5.0000,1060.0,Corona
+venus,Akkruva Colles,46.1000,115.5000,1059.0,Collis
+venus,Meskhent Tessera,65.8000,103.1000,1056.0,Tessera
+venus,Zorile Dorsa,39.9000,-21.6000,1041.0,Dorsum
+venus,Achek Dorsa,-37.2000,-130.0000,1000.0,Dorsum
+venus,Atanua Mons,9.5000,-51.1000,1000.0,Mons
+venus,Britomartis Chasma,-33.0000,130.0000,1000.0,Chasma
+venus,Chernava Colles,-10.5000,-24.5000,1000.0,Collis
+venus,Chondi Chasma,-18.5000,-130.0000,1000.0,Chasma
+venus,Dewi Ratih Chasma,-6.5000,-0.3000,1000.0,Chasma
+venus,Ishkus Regio,-61.0000,-115.0000,1000.0,Regio
+venus,Kokomikeis Chasma,0.0000,85.0000,1000.0,Chasma
+venus,Kruchina Tesserae,36.0000,27.0000,1000.0,Tessera
+venus,Nuahine Tessera,-9.0000,157.0000,1000.0,Tessera
+venus,Snotra Tesserae,24.0000,134.0000,1000.0,Tessera
+venus,Tikoiwuti Dorsa,56.0000,-135.0000,1000.0,Dorsum
+venus,Tukwunag Dorsa,-69.0000,155.0000,1000.0,Dorsum
+venus,Var Mons,1.2000,-43.8000,1000.0,Mons
+venus,Surupa Dorsa,71.7000,-151.0000,981.0,Dorsum
+venus,Dudumitsa Dorsa,-13.5000,-2.0000,980.0,Dorsum
+venus,Penardun Linea,-54.0000,-16.0000,975.0,Linea
+venus,[Szél-anya Dorsa],79.4000,81.3000,975.0,Dorsum
+venus,Szél-anya Lineae,79.4000,81.3000,975.0,Linea
+venus,Quilla Chasma,-23.7000,127.3000,973.0,Chasma
+venus,Laima Tessera,55.0000,48.5000,971.0,Tessera
+venus,Jutrzenka Vallis,27.0000,155.8000,970.0,Vallis
+venus,Ningyo Fluctus,-5.5000,-154.0000,970.0,Fluctus
+venus,Sigrun Fossae,50.5000,18.0000,970.0,Fossa
+venus,Tomem Dorsa,31.2000,7.2000,970.0,Dorsum
+venus,Argimpasa Fluctus,0.0000,175.5000,950.0,Fluctus
+venus,Naatse-elit Dorsa,-66.0000,-111.0000,950.0,Dorsum
+venus,Ney-Anki Fluctus,-37.0000,105.0000,950.0,Fluctus
+venus,Rabie Chasma,-10.5000,-93.0000,950.0,Chasma
+venus,Ragana Dorsa,-69.0000,-114.0000,950.0,Dorsum
+venus,Spidola Dorsa,-73.5000,-35.0000,950.0,Dorsum
+venus,T'ien Hu Colles,30.7000,15.1000,947.0,Collis
+venus,Diana Chasma,-14.8000,154.8000,938.0,Chasma
+venus,Metis Mons,71.0000,-107.0000,920.0,Mons
+venus,Juno Chasma,-30.5000,111.1000,915.0,Chasma
+venus,Mardezh-Ava Dorsa,32.4000,68.6000,906.0,Dorsum
+venus,Akewa Dorsa,45.5000,-176.0000,900.0,Dorsum
+venus,Amitolane Dorsa,-77.0000,-25.0000,900.0,Dorsum
+venus,Gendenwitha Vallis,-63.0000,-101.0000,900.0,Vallis
+venus,Ilaheva Fluctus,-42.5000,84.0000,900.0,Fluctus
+venus,Itoki Fluctus,-6.0000,-131.0000,900.0,Fluctus
+venus,Juturna Fluctus,-76.0000,-10.0000,900.0,Fluctus
+venus,Kallistos Vallis,-51.1000,21.5000,900.0,Vallis
+venus,Mamapacha Fluctus,60.0000,-175.0000,900.0,Fluctus
+venus,Mamitu Tesserae,22.0000,44.0000,900.0,Tessera
+venus,Nayunuwi Montes,2.0000,83.0000,900.0,Mons
+venus,Oddibjord Tessera,82.0000,85.0000,900.0,Tessera
+venus,Oilule Fluctus,-22.0000,79.0000,900.0,Fluctus
+venus,Sogbo Dorsa,-40.0000,-123.0000,900.0,Dorsum
+venus,Syvne Fluctus,-36.0000,72.0000,900.0,Fluctus
+venus,Thaukhud Linea,-24.0000,-128.0000,900.0,Linea
+venus,Yenkhoboy Fossae,-48.0000,7.0000,900.0,Fossa
+venus,Zewana Chasma,9.0000,-148.0000,900.0,Chasma
+venus,Frigg Dorsa,51.2000,150.6000,896.0,Dorsum
+venus,Kuanja Chasma,-12.0000,99.5000,890.0,Chasma
+venus,Nyx Mons,30.0000,48.5000,875.0,Mons
+venus,Dennitsa Dorsa,85.6000,-154.1000,872.0,Dorsum
+venus,Aušrā Dorsa,49.4000,25.3000,859.0,Dorsum
+venus,Bellona Fossae,38.0000,-137.9000,855.0,Fossa
+venus,Kasogonaga Fluctus,-18.0000,-92.0000,850.0,Fluctus
+venus,Mena Colles,-52.5000,160.0000,850.0,Collis
+venus,Nambubi Fluctus,-61.0000,135.0000,850.0,Fluctus
+venus,Salus Tessera,-1.5000,48.5000,850.0,Tessera
+venus,Zimcerla Dorsa,-47.5000,73.5000,850.0,Dorsum
+venus,Zisa Corona,12.0000,-139.0000,850.0,Corona
+venus,Ralk-umgu Chasma,-15.0000,106.0000,840.0,Chasma
+venus,Akna Montes,68.9000,-41.8000,830.0,Mons
+venus,Uorsar Rupes,76.8000,-18.8000,820.0,Rupes
+venus,Xulab Vallis,-57.5000,-174.0000,820.0,Vallis
+venus,Hera Dorsa,36.4000,29.5000,813.0,Dorsum
+venus,Danu Montes,58.5000,-26.0000,808.0,Mons
+venus,Bezlea Dorsa,30.4000,36.5000,807.0,Dorsum
+venus,Abe Mango Dorsa,47.0000,-148.0000,800.0,Dorsum
+venus,Akuanda Dorsa,63.5000,-128.0000,800.0,Dorsum
+venus,Cavillaca Fluctus,-72.0000,-20.0000,800.0,Fluctus
+venus,Discordia Linea,-58.0000,-113.5000,800.0,Linea
+venus,Geyaguga Chasma,-56.5000,70.0000,800.0,Chasma
+venus,Gulaim Fossae,-5.0000,-31.0000,800.0,Fossa
+venus,Lampedo Linea,62.2000,-67.0000,800.0,Linea
+venus,Lesavka Chasma,-0.8000,-145.0000,800.0,Chasma
+venus,Lhamo Tessera,-51.0000,15.0000,800.0,Tessera
+venus,Natami Dorsa,-71.5000,-102.0000,800.0,Dorsum
+venus,Nike Fossae,-59.5000,-20.0000,800.0,Fossa
+venus,Shishimora Dorsa,37.0000,-63.0000,800.0,Dorsum
+venus,Tan-yondozo Vallis,-41.5000,87.0000,800.0,Vallis
+venus,Tsunghi Fluctus,-67.0000,130.0000,800.0,Fluctus
+venus,Turan Planum,-13.0000,116.5000,800.0,Planum
+venus,Uni Dorsa,33.7000,114.3000,800.0,Dorsum
+venus,Maxwell Montes,65.2000,3.3000,797.0,Mons
+venus,Vesta Rupes,58.3000,-36.1000,788.0,Rupes
+venus,Virilis Tesserae,56.1000,-120.3000,782.0,Tessera
+venus,Quetzalpetlatl Corona,-68.0000,-3.0000,780.0,Corona
+venus,Darago Fluctus,-11.5000,-46.5000,775.0,Fluctus
+venus,Menkerot Dorsa,-20.0000,-8.5000,770.0,Dorsum
+venus,Varma-Ava Dorsa,62.3000,-91.2000,767.0,Dorsum
+venus,Adrasthea Tesserae,30.0000,55.0000,750.0,Tessera
+venus,Allat Dorsa,60.0000,70.0000,750.0,Dorsum
+venus,Praurime Fluctus,16.0000,154.0000,750.0,Fluctus
+venus,Tuli Mons,13.3000,-45.4000,750.0,Mons
+venus,Kottravey Chasma,30.5000,77.9000,744.0,Chasma
+venus,Vires-Akka Chasma,75.6000,-18.4000,742.0,Chasma
+venus,Heng-o Chasma,6.6000,-4.5000,734.0,Chasma
+venus,Alkonost Dorsa,-5.0000,-19.0000,730.0,Dorsum
+venus,Naguchitsa Fossae,-35.6000,159.3000,730.0,Fossa
+venus,Daura Chasma,73.8000,53.8000,729.0,Chasma
+venus,Fornax Rupes,30.3000,-158.9000,729.0,Rupes
+venus,[Metis Regio],70.9000,-108.2000,729.0,Regio
+venus,Aranyani Chasma,69.3000,74.4000,718.0,Chasma
+venus,Arianrod Fossae,37.0000,-120.1000,715.0,Fossa
+venus,Bennu Vallis,1.3000,-18.8000,710.0,Vallis
+venus,Ahsabkab Vallis,-24.0000,79.0000,700.0,Vallis
+venus,Atahensik Corona,-19.0000,170.0000,700.0,Corona
+venus,[Breksta Dorsa],35.9000,-56.0000,700.0,Dorsum
+venus,Breksta Linea,35.9000,-56.0000,700.0,Linea
+venus,Enyo Fossae,-62.0000,-9.0000,700.0,Fossa
+venus,Gbadu Tessera,-1.0000,38.0000,700.0,Tessera
+venus,Hanekasa Fossae,29.0000,148.5000,700.0,Fossa
+venus,Koidutäht Vallis,-76.5000,130.0000,700.0,Vallis
+venus,Kūmsong Vallis,-59.0000,152.5000,700.0,Vallis
+venus,Narundi Fossae,-66.5000,-31.0000,700.0,Fossa
+venus,Ninmah Corona,16.5000,49.0000,700.0,Corona
+venus,Norna Tesserae,-50.0000,-97.0000,700.0,Tessera
+venus,Rafara Fluctus,-65.0000,159.0000,700.0,Fluctus
+venus,Sirona Dorsa,-43.5000,-166.5000,700.0,Dorsum
+venus,Sobra Fluctus,6.0000,-112.0000,700.0,Fluctus
+venus,Sui-ur Linea,-61.0000,-100.0000,700.0,Linea
+venus,Uilata Fluctus,17.0000,-46.0000,700.0,Fluctus
+venus,Utrenitsa Vallis,55.0000,-80.0000,700.0,Vallis
+venus,Uzume Fluctus,28.6000,-139.7000,700.0,Fluctus
+venus,Vetsorgo Dorsum,-6.5000,163.0000,700.0,Dorsum
+venus,Lasdona Chasma,69.3000,36.8000,697.0,Chasma
+venus,Dyan-Mu Dorsa,78.2000,31.9000,687.0,Dorsum
+venus,[Hildr Fossa],45.4000,159.4000,677.0,Fossa
+venus,Ut Rupes,55.3000,-38.1000,676.0,Rupes
+venus,Ceres Corona,-16.0000,151.5000,675.0,Corona
+venus,Pölöznitsa Corona,0.5000,-58.0000,675.0,Corona
+venus,Lachesis Tessera,44.4000,-59.9000,664.0,Tessera
+venus,Morongo Valles,-20.0000,111.4000,660.0,Vallis
+venus,Kutue Tessera,39.5000,108.8000,653.0,Tessera
+venus,Dylacha Dorsa,-19.0000,76.0000,650.0,Dorsum
+venus,Jana Chasma,-12.2000,117.9000,650.0,Chasma
+venus,Nortia Tesserae,-49.0000,160.0000,650.0,Tessera
+venus,Olapa Chasma,-42.0000,-151.5000,650.0,Chasma
+venus,Pulugu Dorsa,-65.0000,-135.0000,650.0,Dorsum
+venus,Siksaup Dorsa,-73.0000,-132.0000,650.0,Dorsum
+venus,Dunne-Musun Corona,-60.0000,85.0000,630.0,Corona
+venus,Merisa Fluctus,20.5000,9.0000,630.0,Fluctus
+venus,Ben Dorsa,71.2000,-75.9000,628.0,Dorsum
+venus,Chih Nu Dorsum,-73.0000,-165.0000,625.0,Dorsum
+venus,Vakarine Vallis,5.0000,-23.6000,625.0,Vallis
+venus,Arubani Fluctus,-55.0000,132.0000,620.0,Fluctus
+venus,Fea Fossae,27.5000,-136.0000,620.0,Fossa
+venus,Misne Chasma,78.3000,-43.5000,610.0,Chasma
+venus,Vesper Vallis,-59.3000,-180.0000,610.0,Vallis
+venus,Dodola Dorsa,46.8000,-87.4000,607.0,Dorsum
+venus,Medeina Chasma,46.2000,89.3000,606.0,Chasma
+venus,Atete Corona,-16.0000,-116.5000,600.0,Corona
+venus,Austrina Vallis,-49.5000,177.0000,600.0,Vallis
+venus,Bagbartu Mons,65.5000,-81.0000,600.0,Mons
+venus,Beiwe Corona,52.6000,-53.5000,600.0,Corona
+venus,Biliku Dorsa,-47.0000,138.0000,600.0,Dorsum
+venus,Ekhe-Burkhan Corona,-50.0000,40.0000,600.0,Corona
+venus,Eriu Fluctus,-37.0000,-3.0000,600.0,Fluctus
+venus,Gamsilg Chasma,-46.0000,64.0000,600.0,Chasma
+venus,Hikuleo Fluctus,52.5000,-152.0000,600.0,Fluctus
+venus,Kumanyefie Vallis,-80.5000,-25.0000,600.0,Vallis
+venus,Magura Fossae,-12.0000,-27.5000,600.0,Fossa
+venus,Maram Corona,-7.5000,-138.5000,600.0,Corona
+venus,Naran Dorsa,-54.0000,-122.0000,600.0,Dorsum
+venus,Polik-mana Mons,24.5000,-96.0000,600.0,Mons
+venus,Tellervo Chasma,-60.0000,125.0000,600.0,Chasma
+venus,Tsects Chasma,-61.6000,35.0000,600.0,Chasma
+venus,Urkuk Dorsa,-12.0000,-40.0000,600.0,Dorsum
+venus,Verpeja Tesserae,-58.0000,160.0000,600.0,Tessera
+venus,Yolkai-Estsan Mons,17.0000,-166.0000,600.0,Mons
+venus,Iyele Dorsa,50.0000,-81.3000,595.0,Dorsum
+venus,Sholpan Vallis,-63.9000,150.0000,590.0,Vallis
+venus,Kamari Dorsa,59.2000,55.8000,589.0,Dorsum
+venus,Hestia Rupes,6.0000,71.1000,588.0,Rupes
+venus,Hemera Dorsa,51.0000,-116.6000,587.0,Dorsum
+venus,Kozhla-Ava Chasma,56.2000,50.6000,581.0,Chasma
+venus,Baba-Jaga Chasma,53.2000,49.5000,580.0,Chasma
+venus,Freyja Montes,74.1000,-26.2000,579.0,Mons
+venus,Calakomana Corona,6.5000,43.5000,575.0,Corona
+venus,Tyche Tessera,-44.0000,14.5000,575.0,Tessera
+venus,Felesta Fossae,34.5000,46.5000,570.0,Fossa
+venus,Demeter Corona,53.9000,-65.2000,560.0,Corona
+venus,Namjyalma Fossae,2.5000,2.7000,560.0,Fossa
+venus,Cauteovan Corona,31.5000,142.9000,553.0,Corona
+venus,Ambar-ona Corona,-70.0000,82.5000,550.0,Corona
+venus,Anpao Dorsa,62.0000,-153.0000,550.0,Dorsum
+venus,Apisuahts Vallis,-66.5000,17.0000,550.0,Vallis
+venus,Boszorkány Dorsa,-19.5000,105.0000,550.0,Dorsum
+venus,Charykh-Keyok Dorsa,54.5000,-75.0000,550.0,Dorsum
+venus,[Furachoga Corona],-38.0000,-102.0000,550.0,Corona
+venus,Kimtinh Vallis,-46.5000,67.0000,550.0,Vallis
+venus,Marzyana Corona,-53.0000,67.5000,550.0,Corona
+venus,Nichka Dorsa,-10.0000,-6.0000,550.0,Dorsum
+venus,Oshumare Dorsa,-58.5000,79.0000,550.0,Dorsum
+venus,Poranica Valles,-21.0000,178.5000,550.0,Vallis
+venus,Tie Fluctus,21.0000,159.0000,550.0,Fluctus
+venus,Ubastet Fluctus,-48.0000,27.0000,550.0,Fluctus
+venus,Yuzut-Arkh Fossae,48.0000,-136.0000,550.0,Fossa
+venus,Molpe Colles,76.0000,-168.0000,548.0,Collis
+venus,Isong Corona,12.0000,49.2000,540.0,Corona
+venus,Manto Fossae,63.6000,64.9000,536.0,Fossa
+venus,Dotetem Fluctus,-6.0000,177.5000,530.0,Fluctus
+venus,Latona Chasma,26.0000,-92.5000,530.0,Chasma
+venus,Žemina Corona,-11.7000,-174.0000,530.0,Corona
+venus,Anala Mons,11.0000,14.1000,525.0,Mons
+venus,Irnini Mons,14.6000,16.0000,525.0,Mons
+venus,Lengdin Corona,2.5000,-137.0000,525.0,Corona
+venus,Mukylchin Corona,-12.5000,46.0000,525.0,Corona
+venus,Nabuzana Corona,-8.5000,47.0000,525.0,Corona
+venus,Taranga Corona,16.5000,-108.5000,525.0,Corona
+venus,Ta'urua Vallis,-80.2000,-112.5000,525.0,Vallis
+venus,Tuulikki Mons,10.3000,-85.3000,520.0,Mons
+venus,Vaiva Dorsum,-53.2000,-156.0000,520.0,Dorsum
+venus,Semuni Dorsa,75.9000,8.0000,514.0,Dorsum
+venus,Ilbis Fossae,71.9000,-105.4000,512.0,Fossa
+venus,Ozza Mons,4.5000,-159.0000,507.0,Mons
+venus,Mežas-Mate Chasma,51.0000,50.7000,506.0,Chasma
+venus,Istustaya Tesserae,-8.7600,42.2300,505.0,Tessera
+venus,Ix Chel Chasma,-10.0000,73.4000,503.0,Chasma
+venus,Kaygus Chasmata,49.6000,52.1000,503.0,Chasma
+venus,Albasty Fossae,-9.0000,-23.5000,500.0,Fossa
+venus,Alpan Fluctus,-7.5000,-11.0000,500.0,Fluctus
+venus,Ardwinna Chasma,21.0000,-163.0000,500.0,Chasma
+venus,Asherat Colles,12.0000,162.0000,500.0,Collis
+venus,Bayara Vallis,45.6000,16.5000,500.0,Vallis
+venus,Clidna Tessera,-42.0000,29.0000,500.0,Tessera
+venus,Copia Corona,-42.5000,75.5000,500.0,Corona
+venus,Cybele Corona,-7.5000,20.7000,500.0,Corona
+venus,Eithinoha Corona,-57.0000,7.5000,500.0,Corona
+venus,Faravari Mons,-43.5000,-51.0000,500.0,Mons
+venus,Iseghey Mons,9.0000,171.0000,500.0,Mons
+venus,Iweridd Corona,-21.0000,-50.0000,500.0,Corona
+venus,Kadlu Dorsa,-69.5000,-172.0000,500.0,Dorsum
+venus,Latmikaik Corona,-64.0000,123.0000,500.0,Corona
+venus,Lilwani Corona,-29.5000,-88.5000,500.0,Corona
+venus,[Ludjatako Mons],-12.0000,-109.0000,500.0,Mons
+venus,Lumo Dorsa,24.5000,149.0000,500.0,Dorsum
+venus,Lusaber Vallis,-47.5000,164.0000,500.0,Vallis
+venus,Nahas-tsan Mons,14.0000,-155.0000,500.0,Mons
+venus,Nahid Valles,-55.1000,171.0000,500.0,Vallis
+venus,Ngyandu Vallis,-62.0000,12.0000,500.0,Vallis
+venus,Ongwuti Mons,-2.0000,-165.5000,500.0,Mons
+venus,Perchta Corona,17.0000,-125.5000,500.0,Corona
+venus,Pinga Chasma,-20.0000,-73.0000,500.0,Chasma
+venus,Sakwap-mana Mons,35.0000,-140.5000,500.0,Mons
+venus,Shiwanokia Corona,-42.0000,-80.2000,500.0,Corona
+venus,Sopdet Tesserae,-45.0000,-117.0000,500.0,Tessera
+venus,Sudice Tessera,-37.0000,112.0000,500.0,Tessera
+venus,Sunna Dorsa,-53.0000,134.0000,500.0,Dorsum
+venus,Tacoma Corona,-37.0000,-72.0000,500.0,Corona
+venus,Tawera Vallis,-11.6000,67.5000,500.0,Vallis
+venus,Turgmam Fluctus,56.0000,-140.0000,500.0,Fluctus
+venus,Uretsete Mons,-12.0000,-99.0000,500.0,Mons
+venus,Urutonga Colles,10.0000,154.0000,500.0,Collis
+venus,Uti Hiata Mons,16.0000,69.0000,500.0,Mons
+venus,Virtus Linea,12.0000,21.0000,500.0,Linea
+venus,Wala Dorsa,-17.0000,62.0000,500.0,Dorsum
+venus,Yunya-mana Mons,-18.0000,-75.0000,500.0,Mons
+venus,Strenia Fluctus,41.0000,-110.0000,490.0,Fluctus
+venus,Nokomis Montes,20.0000,-171.0000,486.0,Mons
+venus,Henwen Fluctus,-20.5000,179.9000,485.0,Fluctus
+venus,Omosi-Mama Corona,64.5000,-54.0000,480.0,Corona
+venus,Oya Dorsa,21.5000,157.5000,480.0,Dorsum
+venus,Sige Dorsa,31.2000,106.9000,478.0,Dorsum
+venus,Nightingale Corona,63.6000,129.5000,471.0,Corona
+venus,Kov-Ava Chasma,-58.8000,21.8000,470.0,Chasma
+venus,Atropos Tessera,71.5000,-56.0000,469.0,Tessera
+venus,Mots Chasma,51.9000,56.1000,464.0,Chasma
+venus,Bachue Corona,73.3000,-98.6000,463.0,Corona
+venus,Fulgora Dorsa,78.5000,-18.0000,463.0,Dorsum
+venus,Lalohonua Corona,-24.0000,-109.5000,460.0,Corona
+venus,Mbokomu Mons,-15.1000,-144.8000,460.0,Mons
+venus,Meni Tessera,48.1000,77.9000,454.0,Tessera
+venus,Aida-Wedo Dorsa,73.0000,-146.0000,450.0,Dorsum
+venus,Artio Chasma,-35.5000,39.0000,450.0,Chasma
+venus,Aruru Corona,9.0000,-98.0000,450.0,Corona
+venus,Bibi-Patma Corona,-47.0000,-58.0000,450.0,Corona
+venus,Chuginadak Mons,-38.0000,-114.0000,450.0,Mons
+venus,Hoku-ao Vallis,28.0000,166.5000,450.0,Vallis
+venus,Javine Corona,-5.5000,-108.8000,450.0,Corona
+venus,Kaltash Corona,0.5000,75.0000,450.0,Corona
+venus,Mertseger Mons,-38.1000,-89.7000,450.0,Mons
+venus,Mielikki Mons,-27.8000,-79.5000,450.0,Mons
+venus,Naijok Fossae,-70.2000,-23.0000,450.0,Fossa
+venus,Nang-byon Chasma,4.0000,-43.5000,450.0,Chasma
+venus,Norwan Dorsa,65.0000,163.0000,450.0,Dorsum
+venus,Rzhanitsa Corona,-17.6000,-145.4000,450.0,Corona
+venus,Saga Vallis,76.1000,-19.4000,450.0,Vallis
+venus,Ustrecha Tesserae,-43.0000,-95.0000,450.0,Tessera
+venus,Zirka Tessera,33.0000,-60.0000,450.0,Tessera
+venus,Rananeida Corona,62.6000,-96.5000,448.0,Corona
+venus,Vacuna Corona,60.4000,96.0000,448.0,Corona
+venus,Salme Dorsa,58.0000,25.2000,447.0,Dorsum
+venus,[Pavlova],14.6000,39.2000,440.0,Crater
+venus,Pavlova Corona,14.5000,40.0000,440.0,Corona
+venus,Seo-Ne Chasma,-63.5000,26.0000,430.0,Chasma
+venus,Sinann Vallis,-49.0000,-90.0000,425.0,Vallis
+venus,Arev Dorsa,-52.0000,-144.0000,420.0,Dorsum
+venus,Dilbat Vallis,-55.0000,-176.0000,420.0,Vallis
+venus,Ma Corona,-22.5000,57.0000,420.0,Corona
+venus,Jurate Colles,56.8000,153.5000,418.0,Collis
+venus,Hina Chasma,63.7000,20.0000,415.0,Chasma
+venus,Earhart Corona,70.1000,136.2000,414.0,Corona
+venus,Ushas Mons,-24.3000,-35.4000,413.0,Mons
+venus,Shyv-Amashe Corona,-57.0000,63.0000,410.0,Corona
+venus,Asiaq Dorsa,-53.0000,55.0000,400.0,Dorsum
+venus,Banumbirr Vallis,-7.0000,4.0000,400.0,Vallis
+venus,Beyla Corona,26.5000,15.5000,400.0,Corona
+venus,Chasca Vallis,-52.8000,-1.0000,400.0,Vallis
+venus,Dou-Mu Tesserae,-60.0000,-116.0000,400.0,Tessera
+venus,Fatua Corona,-16.3000,17.7000,400.0,Corona
+venus,Fetu-ao Vallis,-61.0000,-105.3000,400.0,Vallis
+venus,Gaia Corona,6.0000,21.5000,400.0,Corona
+venus,Kamadhenu Corona,21.0000,136.5000,400.0,Corona
+venus,Kokyanwuti Mons,35.5000,-148.0000,400.0,Mons
+venus,Koti Fluctus,12.5000,-42.0000,400.0,Fluctus
+venus,Lanig Mons,-68.5000,91.0000,400.0,Mons
+venus,Mago-Halmi Tesserae,70.0000,157.0000,400.0,Tessera
+venus,Nahete Colles,38.0000,-119.0000,400.0,Collis
+venus,Nekhebet Fluctus,0.0000,35.0000,400.0,Fluctus
+venus,Ojuz Dorsa,6.0000,37.0000,400.0,Dorsum
+venus,Okhin-Tengri Corona,-70.5000,40.0000,400.0,Corona
+venus,Otygen Corona,-57.0000,30.5000,400.0,Corona
+venus,Ran Colles,1.0000,163.0000,400.0,Collis
+venus,Reitia Chasma,-51.5000,100.0000,400.0,Chasma
+venus,Ruad Colles,-68.0000,118.0000,400.0,Collis
+venus,Sonmunde Fluctus,-60.0000,120.0000,400.0,Fluctus
+venus,Spandarmat Mons,-16.5000,-105.0000,400.0,Mons
+venus,Tai-pe Valles,11.0000,156.5000,400.0,Vallis
+venus,Tamfana Corona,-36.3000,6.0000,400.0,Corona
+venus,Tamiyo Corona,-36.0000,-61.5000,400.0,Corona
+venus,Tonatzin Corona,-53.0000,164.0000,400.0,Corona
+venus,Triglava Corona,-53.5000,95.0000,400.0,Corona
+venus,Umaga Valles,-49.0000,152.0000,400.0,Vallis
+venus,Unuk Dorsa,-4.5000,-8.5000,400.0,Dorsum
+venus,Maat Mons,0.5000,-165.4000,395.0,Mons
+venus,Ymoja Vallis,-71.6000,-155.2000,390.0,Vallis
+venus,Azham Corona,66.4000,-107.3000,380.0,Corona
+venus,Chuku Corona,-23.5000,-94.5000,380.0,Corona
+venus,Itzpapalotl Tessera,75.7000,-42.4000,380.0,Tessera
+venus,Nalwanga Corona,48.7000,-113.0000,380.0,Corona
+venus,Abeona Mons,-44.8000,-86.9000,375.0,Mons
+venus,Eingana Corona,5.0000,-10.0000,375.0,Corona
+venus,Haumea Corona,54.0000,21.8000,375.0,Corona
+venus,Heloha Fluctus,77.0000,-16.0000,375.0,Fluctus
+venus,Kinsei Vallis,13.8000,140.2000,375.0,Vallis
+venus,Oanuava Coronae,-32.5000,-104.5000,375.0,Corona
+venus,Prthivi Corona,10.8000,-111.5000,375.0,Corona
+venus,Semiramus Corona,-37.0000,-67.0000,375.0,Corona
+venus,Nefertiti Corona,35.9000,48.2000,371.0,Corona
+venus,Demvamvit Corona,-65.5000,38.0000,370.0,Corona
+venus,Mafdet Tessera,9.2000,38.5000,370.0,Tessera
+venus,Sarykyz Linea,-77.3000,-160.0000,370.0,Linea
+venus,Ugatame Corona,-76.5000,-105.0000,370.0,Corona
+venus,Umay-ene Corona,-27.5000,50.5000,370.0,Corona
+venus,Auska Dorsum,59.9000,-2.2000,361.0,Dorsum
+venus,Moira Tessera,58.7000,-49.5000,361.0,Tessera
+venus,Atargatis Corona,-8.0000,8.6000,360.0,Corona
+venus,Feronia Corona,68.0000,-78.3000,360.0,Corona
+venus,Urash Corona,43.2000,-78.0000,360.0,Corona
+venus,Valkyrie Fossae,58.2000,7.0000,357.0,Fossa
+venus,Bau Corona,52.8000,-100.7000,355.0,Corona
+venus,Nemesis Tesserae,40.0000,-179.0000,355.0,Tessera
+venus,Anuket Vallis,66.7000,8.0000,350.0,Vallis
+venus,Aramaiti Corona,-26.3000,82.0000,350.0,Corona
+venus,Beruth Corona,-19.0000,-126.5000,350.0,Corona
+venus,Colijnsplaat Corona,-32.0000,151.0000,350.0,Corona
+venus,Enekeler Corona,-46.0000,-96.0000,350.0,Corona
+venus,Gabie Rupes,67.5000,109.9000,350.0,Rupes
+venus,Humai Tessera,-53.0000,-110.0000,350.0,Tessera
+venus,Inanna Corona,-37.0000,35.9000,350.0,Corona
+venus,Kaapaau Fluctus,-66.5000,-179.0000,350.0,Fluctus
+venus,Kono Mons,19.5000,-92.0000,350.0,Mons
+venus,Kunkubey Fluctus,-50.0000,-153.0000,350.0,Fluctus
+venus,Libera Corona,12.5000,24.0000,350.0,Corona
+venus,Medb Fluctus,-56.0000,127.0000,350.0,Fluctus
+venus,Nazit Mons,22.5000,-120.0000,350.0,Mons
+venus,Nepra Vallis,1.4000,24.2000,350.0,Vallis
+venus,Nepthys Mons,-33.0000,-42.5000,350.0,Mons
+venus,Nuliayoq Colles,48.0000,-136.0000,350.0,Collis
+venus,Sith Corona,-10.2000,176.5000,350.0,Corona
+venus,Sutkatyn Chasmata,-64.0000,11.0000,350.0,Chasma
+venus,Tusholi Corona,69.5000,101.2000,350.0,Corona
+venus,Varz Chasma,71.3000,27.0000,346.0,Chasma
+venus,Nehalennia Corona,14.0000,10.0000,345.0,Corona
+venus,Innini Mons,-34.6000,-31.5000,339.0,Mons
+venus,Hathor Mons,-38.7000,-35.3000,333.0,Mons
+venus,Chanum Coronae,-29.2000,-114.5000,330.0,Corona
+venus,Eve Corona,-32.0000,-0.2000,330.0,Corona
+venus,May-Enensi Corona,-42.5000,68.0000,330.0,Corona
+venus,Thermuthis Corona,-8.0000,33.0000,330.0,Corona
+venus,Erigone Corona,-34.5000,-76.0000,325.0,Corona
+venus,Kali Mons,9.4000,29.2000,325.0,Mons
+venus,Anahit Corona,77.1000,-82.7000,324.0,Corona
+venus,Branwen Corona,27.0000,35.0000,320.0,Corona
+venus,Didilia Corona,19.0000,38.0000,320.0,Corona
+venus,Ereshkigal Corona,21.0000,84.5000,320.0,Corona
+venus,Juksakka Corona,-19.5000,44.5000,320.0,Corona
+venus,Khalanasy Vallis,-51.0000,168.5000,320.0,Vallis
+venus,Nantosuelta Vallis,-61.9000,-167.0000,320.0,Vallis
+venus,Pani Corona,19.9000,-128.5000,320.0,Corona
+venus,Venilia Mons,32.7000,-121.2000,320.0,Mons
+venus,Morana Chasma,68.9000,24.6000,317.0,Chasma
+venus,Pomona Corona,79.3000,-60.6000,315.0,Corona
+venus,Zamin Corona,31.5000,-101.7000,315.0,Corona
+venus,Melia Mons,62.8000,119.3000,311.0,Mons
+venus,Benten Corona,16.0000,-20.0000,310.0,Corona
+venus,Kuan-Yin Corona,-4.3000,10.0000,310.0,Corona
+venus,Ovda Fluctus,-6.1000,95.5000,310.0,Fluctus
+venus,Ts'an Nu Mons,-27.2000,-87.1000,310.0,Mons
+venus,Nepret Corona,52.7000,6.8000,303.0,Corona
+venus,Tepev Mons,29.0000,44.3000,301.0,Mons
+venus,Aikhylu Chasma,32.0000,-68.0000,300.0,Chasma
+venus,Ajina Fossae,-45.0000,-102.0000,300.0,Fossa
+venus,Ama Corona,-45.7000,-81.8000,300.0,Corona
+venus,Annapurna Corona,-35.5000,152.0000,300.0,Corona
+venus,Ashnan Corona,50.2000,-3.0000,300.0,Corona
+venus,Belet-Ili Corona,6.0000,20.0000,300.0,Corona
+venus,Blathnat Corona,35.0000,-66.2000,300.0,Corona
+venus,Boann Corona,27.0000,136.5000,300.0,Corona
+venus,Deohako Corona,-67.5000,118.0000,300.0,Corona
+venus,Disani Corona,2.7000,57.5000,300.0,Corona
+venus,Djabran Fluctus,-43.5000,-177.0000,300.0,Fluctus
+venus,Erzulie Mons,-68.0000,8.0000,300.0,Mons
+venus,Fand Mons,7.0000,158.0000,300.0,Mons
+venus,Gefjun Corona,-33.5000,98.5000,300.0,Corona
+venus,Giltine Tesserae,-39.0000,-110.0000,300.0,Tessera
+venus,Iang-Mdiye Corona,-47.0000,86.0000,300.0,Corona
+venus,Ilyana Corona,-69.5000,65.0000,300.0,Corona
+venus,Inari Corona,-18.0000,120.3000,300.0,Corona
+venus,Kalm Dorsa,18.0000,-51.0000,300.0,Dorsum
+venus,Kamui-Huci Corona,-63.5000,-37.5000,300.0,Corona
+venus,Ki Corona,43.2000,-132.2000,300.0,Corona
+venus,Krumine Corona,-5.0000,-98.5000,300.0,Corona
+venus,Ludjatako Corona,-12.5000,-109.5000,300.0,Corona
+venus,Maa-Ema Corona,40.8000,102.5000,300.0,Corona
+venus,Magu Tessera,-52.0000,-55.0000,300.0,Tessera
+venus,Mama-Allpa Corona,-27.0000,31.0000,300.0,Corona
+venus,Matlalcue Vallis,-33.0000,167.5000,300.0,Vallis
+venus,Mem Loimis Mons,9.5000,-151.0000,300.0,Mons
+venus,Miralaidji Corona,-14.0000,163.8000,300.0,Corona
+venus,Nissaba Corona,25.5000,-4.5000,300.0,Corona
+venus,Obiemi Corona,-31.9000,-83.4000,300.0,Corona
+venus,Odzerchen Dorsa,-72.0000,152.0000,300.0,Dorsum
+venus,Pahto Mons,-64.5000,114.5000,300.0,Mons
+venus,Pazar-ana Corona,-3.2000,-145.2000,300.0,Corona
+venus,Rigatona Corona,-33.5000,-81.5000,300.0,Corona
+venus,Rosmerta Corona,0.0000,124.5000,300.0,Corona
+venus,Saykal Fossae,73.0000,139.0000,300.0,Fossa
+venus,Selu Corona,-42.5000,6.0000,300.0,Corona
+venus,Sezibwa Vallis,-44.0000,37.0000,300.0,Vallis
+venus,Sinlaku Corona,17.3000,-99.7000,300.0,Corona
+venus,Su-Anasy Corona,-78.0000,39.0000,300.0,Corona
+venus,Toci Tholus,29.5000,-4.9000,300.0,Tholus
+venus,Toyo-uke Corona,-62.5000,41.5000,300.0,Corona
+venus,Ukemochi Corona,-39.0000,-63.9000,300.0,Corona
+venus,Ulgen-ekhe Coronae,-14.2000,-136.0000,300.0,Corona
+venus,Veden-Ema Vallis,-15.0000,141.0000,300.0,Vallis
+venus,Vishera Vallis,-33.1000,161.6000,300.0,Vallis
+venus,Whatitiri Corona,-83.0000,140.0000,300.0,Corona
+venus,Xilonen Corona,51.0000,-39.0000,300.0,Corona
+venus,Onatah Corona,49.0000,5.5000,298.0,Corona
+venus,Mawu Corona,31.7000,-118.7000,295.0,Corona
+venus,Fakahotu Corona,59.1000,106.4000,290.0,Corona
+venus,Tunehakwe Corona,-33.4000,-56.4000,290.0,Corona
+venus,Zipaltonal Fluctus,37.7000,-108.7000,290.0,Fluctus
+venus,Clotho Tessera,56.4000,-25.1000,289.0,Tessera
+venus,Khabuchi Corona,-11.0000,173.0000,285.0,Corona
+venus,Sekmet Mons,44.5000,-119.5000,285.0,Mons
+venus,Saosis Fluctus,-43.8700,-151.7100,282.0,Fluctus
+venus,Aife Fossae,67.0000,131.0000,280.0,Fossa
+venus,Djata Fluctus,66.5000,-52.5000,280.0,Fluctus
+venus,Helmud Vallis,-33.9000,171.3000,280.0,Vallis
+venus,Junkgowa Corona,37.0000,-103.0000,280.0,Corona
+venus,Ponmakya Corona,34.3000,11.8000,280.0,Corona
+venus,Gula Mons,21.9000,-0.9000,276.0,Mons
+venus,Bona Corona,-24.0000,157.5000,275.0,Corona
+venus,Erkir Corona,-16.3000,-126.3000,275.0,Corona
+venus,Nishtigri Corona,-24.5000,72.0000,275.0,Corona
+venus,Sephira Mons,-43.0000,28.0000,275.0,Mons
+venus,Shulamite Corona,-38.8000,-75.7000,275.0,Corona
+venus,Ya-Yerv Corona,-9.0000,-146.0000,275.0,Corona
+venus,Rauni Corona,40.8000,-88.1000,271.0,Corona
+venus,Mead,12.5000,57.2000,270.0,Crater
+venus,Mokosha Mons,57.7000,-105.0000,270.0,Mons
+venus,Silvia Corona,12.6000,-4.3000,270.0,Corona
+venus,Simoting Corona,41.2000,21.5000,270.0,Corona
+venus,Sitapi Coronae,-36.5000,-113.2000,270.0,Corona
+venus,Achall Corona,-31.2000,-100.4000,265.0,Corona
+venus,Fara Vallis,-1.2000,-14.5000,260.0,Vallis
+venus,Lamashtu Mons,2.8000,172.7000,260.0,Mons
+venus,Momu Coronae,-21.0000,-139.7000,260.0,Corona
+venus,Samdzimari Corona,-11.0000,-20.5000,260.0,Corona
+venus,Tadaka Corona,-4.0000,-149.5000,260.0,Corona
+venus,Yagami Fluctus,-80.6000,152.0000,260.0,Fluctus
+venus,Nyakaya Fluctus,-41.4100,-149.3300,253.0,Fluctus
+venus,Abundia Corona,18.5000,125.0000,250.0,Corona
+venus,Aeracura Corona,-19.0000,-121.5000,250.0,Corona
+venus,Aleksota Mons,-9.0000,-51.5000,250.0,Mons
+venus,Atai Mons,-22.0000,-69.0000,250.0,Mons
+venus,Codidon Corona,-46.0000,56.0000,250.0,Corona
+venus,Dzyzlan Vallis,-16.0000,-178.0000,250.0,Vallis
+venus,Gertjon Corona,-30.0000,-84.0000,250.0,Corona
+venus,Heqet Corona,7.0000,169.5000,250.0,Corona
+venus,Hervor Corona,-25.5000,-91.0000,250.0,Corona
+venus,Idunn Mons,-46.5000,-145.5000,250.0,Mons
+venus,Jarina Corona,13.0000,165.0000,250.0,Corona
+venus,Kshumay Mons,-54.9000,58.0000,250.0,Mons
+venus,Lunang Vallis,68.2000,-50.0000,250.0,Vallis
+venus,Martuv Vallis,23.0000,156.0000,250.0,Vallis
+venus,Mert Fluctus,-50.5000,-129.5000,250.0,Fluctus
+venus,Pasu-Ava Corona,29.0000,-41.0000,250.0,Corona
+venus,Rhpisunt Mons,2.5000,-58.5000,250.0,Mons
+venus,Salofa Colles,-63.0000,167.0000,250.0,Collis
+venus,Tingoi Vallis,6.0000,-41.4000,250.0,Vallis
+venus,Urd Tessera,-40.0000,174.5000,250.0,Tessera
+venus,Mist Chasma,39.5000,-112.7000,244.0,Chasma
+venus,[Mist Fossae],39.5000,-112.7000,244.0,Fossa
+venus,Rangrid Fossae,62.7000,-3.6000,243.0,Fossa
+venus,Albys Vallis,-39.5000,30.5000,240.0,Vallis
+venus,[Anala Corona],11.0000,14.0000,240.0,Corona
+venus,Attabeira Corona,-1.5000,-148.5000,240.0,Corona
+venus,Repa Corona,-13.0000,-141.2000,240.0,Corona
+venus,Zaramama Corona,-22.0000,-119.5000,240.0,Corona
+venus,Robigo Fluctus,-42.2200,-152.7300,233.0,Fluctus
+venus,[Sacajawea],64.3000,-24.6000,233.0,Crater
+venus,Sacajawea Patera,64.3000,-24.6000,233.0,Patera
+venus,Hulda Corona,12.0000,-51.7000,230.0,Corona
+venus,Idem-Kuva Corona,25.0000,-2.0000,230.0,Corona
+venus,Kostroma Coronae,40.6000,7.6000,230.0,Corona
+venus,Lumimuut Corona,-11.5000,-125.5000,230.0,Corona
+venus,Migazesh Colles,-49.0000,-162.0000,230.0,Collis
+venus,Nana-Buluku Coronae,39.4000,14.0000,230.0,Corona
+venus,Obasi-Nsi Corona,-53.5000,-69.0000,230.0,Corona
+venus,Onenhste Corona,-19.0000,-138.5000,230.0,Corona
+venus,Seoritsu Farra,-30.0000,11.0000,230.0,Farrum
+venus,Durga Corona,-31.1000,-73.8000,227.0,Corona
+venus,Theia Mons,22.7000,-79.0000,226.0,Mons
+venus,Audhumla Corona,45.5000,12.0000,225.0,Corona
+venus,Bil Corona,3.0000,168.0000,225.0,Corona
+venus,Emegelji Coronae,-21.5000,-146.5000,225.0,Corona
+venus,Epona Corona,-28.0000,-151.5000,225.0,Corona
+venus,Gashan-Ki Corona,11.7000,-116.3000,225.0,Corona
+venus,Ikas Coronae,-40.7000,-71.4000,225.0,Corona
+venus,Lahar Mons,14.0000,162.0000,225.0,Mons
+venus,Latta Corona,-38.6000,-73.0000,225.0,Corona
+venus,Lo Shen Valles,-12.8000,89.6000,225.0,Vallis
+venus,Maya Corona,23.0000,98.0000,225.0,Corona
+venus,Ndoi Corona,-20.3000,-129.7000,225.0,Corona
+venus,Ningal Lineae,9.0000,60.7000,225.0,Linea
+venus,[Ningal Undae],9.0000,60.7000,225.0,Unda
+venus,Nzambi Corona,-45.0000,-72.5000,225.0,Corona
+venus,Paoro Tholi,10.5000,-92.0000,225.0,Tholus
+venus,Sappho Patera,14.1000,16.5000,225.0,Patera
+venus,Sati Vallis,3.2000,-25.6000,225.0,Vallis
+venus,Seia Corona,-3.0000,153.0000,225.0,Corona
+venus,Upunusa Tholus,66.2000,-107.6000,223.0,Tholus
+venus,Belisama Vallis,50.0000,22.5000,220.0,Vallis
+venus,Boadicea Paterae,56.6000,96.5000,220.0,Patera
+venus,Boala Corona,-70.0000,-1.0000,220.0,Corona
+venus,Chang Xi Chasmata,-59.0000,17.0000,220.0,Chasma
+venus,Dilga Corona,-18.7000,-109.6000,220.0,Corona
+venus,Ituana Corona,19.5000,153.5000,220.0,Corona
+venus,Khadne Dorsa,-14.0000,-25.5000,220.0,Dorsum
+venus,[Kunapipi Corona],-33.9000,86.0000,220.0,Corona
+venus,Kunapipi Mons,-33.9000,86.0000,220.0,Mons
+venus,Laka Mons,79.9000,-98.0000,220.0,Mons
+venus,Madderakka Corona,9.0000,-44.5000,220.0,Corona
+venus,Obilukha Corona,-81.5000,19.0000,220.0,Corona
+venus,Shait Tessera,-54.0000,173.5000,220.0,Tessera
+venus,Zaltu Mons,18.0000,163.5000,220.0,Mons
+venus,Cerridwen Corona,49.6000,-158.2000,217.0,Corona
+venus,Rhea Mons,32.4000,-77.8000,217.0,Mons
+venus,Sapas Mons,8.5000,-171.7000,217.0,Mons
+venus,Carpo Corona,-37.5000,3.0000,215.0,Corona
+venus,Neyterkob Corona,49.7000,-155.3000,211.0,Corona
+venus,Among Corona,-13.4000,-146.5000,210.0,Corona
+venus,Gui Ye Chasma,-9.0000,-22.9000,210.0,Chasma
+venus,Gurshi Mons,-47.5000,58.5000,210.0,Mons
+venus,Katieleo Corona,-12.5000,-32.5000,210.0,Corona
+venus,Acrea Corona,24.2000,-116.3000,200.0,Corona
+venus,Alajen Vallis,-3.3000,-22.9000,200.0,Vallis
+venus,Angerona Tholus,-29.8000,-72.8000,200.0,Tholus
+venus,Aspasia Corona,56.1000,-170.9000,200.0,Corona
+venus,[Aspasia Patera],56.4000,-171.0000,200.0,Patera
+venus,Changko Corona,10.9000,6.2000,200.0,Corona
+venus,Chantico Corona,-1.7000,-145.0000,200.0,Corona
+venus,Cipactli Mons,-31.5000,-27.5000,200.0,Mons
+venus,Derceto Corona,-46.8000,20.2000,200.0,Corona
+venus,Dhorani Corona,-8.0000,-117.0000,200.0,Corona
+venus,Dyamenyuo Corona,-57.5000,42.5000,200.0,Corona
+venus,Eigin Corona,-5.0000,175.0000,200.0,Corona
+venus,Eurynome Corona,26.5000,94.5000,200.0,Corona
+venus,Evaki Tholus,37.6000,-17.8000,200.0,Tholus
+venus,Ganga Valles,4.8000,53.0000,200.0,Vallis
+venus,Grechukha Tholi,-8.6000,-104.2000,200.0,Tholus
+venus,Gwen Mons,-21.4000,-121.3000,200.0,Mons
+venus,Hannahannas Corona,0.0000,170.5000,200.0,Corona
+venus,Holde Corona,53.5000,155.8000,200.0,Corona
+venus,Indrani Corona,-37.5000,70.5000,200.0,Corona
+venus,Iyatik Corona,-16.5000,-12.5000,200.0,Corona
+venus,Kapenopfu Corona,-21.7000,-89.0000,200.0,Corona
+venus,Khotun Corona,-46.5000,81.5000,200.0,Corona
+venus,Kolias Corona,-16.5000,-152.1000,200.0,Corona
+venus,Kunhild Corona,19.3000,80.1000,200.0,Corona
+venus,[Lilinau Corona],34.0000,22.0000,200.0,Corona
+venus,Makh Corona,-48.7000,85.0000,200.0,Corona
+venus,Mari Corona,54.0000,151.0000,200.0,Corona
+venus,Mayauel Corona,-27.5000,154.0000,200.0,Corona
+venus,Merak Vallis,-63.5000,162.0000,200.0,Vallis
+venus,Mou-nyamy Corona,-49.5000,59.0000,200.0,Corona
+venus,Naotsete Corona,-58.3000,-110.5000,200.0,Corona
+venus,Naunet Fluctus,-81.0000,136.0000,200.0,Fluctus
+venus,Ne Ngam Mons,-43.0000,-102.5000,200.0,Mons
+venus,Nommo Valles,-40.7000,87.3000,200.0,Vallis
+venus,Olosa Colles,18.0000,-6.7000,200.0,Collis
+venus,Ptesanwi Mons,2.8000,45.4000,200.0,Mons
+venus,Renenti Corona,32.7000,-33.8000,200.0,Corona
+venus,Samodiva Mons,13.6000,-69.0000,200.0,Mons
+venus,Santa Corona,-34.5000,-72.0000,200.0,Corona
+venus,Sarasvati Mons,75.7000,-5.5000,200.0,Mons
+venus,Saunau Corona,-1.3000,173.0000,200.0,Corona
+venus,Sif Mons,22.0000,-7.6000,200.0,Mons
+venus,Tangba Corona,-47.0000,-102.0000,200.0,Corona
+venus,Tumas Corona,-16.3000,-8.8000,200.0,Corona
+venus,Tuzandi Mons,-42.5000,41.5000,200.0,Mons
+venus,Ua-ogrere Mons,40.5000,117.0000,200.0,Mons
+venus,Ved-Ava Corona,33.0000,143.0000,200.0,Corona
+venus,Vesuna Corona,-65.5000,-85.0000,200.0,Corona
+venus,Xcacau Corona,-56.0000,131.0000,200.0,Corona
+venus,Xcanil Corona,-37.0000,43.0000,200.0,Corona
+venus,Xmukane Corona,-28.2000,-90.5000,200.0,Corona
+venus,Yanbike Corona,-1.5000,-31.5000,200.0,Corona
+venus,Yuvkha Valles,10.5000,-120.5000,200.0,Vallis
+venus,Zemire Corona,31.5000,-47.5000,200.0,Corona
+venus,Zywie Corona,-38.6000,-68.8000,200.0,Corona
+venus,Coatlicue Corona,63.2000,-87.0000,199.0,Corona
+venus,Semele Tholi,64.3000,-157.1000,194.0,Tholus
+venus,Api Mons,38.9000,54.7000,190.0,Mons
+venus,Bastryk Vallis,-7.5000,-12.5000,190.0,Vallis
+venus,Mesca Corona,27.0000,-17.4000,190.0,Corona
+venus,Nagavonyi Corona,-18.5000,-101.0000,190.0,Corona
+venus,Thouris Corona,-6.5000,12.9000,190.0,Corona
+venus,Benzozia Corona,27.5000,-155.5000,185.0,Corona
+venus,Ops Corona,68.8000,89.0000,183.0,Corona
+venus,Tefnut Mons,-38.6000,-56.0000,182.0,Mons
+venus,Sand Corona,41.7000,15.5000,181.0,Corona
+venus,[Sand Patera],41.7000,15.5000,181.0,Patera
+venus,Asomama Corona,23.3000,21.6000,180.0,Corona
+venus,Carmenta Farra,12.4000,8.0000,180.0,Farrum
+venus,Chloris Mons,-45.4000,-65.4000,180.0,Mons
+venus,Emegen Corona,37.5000,-69.5000,180.0,Corona
+venus,Holla Corona,-13.0000,-122.3000,180.0,Corona
+venus,Masateotl Corona,-53.0000,-116.0000,180.0,Corona
+venus,Miti Corona,-3.5000,-100.2000,180.0,Corona
+venus,Pugos Corona,-19.0000,-25.0000,180.0,Corona
+venus,Tari Pennu Corona,0.3000,-95.7000,180.0,Corona
+venus,Tutelina Corona,29.0000,-12.0000,180.0,Corona
+venus,Verdandi Corona,-5.5000,65.2000,180.0,Corona
+venus,Vostrukha Mons,-6.3000,-60.6000,180.0,Mons
+venus,Zheztyrnak Fossae,-67.5000,-178.0000,180.0,Fossa
+venus,Zhivana Corona,13.0000,-72.5000,180.0,Corona
+venus,Blid Corona,-0.5000,-128.7000,175.0,Corona
+venus,Elihino Corona,-37.0000,49.1000,175.0,Corona
+venus,Isabella,-29.8000,-155.8000,175.0,Crater
+venus,Muhongo Mons,10.6000,174.5000,175.0,Mons
+venus,Ohogetsu Corona,-27.0000,85.7000,175.0,Corona
+venus,Olwen Corona,37.5000,67.5000,175.0,Corona
+venus,Omeciuatl Corona,16.5000,119.0000,175.0,Corona
+venus,Sicasica Fluctus,-52.0000,-179.6000,175.0,Fluctus
+venus,Tai Shan Corona,-32.5000,95.0000,175.0,Corona
+venus,Talakin Mons,-11.0000,-4.6000,175.0,Mons
+venus,Parvati Corona,-36.0000,-83.3000,173.0,Corona
+venus,Otau Corona,67.8000,-61.3000,172.0,Corona
+venus,Agraulos Corona,-27.7000,165.8000,170.0,Corona
+venus,Atsyrkhus Mons,-78.5000,-133.0000,170.0,Mons
+venus,Fufei Vallis,46.0000,-19.0000,170.0,Vallis
+venus,Kulimina Corona,-27.8000,-98.1000,170.0,Corona
+venus,Navolga Corona,-48.6000,-63.5000,170.0,Corona
+venus,Purandhi Corona,26.1000,-16.5000,170.0,Corona
+venus,Sarpanitum Corona,-52.3000,14.6000,170.0,Corona
+venus,Sunrta Corona,8.3000,11.7000,170.0,Corona
+venus,Stopes Patera,42.6000,46.5000,169.0,Patera
+venus,Samsing Corona,-23.8000,-130.5000,165.0,Corona
+venus,Hroswitha Patera,35.8000,34.8000,163.0,Patera
+venus,Muzamuza Corona,65.6000,-154.6000,163.0,Corona
+venus,Tituba Corona,42.4000,-145.3000,163.0,Corona
+venus,[Tituba Patera],42.4000,-145.3000,163.0,Patera
+venus,Nammu Farra,2.3000,169.4000,160.0,Farrum
+venus,Nang Pao Corona,-47.0000,-155.5000,160.0,Corona
+venus,Vasudhara Corona,43.2000,2.7000,160.0,Corona
+venus,Razia Patera,46.2000,-162.2000,157.0,Patera
+venus,[Cassatt Patera],65.6000,-152.3000,152.1,Patera
+venus,Atira Mons,52.2000,-92.4000,152.0,Mons
+venus,Cassatt Corona,65.6000,-152.4000,152.0,Corona
+venus,Ak-Ene Corona,9.4000,-105.3000,150.0,Corona
+venus,Al-Uzza Undae,67.7000,90.5000,150.0,Unda
+venus,Asintmah Corona,25.9000,-152.0000,150.0,Corona
+venus,Atse Estsan Corona,8.5000,92.0000,150.0,Corona
+venus,Bhumidevi Corona,-17.2000,-16.4000,150.0,Corona
+venus,Chiun Corona,18.3000,-19.5000,150.0,Corona
+venus,Ezili Tholus,23.7000,91.3000,150.0,Tholus
+venus,Flidais Corona,-24.5000,177.3000,150.0,Corona
+venus,Fotla Corona,-58.5000,163.5000,150.0,Corona
+venus,Hepat Corona,-2.0000,145.5000,150.0,Corona
+venus,Hlineu Corona,-38.7000,-119.0000,150.0,Corona
+venus,H'uraru Corona,9.0000,68.0000,150.0,Corona
+venus,Ixcuina Corona,-47.5000,-152.5000,150.0,Corona
+venus,Kayanu-Hime Corona,33.5000,57.0000,150.0,Corona
+venus,Loo-Wit Mons,-59.5000,56.0000,150.0,Mons
+venus,Madalait Corona,37.6000,-153.6000,150.0,Corona
+venus,Marake Colles,55.7000,-142.2000,150.0,Collis
+venus,Mykh-Imi Corona,-73.0000,99.0000,150.0,Corona
+venus,Nijole Mons,45.0000,-175.0000,150.0,Mons
+venus,Ninkarraka Corona,65.3000,-139.0000,150.0,Corona
+venus,Nott Corona,-32.3000,-158.0000,150.0,Corona
+venus,Nungui Corona,-42.5000,-114.8000,150.0,Corona
+venus,Nyakaio Vallis,47.5000,-21.0000,150.0,Vallis
+venus,Oduduwa Corona,-11.0000,-148.5000,150.0,Corona
+venus,Olokun Vallis,81.5000,-91.0000,150.0,Vallis
+venus,Omutnitsa Vallis,33.0000,-68.0000,150.0,Vallis
+venus,Orbona Corona,-47.8000,-66.8000,150.0,Corona
+venus,Phra Naret Corona,-66.6000,-150.4000,150.0,Corona
+venus,Romi-Kumi Corona,-81.2000,-180.0000,150.0,Corona
+venus,Seiusi Corona,-62.0000,-119.0000,150.0,Corona
+venus,Tapati Vallis,27.0000,-56.0000,150.0,Vallis
+venus,Tureshmat Corona,-51.5000,-70.5000,150.0,Corona
+venus,Utset Corona,-55.5000,167.0000,150.0,Corona
+venus,Wyrd Mons,14.0000,-112.8000,150.0,Mons
+venus,Zemlika Corona,-33.5000,50.0000,150.0,Corona
+venus,Colette Patera,66.3000,-37.2000,149.0,Patera
+venus,Meitner,-55.6000,-38.4000,149.0,Crater
+venus,Trotula Corona,41.3000,18.9000,146.0,Corona
+venus,[Trotula Patera],41.3000,18.9000,146.0,Patera
+venus,Anjea Corona,-29.0000,-77.2000,145.0,Corona
+venus,Ba'het Corona,48.4000,0.1000,145.0,Corona
+venus,[Ba'het Patera],48.4000,0.1000,145.0,Patera
+venus,Partula Corona,-49.7000,-70.8000,145.0,Corona
+venus,Firtos Mons,-47.3500,-139.9100,143.0,Mons
+venus,Friagabi Fossae,50.2000,109.5000,141.0,Fossa
+venus,Klenova,78.1000,104.5000,141.0,Crater
+venus,Damona Corona,48.9000,28.0000,140.0,Corona
+venus,Nipa Tholus,8.4000,-104.3000,140.0,Tholus
+venus,Nordenflycht Patera,-35.0000,-94.0000,140.0,Patera
+venus,Nzingha Corona,68.7000,-154.3000,140.0,Corona
+venus,Oxomoco Tholus,-32.2800,-141.0100,140.0,Tholus
+venus,Rind Corona,8.2000,-112.5000,140.0,Corona
+venus,Hiei Chu Patera,48.2000,97.4000,139.0,Patera
+venus,Ashtart Tholus,48.7000,-113.0000,138.0,Tholus
+venus,Renpet Mons,76.0000,-123.8000,138.0,Mons
+venus,Kottauer Patera,36.7000,39.6000,136.0,Patera
+venus,Sulis Corona,44.3000,14.2000,136.0,Corona
+venus,[Corday Patera],62.7000,40.2000,135.0,Patera
+venus,Kwannon Tholus,-26.3000,-63.2000,135.0,Tholus
+venus,Embla Coronae,28.9000,-154.6000,132.0,Corona
+venus,Jord Corona,-58.5000,-10.5000,130.0,Corona
+venus,Minona Corona,23.5000,-141.5000,130.0,Corona
+venus,Pachamama Corona,-36.0000,21.8000,130.0,Corona
+venus,Qakma Corona,35.5000,-152.9000,130.0,Corona
+venus,Rakapila Mons,-43.7000,-38.5000,130.0,Mons
+venus,Rosna Tholi,-25.5000,73.3000,130.0,Tholus
+venus,Apgar Patera,43.1000,83.8000,126.0,Patera
+venus,Allatu Corona,15.5000,114.0000,125.0,Corona
+venus,Anqet Farra,33.6000,-48.5000,125.0,Farrum
+venus,[Anqet Farrum],33.6000,-48.5000,125.0,Farrum
+venus,Blai Corona,-0.4000,134.5000,125.0,Corona
+venus,Cailleach Corona,-48.0000,88.3000,125.0,Corona
+venus,Habonde Corona,3.0000,81.8000,125.0,Corona
+venus,Inacho Corona,-20.5000,-147.8000,125.0,Corona
+venus,Ismo Tholi,-29.7100,-146.6600,125.0,Tholus
+venus,Kubebe Corona,15.5000,132.5000,125.0,Corona
+venus,Ninhursag Corona,-38.0000,23.5000,125.0,Corona
+venus,Takus Mana Corona,-19.6000,-14.7000,125.0,Corona
+venus,Teteoinnan Corona,-38.5000,149.5000,125.0,Corona
+venus,Schumann-Heink Corona,74.3000,-145.5000,122.0,Corona
+venus,[Schumann-Heink Patera],74.3000,-145.5000,121.7,Patera
+venus,Dzalarhons Mons,0.5000,34.0000,120.0,Mons
+venus,Katl-Imi Mons,-69.0000,126.0000,120.0,Mons
+venus,Persephone Corona,-36.0000,-55.4000,120.0,Corona
+venus,Rogneda Patera,-2.8000,-139.5000,120.0,Patera
+venus,[Cleopatra Patera],66.0000,6.9000,119.0,Patera
+venus,Hatshepsut Patera,28.1000,64.5000,118.0,Patera
+venus,Eliot Patera,39.1000,79.0000,116.0,Patera
+venus,Ament Corona,-67.2000,-142.1000,115.0,Corona
+venus,Yaroslavna Corona,38.8000,21.2000,112.0,Corona
+venus,[Yaroslavna Patera],38.8000,21.2000,112.0,Patera
+venus,Pakhet Tholus,-28.8500,-138.5500,111.0,Tholus
+venus,Banba Corona,-47.2000,-150.8000,110.0,Corona
+venus,Egle Mons,-59.0000,134.0000,110.0,Mons
+venus,Ilmatar Corona,34.3000,25.0000,110.0,Corona
+venus,Lama Tholus,7.8000,-94.0000,110.0,Tholus
+venus,Lindgren Patera,28.1000,-118.6000,110.0,Patera
+venus,Mahuea Tholus,-37.5000,164.7000,110.0,Tholus
+venus,Ninisinna Mons,25.7000,-162.5000,110.0,Mons
+venus,Parma Corona,44.5000,17.5000,110.0,Corona
+venus,Perynya Tholus,-0.7000,-6.8000,110.0,Tholus
+venus,Samundra Vallis,-24.1000,-12.9000,110.0,Vallis
+venus,Sus-Khotin Corona,-54.0000,-119.0000,110.0,Corona
+venus,Xtoh Mons,39.7000,-165.8000,110.0,Mons
+venus,Baker,62.5000,40.3000,109.0,Crater
+venus,Stanton,-23.3000,-160.7000,107.0,Crater
+venus,Cleopatra,65.8000,7.1000,105.0,Crater
+venus,Siduri Mons,-42.3000,-62.7000,105.0,Mons
+venus,[Somagalags Corona],9.3000,-11.5000,105.0,Corona
+venus,Somagalags Montes,9.3000,-11.5000,105.0,Mons
+venus,Rosa Bonheur,9.7000,-71.2000,104.0,Crater
+venus,Metra Corona,26.0000,97.7000,101.0,Corona
+venus,Awenhai Mons,-60.0000,-112.0000,100.0,Mons
+venus,Bhumiya Corona,15.0000,118.0000,100.0,Corona
+venus,Cavell Corona,38.3000,18.8000,100.0,Corona
+venus,[Ciuacoatl Corona],53.0000,150.9000,100.0,Corona
+venus,Ciuacoatl Mons,53.0000,150.9000,100.0,Mons
+venus,Clonia Corona,16.0000,167.4000,100.0,Corona
+venus,Cochran,51.9000,143.4000,100.0,Crater
+venus,Dhisana Corona,14.5000,111.7000,100.0,Corona
+venus,Dietrich Patera,-5.3000,-124.7000,100.0,Patera
+venus,Fefafa Corona,-24.8000,-149.2000,100.0,Corona
+venus,Jotuni Patera,-6.5000,-146.0000,100.0,Patera
+venus,Kupo Patera,-41.9000,-164.5000,100.0,Patera
+venus,Liban Farra,-23.9000,-6.5000,100.0,Farrum
+venus,Menat Undae,-24.8000,-20.6000,100.0,Unda
+venus,Moombi Corona,-64.5000,-124.5000,100.0,Corona
+venus,Nikolaeva Patera,33.9000,-92.5000,100.0,Patera
+venus,Padma Tholi,-34.7000,68.3000,100.0,Tholus
+venus,Payne-Gaposchkin Patera,-25.5000,-164.0000,100.0,Patera
+venus,Pchilka Patera,26.5000,-126.0000,100.0,Patera
+venus,Rabzhima Corona,4.9000,11.0000,100.0,Corona
+venus,Radunitsa Labyrinthus,-8.9000,-8.7000,100.0,Labyrinthus
+venus,Villepreux-Power Patera,-22.0000,-150.0000,100.0,Patera
+venus,Vupar Tholus,-13.5000,-54.0000,100.0,Tholus
+venus,Tipporah Patera,38.9000,43.0000,99.0,Patera
+venus,Sayers,-67.5000,-130.2000,98.0,Crater
+venus,Maria Celeste,23.4000,140.4000,97.5,Crater
+venus,[Carriera Patera],48.6000,48.8000,97.0,Patera
+venus,Potanina,31.6000,53.1000,94.2,Crater
+venus,Bethune Patera,46.5000,-38.7000,94.0,Patera
+venus,Davies Patera,47.2000,-90.7000,93.0,Patera
+venus,Greenaway,22.9000,145.1000,93.0,Crater
+venus,Bonnevie,-36.1000,127.0000,92.2,Crater
+venus,Joliot-Curie,-1.6000,62.4000,91.1,Crater
+venus,Bremer Patera,66.8000,63.7000,91.0,Patera
+venus,Hutash Corona,-34.3000,-84.3000,91.0,Corona
+venus,Ignirtoq Tholi,-50.9800,-137.2000,90.0,Tholus
+venus,Ilithyia Mons,-13.5000,-44.5000,90.0,Mons
+venus,Libby Patera,-34.5000,-160.5000,90.0,Patera
+venus,Nei-Teukez Corona,14.2000,-101.2000,90.0,Corona
+venus,Shala Mons,39.4000,-152.0000,90.0,Mons
+venus,Sumerla Tholi,-13.8000,-107.8000,90.0,Tholus
+venus,Nimba Corona,32.8000,-155.5000,88.0,Corona
+venus,Addams,-56.2000,98.9000,87.0,Crater
+venus,Ale Tholus,68.2000,-113.0000,87.0,Tholus
+venus,[Nzingha Patera],68.7000,-154.3000,85.5,Patera
+venus,Ayrton Patera,6.0000,-132.7000,85.0,Patera
+venus,Cherskaya Patera,-5.2000,-127.5000,85.0,Patera
+venus,Meiboia Tholus,-44.7000,-78.7000,85.0,Tholus
+venus,Sanger,33.8000,-71.4000,83.6,Crater
+venus,Bast Tholus,57.8000,130.3000,83.0,Tholus
+venus,[Labé Patera],52.1000,-86.9000,83.0,Patera
+venus,[Woodhull Patera],37.4000,-54.6000,83.0,Patera
+venus,Wurunsemu Tholus,40.6000,-150.1000,83.0,Tholus
+venus,Angrboda Tholus,-73.8000,116.0000,80.0,Tholus
+venus,Copacati Mons,34.8000,-83.2000,80.0,Mons
+venus,Dutrieu Patera,33.8000,-161.5000,80.0,Patera
+venus,Dzuzdi Corona,35.2000,20.6000,80.0,Corona
+venus,Ixtab Mons,15.7000,-117.8000,80.0,Mons
+venus,Mansfield Patera,29.5000,-132.5000,80.0,Patera
+venus,Oshun Farra,4.2000,19.3000,80.0,Farrum
+venus,Otafuku Tholi,28.7000,46.3000,80.0,Tholus
+venus,Pajan Yan Tholus,8.3000,-107.8000,80.0,Tholus
+venus,Qetesh Corona,-20.5000,-16.5000,80.0,Corona
+venus,Stowe,-43.2000,-126.8000,80.0,Crater
+venus,Tarbell Patera,-58.2000,-8.5000,80.0,Patera
+venus,Tenisheva Patera,-1.4000,-105.2000,80.0,Patera
+venus,Toma Mons,-12.9000,-128.0000,80.0,Mons
+venus,Vovchok Patera,-38.0000,-50.0000,80.0,Patera
+venus,Xochiquetzal Mons,3.5000,-90.0000,80.0,Mons
+venus,Mona Lisa,25.6000,25.1000,79.4,Crater
+venus,[Furki Mons],35.9000,-123.6000,79.0,Mons
+venus,Furki Tholus,35.9000,-123.6000,79.0,Tholus
+venus,[Mentha Mons],43.0000,-122.7000,79.0,Mons
+venus,Mentha Tholus,43.0000,-122.7000,79.0,Tholus
+venus,Pocahontas Patera,64.9000,49.4000,78.0,Patera
+venus,O'Keeffe,24.5000,-131.2000,76.9,Crater
+venus,Barsova,61.3000,-137.0000,76.0,Crater
+venus,[Cavell Patera],37.9000,18.7000,76.0,Patera
+venus,Fedchenko Patera,-24.0000,-133.5000,75.0,Patera
+venus,Flosshilde Farra,10.5000,-80.6000,75.0,Farrum
+venus,Garbo Patera,1.5000,-101.8000,75.0,Patera
+venus,Gauri Mons,-20.2000,102.2000,75.0,Mons
+venus,[Graham],-6.0000,6.0000,75.0,Crater
+venus,Graham Patera,-6.0000,6.0000,75.0,Patera
+venus,Ledoux Patera,-9.2000,-135.2000,75.0,Patera
+venus,Nintu Corona,19.2000,123.5000,75.0,Corona
+venus,Pakoti Corona,-38.8000,42.4000,75.0,Corona
+venus,Teasdale Patera,-67.6000,-170.9000,75.0,Patera
+venus,Tursa Tholus,-35.4000,-154.8000,75.0,Tholus
+venus,Wilde Patera,-21.3000,-93.7000,75.0,Patera
+venus,Wheatley,16.6000,-92.0000,74.8,Crater
+venus,Izumi Patera,50.0000,-166.4000,74.0,Patera
+venus,Markham,-4.1000,155.6000,71.8,Crater
+venus,Boulanger,-26.6000,99.2000,71.5,Crater
+venus,Boleyn,24.4000,-139.9000,70.4,Crater
+venus,Henie,-51.9000,146.0000,70.4,Crater
+venus,Alcyone Tholus,-2.1000,-103.6000,70.0,Tholus
+venus,Anthony Patera,48.2000,32.6000,70.0,Patera
+venus,Avfruvva Vallis,2.0000,70.0000,70.0,Vallis
+venus,Jászai Patera,32.0000,-55.0000,70.0,Patera
+venus,Mikhaylova Patera,-26.8000,-11.8000,70.0,Patera
+venus,Mirizir Corona,-66.4000,-175.0000,70.0,Corona
+venus,Ndara Tholus,-57.5000,16.0000,70.0,Tholus
+venus,Nevelson,-35.3000,-52.2000,69.8,Crater
+venus,Arasy Mons,-40.2600,-150.2600,69.0,Mons
+venus,Keller Patera,45.0000,-86.0000,69.0,Patera
+venus,Stuart,-30.8000,20.2000,68.6,Crater
+venus,Dickinson,74.6000,177.2000,67.5,Crater
+venus,Koidula,64.2000,139.6000,67.0,Crater
+venus,Andreianova,-3.0000,68.8000,66.1,Crater
+venus,Alcott,-59.5000,-5.6000,66.0,Crater
+venus,Nertus Tholus,61.2000,-112.1000,66.0,Tholus
+venus,Batten,15.2000,-142.6000,65.0,Crater
+venus,Sachs Patera,49.1000,-25.8000,65.0,Patera
+venus,Yablochkina,48.3000,-164.7000,64.3,Crater
+venus,Aglaonice,-26.4000,-20.1000,63.7,Crater
+venus,Dix,-37.0000,-31.0000,63.3,Crater
+venus,Seymour,18.2000,-33.5000,63.0,Crater
+venus,Hepworth,5.1000,94.7000,62.6,Crater
+venus,[Cotis Mons],44.1000,-126.9000,62.0,Mons
+venus,Cotis Tholus,44.3000,-127.0000,62.0,Tholus
+venus,[Seshat Mons],26.3000,33.2000,62.0,Mons
+venus,Ermolova,60.3000,154.4000,60.9,Crater
+venus,Aegina Farrum,35.5000,20.9000,60.0,Farrum
+venus,Justitia Tholus,-28.7000,-63.5000,60.0,Tholus
+venus,Malibran Patera,-18.4000,-135.4000,60.0,Patera
+venus,Malintzin Patera,57.0000,81.5000,60.0,Patera
+venus,Mehseti Patera,16.0000,-49.0000,60.0,Patera
+venus,Mezrina Patera,-33.3000,68.8000,60.0,Patera
+venus,Nirmali Corona,-6.3000,172.3000,60.0,Corona
+venus,Serova Patera,20.0000,-113.0000,60.0,Patera
+venus,Shelikhova Patera,-75.7000,162.5000,60.0,Patera
+venus,Shulzhenko Patera,6.5000,-95.5000,60.0,Patera
+venus,Waka Mons,26.3000,-152.3000,60.0,Mons
+venus,Žemaite Patera,-35.0000,-97.0000,60.0,Patera
+venus,Gautier,26.3000,42.8000,59.3,Crater
+venus,Kurukulla Mons,48.7000,103.0000,59.0,Mons
+venus,Eirene Tholus,75.5000,-130.0000,58.0,Tholus
+venus,Vigée-Lebrun,17.3000,141.4000,57.8,Crater
+venus,Ponselle,-63.0000,-70.9000,57.7,Crater
+venus,Fedorets,59.7000,65.6000,57.6,Crater
+venus,Carreno,-3.9000,16.1000,57.0,Crater
+venus,Hallgerda Mons,53.1000,-161.7000,57.0,Mons
+venus,Barrymore,-52.3000,-164.3000,56.6,Crater
+venus,Cori,25.4000,72.9000,56.1,Crater
+venus,Lagerlöf,81.2000,-74.8000,56.0,Crater
+venus,Narina Tholi,-25.8000,80.0000,55.0,Tholus
+venus,Viardot Patera,-7.0000,-105.7000,55.0,Patera
+venus,Xquiq Corona,38.1000,14.6000,55.0,Corona
+venus,Muta Mons,55.5000,-1.7000,54.0,Mons
+venus,Zhilova,66.3000,125.7000,53.0,Crater
+venus,Kenny,-44.4000,-88.9000,52.7,Crater
+venus,de Beauvoir,2.0000,96.1000,52.5,Crater
+venus,Hurston,-77.6000,94.7000,52.4,Crater
+venus,Barton,27.4000,-22.5000,52.2,Crater
+venus,Caldwell,23.6000,112.4000,51.0,Crater
+venus,Warren,-11.7000,176.5000,50.9,Crater
+venus,Wharton,55.7000,61.9000,50.5,Crater
+venus,Langtry,-17.0000,155.0000,50.3,Crater
+venus,Jhirad,-16.8000,105.6000,50.2,Crater
+venus,Amra Tholus,53.0000,98.0000,50.0,Tholus
+venus,Bakhtadze Patera,45.5000,-140.5000,50.0,Patera
+venus,Edda Corona,47.2000,25.4000,50.0,Corona
+venus,Gerd Tholi,-54.5000,-68.5000,50.0,Tholus
+venus,Grey,-52.4000,-30.6000,50.0,Crater
+venus,Grizodubova Patera,16.7000,-60.4000,50.0,Patera
+venus,Khotal-Ekva Tholi,-9.1000,177.8000,50.0,Tholus
+venus,Kvasha Patera,-9.5000,69.0000,50.0,Patera
+venus,Modron Corona,32.8000,23.1000,50.0,Corona
+venus,Nanen Corona,69.9000,-161.5000,50.0,Corona
+venus,Panina Patera,-13.0000,-50.2000,50.0,Patera
+venus,Conway,48.3000,39.0000,49.3,Crater
+venus,Danilova,-26.4000,-22.8000,48.8,Crater
+venus,Voynich,35.4000,56.1000,48.7,Crater
+venus,Cunitz,14.5000,-9.1000,48.6,Crater
+venus,Willard,-24.6000,-63.9000,48.4,Crater
+venus,Cotton,70.8000,-59.8000,48.1,Crater
+venus,Barto,45.3000,146.3000,48.0,Crater
+venus,Deken,47.1000,-71.5000,48.0,Crater
+venus,Milda Mons,52.5000,159.4000,48.0,Mons
+venus,Millay,24.4000,111.2000,48.0,Crater
+venus,Morisot,-61.2000,-148.7000,48.0,Crater
+venus,Fouquet,-15.1000,-156.5000,47.8,Crater
+venus,Marsh,-63.6000,46.6000,47.7,Crater
+venus,Volkova,75.2000,-117.8000,47.5,Crater
+venus,Hull,59.4000,-96.4000,47.3,Crater
+venus,Truth,28.7000,-72.2000,47.3,Crater
+venus,Patti,35.0000,-58.4000,47.0,Crater
+venus,[Siddons],61.6000,-19.4000,47.0,Crater
+venus,Siddons Patera,61.6000,-19.4000,47.0,Patera
+venus,Potter,7.2000,-50.9000,46.9,Crater
+venus,Corpman,0.3000,151.8000,46.0,Crater
+venus,Obukhova,70.7000,-70.3000,46.0,Crater
+venus,Leyster,1.0000,-100.0000,45.8,Crater
+venus,Austen,-25.0000,168.4000,45.1,Crater
+venus,Dashkova,78.2000,-53.5000,45.1,Crater
+venus,Garland Patera,32.7000,-153.2000,45.0,Patera
+venus,Vibert-Douglas Patera,-11.6000,-165.7000,45.0,Patera
+venus,Ruslanova,83.9000,16.6000,44.3,Crater
+venus,Khatun,40.3000,87.2000,44.1,Crater
+venus,Wollstonecraft,-39.1000,-99.2000,44.1,Crater
+venus,Rhys,8.6000,-61.2000,44.0,Crater
+venus,Guan Daosheng,-61.1000,-178.2000,43.6,Crater
+venus,Hayashi,53.8000,-116.1000,43.1,Crater
+venus,Lonsdale,55.6000,-137.6000,43.0,Crater
+venus,Tsvetayeva,64.6000,147.4000,42.9,Crater
+venus,Tubman,23.6000,-155.4000,42.9,Crater
+venus,Yonge,-14.0000,115.1000,42.8,Crater
+venus,Aksentyeva,-42.0000,-88.1000,42.5,Crater
+venus,Whitney,-30.2000,151.3000,42.5,Crater
+venus,Agnesi,-39.4000,37.7000,42.4,Crater
+venus,Parra,20.5000,78.5000,42.4,Crater
+venus,Montessori,59.4000,-80.0000,42.1,Crater
+venus,Manzolini,25.6000,91.3000,41.8,Crater
+venus,Akhmatova,61.3000,-52.1000,41.4,Crater
+venus,Polenova,-45.5000,-24.5000,41.0,Crater
+venus,Beecher,13.0000,-106.6000,40.4,Crater
+venus,Xantippe,-10.9000,11.8000,40.4,Crater
+venus,Duncan,68.1000,-68.3000,40.3,Crater
+venus,Chiyojo,-47.8000,95.7000,40.2,Crater

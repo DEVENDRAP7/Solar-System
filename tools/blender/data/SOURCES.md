@@ -85,18 +85,32 @@ The files are committed so a build needs no network access.
 
 ## Place names
 
-`assets/data/features.csv` — the named craters, seas, mountains, canyons and
-plains drawn as labels over each body. Names and positions follow the IAU
-Gazetteer of Planetary Nomenclature, but this file is a **curated subset
-entered by hand**, not an export of it: `tools/blender/fetch_nomenclature.py`
-was written to pull the real thing on a runner and its first run failed — the
-gazetteer's search endpoint wants an internal target id (`16_Moon`) rather than
-a target name, and returns HTTP 500 otherwise. The positions here are good to
-about a degree, which is a fraction of a pixel at the size a phone draws a
-planet, but they are not authoritative. Fixing the fetcher would replace this
-file wholesale.
+`assets/data/features.csv` — 5,181 named craters, seas, mountains, canyons and
+plains across 22 bodies, drawn as labels over each one. Fetched from the IAU
+Gazetteer of Planetary Nomenclature by `tools/blender/fetch_nomenclature.py`,
+which runs on a CI runner because the site is not reachable from the
+development sandbox. Nomenclature is IAU/USGS work and not subject to
+copyright.
 
-Jupiter's Great Red Spot and Neptune's Great Dark Spot are deliberately absent:
-both drift in longitude, so there is no fixed coordinate to put them at, and
-where they sit in our particular surface map is not something that was
-verified.
+Notes on reading that site, since none of it is documented and all of it was
+learned by printing what it returned:
+
+* the search endpoint wants an internal target id — `16_Moon`, not `MOON`,
+  which answers HTTP 500. The ids are read out of the Advanced Search form
+  rather than hard-coded;
+* `output=csv` is accepted and ignored; the results come back as a page;
+* the rows are a table whose cells carry semantic classes, `featureNameColumn`
+  and the like, with no header row naming them;
+* the coordinates are two cells that share the class `centerLatLonColumn`,
+  latitude first;
+* the longitude convention is per row, and several bodies are published
+  **+West**. Those are converted on the way in — left alone, every named place
+  on them would sit mirrored on the wrong side of the globe;
+* a feature that is not a circle has no diameter, recorded as 0.00, so
+  filtering on diameter alone empties the small moons.
+
+The file keeps up to 1,200 features per body rather than a chosen few. Cutting
+to the largest few hundred fills the Moon with vast obscure farside basins and
+leaves out Tycho and Copernicus, which are genuinely smaller than a hundred
+things nobody has heard of. Which names are worth showing depends on what is on
+screen, so the renderer decides.

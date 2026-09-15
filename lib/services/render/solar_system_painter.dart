@@ -143,6 +143,14 @@ class SolarSystemPainter extends CustomPainter {
   /// where a crater's name has to land on the right part of a disc.
   static const double _moonNameThreshold = 4.0;
 
+  /// How far down a body's list of names to look before giving up.
+  ///
+  /// The Moon has nine thousand named features. Walking all of them every
+  /// frame, for every body, to fill fourteen slots would cost more than the
+  /// planets themselves. They are sorted largest first, so the ones worth
+  /// having are near the front.
+  static const int _labelSearchDepth = 600;
+
   /// Ecliptic coordinates are z-up; the scene is y-up.
   static Vector3 _toScene(Vector3 ecliptic) =>
       Vector3(ecliptic.x, ecliptic.z, -ecliptic.y);
@@ -639,9 +647,10 @@ class SolarSystemPainter extends CustomPainter {
 
     final Vector3 toEye = (camera.eye - item.world)..normalize();
     int taken = 0;
+    int considered = 0;
 
     for (final SurfaceFeature feature in named) {
-      if (taken >= allowed) {
+      if (taken >= allowed || considered >= _labelSearchDepth) {
         break;
       }
 
@@ -660,6 +669,20 @@ class SolarSystemPainter extends CustomPainter {
         focal,
       );
       if (at == null) {
+        continue;
+      }
+
+      // Only what is actually on screen costs a slot. The names arrive
+      // largest first, so without this a body zoomed in on spends its whole
+      // budget on giants that are off the edge of the screen, and the crater
+      // being looked at goes unnamed. It is also what makes zooming in reveal
+      // smaller things: the giants leave the frame, and the budget passes
+      // down the list.
+      considered++;
+      if (at.dx < -40 ||
+          at.dy < -40 ||
+          at.dx > size.width + 40 ||
+          at.dy > size.height + 40) {
         continue;
       }
 
