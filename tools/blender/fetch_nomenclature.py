@@ -45,6 +45,9 @@ WANTED = [
     'Triton', 'Proteus',
 ]
 
+# Below this many features a body keeps whatever it has, diameter or not.
+MIN_KEEP = 10
+
 ROW = re.compile(r'<tr[^>]*class="[^"]*hover-highlight[^"]*"[^>]*>(.*?)</tr>',
                  re.S | re.I)
 CELL = re.compile(r'<td[^>]*class="([^"]*)"[^>]*>(.*?)</td>', re.S | re.I)
@@ -71,13 +74,16 @@ def target_ids():
     return ids
 
 
-def cell(row, *needles):
-    """The text of the first cell whose class mentions all of [needles]."""
-    for classes, markup in CELL.findall(row):
-        flat = classes.lower().replace(' ', '')
-        if all(needle in flat for needle in needles):
-            return text_of(markup)
-    return ''
+def cells(row, needle):
+    """Text of every cell whose class mentions [needle], in document order."""
+    return [text_of(markup) for classes, markup in CELL.findall(row)
+            if needle in classes.lower().replace(' ', '')]
+
+
+def cell(row, needle, index=0):
+    """Text of the [index]th cell whose class mentions [needle]."""
+    found = cells(row, needle)
+    return found[index] if index < len(found) else ''
 
 
 def number(value):
@@ -138,24 +144,35 @@ def main():
             name = cell(row, 'featurename')
             if not name:
                 continue
-            latitude = number(cell(row, 'latitude'))
-            longitude = number(cell(row, 'longitude'))
+            # The coordinates are two cells that share one class name,
+            # centerLatLonColumn: latitude first, then longitude. There is no
+            # cell called latitude or longitude, which is what the previous
+            # parser went looking for.
+            centre = cells(row, 'centerlatlon')
+            latitude = number(centre[0]) if len(centre) > 0 else None
+            longitude = number(centre[1]) if len(centre) > 1 else None
             if latitude is None or longitude is None:
                 continue
 
             convention = cell(row, 'coordsystem')
             conventions.add(convention)
             diameter = number(cell(row, 'diameter')) or 0.0
-            if diameter < options.min_diameter:
-                continue
-
             kind = cell(row, 'featuretype') or ''
+
             kept.append((name, latitude, to_east(longitude, convention),
                          diameter, kind.split(',')[0].strip()))
 
         # Biggest first, then trimmed: a label layer that names everything
         # names nothing, because it is a wall of text.
         kept.sort(key=lambda entry: -entry[3])
+
+        # Plenty of features carry no diameter at all — a planum or a chasma
+        # is not a circle — and they are recorded as zero. Dropping everything
+        # under the threshold would empty the small moons, so the threshold
+        # only applies while there is enough above it to be worth having.
+        large = [entry for entry in kept if entry[3] >= options.min_diameter]
+        if len(large) >= MIN_KEEP:
+            kept = large
         kept = kept[:options.per_body]
         if kept:
             found[body] = kept
