@@ -5,12 +5,19 @@ of every body are called. It lives at planetarynames.wr.usgs.gov, which the
 development sandbox cannot reach — its egress only allows GitHub — so this runs
 on a CI runner, the same way the textures are fetched.
 
-There is no data API. The search endpoint takes an internal target id of the
-form ``16_Moon`` and answers with a results page; a target *name* gets an HTTP
-500, and asking for ``output=csv`` is ignored. So this reads the ids out of the
-search form itself rather than hard-coding them — they are the site's own
-numbering and would otherwise be a guess that breaks silently — and parses the
-results table by matching its header, rather than by column position.
+There is no data API, and the site took some reading to use:
+
+* the search endpoint wants an internal target id, ``16_Moon`` rather than
+  ``MOON``, which answers HTTP 500. The ids are read out of the Advanced Search
+  form rather than hard-coded, since they are the site's own numbering;
+* ``output=csv`` is ignored, so the results come back as a page;
+* the rows are a table whose cells carry semantic classes —
+  ``featureNameColumn``, ``diameterColumn`` and so on — which is what this
+  reads. An earlier version matched the header text instead and silently found
+  nothing;
+* longitudes are not all measured the same way. Each row says which convention
+  it uses, and several bodies are +West; those are converted, or half the map
+  would be mirrored.
 
     python3 tools/blender/fetch_nomenclature.py [--min-diameter 40] [--per-body 60]
 """
@@ -38,16 +45,9 @@ WANTED = [
     'Triton', 'Proteus',
 ]
 
-# Header cells we need, and the key each maps to.
-COLUMNS = {
-    'feature name': 'name',
-    'clean feature name': 'name',
-    'diameter': 'diameter',
-    'center latitude': 'lat',
-    'center longitude': 'lon',
-    'feature type': 'kind',
-}
-
+ROW = re.compile(r'<tr[^>]*class="[^"]*hover-highlight[^"]*"[^>]*>(.*?)</tr>',
+                 re.S | re.I)
+CELL = re.compile(r'<td[^>]*class="([^"]*)"[^>]*>(.*?)</td>', re.S | re.I)
 TAG = re.compile(r'<[^>]+>')
 
 
@@ -57,9 +57,8 @@ def get(url):
         return response.read().decode('utf-8', 'replace')
 
 
-def text_of(cell):
-    """Strip a table cell down to its text."""
-    return html.unescape(TAG.sub(' ', cell)).replace('\xa0', ' ').strip()
+def text_of(markup):
+    return ' '.join(html.unescape(TAG.sub(' ', markup)).split())
 
 
 def target_ids():
@@ -68,49 +67,35 @@ def target_ids():
     ids = {}
     for value, label in re.findall(
             r'<option[^>]*value=["\'](\d+_[^"\']+)["\'][^>]*>\s*([^<]*)', page):
-        name = html.unescape(label).strip()
-        # The same page carries a references select whose values look alike;
-        # those labels are citations, not body names, and never match.
-        if name and name.lower() in {b.lower() for b in WANTED}:
-            ids[name] = html.unescape(value)
+        ids[html.unescape(label).strip()] = html.unescape(value)
     return ids
 
 
-def parse_results(page):
-    """Rows from the results table, keyed by what its header says they are."""
-    rows = []
-    for table in re.findall(r'<table[\s\S]*?</table>', page, re.I):
-        trs = re.findall(r'<tr[\s\S]*?</tr>', table, re.I)
-        if len(trs) < 2:
-            continue
-
-        header = [text_of(c).lower() for c in
-                  re.findall(r'<t[hd][\s\S]*?</t[hd]>', trs[0], re.I)]
-        index = {}
-        for position, cell in enumerate(header):
-            key = COLUMNS.get(cell)
-            if key and key not in index:
-                index[key] = position
-        if not {'name', 'lat', 'lon'} <= set(index):
-            continue
-
-        for tr in trs[1:]:
-            cells = [text_of(c) for c in
-                     re.findall(r'<t[hd][\s\S]*?</t[hd]>', tr, re.I)]
-            if len(cells) <= max(index.values()):
-                continue
-            rows.append({key: cells[position]
-                         for key, position in index.items()})
-        if rows:
-            return rows, header
-    return rows, []
+def cell(row, *needles):
+    """The text of the first cell whose class mentions all of [needles]."""
+    for classes, markup in CELL.findall(row):
+        flat = classes.lower().replace(' ', '')
+        if all(needle in flat for needle in needles):
+            return text_of(markup)
+    return ''
 
 
 def number(value):
-    try:
-        return float(re.sub(r'[^0-9.eE+-]', '', value))
-    except (TypeError, ValueError):
-        return None
+    match = re.search(r'-?\d+(?:\.\d+)?', value or '')
+    return float(match.group()) if match else None
+
+
+def to_east(longitude, convention):
+    """Put a longitude on the east-positive scale the meshes are wrapped with.
+
+    Several bodies are published +West. Mirroring them would put every named
+    place on the wrong side of the globe, which is the kind of mistake that
+    looks fine until someone who knows the Moon opens the app.
+    """
+    if '+west' in convention.lower().replace(' ', ''):
+        longitude = -longitude
+    # Wrap to -180..180.
+    return (longitude + 180.0) % 360.0 - 180.0
 
 
 def main():
@@ -121,49 +106,61 @@ def main():
     options = parser.parse_args()
 
     ids = target_ids()
-    print('found {} of {} target ids: {}\n'.format(
-        len(ids), len(WANTED), ', '.join(sorted(ids))))
-    missing = [b for b in WANTED if b not in ids]
+    missing = [body for body in WANTED if body not in ids]
+    print('{} of {} target ids found'.format(len(WANTED) - len(missing),
+                                             len(WANTED)))
     if missing:
-        print('no id for: {}\n'.format(', '.join(missing)))
-    if not ids:
-        raise SystemExit('the search form gave up no target ids at all')
+        print('no id for: {}'.format(', '.join(missing)))
+    print()
 
     found = {}
-    for body, target in sorted(ids.items()):
+    for body in WANTED:
+        target = ids.get(body)
+        if not target:
+            continue
+
         url = '{}/SearchResults?{}'.format(
             BASE, urllib.parse.urlencode({'Target': target}))
         try:
             page = get(url)
         except (urllib.error.URLError, urllib.error.HTTPError) as error:
-            print('{:<12} fetch failed: {}'.format(body, error))
+            print('{:<10} fetch failed: {}'.format(body, error))
             continue
 
-        rows, header = parse_results(page)
-        if not rows:
-            print('{:<12} no table found in {} bytes'.format(body, len(page)))
-            continue
-
+        rows = ROW.findall(page)
         kept = []
+        conventions = set()
+
         for row in rows:
-            lat = number(row.get('lat', ''))
-            lon = number(row.get('lon', ''))
-            diameter = number(row.get('diameter', '')) or 0.0
-            name = row.get('name', '').strip()
-            if not name or lat is None or lon is None:
+            name = cell(row, 'featurename')
+            if not name:
                 continue
+            latitude = number(cell(row, 'latitude'))
+            longitude = number(cell(row, 'longitude'))
+            if latitude is None or longitude is None:
+                continue
+
+            convention = cell(row, 'coordsystem')
+            conventions.add(convention)
+            diameter = number(cell(row, 'diameter')) or 0.0
             if diameter < options.min_diameter:
                 continue
-            kept.append((name, lat, lon, diameter, row.get('kind', '')))
+
+            kind = cell(row, 'featuretype') or ''
+            kept.append((name, latitude, to_east(longitude, convention),
+                         diameter, kind.split(',')[0].strip()))
 
         # Biggest first, then trimmed: a label layer that names everything
         # names nothing, because it is a wall of text.
-        kept.sort(key=lambda r: -r[3])
+        kept.sort(key=lambda entry: -entry[3])
         kept = kept[:options.per_body]
         if kept:
             found[body] = kept
-        print('{:<12} {:>5} rows -> {:>3} kept   (e.g. {})'.format(
-            body, len(rows), len(kept), kept[0][0] if kept else '-'))
+
+        print('{:<10} {:>5} rows -> {:>3} kept  {:<28} {}'.format(
+            body, len(rows), len(kept),
+            '; '.join(sorted(conventions))[:28],
+            kept[0][0] if kept else '-'))
 
     if len(found) < 4:
         raise SystemExit('too few bodies came back to be worth a commit')
@@ -178,7 +175,7 @@ def main():
                                  '{:.4f}'.format(lat), '{:.4f}'.format(lon),
                                  '{:.1f}'.format(diameter), kind])
 
-    total = sum(len(r) for r in found.values())
+    total = sum(len(rows) for rows in found.values())
     print('\nwrote {} features across {} bodies to {}'.format(
         total, len(found), options.out))
 
