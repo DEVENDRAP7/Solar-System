@@ -108,7 +108,10 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--out', default='assets/data/features.csv')
     parser.add_argument('--min-diameter', type=float, default=40.0)
-    parser.add_argument('--per-body', type=int, default=60)
+    # Enough that the famous nearside craters survive. Sixty, sorted by size,
+    # filled the Moon with vast obscure farside basins and left out Tycho and
+    # Copernicus, which are the two anyone would look for.
+    parser.add_argument('--per-body', type=int, default=160)
     options = parser.parse_args()
 
     ids = target_ids()
