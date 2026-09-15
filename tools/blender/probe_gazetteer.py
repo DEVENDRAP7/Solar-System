@@ -1,13 +1,16 @@
-"""Find out how the IAU gazetteer wants to be asked.
+"""Find out how the IAU gazetteer lays out its results.
 
-The development sandbox cannot reach planetarynames.wr.usgs.gov, so this runs
-on a CI runner and prints what the site actually returns. Read the workflow log
-and write the real fetcher from what it says, rather than guessing at the query
-and spending a run on each guess.
+The sandbox cannot reach planetarynames.wr.usgs.gov, so this runs on a CI
+runner and prints what the site actually returns. Read the workflow log and
+write the parser from what it says, rather than guessing and spending a run on
+each guess.
+
+Target ids are already known to work: Target=16_Moon answers 200, a target
+name answers 500. What is not known is how a row of results is marked up.
 """
 
+import html
 import re
-import urllib.error
 import urllib.request
 
 AGENT = ('SolarSystemApp-Nomenclature/1.0 '
@@ -15,71 +18,50 @@ AGENT = ('SolarSystemApp-Nomenclature/1.0 '
 
 BASE = 'https://planetarynames.wr.usgs.gov'
 
+# Small enough to read in a log, and it certainly has named features.
+SAMPLE = ('Mimas', '43_Mimas')
+KNOWN = 'Herschel'
+
 
 def get(url):
     request = urllib.request.Request(url, headers={'User-Agent': AGENT})
-    with urllib.request.urlopen(request, timeout=90) as response:
-        return response.status, response.read().decode('utf-8', 'replace')
-
-
-def show(label, url, head=600):
-    print('\n' + '=' * 72)
-    print('{}\n{}'.format(label, url))
-    print('-' * 72)
-    try:
-        status, body = get(url)
-    except urllib.error.HTTPError as error:
-        print('HTTP {} {}'.format(error.code, error.reason))
-        try:
-            print(error.read().decode('utf-8', 'replace')[:head])
-        except Exception:
-            pass
-        return None
-    except Exception as error:
-        print('failed: {!r}'.format(error))
-        return None
-
-    print('HTTP {}  {} bytes'.format(status, len(body)))
-    print(body[:head].replace('\r', ''))
-    return body
+    with urllib.request.urlopen(request, timeout=300) as response:
+        return response.read().decode('utf-8', 'replace')
 
 
 def main():
-    # 1. The search form, for the internal target ids.
-    page = show('SEARCH FORM', BASE + '/AdvancedSearch', head=300)
-    if page:
-        selects = re.findall(
-            r'<select[^>]*name=["\']([^"\']+)["\'][^>]*>(.*?)</select>',
-            page, re.S | re.I)
-        print('\n--- form selects ---')
-        for name, inner in selects:
-            options = re.findall(
-                r'<option[^>]*value=["\']([^"\']*)["\'][^>]*>\s*([^<]*)',
-                inner, re.I)
-            print('\nselect {!r}: {} options'.format(name, len(options)))
-            for value, text in options[:40]:
-                print('    {:<22} {}'.format(value, text.strip()[:40]))
+    body, target = SAMPLE
+    page = get('{}/SearchResults?Target={}'.format(BASE, target))
+    print('{}: {} bytes'.format(body, len(page)))
 
-        print('\n--- form inputs ---')
-        for match in re.findall(r'<input[^>]*>', page, re.I)[:40]:
-            print('   ', match.strip()[:150])
+    for tag in ('table', 'tbody', 'tr', 'td', 'th', 'ul', 'li', 'article',
+                'section'):
+        print('  <{:<8} {}'.format(tag + '>', len(
+            re.findall(r'<' + tag + r'[\s>]', page, re.I))))
 
-        forms = re.findall(r'<form[^>]*>', page, re.I)
-        print('\n--- form tags ---')
-        for form in forms:
-            print('   ', form.strip()[:200])
+    print('\n--- classes used most ---')
+    classes = re.findall(r'class=["\']([^"\']+)["\']', page)
+    counts = {}
+    for value in classes:
+        for name in value.split():
+            counts[name] = counts.get(name, 0) + 1
+    for name, count in sorted(counts.items(), key=lambda kv: -kv[1])[:25]:
+        print('  {:<34} {}'.format(name, count))
 
-    # 2. Candidate result queries, to see which shape it accepts.
-    for label, url in [
-        ('by target NAME', BASE + '/SearchResults?Target=MOON'),
-        ('by target ID 16_Moon', BASE + '/SearchResults?Target=16_Moon'),
-        ('by target ID plus csv',
-         BASE + '/SearchResults?Target=16_Moon&output=csv'),
-        ('nomenclature feature list',
-         BASE + '/nomenclature/SearchResults?Target=16_Moon'),
-        ('GIS downloads page', BASE + '/GIS_Downloads'),
-    ]:
-        show(label, url, head=500)
+    where = page.find(KNOWN)
+    print('\n--- markup around {!r} (found at {}) ---'.format(KNOWN, where))
+    if where > 0:
+        print(page[max(0, where - 2200):where + 2200])
+
+    # Whatever wraps a row, the coordinates are distinctive: a signed decimal
+    # followed by a degree sign or the word N/S. Show what surrounds one.
+    match = re.search(r'-?\d+\.\d+\s*(?:&deg;|°|N|S)\b', page)
+    print('\n--- markup around the first coordinate ---')
+    if match:
+        start = match.start()
+        print(page[max(0, start - 1500):start + 1500])
+    else:
+        print('no coordinate-looking text found')
 
 
 if __name__ == '__main__':
