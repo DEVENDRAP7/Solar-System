@@ -14,6 +14,10 @@ on:
         description: Also fetch the IAU feature names
         type: boolean
         default: true
+      probe:
+        description: Print what the gazetteer returns, and stop
+        type: boolean
+        default: false
 
 jobs:
   fetch:
@@ -29,6 +33,10 @@ jobs:
       - name: Download textures
         if: inputs.size != 'none'
         run: python3 tools/blender/fetch_hires.py --size "${{ inputs.size }}"
+
+      - name: Probe the gazetteer
+        if: inputs.probe
+        run: python3 tools/blender/probe_gazetteer.py
 
       - name: Download feature names
         if: inputs.nomenclature
