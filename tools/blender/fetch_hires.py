@@ -35,21 +35,29 @@ AGENT = ('SolarSystemApp-TextureFetch/1.0 '
 MAPS = {
     'mercury_base.jpg': 'mercury',
     'venus_base.jpg': 'venus surface',
+    'venus_clouds.jpg': 'venus atmosphere',
     'earth_base.jpg': 'earth daymap',
     'earth_night.png': 'earth nightmap',
+    'earth_clouds_hi.jpg': 'earth clouds',
     'moon_base.jpg': 'moon',
     'mars_base.jpg': 'mars',
     'jupiter_base.jpg': 'jupiter',
     'saturn_base.jpg': 'saturn',
+    'saturn_ring_hi.png': 'saturn ring alpha',
     'uranus_base.jpg': 'uranus',
     'neptune_base.jpg': 'neptune',
     'sun_base.jpg': 'sun',
 }
 
+# Tried in order per body. Not everything is published at every size — the
+# ice giants are near featureless and only go up to 2k — so asking for 8k
+# should mean "8k if it exists, otherwise the best there is", not "nothing".
+LADDER = {'8k': ['8k', '4k', '2k'], '4k': ['4k', '2k'], '2k': ['2k']}
+
 # Smallest plausible size for a real map. The failure this guards against is
 # not a 404 — it is a 200 carrying a CAPTCHA or an error page, which is how a
 # previous run committed eleven HTML files named .jpg.
-MINIMUM_BYTES = 40 * 1024
+MINIMUM_BYTES = 8 * 1024
 
 SIGNATURES = (b'\xff\xd8\xff', b'\x89PNG\r\n\x1a\n')
 
@@ -102,14 +110,18 @@ def main():
     got = 0
 
     for name, body in MAPS.items():
+        found = None
         try:
-            found = find(options.size, body)
+            for size in LADDER[options.size]:
+                found = find(size, body)
+                if found is not None:
+                    break
         except (urllib.error.URLError, urllib.error.HTTPError) as error:
             print('{:<22} search failed: {}'.format(name, error))
             continue
 
         if found is None:
-            print('{:<22} not published at {}'.format(name, options.size))
+            print('{:<22} not published at any size'.format(name))
             continue
 
         title, url, width, height = found
