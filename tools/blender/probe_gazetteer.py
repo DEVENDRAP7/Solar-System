@@ -11,6 +11,7 @@ name answers 500. What is not known is how a row of results is marked up.
 
 import html
 import re
+import urllib.parse
 import urllib.request
 
 AGENT = ('SolarSystemApp-Nomenclature/1.0 '
@@ -19,8 +20,7 @@ AGENT = ('SolarSystemApp-Nomenclature/1.0 '
 BASE = 'https://planetarynames.wr.usgs.gov'
 
 # Small enough to read in a log, and it certainly has named features.
-SAMPLE = ('Mimas', '43_Mimas')
-KNOWN = 'Herschel'
+SAMPLE = 'Mimas'
 
 
 def get(url):
@@ -29,39 +29,45 @@ def get(url):
         return response.read().decode('utf-8', 'replace')
 
 
+def target_ids():
+    """Map body name -> the site's internal target id, read from the form."""
+    page = get(BASE + '/AdvancedSearch')
+    ids = {}
+    for value, label in re.findall(
+            r'<option[^>]*value=["\'](\d+_[^"\']+)["\'][^>]*>\s*([^<]*)', page):
+        ids[html.unescape(label).strip()] = html.unescape(value)
+    return ids
+
+
 def main():
-    body, target = SAMPLE
-    page = get('{}/SearchResults?Target={}'.format(BASE, target))
-    print('{}: {} bytes'.format(body, len(page)))
+    ids = target_ids()
+    print('--- target ids that look like bodies ---')
+    for name in sorted(ids):
+        if name and name[0].isupper() and len(name) < 14 and ' ' not in name:
+            print('  {:<16} {}'.format(name, ids[name]))
 
-    for tag in ('table', 'tbody', 'tr', 'td', 'th', 'ul', 'li', 'article',
-                'section'):
-        print('  <{:<8} {}'.format(tag + '>', len(
-            re.findall(r'<' + tag + r'[\s>]', page, re.I))))
+    target = ids.get(SAMPLE)
+    print('\nusing {} -> {!r}'.format(SAMPLE, target))
+    if not target:
+        raise SystemExit('no id for the sample body')
 
-    print('\n--- classes used most ---')
-    classes = re.findall(r'class=["\']([^"\']+)["\']', page)
-    counts = {}
-    for value in classes:
-        for name in value.split():
-            counts[name] = counts.get(name, 0) + 1
-    for name, count in sorted(counts.items(), key=lambda kv: -kv[1])[:25]:
-        print('  {:<34} {}'.format(name, count))
+    page = get('{}/SearchResults?Target={}'.format(
+        BASE, urllib.parse.quote(target)))
+    print('{}: {} bytes'.format(SAMPLE, len(page)))
 
-    where = page.find(KNOWN)
-    print('\n--- markup around {!r} (found at {}) ---'.format(KNOWN, where))
+    for marker in ('nomen-name', 'nomen', 'Herschel'):
+        hits = [m.start() for m in re.finditer(re.escape(marker), page)]
+        print('  {!r}: {} hits'.format(marker, len(hits)))
+
+    # One whole result, whatever wraps it.
+    where = page.find('nomen-name')
+    print('\n--- markup from the first nomen-name ---')
     if where > 0:
-        print(page[max(0, where - 2200):where + 2200])
-
-    # Whatever wraps a row, the coordinates are distinctive: a signed decimal
-    # followed by a degree sign or the word N/S. Show what surrounds one.
-    match = re.search(r'-?\d+\.\d+\s*(?:&deg;|°|N|S)\b', page)
-    print('\n--- markup around the first coordinate ---')
-    if match:
-        start = match.start()
-        print(page[max(0, start - 1500):start + 1500])
+        print(page[max(0, where - 1200):where + 3000])
     else:
-        print('no coordinate-looking text found')
+        print('nomen-name not present; dumping the middle of the page')
+        middle = len(page) // 2
+        print(page[middle:middle + 3000])
 
 
 if __name__ == '__main__':
