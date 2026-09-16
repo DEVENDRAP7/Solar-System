@@ -446,7 +446,7 @@ class SolarSystemPainter extends CustomPainter {
       final Matrix4 model = Matrix4.identity()
         ..setTranslation(item.world)
         ..multiply(tip)
-        ..rotateZ(item.body.axialTiltDeg * math.pi / 180.0)
+        ..rotateX(-item.body.axialTiltDeg * math.pi / 180.0)
         ..rotateY(simulation.spinRadians(item.body) + handSpin)
         ..scaleByDouble(radius, radius, radius, 1.0);
 
@@ -535,7 +535,7 @@ class SolarSystemPainter extends CustomPainter {
       final Matrix4 ringModel = Matrix4.identity()
         ..setTranslation(item.world)
         ..multiply(tip)
-        ..rotateZ(item.body.axialTiltDeg * math.pi / 180.0)
+        ..rotateX(-item.body.axialTiltDeg * math.pi / 180.0)
         ..scaleByDouble(radius, radius, radius, 1.0);
 
       if (rings != null) {

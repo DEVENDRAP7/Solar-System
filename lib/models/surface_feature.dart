@@ -30,21 +30,30 @@ class SurfaceFeature {
   final String kind;
 
   /// Where the feature sits on a unit sphere, in the mesh's own frame.
+  Vector3 get direction => directionFor(latitude, longitude);
+
+  /// The point on a body's unit sphere at a given latitude and longitude.
   ///
-  /// Matches the mapping the surface maps are built with: longitude runs east
-  /// from -180 at the left edge of the map, latitude north from the south pole.
-  Vector3 get direction {
-    final double lat = latitude * math.pi / 180.0;
-    final double lon = longitude * math.pi / 180.0;
+  /// The one place this mapping is written down. Every map in the app is
+  /// wrapped the same way, and east on them runs toward the mesh's -z. The
+  /// sign is easy to get wrong and impossible to see at longitude zero, which
+  /// is exactly where anyone would check it: backwards leaves Greenwich right
+  /// and everywhere else mirrored.
+  static Vector3 directionFor(double latitudeDeg, double longitudeDeg) {
+    final double lat = latitudeDeg * math.pi / 180.0;
+    final double lon = longitudeDeg * math.pi / 180.0;
     final double cosLat = math.cos(lat);
-    // The meshes are y-up, and the maps are wrapped with longitude running
-    // round the x-z plane.
     return Vector3(
       cosLat * math.cos(lon),
       math.sin(lat),
-      cosLat * math.sin(lon),
+      -cosLat * math.sin(lon),
     );
   }
+
+  /// The longitude of a direction in the mesh's frame, in degrees: the inverse
+  /// of [directionFor].
+  static double longitudeOf(Vector3 direction) =>
+      math.atan2(-direction.z, direction.x) * 180.0 / math.pi;
 
   /// Parse the gazetteer export.
   ///

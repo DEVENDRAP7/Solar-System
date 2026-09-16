@@ -61,6 +61,12 @@ class CelestialBody {
   final double rotationHours;
 
   /// Tilt of the rotation axis against the orbital plane, in degrees.
+  ///
+  /// Applied as a lean about the scene's x axis, which points the north pole
+  /// toward ecliptic longitude 270 — where Earth's really points. Leaning it
+  /// the other way costs nothing at a glance and everything in June: the Sun
+  /// would stand over the equator at the solstice and over a tropic at the
+  /// equinox, and the seasons would run a quarter of a year late.
   final double axialTiltDeg;
 
   final String description;

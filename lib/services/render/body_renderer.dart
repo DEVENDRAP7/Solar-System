@@ -42,7 +42,7 @@ class BodyRenderer {
     // round the limb.
     double terminator = 0.16,
     // How brightly a body's own night-side lights burn.
-    double nightStrength = 1.0,
+    double nightStrength = 1.3,
     bool cull = true,
     bool twoSided = false,
     double? nearerThan,
@@ -248,26 +248,36 @@ class BodyRenderer {
     // The night side again, with the body's own lights. The map is black
     // everywhere but the cities, and it is added rather than composited, so
     // the day side is left exactly as it was drawn.
-    canvas.drawVertices(
-      ui.Vertices.raw(
-        ui.VertexMode.triangles,
-        screen,
-        textureCoordinates: nightCoords,
-        colors: nightColors,
-        indices: Uint16List.sublistView(visible, 0, written),
-      ),
-      ui.BlendMode.modulate,
-      ui.Paint()
-        ..filterQuality = ui.FilterQuality.medium
-        ..blendMode = ui.BlendMode.plus
-        ..shader = ui.ImageShader(
-          night,
-          ui.TileMode.clamp,
-          ui.TileMode.clamp,
-          Matrix4.identity().storage,
-          filterQuality: ui.FilterQuality.medium,
-        ),
+    //
+    // Twice: a blurred pass first, then the sharp one over it. Light from a
+    // city reaches the eye scattered as well as direct, and a single crisp
+    // pass reads as pinpricks painted on rather than as somewhere lived in.
+    final ui.Vertices nightVertices = ui.Vertices.raw(
+      ui.VertexMode.triangles,
+      screen,
+      textureCoordinates: nightCoords,
+      colors: nightColors,
+      indices: Uint16List.sublistView(visible, 0, written),
     );
+
+    ui.Paint lights({ui.MaskFilter? blur}) => ui.Paint()
+      ..filterQuality = ui.FilterQuality.medium
+      ..blendMode = ui.BlendMode.plus
+      ..maskFilter = blur
+      ..shader = ui.ImageShader(
+        night,
+        ui.TileMode.clamp,
+        ui.TileMode.clamp,
+        Matrix4.identity().storage,
+        filterQuality: ui.FilterQuality.medium,
+      );
+
+    canvas.drawVertices(
+      nightVertices,
+      ui.BlendMode.modulate,
+      lights(blur: const ui.MaskFilter.blur(ui.BlurStyle.normal, 3.0)),
+    );
+    canvas.drawVertices(nightVertices, ui.BlendMode.modulate, lights());
   }
 
   /// Fraction of full sunlight at a surface whose normal makes [lambert] with

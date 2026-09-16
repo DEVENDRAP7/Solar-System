@@ -43,7 +43,7 @@ void main() {
       }
     });
 
-    test('longitude runs east', () {
+    test('east runs toward -z, the way the maps are wrapped', () {
       const SurfaceFeature east = SurfaceFeature(
         bodyKey: 'moon',
         name: 'east',
@@ -51,7 +51,23 @@ void main() {
         longitude: 90,
         diameterKm: 1,
       );
-      expect(east.direction.z, closeTo(1.0, 1e-9));
+      // Not +z, which is what this test asserted until a render of Earth
+      // showed the Americas facing the Sun at a moment India should have
+      // been. The sign is invisible at longitude zero — Greenwich came out
+      // right either way — and mirrors everything else.
+      expect(east.direction.z, closeTo(-1.0, 1e-9));
+    });
+
+    test('the mapping round-trips', () {
+      for (final double longitude in <double>[-170, -90, -12, 0, 45, 78, 179]) {
+        expect(
+          SurfaceFeature.longitudeOf(
+            SurfaceFeature.directionFor(20.0, longitude),
+          ),
+          closeTo(longitude, 1e-9),
+          reason: 'longitude $longitude',
+        );
+      }
     });
 
     test('every direction is a unit vector', () {

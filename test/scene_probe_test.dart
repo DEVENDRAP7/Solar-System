@@ -258,6 +258,36 @@ void main() {
         );
       }
 
+      // Looking straight down the Sun's own line at Earth, at the moment the
+      // Sun stands over India. The borders are drawn into the map, so this is
+      // the check that the planet has the right face turned to the light —
+      // the one thing in the scene anybody can verify from their own window.
+      for (final MapEntry<String, DateTime> noon in <String, DateTime>{
+        'india': DateTime.utc(2026, 9, 16, 6, 48),
+        'greenwich': DateTime.utc(2026, 9, 16, 12, 0),
+        'pacific': DateTime.utc(2026, 9, 16, 0, 0),
+      }.entries) {
+        final vm.Vector3 at = bodyWorldPosition(
+          SolarSystemSimulation(start: noon.value),
+          const ViewScale(),
+          BodyCatalog.earth,
+        );
+        await shoot(
+          'earth_noon_${noon.key}',
+          meshes,
+          camera: OrbitCamera(
+            target: at,
+            distance: 2.2,
+            // Between the Sun and Earth, so the lit face is toward us.
+            yaw: math.atan2(at.x, at.z) + math.pi,
+            pitch: 0.0,
+          ),
+          scale: const ViewScale(),
+          showOrbits: false,
+          at: noon.value,
+        );
+      }
+
       // Day and night. The camera is placed relative to the Sun rather than
       // by eye: a quarter turn round from it puts the terminator straight down
       // the middle of the disc, and directly opposite it shows the whole night

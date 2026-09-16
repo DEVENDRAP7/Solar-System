@@ -93,8 +93,8 @@ BODIES = [
         'label': 'Earth',
         'surface': 'earth_real',
         'night': 'earth_night.png',
-        'night_floor': 0.20,
-        'night_gain': 1.25,
+        'night_floor': 0.12,
+        'night_gain': 2.2,
         'cloud_opacity': 0.55,
         'border_opacity': 0.30,
         # The day side now reaches full brightness, so the map no longer
