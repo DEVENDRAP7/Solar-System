@@ -64,6 +64,7 @@ Vector3 bodyWorldPosition(
     parentRadiusUnits: scale.bodyRadius(parent.radiusKm),
     moonRadiusUnits: scale.bodyRadius(body.radiusKm, isMoon: true),
     neighbourhood: orbitalNeighbourhood(scale, parent),
+    parentRingOuterRadii: parent.ringOuterRadii,
   );
 
   return parentPosition + toScene(relative * (drawn / length));

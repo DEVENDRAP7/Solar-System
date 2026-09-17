@@ -37,7 +37,7 @@ class ViewScale {
   static const double _distanceExponent = 0.52;
 
   /// Scene units for Earth's radius in [ScaleMode.explore].
-  static const double _earthRadiusUnits = 0.55;
+  static const double _earthRadiusUnits = 0.70;
 
   /// Compression exponent for body radius.
   ///
@@ -119,6 +119,7 @@ class ViewScale {
     required double parentRadiusUnits,
     required double moonRadiusUnits,
     double? neighbourhood,
+    double parentRingOuterRadii = 0.0,
   }) {
     if (mode == ScaleMode.trueScale) {
       return distance(astronomicalUnits);
@@ -141,12 +142,25 @@ class ViewScale {
       neighbourhood,
     );
 
-    return math.max(drawn, parentRadiusUnits + moonRadiusUnits * 1.5);
+    // Never inside the planet, and never inside its rings. The ring floor
+    // matters because the two do not move together: rings are a fixed
+    // multiple of the planet's radius, while a moon squeezed toward its
+    // neighbourhood limit is not, so drawing the planets larger walks the
+    // innermost moons into the rings unless this holds them out.
+    final double clearOfRings = parentRingOuterRadii > 0
+        ? parentRadiusUnits * parentRingOuterRadii + moonRadiusUnits
+        : 0.0;
+
+    return math.max(
+      math.max(drawn, parentRadiusUnits + moonRadiusUnits * 1.5),
+      clearOfRings,
+    );
   }
 
   /// The share of the way to its nearest neighbour that a planet's moons may
-  /// reach. Well short of half, so two neighbouring systems never meet.
-  static const double _moonReach = 0.42;
+  /// reach. Short of half, so that even two neighbouring systems both reaching
+  /// their limit cannot meet in the middle.
+  static const double _moonReach = 0.46;
 
   /// Where the squeeze starts, as a share of the limit. Below this a moon is
   /// left alone: compressing the whole system to fit its outermost member
