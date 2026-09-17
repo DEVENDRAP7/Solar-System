@@ -6,7 +6,7 @@ import 'package:vector_math/vector_math_64.dart';
 class OrbitCamera {
   OrbitCamera({
     Vector3? target,
-    this.distance = 32.0,
+    this.distance = 45.0,
     this.yaw = 0.6,
     this.pitch = 0.42,
   }) : target = target ?? Vector3.zero();

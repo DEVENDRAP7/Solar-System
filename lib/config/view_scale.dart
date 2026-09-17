@@ -24,16 +24,17 @@ class ViewScale {
   final ScaleMode mode;
 
   /// Scene units for Earth's orbital radius in [ScaleMode.explore].
-  static const double _earthOrbitUnits = 12.0;
+  static const double _earthOrbitUnits = 17.0;
 
   /// Compression exponent for orbital distance.
   ///
-  /// Lower compresses the outer system harder and, for the same Earth orbit,
-  /// pushes the inner planets further apart. Both are wanted: it leaves room
-  /// for a Sun that reads as the Sun without swallowing Mercury's orbit, and
-  /// it brings Neptune in from 78 units to 50, so the whole system is framed
-  /// from closer in and every body is larger on screen.
-  static const double _distanceExponent = 0.42;
+  /// Lower compresses the outer system harder; higher spreads the inner
+  /// planets apart. This is the knob that decides whether the inner system
+  /// looks crowded, and it was set too low: Earth's disc came out 1.1 units
+  /// across sitting in a 1.5-unit gap between its neighbours' orbits, so the
+  /// four inner planets nearly touched. The cost of raising it is that the
+  /// whole system is wider and every body is therefore smaller on screen.
+  static const double _distanceExponent = 0.52;
 
   /// Scene units for Earth's radius in [ScaleMode.explore].
   static const double _earthRadiusUnits = 0.55;
@@ -117,6 +118,7 @@ class ViewScale {
     required double parentRadiusKm,
     required double parentRadiusUnits,
     required double moonRadiusUnits,
+    double? neighbourhood,
   }) {
     if (mode == ScaleMode.trueScale) {
       return distance(astronomicalUnits);
@@ -134,9 +136,45 @@ class ViewScale {
         ? 1.0
         : astronomicalUnits / semiMajorAxisAu;
 
-    return math.max(
+    final double drawn = _withinNeighbourhood(
       placed * (0.92 + 0.08 * variation.clamp(0.6, 1.4)),
-      parentRadiusUnits + moonRadiusUnits * 1.5,
+      neighbourhood,
     );
+
+    return math.max(drawn, parentRadiusUnits + moonRadiusUnits * 1.5);
+  }
+
+  /// The share of the way to its nearest neighbour that a planet's moons may
+  /// reach. Well short of half, so two neighbouring systems never meet.
+  static const double _moonReach = 0.42;
+
+  /// Where the squeeze starts, as a share of the limit. Below this a moon is
+  /// left alone: compressing the whole system to fit its outermost member
+  /// would push Mimas inside Saturn's rings, where it has no business being.
+  static const double _squeezeFrom = 0.7;
+
+  /// Hold a moon inside its planet's own stretch of the solar system.
+  ///
+  /// Moon orbits are drawn on their own scale, which is generous — the Moon
+  /// sits sixty Earth radii out in life and about four here. Generous enough,
+  /// it turns out, that the Moon's orbit crossed Venus's, Callisto's crossed
+  /// Mars's and Iapetus's crossed Jupiter's. Nothing about the scene says
+  /// those are different scales, so it reads as the planets being jumbled
+  /// together.
+  ///
+  /// The far end is eased toward the limit rather than clipped at it, so the
+  /// order of a system's moons survives and no two of them land on top of
+  /// each other.
+  static double _withinNeighbourhood(double placed, double? neighbourhood) {
+    if (neighbourhood == null || neighbourhood <= 0) {
+      return placed;
+    }
+    final double limit = neighbourhood * _moonReach;
+    final double free = limit * _squeezeFrom;
+    if (placed <= free) {
+      return placed;
+    }
+    final double span = limit - free;
+    return limit - span * math.exp(-(placed - free) / span);
   }
 }

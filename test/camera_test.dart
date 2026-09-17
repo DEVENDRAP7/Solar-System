@@ -2,6 +2,8 @@ import 'dart:math' as math;
 
 import 'package:flutter_test/flutter_test.dart';
 import 'package:solar_system_app/providers/solar_system_provider.dart';
+import 'package:solar_system_app/config/view_scale.dart';
+import 'package:solar_system_app/models/body_catalog.dart';
 import 'package:solar_system_app/services/render/orbit_camera.dart';
 import 'package:vector_math/vector_math_64.dart';
 
@@ -94,7 +96,18 @@ void main() {
     test('the overview looks at the Sun from a distance', () {
       final OrbitCamera overview = OrbitCamera.overview();
       expect(overview.target, Vector3.zero());
-      expect(overview.distance, inInclusiveRange(15.0, 40.0));
+
+      // Stated against the scale rather than as a number, so that widening
+      // the system moves the opening view with it: far enough out to hold the
+      // rocky planets, near enough that they are not specks.
+      const ViewScale scale = ViewScale();
+      expect(
+        overview.distance,
+        inInclusiveRange(
+          scale.distance(BodyCatalog.mars.elements!.semiMajorAxisAu),
+          scale.distance(BodyCatalog.saturn.elements!.semiMajorAxisAu),
+        ),
+      );
     });
   });
 

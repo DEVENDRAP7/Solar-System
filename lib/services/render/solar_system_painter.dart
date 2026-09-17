@@ -63,10 +63,43 @@ Vector3 bodyWorldPosition(
     parentRadiusKm: parent.radiusKm,
     parentRadiusUnits: scale.bodyRadius(parent.radiusKm),
     moonRadiusUnits: scale.bodyRadius(body.radiusKm, isMoon: true),
+    neighbourhood: orbitalNeighbourhood(scale, parent),
   );
 
   return parentPosition + toScene(relative * (drawn / length));
 }
+
+/// How far it is from [body]'s orbit to the nearest other planet's, in scene
+/// units — the width of the stretch of the system that is its own.
+///
+/// Cached: it depends only on the scale and the catalogue, and working it out
+/// for every moon of every planet on every frame is thirty times the work for
+/// the same answer.
+double orbitalNeighbourhood(ViewScale scale, CelestialBody body) {
+  final orbit = body.elements;
+  if (orbit == null || body.parentKey != null) {
+    return double.infinity;
+  }
+  return _neighbourhoods.putIfAbsent('${scale.mode}/${body.key}', () {
+    final double own = scale.distance(orbit.semiMajorAxisAu);
+    double nearest = double.infinity;
+
+    for (final CelestialBody other in BodyCatalog.planetsAndSun) {
+      final otherOrbit = other.elements;
+      if (otherOrbit == null || other.key == body.key) {
+        continue;
+      }
+      final double gap = (scale.distance(otherOrbit.semiMajorAxisAu) - own)
+          .abs();
+      if (gap > 0 && gap < nearest) {
+        nearest = gap;
+      }
+    }
+    return nearest;
+  });
+}
+
+final Map<String, double> _neighbourhoods = <String, double>{};
 
 /// Where a body ended up on screen, so taps can be matched to it.
 class BodyHit {
